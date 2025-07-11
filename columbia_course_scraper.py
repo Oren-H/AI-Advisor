@@ -69,7 +69,7 @@ class ColumbiaCourseScraper:
                 
                 # Extract credits from title block
                 credits = "N/A"
-                credits_match = re.search(r'(\d+(?:\.\d+)?)\s*points?', full_title)
+                credits_match = re.search(r'(\d+(?:\.\d+)?)\s*points?\.?', full_title)
                 if credits_match:
                     credits = credits_match.group(1)
                 
@@ -94,13 +94,12 @@ class ColumbiaCourseScraper:
                             # Extract course title by removing course code and points
                             course_title = full_title
                             if course_code:
-                                # Create a pattern to match the course code with optional letters like 'UN'
                                 code_pattern = re.escape(course_code.split()[0]) + r'\s*[A-Z]*\s*' + re.escape(course_code.split()[1])
-                                # Remove the course code and any letters like 'UN'
                                 course_title = re.sub(rf'^{code_pattern}\s*', '', course_title)
-                                # Remove the points information
-                                course_title = re.sub(r'\s*\d+\.\d+\s*points?\.?\s*$', '', course_title)
-                                course_title = course_title.strip()
+                                # Remove trailing credit info like '3 points.', '3.0 points.', '3 pts.', etc.
+                                course_title = re.sub(r'\s*\d+(?:\.\d+)?\s*points?\.?\s*$', '', course_title, flags=re.IGNORECASE)
+                                course_title = re.sub(r'\s*\d+(?:\.\d+)?\s*$', '', course_title)  # Remove trailing numbers just in case
+                                course_title = course_title.rstrip('.').strip()
                             
                             # Split times and location
                             times_location = cells[2].get_text().strip()
@@ -138,11 +137,40 @@ class ColumbiaCourseScraper:
                             }
                             courses.append(section_info)
                 else:
-                    # If no schedule table, add course with N/A for table-related fields
+                    # If no schedule table, extract course code from title
+                    course_code = "N/A"
+                    department = "N/A"
+                    course_title = full_title
+                    
+                    # Try to extract course code from the title
+                    # Pattern: DEPT [W]#### Course Title. # points.
+                    code_match = re.match(r'^([A-Z]{4})\s+([W]?\d{4})\s+(.+?)(?:\s*\d+(?:\.\d+)?\s*points?\.?)?$', full_title)
+                    if code_match:
+                        department = code_match.group(1)
+                        course_number = code_match.group(2)
+                        course_code = f"{department} {course_number}"
+                        course_title = code_match.group(3).strip()
+                        # Remove trailing credit info like '3 points.', '3.0 points.', etc.
+                        course_title = re.sub(r'\s*\d+(?:\.\d+)?\s*points?\.?\s*$', '', course_title, flags=re.IGNORECASE)
+                        course_title = re.sub(r'\s*\d+(?:\.\d+)?\s*$', '', course_title)
+                        course_title = course_title.rstrip('.').strip()
+                    else:
+                        # Fallback: try a more flexible pattern
+                        flexible_match = re.match(r'^([A-Z]{3,4})\s+([W]?\d{4})\s+(.+)', full_title)
+                        if flexible_match:
+                            department = flexible_match.group(1)
+                            course_number = flexible_match.group(2)
+                            course_code = f"{department} {course_number}"
+                            remaining_title = flexible_match.group(3)
+                            # Remove trailing credit info like '3 points.', '3.0 points.', etc.
+                            course_title = re.sub(r'\s*\d+(?:\.\d+)?(?:-\d+)?\s*points?\.?\s*$', '', remaining_title, flags=re.IGNORECASE).strip()
+                            course_title = re.sub(r'\s*\d+(?:\.\d+)?\s*$', '', course_title)
+                            course_title = course_title.rstrip('.').strip()
+                    
                     course_info = {
-                        'course_code': "N/A",
-                        'course_title': full_title,  # Keep full title if no schedule table
-                        'department': "N/A",
+                        'course_code': course_code,
+                        'course_title': course_title,
+                        'department': department,
                         'section': "N/A",
                         'times': "N/A",
                         'location': "N/A",
@@ -210,14 +238,32 @@ class ColumbiaCourseScraper:
                 # Add a small delay between requests
                 await asyncio.sleep(1)
                 
-            # Save to CSV
-            if self.courses:
-                df = pd.DataFrame(self.courses)
-                df.to_csv('columbia_courses.csv', index=False)
-                print(f"\nSuccessfully scraped {len(self.courses)} courses. Data saved to columbia_courses.csv")
-            else:
-                print("\nNo courses were scraped.")
+            # Separate courses with valid course codes from those with "N/A"
+            valid_courses = []
+            invalid_courses = []
             
+            for course in self.courses:
+                if course['course_code'] == "N/A":
+                    invalid_courses.append(course)
+                else:
+                    valid_courses.append(course)
+            
+            # Save valid courses to main CSV
+            if valid_courses:
+                df_valid = pd.DataFrame(valid_courses)
+                df_valid.to_csv('columbia_courses.csv', index=False)
+                print(f"\nSuccessfully scraped {len(valid_courses)} valid courses. Data saved to columbia_courses.csv")
+            else:
+                print("\nNo valid courses were scraped.")
+            
+            # Save invalid courses to separate CSV
+            if invalid_courses:
+                df_invalid = pd.DataFrame(invalid_courses)
+                df_invalid.to_csv('columbia_courses_invalid.csv', index=False)
+                print(f"Found {len(invalid_courses)} courses with invalid course codes. Data saved to columbia_courses_invalid.csv")
+            else:
+                print("No courses with invalid course codes found.")
+                
         except Exception as e:
             print(f"Error during scraping: {e}")
         finally:
