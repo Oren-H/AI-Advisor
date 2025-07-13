@@ -74,8 +74,9 @@ class ColumbiaCourseScraper:
                     credits = credits_match.group(1)
                 
                 # Extract description
-                desc_block = block.find('p', class_='courseblockdesc')
-                description = desc_block.get_text().strip() if desc_block else ""
+                desc_blocks = block.find_all(['p'], class_=['courseblockdesc', 'closed'])
+                # Concatenate their text, separated by a space (or "\n" if you want line breaks)
+                description = " ".join([desc.get_text().strip() for desc in desc_blocks])
                 
                 # Find the schedule table
                 schedule_table = block.find('table', class_='scheduletbl')
