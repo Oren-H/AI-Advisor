@@ -94,12 +94,13 @@ class ColumbiaCourseScraper:
                             # Extract course title by removing course code and points
                             course_title = full_title
                             if course_code:
+                                # Create a pattern to match the course code with optional letters like 'UN'
                                 code_pattern = re.escape(course_code.split()[0]) + r'\s*[A-Z]*\s*' + re.escape(course_code.split()[1])
+                                # Remove the course code and any letters like 'UN'
                                 course_title = re.sub(rf'^{code_pattern}\s*', '', course_title)
-                                # Remove trailing credit info like '3 points.', '3.0 points.', '3 pts.', etc.
-                                course_title = re.sub(r'\s*\d+(?:\.\d+)?\s*points?\.?\s*$', '', course_title, flags=re.IGNORECASE)
-                                course_title = re.sub(r'\s*\d+(?:\.\d+)?\s*$', '', course_title)  # Remove trailing numbers just in case
-                                course_title = course_title.rstrip('.').strip()
+                                # Remove the points information
+                                course_title = re.sub(r'\s*\d+\.\d+\s*points?\.?\s*$', '', course_title)
+                                course_title = course_title.strip()
                             
                             # Split times and location
                             times_location = cells[2].get_text().strip()
@@ -150,10 +151,8 @@ class ColumbiaCourseScraper:
                         course_number = code_match.group(2)
                         course_code = f"{department} {course_number}"
                         course_title = code_match.group(3).strip()
-                        # Remove trailing credit info like '3 points.', '3.0 points.', etc.
-                        course_title = re.sub(r'\s*\d+(?:\.\d+)?\s*points?\.?\s*$', '', course_title, flags=re.IGNORECASE)
-                        course_title = re.sub(r'\s*\d+(?:\.\d+)?\s*$', '', course_title)
-                        course_title = course_title.rstrip('.').strip()
+                        # Remove any trailing period
+                        course_title = course_title.rstrip('.')
                     else:
                         # Fallback: try a more flexible pattern
                         flexible_match = re.match(r'^([A-Z]{3,4})\s+([W]?\d{4})\s+(.+)', full_title)
@@ -161,11 +160,11 @@ class ColumbiaCourseScraper:
                             department = flexible_match.group(1)
                             course_number = flexible_match.group(2)
                             course_code = f"{department} {course_number}"
+                            # Extract title, removing course code and points
                             remaining_title = flexible_match.group(3)
-                            # Remove trailing credit info like '3 points.', '3.0 points.', etc.
-                            course_title = re.sub(r'\s*\d+(?:\.\d+)?(?:-\d+)?\s*points?\.?\s*$', '', remaining_title, flags=re.IGNORECASE).strip()
-                            course_title = re.sub(r'\s*\d+(?:\.\d+)?\s*$', '', course_title)
-                            course_title = course_title.rstrip('.').strip()
+                            # Remove points information
+                            course_title = re.sub(r'\s*\d+(?:\.\d+)?(?:-\d+)?\s*points?\.?\s*$', '', remaining_title).strip()
+                            course_title = course_title.rstrip('.')
                     
                     course_info = {
                         'course_code': course_code,
