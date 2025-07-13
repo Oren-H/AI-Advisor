@@ -1,6 +1,6 @@
 import asyncio
 import pandas as pd
-from columbia_course_scraper import ColumbiaCourseScraper
+from scraping.columbia_course_scraper import ColumbiaCourseScraper
 from datetime import datetime
 import json
 
