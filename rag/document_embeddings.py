@@ -1,71 +1,51 @@
-from langchain_community.document_loaders import CSVLoader
-from langchain_core.documents import Document
-from langchain_openai import OpenAIEmbeddings
-from langchain.vectorstores import FAISS        # swap with pgvector, Qdrant, etc.
-import ast
-from dotenv import load_dotenv
-import os
-import numpy as np
+"""
+Course Database Manager
 
-# Load environment variables from .env file
-load_dotenv(dotenv_path="/Users/orenhartstein/AI-Advisor/.env")
+This script provides a unified interface for building and querying the course vector database.
+It automatically detects if the database exists and either loads it for querying or builds it if needed.
+"""
 
-loader = CSVLoader("Columbia Courses Final.csv")               # one row → one Document
-docs = loader.load()
+from database_utils import database_exists, print_database_status
+from build_vector_db import build_vector_database
+from query_courses import query_courses
 
-def massage(doc):
-    meta = doc.metadata
+def main():
+    """
+    Main function that either builds the database or allows querying.
+    """
+    print("🎓 Columbia Courses Vector Database Manager")
+    print("=" * 50)
     
-    # Parse the key-value format from CSVLoader
-    content = doc.page_content.strip("'")
-    row = {}
-    for line in content.split('\n'):
-        if ':' in line:
-            key, value = line.split(':', 1)
-            row[key.strip()] = value.strip()              
+    # Check database status
+    print_database_status()
+    print()
     
-    #Adds all numerical data as metadata for each document
-    meta.update({
-        "course_title" : row["course_title"],
-        "course_code" : row["course_code"],
-        "dept"      : row["department"],
-        "section"   : row["section"],
-        "times"      : row["times"],      # e.g. "TTh"
-        "credits"   : row["credits"],
-        "enrollment" : row["enrollment"],
-        "instructor" : row["instructor"],
-        "url" : row["url"],
-        "offered" : row["is_currently_offered"],
-    })
-    
-    #semantic information to be embedded
-    doc.page_content = f"""{row['course_title']} ({row['course_code']})
-Description: {row['description']}
-Prerequisites: {row['prerequisites']}
-Corequisites: {row['corequisites']}"""
-    return doc
+    if database_exists():
+        print("Database exists! You can now query courses.")
+        print("Example queries:")
+        print("  - 'I want a Calculus course in the math department'")
+        print("  - 'Show me computer science courses with 3 credits'")
+        print("  - 'Find courses taught by John Smith'")
+        print("  - 'What machine learning courses are available?'")
+        print()
+        
+        # Example query
+        query = "I want a Calculus course in the math department"
+        print(f"Running example query: '{query}'")
+        results = query_courses(query)
+        
+    else:
+        print("Database doesn't exist. Building it now...")
+        print("(This may take a few minutes depending on your data size)")
+        print()
+        
+        try:
+            build_vector_database()
+            print("\n✅ Database built successfully!")
+            print("You can now run queries using query_courses.py")
+            
+        except Exception as e:
+            print(f"❌ Error building database: {e}")
 
-docs = [massage(d) for d in docs]
-
-emb = OpenAIEmbeddings(model="text-embedding-3-small")
-vectordb = FAISS.from_documents(docs, emb)
-
-
-
-#Sanity check. Remove later. 
-print(f"Number of documents: {len(docs)}")
-print(f"Number of vectors in FAISS: {vectordb.index.ntotal}")
-
-# Get the embedding for the first document
-embedding = emb.embed_query(docs[0].page_content)
-print("Sample embedding:", embedding[:10])  # Print first 10 values
-
-results = vectordb.similarity_search("machine learning", k=3)
-for i, doc in enumerate(results):
-    print(f"Result {i+1}: {doc.page_content[:100]}...")  # Print first 100 chars
-
-embedding = emb.embed_query(docs[0].page_content)
-print("Contains NaN:", np.isnan(embedding).any())
-print("Contains Inf:", np.isinf(embedding).any())
-
-print(docs[0].metadata)
+if __name__ == "__main__":
+    main()

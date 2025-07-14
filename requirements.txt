@@ -11,6 +11,7 @@ langchain-openai>=0.0.5
 
 # Vector Database
 faiss-cpu>=1.7.4
+chromadb>=0.4.0  # For Chroma vector database
 
 # Optional: Alternative vector databases
 # pgvector>=0.2.0  # For PostgreSQL with pgvector extension
