@@ -5,13 +5,10 @@ from langchain.vectorstores import FAISS        # swap with pgvector, Qdrant, et
 import ast
 from dotenv import load_dotenv
 import os
-import sys
-
-print(sys.executable)
+import numpy as np
 
 # Load environment variables from .env file
 load_dotenv(dotenv_path="/Users/orenhartstein/AI-Advisor/.env")
-print("OPENAI_API_KEY:", os.getenv("OPENAI_API_KEY"))
 
 loader = CSVLoader("Columbia Courses Final.csv")               # one row → one Document
 docs = loader.load()
@@ -52,3 +49,23 @@ docs = [massage(d) for d in docs]
 
 emb = OpenAIEmbeddings(model="text-embedding-3-small")
 vectordb = FAISS.from_documents(docs, emb)
+
+
+
+#Sanity check. Remove later. 
+print(f"Number of documents: {len(docs)}")
+print(f"Number of vectors in FAISS: {vectordb.index.ntotal}")
+
+# Get the embedding for the first document
+embedding = emb.embed_query(docs[0].page_content)
+print("Sample embedding:", embedding[:10])  # Print first 10 values
+
+results = vectordb.similarity_search("machine learning", k=3)
+for i, doc in enumerate(results):
+    print(f"Result {i+1}: {doc.page_content[:100]}...")  # Print first 100 chars
+
+embedding = emb.embed_query(docs[0].page_content)
+print("Contains NaN:", np.isnan(embedding).any())
+print("Contains Inf:", np.isinf(embedding).any())
+
+print(docs[0].metadata)
