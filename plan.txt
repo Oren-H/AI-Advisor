@@ -1,4 +1,13 @@
 
+meta data fix
+    times need to be seperated (start time, end time, days) - store that time as military time 
+    enrollment needs to be seperated - enrolled + max enrollment 
+
+
+
+
+
+
 Fix the scrapper 
 
 RAG? 

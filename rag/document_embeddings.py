@@ -30,7 +30,7 @@ def main():
         print()
         
         # Example query
-        query = "I want a Calculus course in the math department"
+        query = "I want a Calculus course in the math department that starts after 4pm"
         print(f"Running example query: '{query}'")
         results = query_courses(query)
         

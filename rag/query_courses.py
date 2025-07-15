@@ -55,17 +55,17 @@ def create_retriever(vectordb):
             type="string"
         ),
         AttributeInfo(
-            name="times",
+            name="times", #change to start time, end time, days
             description="The days and times the course is offered (e.g. Th 10:00-11:20)",
             type="string",
         ),
         AttributeInfo(
-            name="credits",
+            name="credits", 
             description="The number of credits the course is worth (numeric value like 3.0, 4.0)",
             type="float",
         ),
         AttributeInfo(
-            name="enrollment",
+            name="enrollment", #change to enrolled/max enrollment
             description="The number of students enrolled in the course (e.g. 12/48)",
             type="string",
         ),
@@ -86,7 +86,11 @@ def create_retriever(vectordb):
         ),
     ]
     
-    document_content_description = "Course name, description, and pre and corequisites. When constructing filters, use logical operators like 'and' and 'or' to combine multiple conditions. For example: and(eq('dept', 'MATH'), eq('credits', 3.0))"
+    document_content_description = '''
+        Course name, description, and prerequisites and corequisites. When constructing
+        filters, use logical operators like 'and' and 'or' to combine multiple conditions.
+        For example: and(eq('dept', 'MATH'), eq('credits', 3.0))
+    '''
     
     llm = ChatOpenAI(temperature=0)
     retriever = SelfQueryRetriever.from_llm(

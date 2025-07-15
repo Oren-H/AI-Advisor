@@ -57,7 +57,7 @@ def massage(doc):
         Corequisites: {row['corequisites']}"""
     return doc
 
-def build_vector_database(csv_file="data/Columbia Courses Final.csv", persist_directory="./chroma_db"):
+def build_vector_database(csv_file="Columbia Courses Final.csv", persist_directory="./chroma_db"):
     """
     Build and persist the vector database from CSV data.
     Only run this when your data changes.
