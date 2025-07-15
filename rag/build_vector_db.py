@@ -36,7 +36,7 @@ def massage(doc):
     offered_str = row.get("is_currently_offered", "False")
     offered = offered_str.lower() in ['true', '1', 'yes']
     
-    #Adds all numerical data as metadata for each document
+    # Adds all numerical data as metadata for each document
     meta.update({
         "course_title" : row["course_title"],
         "course_code" : row["course_code"],
@@ -50,14 +50,14 @@ def massage(doc):
         "offered" : offered, 
     })
     
-    #semantic information to be embedded
+    # semantic information to be embedded
     doc.page_content = f"""{row['course_title']} ({row['course_code']})
-Description: {row['description']}
-Prerequisites: {row['prerequisites']}
-Corequisites: {row['corequisites']}"""
+        Description: {row['description']}
+        Prerequisites: {row['prerequisites']}
+        Corequisites: {row['corequisites']}"""
     return doc
 
-def build_vector_database(csv_file="Columbia Courses Final.csv", persist_directory="./chroma_db"):
+def build_vector_database(csv_file="data/Columbia Courses Final.csv", persist_directory="./chroma_db"):
     """
     Build and persist the vector database from CSV data.
     Only run this when your data changes.

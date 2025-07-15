@@ -4,7 +4,8 @@ from langchain_community.vectorstores import Chroma
 from dotenv import load_dotenv
 
 # Load environment variables from .env file
-load_dotenv(dotenv_path="/Users/orenhartstein/AI-Advisor/.env")
+load_dotenv()
+api_key = os.getenv("OPENAI_API_KEY")
 
 def database_exists(persist_directory="./chroma_db"):
     """
