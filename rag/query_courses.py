@@ -6,7 +6,8 @@ from dotenv import load_dotenv
 import os
 
 # Load environment variables from .env file
-load_dotenv(dotenv_path="/Users/orenhartstein/AI-Advisor/.env")
+load_dotenv()
+api_key = os.getenv("OPENAI_API_KEY")
 
 def load_vector_database(persist_directory="./chroma_db"):
     """
