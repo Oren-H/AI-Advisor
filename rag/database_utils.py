@@ -19,6 +19,35 @@ def database_exists(persist_directory="./chroma_db"):
     """
     return os.path.exists(persist_directory)
 
+def load_vector_database(persist_directory="./chroma_db"):
+    """
+    Load the existing vector database from disk.
+    
+    Args:
+        persist_directory (str): Path to the database directory
+    
+    Returns:
+        Chroma: The loaded vector database
+        
+    Raises:
+        FileNotFoundError: If the database doesn't exist
+    """
+    if not database_exists(persist_directory):
+        raise FileNotFoundError(
+            f"Vector database not found at {persist_directory}. "
+            "Please run build_vector_db.py first to create the database."
+        )
+    
+    print(f"Loading vector database from {persist_directory}...")
+    emb = OpenAIEmbeddings(model="text-embedding-3-small")
+    vectordb = Chroma(
+        persist_directory=persist_directory,
+        embedding_function=emb
+    )
+    
+    print(f"Loaded database with {vectordb._collection.count()} documents")
+    return vectordb
+
 def get_database_info(persist_directory="./chroma_db"):
     """
     Get information about the existing vector database.

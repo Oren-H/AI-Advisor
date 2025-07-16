@@ -2,32 +2,7 @@ from langchain_openai import OpenAIEmbeddings, ChatOpenAI
 from langchain_community.vectorstores import Chroma
 from langchain.chains.query_constructor.schema import AttributeInfo
 from langchain.retrievers.self_query.base import SelfQueryRetriever
-from dotenv import load_dotenv
-import os
-
-# Load environment variables from .env file
-load_dotenv()
-api_key = os.getenv("OPENAI_API_KEY")
-
-def load_vector_database(persist_directory="./chroma_db"):
-    """
-    Load the existing vector database from disk.
-    """
-    if not os.path.exists(persist_directory):
-        raise FileNotFoundError(
-            f"Vector database not found at {persist_directory}. "
-            "Please run build_vector_db.py first to create the database."
-        )
-    
-    print(f"Loading vector database from {persist_directory}...")
-    emb = OpenAIEmbeddings(model="text-embedding-3-small")
-    vectordb = Chroma(
-        persist_directory=persist_directory,
-        embedding_function=emb
-    )
-    
-    print(f"Loaded database with {vectordb._collection.count()} documents")
-    return vectordb
+from database_utils import load_vector_database
 
 def create_retriever(vectordb):
     """
@@ -46,7 +21,7 @@ def create_retriever(vectordb):
         ),
         AttributeInfo(
             name="dept",
-            description="The department that offers the course (e.g. CS, MATH, etc.). Use exact department codes like 'MATH', 'CS', 'PHYS'",
+            description="The department that offers the course. Computer Science courses use 'COMS' or 'CSEE', not 'CS'. Other examples: 'MATH', 'PHYS', 'RELI', 'ARAM'. Use exact department codes as stored in the database.",
             type="string",
         ),
         AttributeInfo(
@@ -86,23 +61,33 @@ def create_retriever(vectordb):
         ),
     ]
     
-    document_content_description = '''
-        Course name, description, and prerequisites and corequisites. When constructing
-        filters, use logical operators like 'and' and 'or' to combine multiple conditions.
-        For example: and(eq('dept', 'MATH'), eq('credits', 3.0))
-    '''
+    document_content_description = """
+        Course name, description, prerequisites, corequisites.
+
+        ### Filter syntax
+        • Single condition → eq("field", value)
+        • Multiple conditions → and(condition1, condition2, …)
+        • When you need to match a substring, use contain("field", "value")
+
+        **Examples**
+        - eq("dept", "COMS")
+        - contain("times", "TTh")
+        - and(eq("dept", "COMS"), lte("credits", 3.5))
+        - and(eq("dept", "COMS"), contains("times", "TTh"), lte("credits", 3.5))
+        """
     
-    llm = ChatOpenAI(temperature=0)
+    llm = ChatOpenAI(temperature=0, model="gpt-4")
     retriever = SelfQueryRetriever.from_llm(
         llm,
         vectordb,
         document_content_description,
         metadata_field_info,
+        verbose=True,
     )
     
     return retriever
 
-def query_courses(query, k=5):
+def query_courses(query, k=1):
     """
     Query the course database with a natural language query.
     
@@ -116,12 +101,15 @@ def query_courses(query, k=5):
     try:
         vectordb = load_vector_database()
         retriever = create_retriever(vectordb)
+        retriever.verbose = True
         
         print(f"Querying: {query}")
-        results = retriever.get_relevant_documents(query)
+        results = retriever.invoke(query)
         
-        print(f"\nFound {len(results)} relevant courses:")
-        for i, doc in enumerate(results[:k], 1):
+        # Limit results to k and show the correct count
+        limited_results = results[:k]
+        print(f"\nFound {len(limited_results)} relevant course{'s' if len(limited_results) != 1 else ''}:")
+        for i, doc in enumerate(limited_results, 1):
             print(f"\n{i}. {doc.metadata['course_title']} ({doc.metadata['course_code']})")
             print(f"   Department: {doc.metadata['dept']}")
             print(f"   Credits: {doc.metadata['credits']}")
@@ -139,10 +127,7 @@ def query_courses(query, k=5):
 if __name__ == "__main__":
     # Example queries
     queries = [
-        "I want a Calculus course in the math department",
-        "Show me computer science courses with 3 credits",
-        "Find courses taught by John Smith",
-        "What machine learning courses are available?"
+        "Show me computer science courses with 3 credits offered on a Tuesday",
     ]
     
     for query in queries:
