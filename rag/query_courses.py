@@ -30,8 +30,18 @@ def create_retriever(vectordb):
             type="string"
         ),
         AttributeInfo(
-            name="times", #change to start time, end time, days
-            description="The days and times the course is offered (e.g. Th 10:00-11:20)",
+            name="days_offered",
+            description="The days of the week the course is offered (e.g. MWF, TR, etc.)",
+            type="string",
+        ),
+        AttributeInfo(
+            name="time_starting",
+            description="The start time of the course (e.g. 10:00AM)",
+            type="string",
+        ),
+        AttributeInfo(
+            name="time_ending",
+            description="The end time of the course (e.g. 11:20AM)",
             type="string",
         ),
         AttributeInfo(
@@ -40,9 +50,14 @@ def create_retriever(vectordb):
             type="float",
         ),
         AttributeInfo(
-            name="enrollment", #change to enrolled/max enrollment
+            name="enrolled",
             description="The number of students enrolled in the course (e.g. 12/48)",
-            type="string",
+            type="float",
+        ),
+        AttributeInfo(
+            name="max_enrollment",
+            description="The maximum number of students that can be enrolled in the course (e.g. 48)",
+            type="float",
         ),
         AttributeInfo(
             name="instructor",
@@ -114,7 +129,9 @@ def query_courses(query, k=1):
             print(f"   Department: {doc.metadata['dept']}")
             print(f"   Credits: {doc.metadata['credits']}")
             print(f"   Instructor: {doc.metadata['instructor']}")
-            print(f"   Times: {doc.metadata['times']}")
+            print(f"   Times: {doc.metadata['time_starting']} - {doc.metadata['time_ending']}")
+            print(f"   Days: {doc.metadata['days_offered']}")
+            print(f"   Enrolled: {doc.metadata['enrolled']} / {doc.metadata['max_enrollment']}")
             print(f"   Currently Offered: {doc.metadata['offered']}")
             print(f"   Content: {doc.page_content[:200]}...")
         

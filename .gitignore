@@ -1,4 +1,5 @@
 /data/
+/chroma_db/
 
 # Environment variables
 .env
