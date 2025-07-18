@@ -108,16 +108,27 @@ USER: "Find me an ML course that's super mathy"
 
 ## Begin the conversation now.
 """
-user_query = "Find me an ML course that's super mathy"
+
 messages = [
     {"role": "system", "content": SYSTEM_PROMPT_TEMPLATE},
-    # Optionally: {"role": "assistant", "content": "👍"}  # tiny ack keeps first turn short
     {"role": "system", "content": f"COURSE_INFO:\n{course_info_json}"},
-    {"role": "user", "content": user_query},
 ]
+
 client = OpenAI(api_key=api_key)
-response = client.chat.completions.create(
-    model="gpt-4o-mini",
-    messages=messages
-)
-print(response.choices[0].message.content)
+
+# Initial user query
+user_query = input("You: ")
+messages.append({"role": "user", "content": user_query})
+
+while True:
+    response = client.chat.completions.create(
+        model="gpt-4o-mini",
+        messages=messages
+    )
+    assistant_reply = response.choices[0].message.content
+    print(f"AI: {assistant_reply}\n")
+    user_query = input("You: ")
+    if user_query.strip().lower() in ["exit", "quit"]:
+        print("Exiting conversation.")
+        break
+    messages.append({"role": "user", "content": user_query})
