@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+  
+  body {
+    @apply bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100;
+  }
+}
+
+@layer components {
+  .chat-bubble {
+    @apply rounded-lg p-4 shadow-sm max-w-[85%] break-words;
+  }
+  
+  .chat-bubble-user {
+    @apply bg-gray-100 dark:bg-gray-800 ml-auto;
+  }
+  
+  .chat-bubble-assistant {
+    @apply bg-indigo-50 dark:bg-indigo-900/30;
+  }
+  
+  .typing-indicator {
+    @apply flex space-x-1 p-4;
+  }
+  
+  .typing-dot {
+    @apply w-2 h-2 bg-gray-400 dark:bg-gray-500 rounded-full animate-pulse-slow;
+  }
+  
+  .typing-dot:nth-child(2) {
+    animation-delay: 0.2s;
+  }
+  
+  .typing-dot:nth-child(3) {
+    animation-delay: 0.4s;
+  }
+} 
