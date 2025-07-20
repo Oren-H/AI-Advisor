@@ -1,6 +1,7 @@
 import os
 from dotenv import load_dotenv
-from openai import OpenAI
+from langchain_openai import ChatOpenAI
+from langchain.prompts import ChatPromptTemplate
 
 load_dotenv()
 api_key = os.getenv("OPENAI_API_KEY")
@@ -65,7 +66,9 @@ course_info_json = """
 ]
 """
 
-SYSTEM_PROMPT_TEMPLATE = """You are **Classify**, an AI peer-advisor that helps Columbia students compare and choose classes.
+# Create the prompt template
+prompt_template = ChatPromptTemplate.from_template("""
+You are **Classify**, an AI peer-advisor that helps Columbia students compare and choose classes.
 
 ## Your Mission
 1. **Parse the five course objects in COURSE_INFO**.
@@ -86,49 +89,43 @@ SYSTEM_PROMPT_TEMPLATE = """You are **Classify**, an AI peer-advisor that helps 
 - Keep responses under **≈250 words** unless the user explicitly asks for more detail.
 - Never fabricate prerequisites, meeting times, or professor names.
 
-## Example call structure (for reference only—do not print):
-SYSTEM: (this prompt)
-ASSISTANT: 👍
 COURSE_INFO:
-[
-  {
-    "course_code": "COMS 4771",
-    "title": "Machine Learning",
-    "dept": "COMS",
-    "credits": 3.0,
-    "times": "Tue/Thu 1:10-2:25 PM",
-    "instructor": "John Paisley",
-    "prerequisites": "Linear Algebra, Probability",
-    "description": "Theoretical foundations and algorithms …",
-    "link": "https://..."
-  },
-  …(4 more)…
-]
-USER: "Find me an ML course that's super mathy"
+{course_info}
 
-## Begin the conversation now.
-"""
+USER QUERY: {user_query}
 
-messages = [
-    {"role": "system", "content": SYSTEM_PROMPT_TEMPLATE},
-    {"role": "system", "content": f"COURSE_INFO:\n{course_info_json}"},
-]
+Please provide your response:
+""")
 
-client = OpenAI(api_key=api_key)
+# Initialize the LLM
+llm = ChatOpenAI(
+    model="gpt-4o-mini",
+    api_key=api_key,
+    temperature=0.7
+)
 
-# Initial user query
-user_query = input("You: ")
-messages.append({"role": "user", "content": user_query})
+# Create the chain using RunnableSequence (newer approach)
+chain = prompt_template | llm
+
+# Conversation loop
+print("AI Course Advisor - Type 'exit' or 'quit' to end the conversation\n")
 
 while True:
-    response = client.chat.completions.create(
-        model="gpt-4o-mini",
-        messages=messages
-    )
-    assistant_reply = response.choices[0].message.content
-    print(f"AI: {assistant_reply}\n")
     user_query = input("You: ")
+    
     if user_query.strip().lower() in ["exit", "quit"]:
         print("Exiting conversation.")
         break
-    messages.append({"role": "user", "content": user_query})
+    
+    try:
+        # Run the chain
+        response = chain.invoke({
+            "course_info": course_info_json,
+            "user_query": user_query
+        })
+        
+        print(f"AI: {response.content}\n")
+        
+    except Exception as e:
+        print(f"Error: {e}")
+        print("Please try again.\n")
