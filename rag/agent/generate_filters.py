@@ -1,4 +1,6 @@
 import os
+import sys
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from dotenv import load_dotenv
 from typing import List, Optional
 from pydantic import BaseModel, Field
@@ -139,7 +141,7 @@ def get_text_query_from_prompt(user_prompt: str) -> str:
 
 # Test the function
 if __name__ == "__main__":
-    user_prompt = "Find me a machine learning course in the computer science department that is offered on a Tuesday after 3:00 PM"
+    user_prompt = "Find me an ml course in the computer science department that is offered on a Tuesday after 3:00 PM"
     filters = generate_filters_from_prompt(user_prompt)
     text_query = get_text_query_from_prompt(user_prompt)
     print(f"Text Query: {text_query}")
