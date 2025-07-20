@@ -276,6 +276,84 @@ def print_course_results(courses: List[Dict[str, Any]]):
         if course['prerequisites']:
             print(f"   Prerequisites: {course['prerequisites']}")
 
+def query_courses_with_pre_generated_filters(user_prompt: str, pre_generated_filters: dict, k: int = 5) -> List[Dict[str, Any]]:
+    """
+    Query courses using pre-generated filters to avoid duplicate filter generation.
+    
+    Args:
+        user_prompt: Natural language query about courses
+        pre_generated_filters: Filters already generated from generate_filters_from_prompt
+        k: Number of results to return
+    
+    Returns:
+        List of course dictionaries
+    """
+    try:
+        # Load vector database with correct path
+        vectordb = load_vector_database("../chroma_db")
+        
+        # Use pre-generated filters instead of generating new ones
+        filters = pre_generated_filters
+        text_query = get_text_query_from_prompt(user_prompt)
+        
+        print(f"Text Query: {text_query}")
+        print(f"Using Pre-generated Filters: {filters}")
+        
+        # Strategy: If we have a department filter, get all courses from that department first
+        if "dept" in filters:
+            dept = filters["dept"]
+            print(f"Getting all courses from department: {dept}")
+            
+            # Get all courses from the department
+            dept_courses = get_department_courses(vectordb, dept)
+            print(f"Found {len(dept_courses)} courses in {dept}")
+            
+            # Apply semantic search within department courses
+            if text_query and text_query.strip():
+                # Create a simple similarity search within department courses
+                # We'll use the text content for similarity
+                scored_courses = []
+                for doc in dept_courses:
+                    # Simple keyword matching for now
+                    content_lower = doc.page_content.lower()
+                    query_lower = text_query.lower()
+                    
+                    # Count matching words
+                    query_words = query_lower.split()
+                    matches = sum(1 for word in query_words if word in content_lower)
+                    score = matches / len(query_words) if query_words else 0
+                    
+                    scored_courses.append((doc, score))
+                
+                # Sort by score and take top results
+                scored_courses.sort(key=lambda x: x[1], reverse=True)
+                docs = [doc for doc, score in scored_courses if score > 0]
+            else:
+                docs = dept_courses
+        else:
+            # No department filter, use general semantic search
+            results = vectordb.similarity_search_with_relevance_scores(
+                query=text_query,
+                k=k * 3
+            )
+            docs = [doc for doc, score in results]
+        
+        # Apply remaining metadata filters
+        if filters:
+            docs = apply_metadata_filters(docs, filters)
+        
+        # Limit to k results
+        docs = docs[:k]
+        
+        # Convert to JSON format
+        courses_json = [document_to_json(doc) for doc in docs]
+        
+        return courses_json
+        
+    except Exception as e:
+        print(f"Error querying courses: {e}")
+        return []
+
 if __name__ == "__main__":
     # Example queries
     test_queries = [

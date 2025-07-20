@@ -9,7 +9,7 @@ import json
 
 # Import our existing modules
 from generate_filters import generate_filters_from_prompt
-from query_courses import query_courses
+from query_courses import query_courses_with_pre_generated_filters
 from database_utils import load_vector_database
 
 load_dotenv()
@@ -40,29 +40,12 @@ def search_courses_node(state: CourseAdvisorState) -> CourseAdvisorState:
     try:
         print(f"🔎 Searching courses with filters: {state['filters']}")
         
-        # Use the existing query_courses function with the user's query
-        # The SelfQueryRetriever will handle the filtering internally
-        results = query_courses(state['user_query'], k=5)
-        
-        # Convert results to the format expected by the conversational agent
-        course_results = []
-        for doc in results:
-            course_info = {
-                "course_code": doc.metadata.get('course_code', ''),
-                "title": doc.metadata.get('course_title', ''),
-                "dept": doc.metadata.get('dept', ''),
-                "credits": doc.metadata.get('credits', 0),
-                "times": f"{doc.metadata.get('time_starting', '')}-{doc.metadata.get('time_ending', '')}",
-                "instructor": doc.metadata.get('instructor', ''),
-                "prerequisites": "See course description",  # This would need to be extracted from content
-                "description": doc.page_content[:500] + "..." if len(doc.page_content) > 500 else doc.page_content,
-                "link": doc.metadata.get('url', ''),
-                "days_offered": doc.metadata.get('days_offered', ''),
-                "enrolled": doc.metadata.get('enrolled', 0),
-                "max_enrollment": doc.metadata.get('max_enrollment', 0),
-                "offered": doc.metadata.get('offered', False)
-            }
-            course_results.append(course_info)
+        # Use the pre-generated filters from the previous node
+        course_results = query_courses_with_pre_generated_filters(
+            state['user_query'], 
+            state['filters'], 
+            k=5
+        )
         
         # Convert to JSON string for the conversational agent
         course_info_json = json.dumps(course_results, indent=2)
@@ -219,7 +202,8 @@ def interactive_course_advisor():
 if __name__ == "__main__":
     # Check if vector database exists
     try:
-        load_vector_database()
+        # Use the correct path to the database (one level up from rag directory)
+        load_vector_database("../chroma_db")
         interactive_course_advisor()
     except FileNotFoundError:
         print("❌ Vector database not found!")
