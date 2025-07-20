@@ -1,9 +1,13 @@
 import json
+import os
 from typing import List, Dict, Any, Optional
 from langchain_openai import OpenAIEmbeddings, ChatOpenAI
 from langchain_community.vectorstores import Chroma
 from langchain.chains.query_constructor.schema import AttributeInfo
 from langchain.retrievers.self_query.base import SelfQueryRetriever
+import sys
+import os
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from database_utils import load_vector_database
 from generate_filters import generate_filters_from_prompt, get_text_query_from_prompt
 
@@ -173,8 +177,11 @@ def query_courses_with_filters(user_prompt: str, k: int = 5) -> str:
         JSON string with course information for conversational agent
     """
     try:
-        # Load vector database
-        vectordb = load_vector_database()
+        # Load vector database with correct path
+        # Get the absolute path to ensure it works regardless of where the script is run from
+        script_dir = os.path.dirname(os.path.abspath(__file__))
+        chroma_db_path = os.path.join(os.path.dirname(os.path.dirname(script_dir)), "chroma_db")
+        vectordb = load_vector_database(chroma_db_path)
         
         # Generate filters from prompt
         filters = generate_filters_from_prompt(user_prompt)
@@ -290,7 +297,10 @@ def query_courses_with_pre_generated_filters(user_prompt: str, pre_generated_fil
     """
     try:
         # Load vector database with correct path
-        vectordb = load_vector_database("../chroma_db")
+        # Get the absolute path to ensure it works regardless of where the script is run from
+        script_dir = os.path.dirname(os.path.abspath(__file__))
+        chroma_db_path = os.path.join(os.path.dirname(os.path.dirname(script_dir)), "chroma_db")
+        vectordb = load_vector_database(chroma_db_path)
         
         # Use pre-generated filters instead of generating new ones
         filters = pre_generated_filters

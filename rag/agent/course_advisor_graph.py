@@ -8,6 +8,9 @@ from langgraph.prebuilt import ToolNode
 import json
 
 # Import our existing modules
+import sys
+import os
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from generate_filters import generate_filters_from_prompt
 from query_courses import query_courses_with_pre_generated_filters
 from database_utils import load_vector_database
@@ -203,7 +206,10 @@ if __name__ == "__main__":
     # Check if vector database exists
     try:
         # Use the correct path to the database (one level up from rag directory)
-        load_vector_database("../chroma_db")
+        # Get the absolute path to ensure it works regardless of where the script is run from
+        script_dir = os.path.dirname(os.path.abspath(__file__))
+        chroma_db_path = os.path.join(os.path.dirname(script_dir), "chroma_db")
+        load_vector_database(chroma_db_path)
         interactive_course_advisor()
     except FileNotFoundError:
         print("❌ Vector database not found!")
