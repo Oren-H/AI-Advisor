@@ -1,3 +1,4 @@
+# TODO: add more subdepartments
 dept_codes = {
     "African American and African Diaspora Studies": "AFAS",
     "American Studies": "AMST",

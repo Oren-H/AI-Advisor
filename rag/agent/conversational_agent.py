@@ -116,7 +116,7 @@ while True:
     if user_query.strip().lower() in ["exit", "quit"]:
         print("Exiting conversation.")
         break
-    
+
     try:
         # Run the chain
         response = chain.invoke({
