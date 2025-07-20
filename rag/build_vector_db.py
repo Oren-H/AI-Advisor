@@ -15,6 +15,10 @@ def massage(doc):
     
     # Parse the key-value format from CSVLoader
     content = doc.page_content.strip("'")
+    if not content:
+        # Skip documents with empty content
+        return None
+        
     row = {}
     for line in content.split('\n'):
         if ':' in line:
@@ -54,10 +58,30 @@ def massage(doc):
     })
     
     # semantic information to be embedded
-    doc.page_content = f"""{row['course_title']} ({row['course_code']})
-        Description: {row['description']}
-        Prerequisites: {row['prerequisites']}
-        Corequisites: {row['corequisites']}"""
+    # Handle missing or N/A values
+    title = row.get('course_title', 'Unknown Course')
+    code = row.get('course_code', 'Unknown Code')
+    description = row.get('description', 'No description available')
+    prerequisites = row.get('prerequisites', 'No prerequisites listed')
+    corequisites = row.get('corequisites', 'No corequisites listed')
+    
+    # Replace N/A values with meaningful text
+    if description == 'N/A':
+        description = 'No description available'
+    if prerequisites == 'N/A':
+        prerequisites = 'No prerequisites listed'
+    if corequisites == 'N/A':
+        corequisites = 'No corequisites listed'
+    
+    doc.page_content = f"""{title} ({code})
+        Description: {description}
+        Prerequisites: {prerequisites}
+        Corequisites: {corequisites}"""
+    
+    # Final check to ensure page_content is not None or empty
+    if not doc.page_content or doc.page_content.strip() == "":
+        return None
+        
     return doc
 
 def build_vector_database(csv_file="Columbia Courses Final.csv", persist_directory="./chroma_db"):
@@ -70,7 +94,12 @@ def build_vector_database(csv_file="Columbia Courses Final.csv", persist_directo
     docs = loader.load()
     
     print("Processing documents...")
-    docs = [massage(d) for d in docs]
+    processed_docs = []
+    for d in docs:
+        processed_doc = massage(d)
+        if processed_doc is not None:
+            processed_docs.append(processed_doc)
+    docs = processed_docs
     
     print("Creating embeddings and vector database...")
     emb = OpenAIEmbeddings(model="text-embedding-3-small")

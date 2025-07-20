@@ -1,7 +1,12 @@
+import os
+from dotenv import load_dotenv
 from typing import List, Optional
 from pydantic import BaseModel, Field
 from langchain_openai import ChatOpenAI
 from department_codes import dept_codes
+
+# Load environment variables from .env file
+load_dotenv()
 
 # A pydantic schema for the course query
 class CourseQuery(BaseModel):
@@ -26,7 +31,7 @@ def generate_filters_from_prompt(user_prompt: str) -> dict:
     """
     llm = ChatOpenAI(temperature=0, model="gpt-4").with_structured_output(CourseQuery, method="function_calling")
     result = llm.invoke(user_prompt)
-    filter_dict = build_filter(result)
+    filter_dict = build_chroma_filters(result)
     return filter_dict
 
 def map_department_to_code(department_name: str, dept_codes: dict) -> str:
@@ -65,91 +70,58 @@ def map_department_to_code(department_name: str, dept_codes: dict) -> str:
     else:
         return "UNKNOWN"
 
-def convert_time_to_minutes(time_str: str) -> int:
+def build_chroma_filters(q: CourseQuery) -> dict:
     """
-    Convert time string (e.g., "3:00 PM") to minutes from midnight.
-    
-    Args:
-        time_str: Time string in format like "3:00 PM" or "15:00"
-    
-    Returns:
-        Minutes from midnight
+    Build a Chroma-compatible flat filter dict.
+    Only include keys that the user actually constrained.
     """
-    try:
-        # Handle 12-hour format
-        if "AM" in time_str.upper() or "PM" in time_str.upper():
-            from datetime import datetime
-            time_obj = datetime.strptime(time_str, "%I:%M %p")
-            return time_obj.hour * 60 + time_obj.minute
-        # Handle 24-hour format
-        else:
-            hours, minutes = map(int, time_str.split(":"))
-            return hours * 60 + minutes
-    except:
-        return 0
+    filters = {}
 
-def convert_days_to_chroma_format(days: List[str]) -> str:
-    """
-    Convert day abbreviations to Chroma-compatible format.
-    
-    Args:
-        days: List of day abbreviations like ["M", "T", "W", "Th", "F"]
-    
-    Returns:
-        String format like "MWF" or "TR"
-    """
-    valid_days = {"M", "T", "W", "Th", "F"}
-    
-    result = ""
-    for day in days:
-        if day in valid_days:
-            result += day
-    
-    return result
-
-def build_filter(q: CourseQuery) -> dict:
-    """
-    Builds a dict containing filters with the proper logic based on the user's query.
-    Returns filters compatible with Chroma's metadata filtering.
-
-    Args:
-        q: A CourseQuery object containing the user's query
-    
-    Returns:
-        A dict containing the filters with the proper logic based on the user's query
-    """
-    f = {}
-    
-    # Handle department filter
+    # Department
     if q.department:
-        # Map the first department to code (for now, handle single department)
-        if len(q.department) > 0:
-            mapped_code = map_department_to_code(q.department[0], dept_codes)
-            if mapped_code != "UNKNOWN":
-                f["dept"] = mapped_code
-    
-    # Handle days filter - convert to Chroma format
+        mapped = map_department_to_code(q.department, dept_codes)
+        if mapped:    
+            filters["dept"] = mapped
+
+    # Days (expecting q.days as iterable like ['T','Th'])
     if q.days:
-        days_str = convert_days_to_chroma_format(q.days)
-        if days_str:
-            f["days_offered"] = days_str
-    
-    # Handle credits filter
-    if q.credits:
-        f["credits"] = q.credits
-    
-    # Handle time filters - these will need special handling in the query function
-    # since Chroma doesn't support complex time comparisons directly
-    time_filters = {}
+        filters["days_offered"] = {"$in": list(q.days)}
+
+    # Credits
+    if q.credits is not None:
+        # If multiple allowed (e.g. '3 or 4') you'd use {"$in": [3,4]}
+        filters["credits"] = q.credits
+
+    # Start time (prefer numeric minutes field)
     if q.start_time:
-        time_filters["start_time"] = q.start_time
+        # If q.start_time is a datetime/time string, convert to minutes
+        filters["time_starting"] = {"$gte": q.start_time}
+
+    # End time
     if q.end_time:
-        time_filters["end_time"] = q.end_time
+        filters["time_ending"] = {"$lte": q.end_time}
     
-    if time_filters:
-        f["_time_filters"] = time_filters  # Special key for post-processing
-    
-    return f
+    filters["offered"] = True
+    filters = to_chroma_where(filters)
+    return filters
+
+def to_chroma_where(flat: dict) -> dict:
+    """
+    Convert legacy flat filter {field: spec} into Chroma 1.x logical form.
+    Scalars become {"$eq": scalar}. Operator dicts pass through unchanged.
+    """
+    clauses = []
+    for field, spec in flat.items():
+        if isinstance(spec, dict) and any(k.startswith("$") for k in spec):
+            # already operator form
+            clauses.append({field: spec})
+        else:
+            clauses.append({field: {"$eq": spec}})
+    if not clauses:
+        return {}
+    if len(clauses) == 1:
+        return clauses[0]          # legal: single-field filter
+    return {"$and": clauses}
 
 def get_text_query_from_prompt(user_prompt: str) -> str:
     """
