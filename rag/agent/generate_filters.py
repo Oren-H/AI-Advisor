@@ -81,9 +81,18 @@ def build_chroma_filters(q: CourseQuery) -> dict:
 
     # Department
     if q.department:
-        mapped = map_department_to_code(q.department, dept_codes)
-        if mapped:    
-            filters["dept"] = mapped
+        # q.department is a list, so we need to map each department
+        mapped_departments = []
+        for dept in q.department:
+            mapped = map_department_to_code(dept, dept_codes)
+            if mapped and mapped != "UNKNOWN":
+                mapped_departments.append(mapped)
+        
+        if mapped_departments:
+            if len(mapped_departments) == 1:
+                filters["dept"] = mapped_departments[0]
+            else:
+                filters["dept"] = {"$in": mapped_departments}
 
     # Days (expecting q.days as iterable like ['T','Th'])
     if q.days:
