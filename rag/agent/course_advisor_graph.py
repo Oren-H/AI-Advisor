@@ -12,7 +12,7 @@ import sys
 import os
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from generate_filters import generate_filters_from_prompt
-from query_courses import query_courses_with_pre_generated_filters
+from query_courses_from_filter import query_courses_with_filters
 from database_utils import load_vector_database
 
 load_dotenv()
@@ -43,10 +43,10 @@ def search_courses_node(state: CourseAdvisorState) -> CourseAdvisorState:
     try:
         print(f"🔎 Searching courses with filters: {state['filters']}")
         
-        # Use the pre-generated filters from the previous node
-        course_results = query_courses_with_pre_generated_filters(
+        # Use the filters from the previous node
+        course_results = query_courses_with_filters(
             state['user_query'], 
-            state['filters'], 
+            filters=state['filters'], 
             k=5
         )
         

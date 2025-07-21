@@ -1,17 +1,24 @@
+import os
+import sys
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+from dotenv import load_dotenv
 from typing import List, Optional
 from pydantic import BaseModel, Field
 from langchain_openai import ChatOpenAI
 from department_codes import dept_codes
+
+# Load environment variables from .env file
+load_dotenv()
 
 # A pydantic schema for the course query
 class CourseQuery(BaseModel):
     text_query: str = Field(
         description="Free-text keywords that should be used for vector search.")
     department: List[str] = Field(
-        description="Department that the course is offered in.")
+        description="Department that the course is offered in. Extract department names from the query, such as 'literature' for English/Literature courses, 'computer science' for CS courses, etc.")
     days: List[str] = Field(description="Day abbreviations M,T,W,Th,F.")
-    start_time: Optional[int] = Field(description="Earliest start time in minutes from midnight.")
-    end_time: Optional[int] = Field(description="Latest end time in minutes from midnight.")
+    time_starting: Optional[int] = Field(description="Earliest start time in minutes from midnight (e.g., 8:00am = 480, 9:00am = 540).")
+    time_ending: Optional[int] = Field(description="Latest end time in minutes from midnight (e.g., 12:00pm = 720, 1:00pm = 780).")
     credits: Optional[float] = Field(description="Number of credits the course is worth.")
 
 def generate_filters_from_prompt(user_prompt: str) -> dict:
@@ -24,9 +31,29 @@ def generate_filters_from_prompt(user_prompt: str) -> dict:
     Returns:
         A dict containing the filters with the proper logic based on the user's query
     """
+    # Create a more specific prompt for better extraction
+    enhanced_prompt = f"""
+    Please analyze this course query and extract structured information:
+    
+    Query: "{user_prompt}"
+    
+    Instructions:
+    1. For departments: Extract department names like "literature" (map to ENGL), "computer science" (map to COMS), "math" (map to MATH), etc.
+    2. For time preferences (in minutes from midnight):
+       - "mornings" = time_starting: 480 (8:00am), time_ending: 720 (12:00pm)
+       - "afternoons" = time_starting: 720 (12:00pm), time_ending: 1020 (5:00pm)
+       - "evenings" = time_starting: 1020 (5:00pm), time_ending: 1320 (10:00pm)
+       - "early morning" = time_starting: 420 (7:00am), time_ending: 600 (10:00am)
+       - "before 9:00 PM" = time_ending: 1260 (9:00pm)
+       - "after 2:00 PM" = time_starting: 840 (2:00pm)
+    3. For days: Extract day abbreviations (M, T, W, Th, F)
+    4. For credits: Extract specific credit amounts
+    5. For text_query: Extract keywords for semantic search, excluding department/time/day info
+    """
+    
     llm = ChatOpenAI(temperature=0, model="gpt-4").with_structured_output(CourseQuery, method="function_calling")
-    result = llm.invoke(user_prompt)
-    filter_dict = build_filter(result)
+    result = llm.invoke(enhanced_prompt)
+    filter_dict = build_chroma_filters(result)
     return filter_dict
 
 def map_department_to_code(department_name: str, dept_codes: dict) -> str:
@@ -65,91 +92,67 @@ def map_department_to_code(department_name: str, dept_codes: dict) -> str:
     else:
         return "UNKNOWN"
 
-def convert_time_to_minutes(time_str: str) -> int:
+def build_chroma_filters(q: CourseQuery) -> dict:
     """
-    Convert time string (e.g., "3:00 PM") to minutes from midnight.
-    
-    Args:
-        time_str: Time string in format like "3:00 PM" or "15:00"
-    
-    Returns:
-        Minutes from midnight
+    Build a Chroma-compatible flat filter dict.
+    Only include keys that the user actually constrained.
     """
-    try:
-        # Handle 12-hour format
-        if "AM" in time_str.upper() or "PM" in time_str.upper():
-            from datetime import datetime
-            time_obj = datetime.strptime(time_str, "%I:%M %p")
-            return time_obj.hour * 60 + time_obj.minute
-        # Handle 24-hour format
-        else:
-            hours, minutes = map(int, time_str.split(":"))
-            return hours * 60 + minutes
-    except:
-        return 0
+    filters = {}
 
-def convert_days_to_chroma_format(days: List[str]) -> str:
-    """
-    Convert day abbreviations to Chroma-compatible format.
-    
-    Args:
-        days: List of day abbreviations like ["M", "T", "W", "Th", "F"]
-    
-    Returns:
-        String format like "MWF" or "TR"
-    """
-    valid_days = {"M", "T", "W", "Th", "F"}
-    
-    result = ""
-    for day in days:
-        if day in valid_days:
-            result += day
-    
-    return result
-
-def build_filter(q: CourseQuery) -> dict:
-    """
-    Builds a dict containing filters with the proper logic based on the user's query.
-    Returns filters compatible with Chroma's metadata filtering.
-
-    Args:
-        q: A CourseQuery object containing the user's query
-    
-    Returns:
-        A dict containing the filters with the proper logic based on the user's query
-    """
-    f = {}
-    
-    # Handle department filter
+    # Department
     if q.department:
-        # Map the first department to code (for now, handle single department)
-        if len(q.department) > 0:
-            mapped_code = map_department_to_code(q.department[0], dept_codes)
-            if mapped_code != "UNKNOWN":
-                f["dept"] = mapped_code
-    
-    # Handle days filter - convert to Chroma format
+        # q.department is a list, so we need to map each department
+        mapped_departments = []
+        for dept in q.department:
+            mapped = map_department_to_code(dept, dept_codes)
+            if mapped and mapped != "UNKNOWN":
+                mapped_departments.append(mapped)
+        
+        if mapped_departments:
+            if len(mapped_departments) == 1:
+                filters["dept"] = mapped_departments[0]
+            else:
+                filters["dept"] = {"$in": mapped_departments}
+
+    # Days (expecting q.days as iterable like ['T','Th'])
     if q.days:
-        days_str = convert_days_to_chroma_format(q.days)
-        if days_str:
-            f["days_offered"] = days_str
+        filters["days_offered"] = {"$in": list(q.days)}
+
+    # Credits
+    if q.credits is not None:
+        # If multiple allowed (e.g. '3 or 4') you'd use {"$in": [3,4]}
+        filters["credits"] = q.credits
+
+    # Start time (prefer numeric minutes field)
+    if q.time_starting:
+        # If q.start_time is a datetime/time string, convert to minutes
+        filters["time_starting"] = {"$gte": q.time_starting}
+
+    # End time
+    if q.time_ending:
+        filters["time_ending"] = {"$lte": q.time_ending}
     
-    # Handle credits filter
-    if q.credits:
-        f["credits"] = q.credits
-    
-    # Handle time filters - these will need special handling in the query function
-    # since Chroma doesn't support complex time comparisons directly
-    time_filters = {}
-    if q.start_time:
-        time_filters["start_time"] = q.start_time
-    if q.end_time:
-        time_filters["end_time"] = q.end_time
-    
-    if time_filters:
-        f["_time_filters"] = time_filters  # Special key for post-processing
-    
-    return f
+    filters["offered"] = True
+    filters = to_chroma_where(filters)
+    return filters
+
+def to_chroma_where(flat: dict) -> dict:
+    """
+    Convert legacy flat filter {field: spec} into Chroma 1.x logical form.
+    Scalars become {"$eq": scalar}. Operator dicts pass through unchanged.
+    """
+    clauses = []
+    for field, spec in flat.items():
+        if isinstance(spec, dict) and any(k.startswith("$") for k in spec):
+            # already operator form
+            clauses.append({field: spec})
+        else:
+            clauses.append({field: {"$eq": spec}})
+    if not clauses:
+        return {}
+    if len(clauses) == 1:
+        return clauses[0]          # legal: single-field filter
+    return {"$and": clauses}
 
 def get_text_query_from_prompt(user_prompt: str) -> str:
     """
@@ -167,7 +170,7 @@ def get_text_query_from_prompt(user_prompt: str) -> str:
 
 # Test the function
 if __name__ == "__main__":
-    user_prompt = "Find me a machine learning course in the computer science department that is offered on a Tuesday after 3:00 PM"
+    user_prompt = "Find me a literature course in the morning"
     filters = generate_filters_from_prompt(user_prompt)
     text_query = get_text_query_from_prompt(user_prompt)
     print(f"Text Query: {text_query}")

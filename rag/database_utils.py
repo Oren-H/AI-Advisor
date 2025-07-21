@@ -1,6 +1,6 @@
 import os
 from langchain_openai import OpenAIEmbeddings
-from langchain_community.vectorstores import Chroma
+from langchain_chroma import Chroma
 from dotenv import load_dotenv
 
 # Load environment variables from .env file
