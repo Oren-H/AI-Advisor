@@ -24,6 +24,7 @@ dept_codes = {
     "Economics": "ECON",
     "Education": "EDUC",
     "English and Comparative Literature": "ENGL",
+    "Comparative Literature and Society": "CLEN",
     "Ethnicity and Race Studies": "CSER",
     "Film and Media Studies": "FILM",
     "French": "FREN",

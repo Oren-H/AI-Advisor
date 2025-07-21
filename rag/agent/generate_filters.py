@@ -15,10 +15,10 @@ class CourseQuery(BaseModel):
     text_query: str = Field(
         description="Free-text keywords that should be used for vector search.")
     department: List[str] = Field(
-        description="Department that the course is offered in.")
+        description="Department that the course is offered in. Extract department names from the query, such as 'literature' for English/Literature courses, 'computer science' for CS courses, etc.")
     days: List[str] = Field(description="Day abbreviations M,T,W,Th,F.")
-    start_time: Optional[int] = Field(description="Earliest start time in minutes from midnight.")
-    end_time: Optional[int] = Field(description="Latest end time in minutes from midnight.")
+    time_starting: Optional[int] = Field(description="Earliest start time in minutes from midnight (e.g., 8:00am = 480, 9:00am = 540).")
+    time_ending: Optional[int] = Field(description="Latest end time in minutes from midnight (e.g., 12:00pm = 720, 1:00pm = 780).")
     credits: Optional[float] = Field(description="Number of credits the course is worth.")
 
 def generate_filters_from_prompt(user_prompt: str) -> dict:
@@ -31,8 +31,28 @@ def generate_filters_from_prompt(user_prompt: str) -> dict:
     Returns:
         A dict containing the filters with the proper logic based on the user's query
     """
+    # Create a more specific prompt for better extraction
+    enhanced_prompt = f"""
+    Please analyze this course query and extract structured information:
+    
+    Query: "{user_prompt}"
+    
+    Instructions:
+    1. For departments: Extract department names like "literature" (map to ENGL), "computer science" (map to COMS), "math" (map to MATH), etc.
+    2. For time preferences (in minutes from midnight):
+       - "mornings" = time_starting: 480 (8:00am), time_ending: 720 (12:00pm)
+       - "afternoons" = time_starting: 720 (12:00pm), time_ending: 1020 (5:00pm)
+       - "evenings" = time_starting: 1020 (5:00pm), time_ending: 1320 (10:00pm)
+       - "early morning" = time_starting: 420 (7:00am), time_ending: 600 (10:00am)
+       - "before 9:00 PM" = time_ending: 1260 (9:00pm)
+       - "after 2:00 PM" = time_starting: 840 (2:00pm)
+    3. For days: Extract day abbreviations (M, T, W, Th, F)
+    4. For credits: Extract specific credit amounts
+    5. For text_query: Extract keywords for semantic search, excluding department/time/day info
+    """
+    
     llm = ChatOpenAI(temperature=0, model="gpt-4").with_structured_output(CourseQuery, method="function_calling")
-    result = llm.invoke(user_prompt)
+    result = llm.invoke(enhanced_prompt)
     filter_dict = build_chroma_filters(result)
     return filter_dict
 
@@ -104,13 +124,13 @@ def build_chroma_filters(q: CourseQuery) -> dict:
         filters["credits"] = q.credits
 
     # Start time (prefer numeric minutes field)
-    if q.start_time:
+    if q.time_starting:
         # If q.start_time is a datetime/time string, convert to minutes
-        filters["time_starting"] = {"$gte": q.start_time}
+        filters["time_starting"] = {"$gte": q.time_starting}
 
     # End time
-    if q.end_time:
-        filters["time_ending"] = {"$lte": q.end_time}
+    if q.time_ending:
+        filters["time_ending"] = {"$lte": q.time_ending}
     
     filters["offered"] = True
     filters = to_chroma_where(filters)
@@ -150,7 +170,7 @@ def get_text_query_from_prompt(user_prompt: str) -> str:
 
 # Test the function
 if __name__ == "__main__":
-    user_prompt = "Find me an ml course in the computer science department that is offered on a Tuesday after 3:00 PM"
+    user_prompt = "Find me a literature course in the morning"
     filters = generate_filters_from_prompt(user_prompt)
     text_query = get_text_query_from_prompt(user_prompt)
     print(f"Text Query: {text_query}")
