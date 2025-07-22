@@ -71,7 +71,7 @@ def query_courses_with_filters(query: str, filters: dict = None, k: int = 1):
 if __name__ == "__main__":
     # Example queries
     queries = [
-        "Find me a literature course in the morning"
+        "Find me a literature course at night"
     ]
     
     for query in queries:

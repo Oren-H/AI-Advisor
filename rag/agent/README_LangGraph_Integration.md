@@ -7,7 +7,7 @@ This document describes the LangGraph-based integration that connects the filter
 The system uses LangGraph to orchestrate three main components:
 
 1. **Filter Generation** (`generate_filters.py`) - Extracts metadata filters from natural language queries
-2. **Vector Search** (`query_courses.py`) - Searches the course database using the generated filters
+2. **Vector Search** (`query_courses_from_filter.py`) - Searches the course database using the generated filters
 3. **Conversational Agent** (`conversational_agent.py`) - Provides AI-powered course recommendations and advice
 
 ## Architecture
@@ -29,7 +29,7 @@ AI Course Advisor Response
 - `course_advisor_graph.py` - Main LangGraph implementation
 - `test_course_advisor.py` - Test script for the integration
 - `generate_filters.py` - Filter generation module (renamed from `generate_filters`)
-- `query_courses.py` - Vector search module
+- `query_courses_from_filter.py` - Vector search module
 - `conversational_agent.py` - AI advisor module
 
 ## Usage

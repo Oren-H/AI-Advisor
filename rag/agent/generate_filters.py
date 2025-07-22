@@ -164,7 +164,7 @@ def get_text_query_from_prompt(user_prompt: str) -> str:
     Returns:
         Text query for semantic search
     """
-    llm = ChatOpenAI(temperature=0, model="gpt-4").with_structured_output(CourseQuery, method="function_calling")
+    llm = ChatOpenAI(temperature=0, model="gpt-4o-mini").with_structured_output(CourseQuery, method="function_calling")
     result = llm.invoke(user_prompt)
     return result.text_query
 
@@ -175,3 +175,4 @@ if __name__ == "__main__":
     text_query = get_text_query_from_prompt(user_prompt)
     print(f"Text Query: {text_query}")
     print(f"Filters: {filters}")
+    
