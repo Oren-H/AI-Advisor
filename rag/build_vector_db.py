@@ -36,62 +36,87 @@ def massage(doc):
     except (ValueError, TypeError):
         credits = 0.0
     
-    # Parse time values (already in minutes from midnight in CSV)
+    # Convert time string to minutes from midnight
     def parse_time(time_str):
-        """Parse time string that's already in minutes from midnight"""
         if not time_str or time_str == 'N/A' or time_str.strip() == '':
             return None
-        
-        try:
-            return int(time_str.strip())
+        try: # hour value * 12 + minute value (12 hour clock, do not include am/pm)
+            hour = time_str.split(":")[0]
+            minute = time_str.split(":")[1].lower().rstrip("apm")
+            return int(hour) * 60 + int(minute)
         except (ValueError, TypeError):
             return None
-    
+
     # Parse time_starting and time_ending (already in minutes from midnight)
-    time_starting_minutes = parse_time(row.get("time_starting"))
-    time_ending_minutes = parse_time(row.get("time_ending"))
-    
-    # Convert offered to boolean
-    offered_str = row.get("is_currently_offered", "False")
-    offered = offered_str.lower() in ['true', '1', 'yes']
+    time_starting_minutes = parse_time(row.get("scheduled_time_start"))
+    time_ending_minutes = parse_time(row.get("scheduled_time_end"))
     
     # Adds all numerical data as metadata for each document
     meta.update({
-        "course_title" : row["course_title"],
         "course_code" : row["course_code"],
-        "dept"      : row["department"],
-        "days_offered" : row["days_offered"],
-        "time_starting" : time_starting_minutes,
-        "time_ending" : time_ending_minutes,
-        "section"   : row["section"],
-        "credits"   : credits,  
-        "enrolled" : row["enrolled"],
-        "max_enrollment" : row["max_enrollment"],
+        "course_title" : row["course_title"],
         "instructor" : row["instructor"],
-        "url" : row["url"],
-        "offered" : offered, 
+        "scheduled_time_start" : time_starting_minutes,
+        "scheduled_time_end" : time_ending_minutes,
+        "call_number" : row["call_number"],
+        "campus" : row["campus"],
+        "class_id" : row["class_id"],
+        "course_subtitle" : row["course_subtitle"],
+        "department" : row["department"],
+        "department_code" : row["department_code"],
+        "link" : row["link"],
+        "location" : row["location"],
+        "method_of_instruction" : row["method_of_instruction"],
+        "open_to" : row["open_to"],
+        "points" : row["points"],
+        "scheduled_days" : row["scheduled_days"],
+        "section_key" : row["section_key"],
+        "type" : row["type"],  
     })
+
+    '''
+      {
+    "course_code":"ACCT B6001",
+    "course_title":"Financial Accounting",
+    "course_descr":null,
+    "instructor":"Yao Liu",
+    "scheduled_time_start":"10:50am",
+    "scheduled_time_end":"12:20pm",
+    "call_number":"15846", 
+    "campus":null,
+    "class_id":"B6001-20251-001",
+    "course_subtitle":null,
+    "department":"Accounting (ACCT)",
+    "department_code":"ACCT", 
+    "instructor_wikipedia_link":null,
+    "link":"https:\/\/doc.sis.columbia.edu\/subj\/ACCT\/B6001-20251-001\/",
+    "location":"420 Kravis Hall",
+    "method_of_instruction":"In-Person",
+    "open_to":[
+      "Business"
+    ],
+    "points":"3",
+    "prerequisites":[
+
+    ],
+    "scheduled_days":"TR",
+    "section_key":"20251ACCT6001B001",
+    "type":"LECTURE"
+    '''
     
     # semantic information to be embedded
     # Handle missing or N/A values
-    title = row.get('course_title', 'Unknown Course')
-    code = row.get('course_code', 'Unknown Code')
-    description = row.get('description', 'No description available')
-    prerequisites = row.get('prerequisites', 'No prerequisites listed')
-    corequisites = row.get('corequisites', 'No corequisites listed')
-    
-    # Replace N/A values with meaningful text
-    if description == 'N/A':
-        description = 'No description available'
-    if prerequisites == 'N/A':
-        prerequisites = 'No prerequisites listed'
-    if corequisites == 'N/A':
-        corequisites = 'No corequisites listed'
-    
-    doc.page_content = f"""{title} ({code})
-        Description: {description}
+    course_title = row.get('course_title', None)
+    course_subtitle = row.get('course_subtitle', None)
+    course_code = row.get('course_code', None)
+    course_descr = row.get('course_descr', None)
+    prerequisites = row.get('prerequisites', None)
+
+    doc.page_content = f"""{course_title} ({course_code})
+        Course Subtitle: {course_subtitle}
+        Description: {course_descr}
         Prerequisites: {prerequisites}
-        Corequisites: {corequisites}"""
+    """
     
     # Final check to ensure page_content is not None or empty
     if not doc.page_content or doc.page_content.strip() == "":
@@ -99,7 +124,7 @@ def massage(doc):
         
     return doc
 
-def build_vector_database(csv_file="Cleaned Columbia Courses.csv", persist_directory="./chroma_db"):
+def build_vector_database(csv_file="2025-Spring.csv", persist_directory="./chroma_db"):
     """
     Build and persist the vector database from CSV data.
     Only run this when your data changes.
