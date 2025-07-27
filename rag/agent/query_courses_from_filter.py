@@ -37,29 +37,27 @@ def query_courses_with_filters(query: str, filters: dict = None, k: int = 1):
         course_dicts = []
         for i, doc in enumerate(results, 1):
             course_dict = {
-                "course_title": doc.metadata.get('course_title', 'N/A'),
-                "course_code": doc.metadata.get('course_code', 'N/A'),
-                "dept": doc.metadata.get('dept', 'N/A'),
-                "credits": doc.metadata.get('credits', 'N/A'),
-                "instructor": doc.metadata.get('instructor', 'N/A'),
-                "time_starting": doc.metadata.get('time_starting', 'N/A'),
-                "time_ending": doc.metadata.get('time_ending', 'N/A'),
-                "days_offered": doc.metadata.get('days_offered', 'N/A'),
-                "enrolled": doc.metadata.get('enrolled', 'N/A'),
-                "max_enrollment": doc.metadata.get('max_enrollment', 'N/A'),
-                "offered": doc.metadata.get('offered', 'N/A'),
+                "course_title": doc.metadata.get('course_title', None),
+                "course_code": doc.metadata.get('course_code', None),
+                "department": doc.metadata.get('department', None),
+                "department_code": doc.metadata.get('department_code', None),
+                "points": doc.metadata.get('points', None),
+                "instructor": doc.metadata.get('instructor', None),
+                "scheduled_time_start": doc.metadata.get('scheduled_time_start', None),
+                "scheduled_time_end": doc.metadata.get('scheduled_time_end', None),
+                "scheduled_days": doc.metadata.get('scheduled_days', None),
+                "type": doc.metadata.get('type', None),
                 "content": doc.page_content[:500] + "..." if len(doc.page_content) > 500 else doc.page_content
             }
             course_dicts.append(course_dict)
             
             print(f"\n{i}. {course_dict['course_title']} ({course_dict['course_code']})")
-            print(f"   Department: {course_dict['dept']}")
-            print(f"   Credits: {course_dict['credits']}")
+            print(f"   Department: {course_dict['department']}")
+            print(f"   Credits: {course_dict['points']}")
             print(f"   Instructor: {course_dict['instructor']}")
-            print(f"   Times: {course_dict['time_starting']} - {course_dict['time_ending']}")
-            print(f"   Days: {course_dict['days_offered']}")
-            print(f"   Enrolled: {course_dict['enrolled']} / {course_dict['max_enrollment']}")
-            print(f"   Currently Offered: {course_dict['offered']}")
+            print(f"   Times: {course_dict['scheduled_time_start']} - {course_dict['scheduled_time_end']}")
+            print(f"   Days: {course_dict['scheduled_days']}")
+            print(f"   Type: {course_dict['type']}")
             print(f"   Content: {course_dict['content'][:200]}...")
         
         return course_dicts
@@ -71,7 +69,7 @@ def query_courses_with_filters(query: str, filters: dict = None, k: int = 1):
 if __name__ == "__main__":
     # Example queries
     queries = [
-        "Find me a literature course at night"
+        "Find me an EE class that works with computer architecture"
     ]
     
     for query in queries:
