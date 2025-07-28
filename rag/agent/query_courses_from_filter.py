@@ -77,4 +77,5 @@ if __name__ == "__main__":
         filters = generate_filters_from_prompt(query)
         print(filters)
         results = query_courses_with_filters(query, filters=filters, k=5)
-        
+        print(results)
+        bbb   
