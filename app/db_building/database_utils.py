@@ -7,7 +7,7 @@ from dotenv import load_dotenv
 load_dotenv()
 api_key = os.getenv("OPENAI_API_KEY")
 
-def database_exists(persist_directory="./chroma_db"):
+def database_exists(persist_directory="./data/chroma_db"):
     """
     Check if the vector database exists on disk.
     
@@ -19,7 +19,7 @@ def database_exists(persist_directory="./chroma_db"):
     """
     return os.path.exists(persist_directory)
 
-def load_vector_database(persist_directory="./chroma_db"):
+def load_vector_database(persist_directory="./data/chroma_db"):
     """
     Load the existing vector database from disk.
     
@@ -48,7 +48,7 @@ def load_vector_database(persist_directory="./chroma_db"):
     print(f"Loaded database with {vectordb._collection.count()} documents")
     return vectordb
 
-def get_database_info(persist_directory="./chroma_db"):
+def get_database_info(persist_directory="./data/chroma_db"):
     """
     Get information about the existing vector database.
     

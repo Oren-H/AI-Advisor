@@ -17,10 +17,10 @@ def query_courses_with_filters(query: str, filters: dict = None, k: int = 1):
         List of relevant course documents
     """
     try:
-        # Get the correct path to the database (at the root level)
+        # Get the correct path to the database (inside the data folder)
         script_dir = os.path.dirname(os.path.abspath(__file__))
-        # Go up two levels: rag/agent/ -> rag/ -> root, then add chroma_db
-        chroma_db_path = os.path.join(os.path.dirname(os.path.dirname(script_dir)), "chroma_db")
+        # Go up two levels: app/db_querying/ -> app/ -> root, then add data/chroma_db
+        chroma_db_path = os.path.join(os.path.dirname(os.path.dirname(script_dir)), "data", "chroma_db")
         vectordb = load_vector_database(chroma_db_path)
         
         # Perform semantic search with filters

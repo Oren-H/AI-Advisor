@@ -107,11 +107,11 @@ def main():
     """Main entry point for the course advisor."""
     # Check if vector database exists
     try:
-        # Use the correct path to the database (at the root level)
+        # Use the correct path to the database (inside the data folder)
         # Get the absolute path to ensure it works regardless of where the script is run from
         script_dir = os.path.dirname(os.path.abspath(__file__))
-        # Go up two levels: rag/agent/ -> rag/ -> root, then add chroma_db
-        chroma_db_path = os.path.join(os.path.dirname(os.path.dirname(script_dir)), "chroma_db")
+        # Go up one level: scripts/ -> root, then add data/chroma_db
+        chroma_db_path = os.path.join(os.path.dirname(script_dir), "data", "chroma_db")
         load_vector_database(chroma_db_path)
         interactive_course_advisor()
     except FileNotFoundError:

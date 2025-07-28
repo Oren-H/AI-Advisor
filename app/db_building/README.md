@@ -41,7 +41,7 @@ from build_vector_db import build_vector_database
 # Build vector database from CSV file
 build_vector_database(
     csv_file="2025-Spring.csv",
-    persist_directory="./chroma_db"
+    persist_directory="./data/chroma_db"
 )
 ```
 

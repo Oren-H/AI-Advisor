@@ -81,10 +81,19 @@ AI-Advisor/
    python build_vector_db.py
    ```
 
-5. **Start the backend**
+5. **Install the package in development mode**
    ```bash
-   cd app/graph
-   python graph_runner.py
+   pip install -e .
+   ```
+
+6. **Build the vector database**
+   ```bash
+   python app/db_building/build_vector_db.py
+   ```
+
+7. **Start the backend**
+   ```bash
+   python scripts/graph_runner.py
    ```
 
 6. **Start the frontend** (in a new terminal)
