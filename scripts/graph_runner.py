@@ -1,7 +1,7 @@
 import os
 from typing import Dict, Any, Tuple
-from graph_builder import create_course_advisor_graph
-from database_utils import load_vector_database
+from app.graph.graph_builder import create_course_advisor_graph
+from app.db_building.database_utils import load_vector_database
 
 def run_course_advisor(user_query: str, conversation_state: Dict[str, Any] = None) -> Tuple[str, Dict[str, Any]]:
     """

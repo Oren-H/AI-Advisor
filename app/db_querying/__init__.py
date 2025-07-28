@@ -1,15 +1,16 @@
 """
-Database Querying Package
+Database querying utilities for the course advisor.
 
-This package contains modules for querying the course database and generating filters.
+This module provides utilities for querying the vector database
+and generating filters for course searches.
 """
 
-from .query_courses_from_filter import *
-from .generate_filters import *
-from .department_codes import *
+from app.db_querying.query_courses_from_filter import query_courses_with_filters
+from app.db_querying.generate_filters import generate_filters_from_prompt
+from app.db_querying.department_codes import DEPARTMENT_CODES
 
 __all__ = [
-    'query_courses_from_filter',
-    'generate_filters',
-    'department_codes'
+    'query_courses_with_filters',
+    'generate_filters_from_prompt',
+    'DEPARTMENT_CODES'
 ] 

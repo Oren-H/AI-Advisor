@@ -1,17 +1,17 @@
 """
-Tests Package
+Test suite for the AI Course Advisor.
 
-This package contains test modules for the AI Course Advisor system.
+This module contains all test files for the course advisor application.
 """
 
-from .test_course_advisor import *
-from .test_functions import *
-from .test_modular_structure import *
-from .scraper_tester import *
+from tests.test_course_advisor import test_course_advisor
+from tests.test_functions import test_functions
+from tests.test_modular_structure import test_modular_structure
+from tests.scraper_tester import test_scraper
 
 __all__ = [
     'test_course_advisor',
-    'test_functions',
+    'test_functions', 
     'test_modular_structure',
-    'scraper_tester'
+    'test_scraper'
 ] 

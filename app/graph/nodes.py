@@ -6,12 +6,10 @@ from langchain_openai import ChatOpenAI
 from langchain.prompts import ChatPromptTemplate
 from langchain.schema import HumanMessage
 
-# Import our existing modules
-import sys
-sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-from generate_filters import generate_filters_from_prompt
-from query_courses_from_filter import query_courses_with_filters
-from state_schema import CourseAdvisorState
+# Import our existing modules using absolute imports
+from app.db_querying.generate_filters import generate_filters_from_prompt
+from app.db_querying.query_courses_from_filter import query_courses_with_filters
+from app.graph.state_schema import CourseAdvisorState
 
 load_dotenv()
 api_key = os.getenv("OPENAI_API_KEY")

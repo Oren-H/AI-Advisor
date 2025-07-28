@@ -1,6 +1,6 @@
 from langgraph.graph import StateGraph, START, END
-from state_schema import CourseAdvisorState
-from nodes import (
+from app.graph.state_schema import CourseAdvisorState
+from app.graph.nodes import (
     intent_classification_node,
     generate_filters_node,
     search_courses_node,
@@ -8,7 +8,7 @@ from nodes import (
     advisory_response_node,
     route_by_intent
 )
-from memory_nodes import (
+from app.graph.memory_nodes import (
     update_memory_node,
     finalize_memory_node
 )

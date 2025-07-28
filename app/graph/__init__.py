@@ -1,19 +1,31 @@
 """
-Graph Package
+Graph-based course advisor using LangGraph.
 
-This package contains modules for building and running the course recommendation graph.
+This module provides a graph-based approach to course advising using LangGraph,
+with nodes for intent classification, filter generation, course search, and response generation.
 """
 
-from .graph_builder import *
-from .graph_runner import *
-from .memory_nodes import *
-from .nodes import *
-from .state_schema import *
+from app.graph.graph_builder import create_course_advisor_graph
+from app.graph.memory_nodes import update_memory_node, finalize_memory_node
+from app.graph.nodes import (
+    intent_classification_node,
+    generate_filters_node,
+    search_courses_node,
+    generate_response_node,
+    advisory_response_node,
+    route_by_intent
+)
+from app.graph.state_schema import CourseAdvisorState
 
 __all__ = [
-    'graph_builder',
-    'graph_runner',
-    'memory_nodes',
-    'nodes',
-    'state_schema'
+    'create_course_advisor_graph',
+    'update_memory_node',
+    'finalize_memory_node',
+    'intent_classification_node',
+    'generate_filters_node',
+    'search_courses_node',
+    'generate_response_node',
+    'advisory_response_node',
+    'route_by_intent',
+    'CourseAdvisorState',
 ] 

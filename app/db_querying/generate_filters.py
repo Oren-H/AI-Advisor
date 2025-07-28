@@ -1,11 +1,9 @@
 import os
-import sys
-sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from dotenv import load_dotenv
 from typing import List, Optional
 from pydantic import BaseModel, Field
 from langchain_openai import ChatOpenAI
-from department_codes import dept_codes
+from app.db_querying.department_codes import dept_codes
 
 # Load environment variables from .env file
 load_dotenv()

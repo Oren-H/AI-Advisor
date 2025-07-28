@@ -1,10 +1,8 @@
 from langchain_openai import OpenAIEmbeddings, ChatOpenAI
 from langchain_chroma import Chroma
-import sys
 import os
-sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-from database_utils import load_vector_database
-from generate_filters import generate_filters_from_prompt
+from app.db_building.database_utils import load_vector_database
+from app.db_querying.generate_filters import generate_filters_from_prompt
 
 def query_courses_with_filters(query: str, filters: dict = None, k: int = 1):
     """

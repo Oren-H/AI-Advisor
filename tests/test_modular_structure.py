@@ -35,8 +35,12 @@ def test_imports():
         print("✅ graph_builder imported successfully")
         
         # Test graph runner import
-        from graph_runner import run_course_advisor, interactive_course_advisor
-        print("✅ graph_runner imported successfully")
+        try:
+            from scripts.graph_runner import run_course_advisor, interactive_course_advisor
+            print("✅ graph_runner imported successfully")
+        except ImportError as e:
+            print(f"❌ Failed to import graph_runner: {e}")
+            return False
         
         print("\n🎉 All imports successful! Modular structure is working correctly.")
         return True
