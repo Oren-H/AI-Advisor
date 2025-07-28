@@ -78,4 +78,4 @@ if __name__ == "__main__":
         print(filters)
         results = query_courses_with_filters(query, filters=filters, k=5)
         print(results)
-        bbb   
+   
