@@ -1,8 +1,6 @@
 import os
 import json
 from typing import Dict, Any
-from dotenv import load_dotenv
-from langchain_openai import ChatOpenAI
 from langchain.prompts import ChatPromptTemplate
 from langchain.schema import HumanMessage
 
@@ -11,9 +9,7 @@ from app.db_querying.generate_filters import generate_filters_from_prompt
 from app.db_querying.query_courses_from_filter import query_courses_with_filters
 from app.graph.state_schema import CourseAdvisorState
 from app.prompt_manager import prompt_manager
-
-load_dotenv()
-api_key = os.getenv("OPENAI_API_KEY")
+from app.llm_manager import llm_manager
 
 def intent_classification_node(state: CourseAdvisorState) -> CourseAdvisorState:
     """Classify the user's intent based on their query and conversation history."""
@@ -31,12 +27,8 @@ def intent_classification_node(state: CourseAdvisorState) -> CourseAdvisorState:
         # Create a prompt for intent classification with memory
         intent_prompt = ChatPromptTemplate.from_template(prompt_manager.get_prompt("intent_classification"))
         
-        # Initialize the LLM
-        llm = ChatOpenAI(
-            model="gpt-4o-mini",
-            api_key=api_key,
-            temperature=0.1
-        )
+        # Get shared LLM instance
+        llm = llm_manager.get_intent_classification_llm()
         
         # Create the chain
         chain = intent_prompt | llm
@@ -130,12 +122,8 @@ def advisory_response_node(state: CourseAdvisorState) -> CourseAdvisorState:
         # Create an advisory-focused prompt template with memory
         advisory_prompt = ChatPromptTemplate.from_template(prompt_manager.get_prompt("advisory_response"))
         
-        # Initialize the LLM
-        llm = ChatOpenAI(
-            model="gpt-4o-mini",
-            api_key=api_key,
-            temperature=0.7
-        )
+        # Get shared LLM instance
+        llm = llm_manager.get_advisory_llm()
         
         # Create the chain
         chain = advisory_prompt | llm
@@ -179,12 +167,8 @@ def generate_response_node(state: CourseAdvisorState) -> CourseAdvisorState:
             # Specific intent: focus on course recommendations
             prompt_template = ChatPromptTemplate.from_template(prompt_manager.get_prompt("specific_response"))
         
-        # Initialize the LLM
-        llm = ChatOpenAI(
-            model="gpt-4o-mini",
-            api_key=api_key,
-            temperature=0.7
-        )
+        # Get shared LLM instance
+        llm = llm_manager.get_response_llm()
         
         # Create the chain
         chain = prompt_template | llm

@@ -1,15 +1,11 @@
 import os
 import json
 from typing import Dict, Any
-from dotenv import load_dotenv
-from langchain_openai import ChatOpenAI
 from langchain.prompts import ChatPromptTemplate
 from langchain.schema import HumanMessage, AIMessage
 from app.graph.state_schema import CourseAdvisorState
 from app.prompt_manager import prompt_manager
-
-load_dotenv()
-api_key = os.getenv("OPENAI_API_KEY")
+from app.llm_manager import llm_manager
 
 def update_memory_node(state: CourseAdvisorState) -> CourseAdvisorState:
     """Update conversation memory and extract user profile information."""
@@ -26,12 +22,8 @@ def update_memory_node(state: CourseAdvisorState) -> CourseAdvisorState:
         # Create prompt template from the profile extraction prompt
         profile_prompt = ChatPromptTemplate.from_template(prompt_manager.get_prompt("profile_extraction"))
         
-        # Initialize the LLM for profile extraction
-        llm = ChatOpenAI(
-            model="gpt-4o-mini",
-            api_key=api_key,
-            temperature=0.1
-        )
+        # Get shared LLM instance for profile extraction
+        llm = llm_manager.get_memory_llm()
         
         # Create a chain using the pipe operator
         profile_chain = profile_prompt | llm

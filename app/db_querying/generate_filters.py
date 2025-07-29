@@ -1,13 +1,9 @@
 import os
-from dotenv import load_dotenv
 from typing import List, Optional
 from pydantic import BaseModel, Field
-from langchain_openai import ChatOpenAI
 from app.db_querying.department_codes import dept_codes
 from app.prompt_manager import prompt_manager
-
-# Load environment variables from .env file
-load_dotenv()
+from app.llm_manager import llm_manager
 
 # A pydantic schema for the course query
 class CourseQuery(BaseModel):
@@ -45,7 +41,7 @@ def generate_filters_from_prompt(user_prompt: str, conversation_context: str = "
                                                   user_prompt=user_prompt,
                                                   conversation_context=conversation_context)
     
-    llm = ChatOpenAI(temperature=0, model="gpt-4o-mini").with_structured_output(CourseQuery, method="function_calling")
+    llm = llm_manager.get_structured_llm(CourseQuery)
     result = llm.invoke(enhanced_prompt)
     filter_dict = build_chroma_filters(result)
     return filter_dict
@@ -68,8 +64,8 @@ def map_department_to_code(department_name: str, dept_codes: dict) -> List[str]:
                                         department_name=department_name, 
                                         dept_list=dept_list)
     
-    # Use a different LLM instance for this mapping task
-    mapping_llm = ChatOpenAI(temperature=0, model="gpt-4")
+    # Use shared LLM instance for mapping task
+    mapping_llm = llm_manager.get_mapping_llm()
     response = mapping_llm.invoke(prompt)
     
     # Extract the department code from the response
@@ -163,7 +159,7 @@ def get_text_query_from_prompt(user_prompt: str, conversation_context: str = "")
     else:
         full_prompt = user_prompt
     
-    llm = ChatOpenAI(temperature=0, model="gpt-4o-mini").with_structured_output(CourseQuery, method="function_calling")
+    llm = llm_manager.get_structured_llm(CourseQuery)
     result = llm.invoke(full_prompt)
     return result.text_query
 
