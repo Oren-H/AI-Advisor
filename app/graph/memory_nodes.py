@@ -33,18 +33,18 @@ def update_memory_node(state: CourseAdvisorState) -> CourseAdvisorState:
             temperature=0.1
         )
         
-        # Create the chain
-        chain = profile_prompt | llm
-        
         # Prepare conversation context (last 3 exchanges for context)
         recent_history = history[-6:] if len(history) > 6 else history
         conversation_context = "\n".join([f"{'User' if isinstance(msg, HumanMessage) else 'AI'}: {msg.content}" for msg in recent_history])
         
+        # Format the prompt with variables
+        formatted_prompt = profile_prompt.format_prompt(
+            conversation_context=conversation_context,
+            user_query=state["user_query"]
+        )
+        
         # Extract profile information
-        profile_response = chain.invoke({
-            "conversation_context": conversation_context,
-            "user_query": state["user_query"]
-        })
+        profile_response = llm.invoke(formatted_prompt)
         
         try:
             new_profile_info = json.loads(profile_response.content)

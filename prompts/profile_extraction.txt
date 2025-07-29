@@ -8,7 +8,7 @@ From the user's query, extract any relevant information about:
 - Preferences (course difficulty, workload, specific subjects)
 - Constraints (schedule, prerequisites, etc.)
 
-Return a JSON object with any extracted information. If no relevant information is found, return an empty object {{{{}}}}.
+Return a JSON object with any extracted information. If no relevant information is found, return an empty object.
 
 Previous conversation context:
 {conversation_context}
