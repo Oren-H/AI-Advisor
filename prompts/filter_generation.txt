@@ -2,6 +2,8 @@ Please analyze this course query and extract structured information:
 
 Query: "{user_prompt}"
 
+{conversation_context}
+
 Instructions:
 1. For departments: Extract department names like "literature" (map to ENGL), "computer science" (map to COMS), "math" (map to MATH), etc.
 2. For time preferences (in minutes from midnight):
@@ -13,4 +15,6 @@ Instructions:
    - "after 2:00 PM" = time_starting: 840 (2:00pm)
 3. For days: Extract day abbreviations (M, T, W, Th, F)
 4. For credits: Extract specific credit amounts
-5. For text_query: Extract keywords for semantic search, excluding department/time/day info 
+5. For text_query: Extract keywords for semantic search, excluding department/time/day info
+
+IMPORTANT: If this is a follow-up question that references previous conversation, use the conversation context to understand what the user is referring to. For example, if they ask "What courses should I take to become that?" and the context mentions "quantitative finance", extract relevant department and keyword information accordingly. 

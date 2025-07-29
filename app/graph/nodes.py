@@ -65,7 +65,19 @@ def generate_filters_node(state: CourseAdvisorState) -> CourseAdvisorState:
     """Generate metadata filters from user query using the existing generate_filters module."""
     try:
         print(f"🔍 Generating filters for query: {state['user_query']}")
-        filters = generate_filters_from_prompt(state['user_query'])
+        
+        # Get conversation history for context
+        history = state.get("conversation_history", [])
+        
+        # Prepare conversation context (last 6 exchanges for context)
+        recent_history = history[-12:] if len(history) > 12 else history
+        conversation_context = "\n".join([f"{'User' if isinstance(msg, HumanMessage) else 'AI'}: {msg.content}" for msg in recent_history])
+        
+        # Add conversation context to help with follow-up questions
+        if conversation_context:
+            conversation_context = f"Conversation Context:\n{conversation_context}\n"
+        
+        filters = generate_filters_from_prompt(state['user_query'], conversation_context)
         print(f"✅ Generated filters: {filters}")
         return {**state, "filters": filters, "error": ""}
     except Exception as e:
@@ -77,11 +89,19 @@ def search_courses_node(state: CourseAdvisorState) -> CourseAdvisorState:
     try:
         print(f"🔎 Searching courses with filters: {state['filters']}")
         
+        # Get conversation history for context
+        history = state.get("conversation_history", [])
+        
+        # Prepare conversation context (last 6 exchanges for context)
+        recent_history = history[-12:] if len(history) > 12 else history
+        conversation_context = "\n".join([f"{'User' if isinstance(msg, HumanMessage) else 'AI'}: {msg.content}" for msg in recent_history])
+        
         # Use the filters from the previous node
         course_results = query_courses_with_filters(
             state['user_query'], 
             filters=state['filters'], 
-            k=5
+            k=5,
+            conversation_context=conversation_context
         )
         
         # Convert to JSON string for the conversational agent

@@ -29,18 +29,21 @@ class CourseQuery(BaseModel):
     credits: Optional[float] = Field(description="Number of credits the course is worth.")
     type: Optional[str] = Field(description="Type of course, such as 'LECTURE', 'SEMINAR', 'LAB', 'RECITATION', 'OTHER'.")
 
-def generate_filters_from_prompt(user_prompt: str) -> dict:
+def generate_filters_from_prompt(user_prompt: str, conversation_context: str = "") -> dict:
     """
     Generates a dict containing filters with the proper logic based on the user's query.
     
     Args:
         user_prompt: A string containing the user's query
+        conversation_context: Optional conversation history for context
     
     Returns:
         A dict containing the filters with the proper logic based on the user's query
     """
-    # Create a more specific prompt for better extraction
-    enhanced_prompt = prompt_manager.format_prompt("filter_generation", user_prompt=user_prompt)
+    # Create a more specific prompt for better extraction with conversation context
+    enhanced_prompt = prompt_manager.format_prompt("filter_generation", 
+                                                  user_prompt=user_prompt,
+                                                  conversation_context=conversation_context)
     
     llm = ChatOpenAI(temperature=0, model="gpt-4o-mini").with_structured_output(CourseQuery, method="function_calling")
     result = llm.invoke(enhanced_prompt)
@@ -103,7 +106,10 @@ def build_chroma_filters(q: CourseQuery) -> dict:
 
     # Days (expecting q.days as iterable like ['T','Th'])
     if q.scheduled_days:
-        filters["scheduled_days"] = {"$in": list(q.scheduled_days)}
+        # The data stores days as strings like "M W" or "M", so we need to check if any of the requested days are in the string
+        # Convert the list of requested days to a string pattern that can match the stored format
+        day_pattern = "|".join(q.scheduled_days)  # e.g., "M|T|W|Th|F"
+        filters["scheduled_days"] = {"$regex": f"({day_pattern})"}
 
     # Credits
     if q.credits is not None:
@@ -143,25 +149,32 @@ def to_chroma_where(flat: dict) -> dict:
         return clauses[0]          # legal: single-field filter
     return {"$and": clauses}
 
-def get_text_query_from_prompt(user_prompt: str) -> str:
+def get_text_query_from_prompt(user_prompt: str, conversation_context: str = "") -> str:
     """
     Extract the text query component from a user prompt for semantic search.
     
     Args:
         user_prompt: The user's natural language query
+        conversation_context: Optional conversation history for context
     
     Returns:
         Text query for semantic search
     """
+    # Create a prompt that includes conversation context if available
+    if conversation_context:
+        full_prompt = f"Conversation Context:\n{conversation_context}\n\nCurrent Query: {user_prompt}"
+    else:
+        full_prompt = user_prompt
+    
     llm = ChatOpenAI(temperature=0, model="gpt-4o-mini").with_structured_output(CourseQuery, method="function_calling")
-    result = llm.invoke(user_prompt)
+    result = llm.invoke(full_prompt)
     return result.text_query
 
 # Test the function
 if __name__ == "__main__":
     user_prompt = "Find me a stats or simulations class that is computational and not proof based"
-    filters = generate_filters_from_prompt(user_prompt)
-    text_query = get_text_query_from_prompt(user_prompt)
+    filters = generate_filters_from_prompt(user_prompt, conversation_context="")
+    text_query = get_text_query_from_prompt(user_prompt, conversation_context="")
     print(f"Text Query: {text_query}")
     print(f"Filters: {filters}")
     
