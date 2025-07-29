@@ -106,10 +106,7 @@ def build_chroma_filters(q: CourseQuery) -> dict:
 
     # Days (expecting q.days as iterable like ['T','Th'])
     if q.scheduled_days:
-        # The data stores days as strings like "M W" or "M", so we need to check if any of the requested days are in the string
-        # Convert the list of requested days to a string pattern that can match the stored format
-        day_pattern = "|".join(q.scheduled_days)  # e.g., "M|T|W|Th|F"
-        filters["scheduled_days"] = {"$regex": f"({day_pattern})"}
+        filters["scheduled_days"] = {"$in": list(q.scheduled_days)}
 
     # Credits
     if q.credits is not None:
