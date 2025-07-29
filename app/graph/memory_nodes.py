@@ -1,15 +1,12 @@
 import os
 import json
 from typing import Dict, Any
-from dotenv import load_dotenv
-from langchain_openai import ChatOpenAI
 from langchain.prompts import ChatPromptTemplate
 from langchain.schema import HumanMessage, AIMessage
 from app.graph.state_schema import CourseAdvisorState
 from app.prompt_manager import prompt_manager
-
-load_dotenv()
-api_key = os.getenv("OPENAI_API_KEY")
+from app.llm_manager import llm_manager
+from app.graph.conversation_utils import generate_conversation_context
 
 def update_memory_node(state: CourseAdvisorState) -> CourseAdvisorState:
     """Update conversation memory and extract user profile information."""
@@ -23,25 +20,20 @@ def update_memory_node(state: CourseAdvisorState) -> CourseAdvisorState:
         # Add the current user query to history
         history.append(HumanMessage(content=state["user_query"]))
         
-        # Extract user profile information from the query
+        # Create prompt template from the profile extraction prompt
         profile_prompt = ChatPromptTemplate.from_template(prompt_manager.get_prompt("profile_extraction"))
         
-        # Initialize the LLM for profile extraction
-        llm = ChatOpenAI(
-            model="gpt-4o-mini",
-            api_key=api_key,
-            temperature=0.1
-        )
+        # Get shared LLM instance for profile extraction
+        llm = llm_manager.get_memory_llm()
         
-        # Create the chain
-        chain = profile_prompt | llm
+        # Create a chain using the pipe operator
+        profile_chain = profile_prompt | llm
         
         # Prepare conversation context (last 3 exchanges for context)
-        recent_history = history[-6:] if len(history) > 6 else history
-        conversation_context = "\n".join([f"{'User' if isinstance(msg, HumanMessage) else 'AI'}: {msg.content}" for msg in recent_history])
+        conversation_context = generate_conversation_context(history, max_messages=3)
         
-        # Extract profile information
-        profile_response = chain.invoke({
+        # Run the chain with the input variables
+        profile_response = profile_chain.invoke({
             "conversation_context": conversation_context,
             "user_query": state["user_query"]
         })
