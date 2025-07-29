@@ -6,6 +6,7 @@ from langchain.schema import HumanMessage, AIMessage
 from app.graph.state_schema import CourseAdvisorState
 from app.prompt_manager import prompt_manager
 from app.llm_manager import llm_manager
+from app.graph.conversation_utils import generate_conversation_context
 
 def update_memory_node(state: CourseAdvisorState) -> CourseAdvisorState:
     """Update conversation memory and extract user profile information."""
@@ -29,8 +30,7 @@ def update_memory_node(state: CourseAdvisorState) -> CourseAdvisorState:
         profile_chain = profile_prompt | llm
         
         # Prepare conversation context (last 3 exchanges for context)
-        recent_history = history[-6:] if len(history) > 6 else history
-        conversation_context = "\n".join([f"{'User' if isinstance(msg, HumanMessage) else 'AI'}: {msg.content}" for msg in recent_history])
+        conversation_context = generate_conversation_context(history, max_messages=3)
         
         # Run the chain with the input variables
         profile_response = profile_chain.invoke({

@@ -8,6 +8,7 @@ from langchain.schema import HumanMessage
 from app.db_querying.generate_filters import generate_filters_from_prompt
 from app.db_querying.query_courses_from_filter import query_courses_with_filters
 from app.graph.state_schema import CourseAdvisorState
+from app.graph.conversation_utils import generate_conversation_context
 from app.prompt_manager import prompt_manager
 from app.llm_manager import llm_manager
 
@@ -21,8 +22,7 @@ def intent_classification_node(state: CourseAdvisorState) -> CourseAdvisorState:
         user_profile = state.get("user_profile", {})
         
         # Prepare conversation context (last 4 exchanges for context)
-        recent_history = history[-8:] if len(history) > 8 else history
-        conversation_context = "\n".join([f"{'User' if isinstance(msg, HumanMessage) else 'AI'}: {msg.content}" for msg in recent_history])
+        conversation_context = generate_conversation_context(history, max_messages=4)
         
         # Create a prompt for intent classification with memory
         intent_prompt = ChatPromptTemplate.from_template(prompt_manager.get_prompt("intent_classification"))
@@ -62,8 +62,7 @@ def generate_filters_node(state: CourseAdvisorState) -> CourseAdvisorState:
         history = state.get("conversation_history", [])
         
         # Prepare conversation context (last 6 exchanges for context)
-        recent_history = history[-12:] if len(history) > 12 else history
-        conversation_context = "\n".join([f"{'User' if isinstance(msg, HumanMessage) else 'AI'}: {msg.content}" for msg in recent_history])
+        conversation_context = generate_conversation_context(history, max_messages=6)
         
         # Add conversation context to help with follow-up questions
         if conversation_context:
@@ -85,8 +84,7 @@ def search_courses_node(state: CourseAdvisorState) -> CourseAdvisorState:
         history = state.get("conversation_history", [])
         
         # Prepare conversation context (last 6 exchanges for context)
-        recent_history = history[-12:] if len(history) > 12 else history
-        conversation_context = "\n".join([f"{'User' if isinstance(msg, HumanMessage) else 'AI'}: {msg.content}" for msg in recent_history])
+        conversation_context = generate_conversation_context(history, max_messages=6)
         
         # Use the filters from the previous node
         course_results = query_courses_with_filters(
@@ -116,8 +114,7 @@ def advisory_response_node(state: CourseAdvisorState) -> CourseAdvisorState:
         user_profile = state.get("user_profile", {})
         
         # Prepare conversation context (last 6 exchanges for context)
-        recent_history = history[-12:] if len(history) > 12 else history
-        conversation_context = "\n".join([f"{'User' if isinstance(msg, HumanMessage) else 'AI'}: {msg.content}" for msg in recent_history])
+        conversation_context = generate_conversation_context(history, max_messages=6)
         
         # Create an advisory-focused prompt template with memory
         advisory_prompt = ChatPromptTemplate.from_template(prompt_manager.get_prompt("advisory_response"))
@@ -156,8 +153,7 @@ def generate_response_node(state: CourseAdvisorState) -> CourseAdvisorState:
         user_profile = state.get("user_profile", {})
         
         # Prepare conversation context (last 6 exchanges for context)
-        recent_history = history[-12:] if len(history) > 12 else history
-        conversation_context = "\n".join([f"{'User' if isinstance(msg, HumanMessage) else 'AI'}: {msg.content}" for msg in recent_history])
+        conversation_context = generate_conversation_context(history, max_messages=6)
         
         # Choose prompt template based on intent
         if state.get("intent") == "mixed":
