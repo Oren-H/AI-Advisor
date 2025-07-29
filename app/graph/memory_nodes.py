@@ -23,7 +23,7 @@ def update_memory_node(state: CourseAdvisorState) -> CourseAdvisorState:
         # Add the current user query to history
         history.append(HumanMessage(content=state["user_query"]))
         
-        # Extract user profile information from the query
+        # Create prompt template from the profile extraction prompt
         profile_prompt = ChatPromptTemplate.from_template(prompt_manager.get_prompt("profile_extraction"))
         
         # Initialize the LLM for profile extraction
@@ -33,18 +33,18 @@ def update_memory_node(state: CourseAdvisorState) -> CourseAdvisorState:
             temperature=0.1
         )
         
+        # Create a chain using the pipe operator
+        profile_chain = profile_prompt | llm
+        
         # Prepare conversation context (last 3 exchanges for context)
         recent_history = history[-6:] if len(history) > 6 else history
         conversation_context = "\n".join([f"{'User' if isinstance(msg, HumanMessage) else 'AI'}: {msg.content}" for msg in recent_history])
         
-        # Format the prompt with variables
-        formatted_prompt = profile_prompt.format_prompt(
-            conversation_context=conversation_context,
-            user_query=state["user_query"]
-        )
-        
-        # Extract profile information
-        profile_response = llm.invoke(formatted_prompt)
+        # Run the chain with the input variables
+        profile_response = profile_chain.invoke({
+            "conversation_context": conversation_context,
+            "user_query": state["user_query"]
+        })
         
         try:
             new_profile_info = json.loads(profile_response.content)
