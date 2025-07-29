@@ -4,6 +4,7 @@ from typing import List, Optional
 from pydantic import BaseModel, Field
 from langchain_openai import ChatOpenAI
 from app.db_querying.department_codes import dept_codes
+from app.prompt_manager import prompt_manager
 
 # Load environment variables from .env file
 load_dotenv()
@@ -39,24 +40,7 @@ def generate_filters_from_prompt(user_prompt: str) -> dict:
         A dict containing the filters with the proper logic based on the user's query
     """
     # Create a more specific prompt for better extraction
-    enhanced_prompt = f"""
-    Please analyze this course query and extract structured information:
-    
-    Query: "{user_prompt}"
-    
-    Instructions:
-    1. For departments: Extract department names like "literature" (map to ENGL), "computer science" (map to COMS), "math" (map to MATH), etc.
-    2. For time preferences (in minutes from midnight):
-       - "mornings" = time_starting: 480 (8:00am), time_ending: 720 (12:00pm)
-       - "afternoons" = time_starting: 720 (12:00pm), time_ending: 1020 (5:00pm)
-       - "evenings" = time_starting: 1020 (5:00pm), time_ending: 1320 (10:00pm)
-       - "early morning" = time_starting: 420 (7:00am), time_ending: 600 (10:00am)
-       - "before 9:00 PM" = time_ending: 1260 (9:00pm)
-       - "after 2:00 PM" = time_starting: 840 (2:00pm)
-    3. For days: Extract day abbreviations (M, T, W, Th, F)
-    4. For credits: Extract specific credit amounts
-    5. For text_query: Extract keywords for semantic search, excluding department/time/day info
-    """
+    enhanced_prompt = prompt_manager.format_prompt("filter_generation", user_prompt=user_prompt)
     
     llm = ChatOpenAI(temperature=0, model="gpt-4o-mini").with_structured_output(CourseQuery, method="function_calling")
     result = llm.invoke(enhanced_prompt)
@@ -77,14 +61,9 @@ def map_department_to_code(department_name: str, dept_codes: dict) -> List[str]:
     # Create a prompt that lists all available departments and asks for the best match
     dept_list = "\n".join([f"- {dept}: {code}" for dept, code in dept_codes.items()])
     
-    prompt = f"""
-    Given the department name "{department_name}", please find the most likely match from the following list of Columbia University departments and their codes:
-
-    {dept_list}
-
-    Return ONLY the department code (e.g., "COMS", "MATH", etc.) that best matches the department name "{department_name}".
-    If there's no good match, return "UNKNOWN".
-    """
+    prompt = prompt_manager.format_prompt("department_mapping", 
+                                        department_name=department_name, 
+                                        dept_list=dept_list)
     
     # Use a different LLM instance for this mapping task
     mapping_llm = ChatOpenAI(temperature=0, model="gpt-4")

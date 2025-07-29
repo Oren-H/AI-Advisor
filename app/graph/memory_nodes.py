@@ -6,6 +6,7 @@ from langchain_openai import ChatOpenAI
 from langchain.prompts import ChatPromptTemplate
 from langchain.schema import HumanMessage, AIMessage
 from app.graph.state_schema import CourseAdvisorState
+from app.prompt_manager import prompt_manager
 
 load_dotenv()
 api_key = os.getenv("OPENAI_API_KEY")
@@ -23,26 +24,7 @@ def update_memory_node(state: CourseAdvisorState) -> CourseAdvisorState:
         history.append(HumanMessage(content=state["user_query"]))
         
         # Extract user profile information from the query
-        profile_prompt = ChatPromptTemplate.from_template("""
-You are an AI assistant that extracts user profile information from conversations about Columbia University courses and academic planning.
-
-From the user's query, extract any relevant information about:
-- Academic level (first-year, sophomore, junior, senior, graduate)
-- Major/minor interests or current major
-- Academic goals (career, graduate school, research, etc.)
-- Previous coursework or experience mentioned
-- Preferences (course difficulty, workload, specific subjects)
-- Constraints (schedule, prerequisites, etc.)
-
-Return a JSON object with any extracted information. If no relevant information is found, return an empty object {}.
-
-Previous conversation context:
-{conversation_context}
-
-Current user query: {user_query}
-
-Extracted profile information (JSON only):
-""")
+        profile_prompt = ChatPromptTemplate.from_template(prompt_manager.get_prompt("profile_extraction"))
         
         # Initialize the LLM for profile extraction
         llm = ChatOpenAI(
