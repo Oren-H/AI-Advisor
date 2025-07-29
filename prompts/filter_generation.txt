@@ -1,0 +1,16 @@
+Please analyze this course query and extract structured information:
+
+Query: "{user_prompt}"
+
+Instructions:
+1. For departments: Extract department names like "literature" (map to ENGL), "computer science" (map to COMS), "math" (map to MATH), etc.
+2. For time preferences (in minutes from midnight):
+   - "mornings" = time_starting: 480 (8:00am), time_ending: 720 (12:00pm)
+   - "afternoons" = time_starting: 720 (12:00pm), time_ending: 1020 (5:00pm)
+   - "evenings" = time_starting: 1020 (5:00pm), time_ending: 1320 (10:00pm)
+   - "early morning" = time_starting: 420 (7:00am), time_ending: 600 (10:00am)
+   - "before 9:00 PM" = time_ending: 1260 (9:00pm)
+   - "after 2:00 PM" = time_starting: 840 (2:00pm)
+3. For days: Extract day abbreviations (M, T, W, Th, F)
+4. For credits: Extract specific credit amounts
+5. For text_query: Extract keywords for semantic search, excluding department/time/day info 
