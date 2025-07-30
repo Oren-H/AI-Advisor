@@ -92,7 +92,7 @@ function App() {
 
         {/* Input */}
         <InputBar
-          onSendMessage={sendMessage}
+          onSendMessage={(message: string) => sendMessage({ message })}
           isLoading={isLoading}
           isDarkMode={isDarkMode}
           onToggleDarkMode={toggleDarkMode}
