@@ -17,7 +17,7 @@ class LLMManager:
         self._llm_cache = {}
     
     def get_llm(self, 
-                model: str = "gpt-4o-mini", 
+                model: str = "gpt-4.1-mini", 
                 temperature: float = 0.7,
                 use_structured_output: bool = False,
                 structured_output_class: Optional[type] = None) -> ChatOpenAI:
@@ -25,7 +25,7 @@ class LLMManager:
         Get a shared LLM instance with the specified configuration.
         
         Args:
-            model: The model to use (default: gpt-4o-mini)
+            model: The model to use (default: gpt-4.1-mini)
             temperature: The temperature setting (default: 0.7)
             use_structured_output: Whether to use structured output (default: False)
             structured_output_class: The class to use for structured output (required if use_structured_output=True)
@@ -52,24 +52,24 @@ class LLMManager:
     
     def get_intent_classification_llm(self) -> ChatOpenAI:
         """Get LLM optimized for intent classification (low temperature for consistency)."""
-        return self.get_llm(model="gpt-4o-mini", temperature=0.1)
+        return self.get_llm(model="gpt-4.1-mini", temperature=0.1)
     
     def get_advisory_llm(self) -> ChatOpenAI:
         """Get LLM optimized for advisory responses (higher temperature for creativity)."""
-        return self.get_llm(model="gpt-4o-mini", temperature=0.7)
+        return self.get_llm(model="gpt-4.1-mini", temperature=0.7)
     
     def get_response_llm(self) -> ChatOpenAI:
         """Get LLM optimized for general responses."""
-        return self.get_llm(model="gpt-4o-mini", temperature=0.7)
+        return self.get_llm(model="gpt-4.1-mini", temperature=0.7)
     
     def get_memory_llm(self) -> ChatOpenAI:
         """Get LLM optimized for memory/profile extraction (low temperature for accuracy)."""
-        return self.get_llm(model="gpt-4o-mini", temperature=0.1)
+        return self.get_llm(model="gpt-4.1-mini", temperature=0.1)
     
     def get_structured_llm(self, output_class: type) -> ChatOpenAI:
         """Get LLM with structured output for filter generation."""
         return self.get_llm(
-            model="gpt-4o-mini", 
+            model="gpt-4.1-mini", 
             temperature=0, 
             use_structured_output=True,
             structured_output_class=output_class
@@ -77,7 +77,7 @@ class LLMManager:
     
     def get_mapping_llm(self) -> ChatOpenAI:
         """Get LLM optimized for department mapping."""
-        return self.get_llm(model="gpt-4", temperature=0)
+        return self.get_llm(model="gpt-4.1-mini", temperature=0)
 
 # Global instance
 llm_manager = LLMManager() 
