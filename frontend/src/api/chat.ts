@@ -35,6 +35,72 @@ export const sendMessage = async (
   return await response.json();
 };
 
+export const sendMessageStream = async (
+  request: ChatRequest,
+  onToken: (token: string) => void,
+  onMetadata: (metadata: any) => void,
+  onComplete: (metadata: any) => void,
+  onError: (error: string) => void
+): Promise<void> => {
+  const response = await fetch(`${API_URL}/chat/stream`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(request),
+  });
+
+  if (!response.ok) {
+    const errorText = await response.text();
+    throw new Error(`HTTP error! status: ${response.status}, message: ${errorText}`);
+  }
+
+  const reader = response.body?.getReader();
+  const decoder = new TextDecoder();
+
+  if (!reader) {
+    throw new Error('No response body');
+  }
+
+  try {
+    while (true) {
+      const { done, value } = await reader.read();
+      
+      if (done) break;
+
+      const chunk = decoder.decode(value);
+      const lines = chunk.split('\n');
+
+      for (const line of lines) {
+        if (line.startsWith('data: ')) {
+          try {
+            const data = JSON.parse(line.slice(6));
+            
+            switch (data.type) {
+              case 'metadata':
+                onMetadata(data);
+                break;
+              case 'token':
+                onToken(data.content);
+                break;
+              case 'end':
+                onComplete(data);
+                break;
+              case 'error':
+                onError(data.error);
+                break;
+            }
+          } catch (e) {
+            console.error('Error parsing SSE data:', e);
+          }
+        }
+      }
+    }
+  } finally {
+    reader.releaseLock();
+  }
+};
+
 export const getConversations = async (): Promise<Array<{
   conversation_id: string;
   created_at: string;

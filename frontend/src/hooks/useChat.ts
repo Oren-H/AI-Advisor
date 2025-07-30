@@ -1,6 +1,6 @@
 import { useState, useCallback, useEffect } from 'react';
-import { Message, ChatState, SendMessageParams, ChatResponse } from '../types';
-import { sendMessage } from '../api/chat';
+import { Message, ChatState, SendMessageParams } from '../types';
+import { sendMessageStream } from '../api/chat';
 
 // Local storage key for persisting chat history
 const CHAT_STORAGE_KEY = 'ai-advisor-chat-history';
@@ -14,6 +14,7 @@ export const useChat = () => {
     conversationId: undefined,
     userProfile: {},
   });
+  const [streamingMessageId, setStreamingMessageId] = useState<string | null>(null);
 
   // Load chat history and conversation ID from localStorage on mount
   useEffect(() => {
@@ -73,6 +74,7 @@ export const useChat = () => {
     };
 
     addMessage(assistantMessage);
+    setStreamingMessageId(assistantMessage.id);
     setState(prev => ({ ...prev, isLoading: true, error: null }));
 
     try {
@@ -83,29 +85,60 @@ export const useChat = () => {
         user_profile: params.userProfile || state.userProfile,
       };
 
-      const response: ChatResponse = await sendMessage(request);
-      
-      // Update the assistant message with the response
-      setState(prev => ({
-        ...prev,
-        messages: prev.messages.map((msg, index) =>
-          index === prev.messages.length - 1
-            ? { ...msg, content: response.response }
-            : msg
-        ),
-        conversationId: response.conversation_id,
-        userProfile: { ...prev.userProfile, ...response.filters },
-        isLoading: false,
-      }));
+      // Use streaming API
+      await sendMessageStream(
+        request,
+        // onToken callback
+        (token: string) => {
+          setState(prev => ({
+            ...prev,
+            messages: prev.messages.map((msg) =>
+              msg.id === assistantMessage.id
+                ? { ...msg, content: msg.content + token }
+                : msg
+            ),
+          }));
+        },
+        // onMetadata callback
+        (metadata: any) => {
+          setState(prev => ({
+            ...prev,
+            conversationId: metadata.conversation_id,
+            userProfile: { ...prev.userProfile, ...metadata.filters },
+          }));
+        },
+        // onComplete callback
+        (metadata: any) => {
+          setState(prev => ({
+            ...prev,
+            isLoading: false,
+          }));
+          setStreamingMessageId(null);
 
-      // Log additional information for debugging
-      if (response.course_results && response.course_results.length > 0) {
-        console.log('Course results:', response.course_results);
-      }
-      if (response.filters) {
-        console.log('Applied filters:', response.filters);
-      }
-      console.log('Intent:', response.intent);
+          // Log additional information for debugging
+          if (metadata.course_results && metadata.course_results.length > 0) {
+            console.log('Course results:', metadata.course_results);
+          }
+          if (metadata.filters) {
+            console.log('Applied filters:', metadata.filters);
+          }
+          console.log('Intent:', metadata.intent);
+        },
+        // onError callback
+        (error: string) => {
+          setState(prev => ({
+            ...prev,
+            error: error,
+            isLoading: false,
+          }));
+          setStreamingMessageId(null);
+          // Remove the failed assistant message
+          setState(prev => ({
+            ...prev,
+            messages: prev.messages.filter(msg => msg.id !== assistantMessage.id),
+          }));
+        }
+      );
 
     } catch (error) {
       setState(prev => ({
@@ -113,6 +146,7 @@ export const useChat = () => {
         error: error instanceof Error ? error.message : 'Failed to send message',
         isLoading: false,
       }));
+      setStreamingMessageId(null);
       // Remove the failed assistant message
       setState(prev => ({
         ...prev,
@@ -152,6 +186,7 @@ export const useChat = () => {
 
   return {
     ...state,
+    streamingMessageId,
     sendMessage: sendUserMessage,
     clearChat,
     retryLastMessage,

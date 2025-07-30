@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { MessageList } from './components/MessageList';
 import { InputBar } from './components/InputBar';
 import { useChat } from './hooks/useChat';
 import { X, RotateCcw } from 'lucide-react';
 
 function App() {
-  const { messages, isLoading, error, sendMessage, clearChat, retryLastMessage } = useChat();
+  const { messages, isLoading, error, streamingMessageId, sendMessage, clearChat, retryLastMessage } = useChat();
   const [isDarkMode, setIsDarkMode] = useState(() => {
     const saved = localStorage.getItem('ai-advisor-dark-mode');
     return saved ? JSON.parse(saved) : window.matchMedia('(prefers-color-scheme: dark)').matches;
@@ -88,7 +88,11 @@ function App() {
         )}
 
         {/* Messages */}
-        <MessageList messages={messages} isLoading={isLoading} />
+        <MessageList 
+          messages={messages} 
+          isLoading={isLoading} 
+          streamingMessageId={streamingMessageId}
+        />
 
         {/* Input */}
         <InputBar

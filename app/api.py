@@ -1,5 +1,6 @@
 from fastapi import FastAPI, HTTPException, BackgroundTasks
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import StreamingResponse
 from pydantic import BaseModel, Field
 from typing import Dict, List, Any, Optional
 import json
@@ -125,6 +126,89 @@ async def chat(request: ChatRequest):
     except Exception as e:
         print(f"❌ Error in chat endpoint: {e}")
         raise HTTPException(status_code=500, detail=f"Internal server error: {str(e)}")
+
+@app.post("/chat/stream")
+async def chat_stream(request: ChatRequest):
+    """Streaming chat endpoint for real-time response generation"""
+    async def generate_stream():
+        try:
+            # Generate conversation ID if not provided
+            conversation_id = request.conversation_id or str(uuid.uuid4())
+            
+            # Get or create conversation history
+            if conversation_id in conversations:
+                conversation_history = conversations[conversation_id]["history"]
+                user_profile = conversations[conversation_id].get("user_profile", {})
+            else:
+                conversation_history = []
+                user_profile = request.user_profile or {}
+                conversations[conversation_id] = {
+                    "history": conversation_history,
+                    "user_profile": user_profile,
+                    "created_at": datetime.now(),
+                    "last_updated": datetime.now()
+                }
+            
+            # Prepare initial state
+            initial_state: CourseAdvisorState = {
+                "user_query": request.message,
+                "intent": "",
+                "filters": {},
+                "course_results": [],
+                "course_info_json": "",
+                "response": "",
+                "error": "",
+                "conversation_history": conversation_history,
+                "user_profile": user_profile
+            }
+            
+            # Run the graph
+            print(f"🚀 Processing streaming query: {request.message}")
+            final_state = await course_advisor_graph.ainvoke(initial_state)
+            
+            # Update conversation storage
+            conversations[conversation_id]["history"] = final_state["conversation_history"]
+            conversations[conversation_id]["user_profile"] = final_state["user_profile"]
+            conversations[conversation_id]["last_updated"] = datetime.now()
+            
+            # Stream the response character by character
+            response_text = final_state["response"]
+            
+            # Send metadata first
+            metadata = {
+                "type": "metadata",
+                "conversation_id": conversation_id,
+                "intent": final_state["intent"],
+                "course_results": final_state.get("course_results"),
+                "filters": final_state.get("filters"),
+                "error": final_state.get("error")
+            }
+            yield f"data: {json.dumps(metadata)}\n\n"
+            
+            # Stream the response text
+            for char in response_text:
+                yield f"data: {json.dumps({'type': 'token', 'content': char})}\n\n"
+                # Small delay to simulate real streaming
+                import asyncio
+                await asyncio.sleep(0.02)  # 20ms delay
+            
+            # Send end marker
+            yield f"data: {json.dumps({'type': 'end'})}\n\n"
+            
+        except Exception as e:
+            print(f"❌ Error in streaming chat endpoint: {e}")
+            error_data = {"type": "error", "error": str(e)}
+            yield f"data: {json.dumps(error_data)}\n\n"
+    
+    return StreamingResponse(
+        generate_stream(),
+        media_type="text/plain",
+        headers={
+            "Cache-Control": "no-cache",
+            "Connection": "keep-alive",
+            "Content-Type": "text/event-stream",
+        }
+    )
 
 @app.get("/conversations", response_model=List[ConversationInfo])
 async def list_conversations():
