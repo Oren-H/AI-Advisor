@@ -96,7 +96,7 @@ def search_courses_node(state: CourseAdvisorState) -> CourseAdvisorState:
         course_results = query_courses_with_filters(
             state['user_query'], 
             filters=state['filters'], 
-            k=5,
+            k=15,
             conversation_context=conversation_context
         )
         
