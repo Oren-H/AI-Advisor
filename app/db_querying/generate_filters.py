@@ -41,7 +41,13 @@ def generate_filters_from_prompt(user_prompt: str, conversation_context: str = "
         prompt_manager.get_prompt("filter_generation")
     )
     
-    llm = llm_manager.get_openai_structured_llm(CourseQuery)
+    llm = llm_manager.get_llm(
+        model_provider="openai",
+        model="gpt-4.1-mini",
+        temperature=0,
+        use_structured_output=True,
+        structured_output_class=CourseQuery
+    )
     chain = prompt_template | llm
     
     result = chain.invoke({
@@ -51,44 +57,6 @@ def generate_filters_from_prompt(user_prompt: str, conversation_context: str = "
     
     filter_dict = build_chroma_filters(result)
     return filter_dict, result.text_query
-
-def map_department_to_code(department_name: str, dept_codes: dict) -> List[str]:
-    """
-    DEPRECATED: Use generate_filters_from_prompt instead, which includes department codes directly.
-    
-    Use an LLM to map a department name to its corresponding department code.
-    
-    Args:
-        department_name: The department name to map
-        dept_codes: Dictionary mapping department names to codes
-    
-    Returns:
-        A list of department codes that most likely corresponds to the department name
-    """
-    # Create a prompt that lists all available departments and asks for the best match
-    dept_list = "\n".join([f"- {dept}: {code}" for dept, code in dept_codes.items()])
-    
-    # Create langchain chain with prompt template and LLM
-    prompt_template = PromptTemplate.from_template(
-        prompt_manager.get_prompt("department_mapping")
-    )
-    
-    mapping_llm = llm_manager.get_openai_mapping_llm()
-    chain = prompt_template | mapping_llm
-    
-    response = chain.invoke({
-        "department_name": department_name,
-        "dept_list": dept_list
-    })
-    
-    # Extract the department code from the response
-    dept_code = response.content.strip()
-    
-    # Validate that the returned code exists in our dictionary
-    if dept_code in dept_codes.values():
-        return dept_code
-    else:
-        return "UNKNOWN"
 
 def build_chroma_filters(q: CourseQuery) -> dict:
     """
@@ -150,23 +118,6 @@ def to_chroma_where(flat: dict) -> dict:
     if len(clauses) == 1:
         return clauses[0]          # legal: single-field filter
     return {"$and": clauses}
-
-def get_text_query_from_prompt(user_prompt: str, conversation_context: str = "") -> str:
-    """
-    DEPRECATED: Use generate_filters_from_prompt instead, which returns both filters and text query.
-    
-    Extract the text query component from a user prompt for semantic search.
-    
-    Args:
-        user_prompt: The user's natural language query
-        conversation_context: Optional conversation history for context
-    
-    Returns:
-        Text query for semantic search
-    """
-    # Use the combined function and return only the text query
-    _, text_query = generate_filters_from_prompt(user_prompt, conversation_context)
-    return text_query
 
 # Test the function
 if __name__ == "__main__":
