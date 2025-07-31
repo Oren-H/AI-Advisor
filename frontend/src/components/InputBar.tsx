@@ -25,7 +25,7 @@ export const InputBar: React.FC<InputBarProps> = ({
   };
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
-    if (e.key === 'Enter' && (e.metaKey || e.ctrlKey)) {
+    if (e.key === 'Enter' && !e.shiftKey) {
       e.preventDefault();
       handleSubmit();
     }
@@ -54,7 +54,7 @@ export const InputBar: React.FC<InputBarProps> = ({
             value={message}
             onChange={handleTextareaChange}
             onKeyDown={handleKeyDown}
-            placeholder="Type your message... (⌘/Ctrl+Enter to send)"
+            placeholder="Type your message... (Enter to send, Shift+Enter for new line)"
             className="w-full resize-none border border-gray-300 dark:border-gray-600 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 placeholder-gray-500 dark:placeholder-gray-400 min-h-[40px] max-h-[144px]"
             rows={1}
             disabled={isLoading}
