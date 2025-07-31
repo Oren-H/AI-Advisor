@@ -54,7 +54,7 @@ AI-Advisor/
 - Node.js 16+
 - OpenAI API key
 
-### Installation
+### Installation & Setup
 
 1. **Clone the repository**
    ```bash
@@ -62,46 +62,76 @@ AI-Advisor/
    cd AI-Advisor
    ```
 
-2. **Set up Python environment**
+2. **Set up Python virtual environment**
    ```bash
-   python -m venv rag_env
+   python3 -m venv rag_env
    source rag_env/bin/activate  # On Windows: rag_env\Scripts\activate
+   ```
+
+3. **Install backend dependencies**
+   ```bash
+   # Install API-specific dependencies
+   pip install -r requirements_api.txt
+   
+   # Install full project dependencies if needed
    pip install -r requirements.txt
    ```
 
-3. **Set up environment variables**
+4. **Set up environment variables**
    ```bash
    cp frontend/env.example frontend/.env
-   # Add your OpenAI API key to .env
+   # Add your OpenAI API key to the .env file
    ```
 
-4. **Build the vector database**
-   ```bash
-   cd app/db_building
-   python build_vector_db.py
-   ```
-
-5. **Install the package in development mode**
-   ```bash
-   pip install -e .
-   ```
-
-6. **Build the vector database**
-   ```bash
-   python app/db_building/build_vector_db.py
-   ```
-
-7. **Start the backend**
-   ```bash
-   python scripts/graph_runner.py
-   ```
-
-6. **Start the frontend** (in a new terminal)
+5. **Install frontend dependencies**
    ```bash
    cd frontend
    npm install
-   npm run dev
+   cd ..
    ```
+
+### Starting the Application
+
+#### Method 1: Manual Start (Recommended for Development)
+
+**Terminal 1 - Backend:**
+```bash
+# Activate virtual environment
+source rag_env/bin/activate
+
+# Start the API server
+python3 scripts/run_api.py
+```
+The backend will be available at: http://localhost:8000
+
+**Terminal 2 - Frontend:**
+```bash
+cd frontend
+npm run dev
+```
+The frontend will be available at: http://localhost:3000 (or 3001 if 3000 is busy)
+
+#### Method 2: Development Script
+```bash
+# Fix the startup script first
+chmod +x start_dev.sh
+
+# Note: You may need to edit start_dev.sh to use python3 instead of python
+./start_dev.sh
+```
+
+### Verify Installation
+
+1. **Check backend health:**
+   ```bash
+   curl http://localhost:8000/
+   ```
+
+2. **View API documentation:**
+   Open http://localhost:8000/docs in your browser
+
+3. **Test the frontend:**
+   Open http://localhost:3000 in your browser and send a test message
 
 ## Usage Examples
 
