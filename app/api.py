@@ -8,6 +8,7 @@ import uuid
 from datetime import datetime
 
 from app.graph.graph_builder import create_course_advisor_graph
+from app.graph.simpler_graph_builder import create_simplified_course_advisor_graph
 from app.graph.state_schema import CourseAdvisorState
 from langchain.schema import HumanMessage, AIMessage
 
@@ -28,7 +29,7 @@ app.add_middleware(
 )
 
 # Initialize the graph
-course_advisor_graph = create_course_advisor_graph()
+course_advisor_graph = create_simplified_course_advisor_graph()
 
 # In-memory storage for conversations (use a proper database in production)
 conversations: Dict[str, Dict[str, Any]] = {}
