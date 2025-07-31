@@ -41,7 +41,7 @@ def generate_filters_from_prompt(user_prompt: str, conversation_context: str = "
         prompt_manager.get_prompt("filter_generation")
     )
     
-    llm = llm_manager.get_structured_llm(CourseQuery)
+    llm = llm_manager.get_openai_structured_llm(CourseQuery)
     chain = prompt_template | llm
     
     result = chain.invoke({
@@ -73,7 +73,7 @@ def map_department_to_code(department_name: str, dept_codes: dict) -> List[str]:
         prompt_manager.get_prompt("department_mapping")
     )
     
-    mapping_llm = llm_manager.get_mapping_llm()
+    mapping_llm = llm_manager.get_openai_mapping_llm()
     chain = prompt_template | mapping_llm
     
     response = chain.invoke({
