@@ -1,6 +1,7 @@
 import os
-from typing import List, Optional
+from typing import List, Optional, Tuple
 from pydantic import BaseModel, Field
+from langchain_core.prompts import PromptTemplate
 from app.db_querying.department_codes import dept_codes
 from app.prompt_manager import prompt_manager
 from app.llm_manager import llm_manager
@@ -9,14 +10,12 @@ from app.llm_manager import llm_manager
 class CourseQuery(BaseModel):
     text_query: str = Field(
         description="Free-text keywords that should be used for vector search.")
-    department_descriptions: List[str] = Field(
+    department_codes: List[str] = Field(
         description=(
-        "List of ALL department or field names the query refers to "
-        "(e.g. 'math', 'statistics', 'computer science', 'physics'). "
-        "Include broad synonyms such as 'mathy' or 'life-sciences'. "
-        "Return plain names, not codes, and include every one that applies."
-        "Example: 'literature' -> ['English', 'Literature']"
-        "Example: 'simulation' -> ['Computer Science', 'Operations Research', 'Statistics', 'Math']"
+        "List of department codes ONLY if the user explicitly mentions specific departments. "
+        "Use the exact department codes provided in the prompt (e.g., 'COMS', 'MATH', 'STAT'). "
+        "Only include codes if the user specifically names departments like 'computer science', "
+        "'mathematics', 'statistics', etc. Do NOT assign codes for general topics."
         )
     )
     scheduled_days: List[str] = Field(description="Day abbreviations M,T,W,Th,F.")
@@ -25,29 +24,38 @@ class CourseQuery(BaseModel):
     credits: Optional[float] = Field(description="Number of credits the course is worth.")
     type: Optional[str] = Field(description="Type of course, such as 'LECTURE', 'SEMINAR', 'LAB', 'RECITATION', 'OTHER'.")
 
-def generate_filters_from_prompt(user_prompt: str, conversation_context: str = "") -> dict:
+def generate_filters_from_prompt(user_prompt: str, conversation_context: str = "") -> Tuple[dict, str]:
     """
-    Generates a dict containing filters with the proper logic based on the user's query.
+    Generates both filters and text query from the user's query in a single LLM call.
+    Includes department codes directly in the prompt and only assigns them if explicitly requested.
     
     Args:
         user_prompt: A string containing the user's query
         conversation_context: Optional conversation history for context
     
     Returns:
-        A dict containing the filters with the proper logic based on the user's query
+        A tuple containing (filter_dict, text_query)
     """
-    # Create a more specific prompt for better extraction with conversation context
-    enhanced_prompt = prompt_manager.format_prompt("filter_generation", 
-                                                  user_prompt=user_prompt,
-                                                  conversation_context=conversation_context)
+    # Create langchain chain with prompt template and structured LLM
+    prompt_template = PromptTemplate.from_template(
+        prompt_manager.get_prompt("filter_generation")
+    )
     
     llm = llm_manager.get_structured_llm(CourseQuery)
-    result = llm.invoke(enhanced_prompt)
+    chain = prompt_template | llm
+    
+    result = chain.invoke({
+        "user_prompt": user_prompt,
+        "conversation_context": conversation_context
+    })
+    
     filter_dict = build_chroma_filters(result)
-    return filter_dict
+    return filter_dict, result.text_query
 
 def map_department_to_code(department_name: str, dept_codes: dict) -> List[str]:
     """
+    DEPRECATED: Use generate_filters_from_prompt instead, which includes department codes directly.
+    
     Use an LLM to map a department name to its corresponding department code.
     
     Args:
@@ -60,13 +68,18 @@ def map_department_to_code(department_name: str, dept_codes: dict) -> List[str]:
     # Create a prompt that lists all available departments and asks for the best match
     dept_list = "\n".join([f"- {dept}: {code}" for dept, code in dept_codes.items()])
     
-    prompt = prompt_manager.format_prompt("department_mapping", 
-                                        department_name=department_name, 
-                                        dept_list=dept_list)
+    # Create langchain chain with prompt template and LLM
+    prompt_template = PromptTemplate.from_template(
+        prompt_manager.get_prompt("department_mapping")
+    )
     
-    # Use shared LLM instance for mapping task
     mapping_llm = llm_manager.get_mapping_llm()
-    response = mapping_llm.invoke(prompt)
+    chain = prompt_template | mapping_llm
+    
+    response = chain.invoke({
+        "department_name": department_name,
+        "dept_list": dept_list
+    })
     
     # Extract the department code from the response
     dept_code = response.content.strip()
@@ -84,21 +97,17 @@ def build_chroma_filters(q: CourseQuery) -> dict:
     """
     filters = {}
 
-    # Department
-    if q.department_descriptions:
-        # q.department is a list, so we need to map each department
-        print("department_descriptions: " + str(q.department_descriptions))
-        mapped_departments = []
-        for department in q.department_descriptions:
-            mapped = map_department_to_code(department, dept_codes)
-            if mapped and mapped != "UNKNOWN":
-                mapped_departments.append(mapped)
+    # Department - now using direct department codes from LLM
+    if q.department_codes:
+        print("department_codes: " + str(q.department_codes))
+        # Validate that all codes exist in our department codes
+        valid_codes = [code for code in q.department_codes if code in dept_codes.values()]
         
-        if mapped_departments:
-            if len(mapped_departments) == 1:
-                filters["department_code"] = mapped_departments[0]
+        if valid_codes:
+            if len(valid_codes) == 1:
+                filters["department_code"] = valid_codes[0]
             else:
-                filters["department_code"] = {"$in": mapped_departments}
+                filters["department_code"] = {"$in": valid_codes}
 
     # Days (expecting q.days as iterable like ['T','Th'])
     if q.scheduled_days:
@@ -144,6 +153,8 @@ def to_chroma_where(flat: dict) -> dict:
 
 def get_text_query_from_prompt(user_prompt: str, conversation_context: str = "") -> str:
     """
+    DEPRECATED: Use generate_filters_from_prompt instead, which returns both filters and text query.
+    
     Extract the text query component from a user prompt for semantic search.
     
     Args:
@@ -153,21 +164,14 @@ def get_text_query_from_prompt(user_prompt: str, conversation_context: str = "")
     Returns:
         Text query for semantic search
     """
-    # Create a prompt that includes conversation context if available
-    if conversation_context:
-        full_prompt = f"Conversation Context:\n{conversation_context}\n\nCurrent Query: {user_prompt}"
-    else:
-        full_prompt = user_prompt
-    
-    llm = llm_manager.get_structured_llm(CourseQuery)
-    result = llm.invoke(full_prompt)
-    return result.text_query
+    # Use the combined function and return only the text query
+    _, text_query = generate_filters_from_prompt(user_prompt, conversation_context)
+    return text_query
 
 # Test the function
 if __name__ == "__main__":
     user_prompt = "Find me a stats or simulations class that is computational and not proof based"
-    filters = generate_filters_from_prompt(user_prompt, conversation_context="")
-    text_query = get_text_query_from_prompt(user_prompt, conversation_context="")
+    filters, text_query = generate_filters_from_prompt(user_prompt, conversation_context="")
     print(f"Text Query: {text_query}")
     print(f"Filters: {filters}")
     

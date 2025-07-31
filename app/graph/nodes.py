@@ -72,9 +72,10 @@ def generate_filters_node(state: CourseAdvisorState) -> CourseAdvisorState:
         if conversation_context:
             conversation_context = f"Conversation Context:\n{conversation_context}\n"
         
-        filters = generate_filters_from_prompt(state['user_query'], conversation_context)
+        filters, text_query = generate_filters_from_prompt(state['user_query'], conversation_context)
         print(f"✅ Generated filters: {filters}")
-        return {**state, "filters": filters, "error": ""}
+        print(f"✅ Generated text query: {text_query}")
+        return {**state, "filters": filters, "text_query": text_query, "error": ""}
     except Exception as e:
         print(f"❌ Error generating filters: {e}")
         return {**state, "filters": {}, "error": f"Failed to generate filters: {str(e)}"}

@@ -194,7 +194,7 @@ response = run_course_advisor("I need computer science classes")
 from app.db_querying.generate_filters import generate_filters_from_prompt
 from app.db_querying.query_courses_from_filter import query_courses
 
-filters = generate_filters_from_prompt("computer science morning classes")
+filters, text_query = generate_filters_from_prompt("computer science morning classes")
 courses = query_courses(filters)
 ```
 

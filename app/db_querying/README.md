@@ -50,7 +50,7 @@ from query_courses_from_filter import query_courses
 
 # Generate filters from natural language
 user_query = "I want computer science classes in the morning on Mondays and Wednesdays"
-filters = generate_filters_from_prompt(user_query)
+filters, text_query = generate_filters_from_prompt(user_query)
 
 # Query courses with filters
 courses = query_courses(filters)
