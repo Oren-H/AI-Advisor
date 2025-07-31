@@ -21,7 +21,7 @@ from app.graph.memory_nodes import (
     finalize_memory_node
 )
 
-def create_course_advisor_graph():
+def create_simplified_course_advisor_graph():
     """Create the LangGraph for the course advisor."""
     
     # Create the workflow
