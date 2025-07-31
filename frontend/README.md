@@ -15,38 +15,50 @@ A lightweight, production-ready chat UI for the AI Advisor course recommendation
 
 ## Prerequisites
 
-- Node.js 18+ and npm/pnpm
+- Node.js 16+ and npm
 - Backend API running (see main project README)
 
 ## Installation
 
 1. **Install dependencies:**
    ```bash
-   pnpm install
+   npm install
    ```
 
-2. **Set up environment variables:**
-   Create a `.env` file in the frontend directory:
+2. **Set up environment variables (optional):**
+   Create a `.env` file in the frontend directory if you need to customize the API URL:
    ```bash
    VITE_API_URL=http://localhost:8000
    ```
    
-   Replace with your actual backend URL if different.
+   The default API URL is `http://localhost:8000` - only change this if your backend runs on a different port.
 
 3. **Start the development server:**
    ```bash
-   pnpm dev
+   npm run dev
    ```
 
 4. **Open your browser:**
-   Navigate to `http://localhost:3000`
+   Navigate to `http://localhost:3000` (or the port shown in your terminal)
 
 ## Available Scripts
 
-- `pnpm dev` - Start development server
-- `pnpm build` - Build for production
-- `pnpm preview` - Preview production build
-- `pnpm lint` - Run ESLint
+- `npm run dev` - Start development server
+- `npm run build` - Build for production  
+- `npm run preview` - Preview production build
+- `npm run lint` - Run ESLint
+
+## Quick Development Setup
+
+If you just want to get the frontend running quickly:
+
+```bash
+cd frontend
+npm install
+npm run dev
+```
+
+**Note:** The frontend will automatically try port 3000, but if it's busy, Vite will use the next available port (like 3001).
 
 ## Project Structure
 
@@ -122,12 +134,18 @@ data: [DONE]
 ### Common Issues
 
 **"Module not found" errors:**
-- Run `pnpm install` to ensure all dependencies are installed
-- Check that Node.js version is 18+
+- Run `npm install` to ensure all dependencies are installed
+- Check that Node.js version is 16+
+
+**"Failed to fetch" errors:**
+- Make sure the backend API is running on `http://localhost:8000`
+- Check that your virtual environment is activated: `source rag_env/bin/activate`
+- Verify backend dependencies are installed: `pip install -r requirements_api.txt`
+- Test backend health: `curl http://localhost:8000/`
 
 **Backend connection issues:**
-- Verify `VITE_API_URL` is correct
-- Ensure backend server is running
+- Verify `VITE_API_URL` is correct (default: `http://localhost:8000`) 
+- Ensure backend server is running with: `python3 scripts/run_api.py`
 - Check CORS configuration on backend
 
 **Dark mode not working:**

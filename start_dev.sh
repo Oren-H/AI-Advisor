@@ -41,9 +41,13 @@ if [ ! -d "frontend/node_modules" ]; then
     cd ..
 fi
 
-# Start the FastAPI backend
+# Activate virtual environment and start the FastAPI backend
 echo "🔧 Starting FastAPI backend..."
-python scripts/run_api.py &
+if [ -d "rag_env" ]; then
+    echo "  ✓ Activating virtual environment..."
+    source rag_env/bin/activate
+fi
+python3 scripts/run_api.py &
 BACKEND_PID=$!
 
 # Wait a moment for backend to start
@@ -68,10 +72,10 @@ cd ..
 # Wait a moment for frontend to start
 sleep 3
 
-echo "✅ Frontend is running on http://localhost:5173"
+echo "✅ Frontend is starting (check terminal output for actual port)"
 echo ""
 echo "🌐 Access your application:"
-echo "   Frontend: http://localhost:5173"
+echo "   Frontend: http://localhost:3000 (or next available port)"
 echo "   Backend API: http://localhost:8000"
 echo "   API Docs: http://localhost:8000/docs"
 echo ""
