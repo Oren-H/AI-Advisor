@@ -65,3 +65,6 @@ class PromptManager:
 
 # Global prompt manager instance
 prompt_manager = PromptManager() 
+
+if __name__ == "__main__":
+    prompt_manager.clear_cache()

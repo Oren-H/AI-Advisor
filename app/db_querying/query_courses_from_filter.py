@@ -31,7 +31,11 @@ def query_courses_with_filters(query: str, filters: dict = None, k: int = 1, con
         
         # Perform semantic search with filters
         print(f"Performing semantic search: {enhanced_query}")
-        results = vectordb.similarity_search(enhanced_query, k=k, filter=filters)
+        # Only pass filters if they're not empty
+        if filters:
+            results = vectordb.similarity_search(enhanced_query, k=k, filter=filters)
+        else:
+            results = vectordb.similarity_search(enhanced_query, k=k)
         # results = [d for d in raw if metadata_matches_filters(d.metadata, filters)]
 
         # Display results
@@ -73,13 +77,14 @@ def query_courses_with_filters(query: str, filters: dict = None, k: int = 1, con
 if __name__ == "__main__":
     # Example queries
     queries = [
-        "Find me an EE class that works with computer architecture"
+        "Find me courses on foreign literature in the morning"
     ]
     
     for query in queries:
         print("=" * 60)
-        filters = generate_filters_from_prompt(query)
-        print(filters)
-        results = query_courses_with_filters(query, filters=filters, k=5, conversation_context="")
+        filters, text_query = generate_filters_from_prompt(query)
+        print(f"Filters: {filters}")
+        print(f"Text Query: {text_query}")
+        results = query_courses_with_filters(query, filters=filters, k=10, conversation_context="")
         print(results)
    
