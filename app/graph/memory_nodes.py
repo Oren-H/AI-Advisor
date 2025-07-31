@@ -24,7 +24,7 @@ def update_memory_node(state: CourseAdvisorState) -> CourseAdvisorState:
         profile_prompt = ChatPromptTemplate.from_template(prompt_manager.get_prompt("profile_extraction"))
         
         # Get shared LLM instance for profile extraction
-        llm = llm_manager.get_memory_llm()
+        llm = llm_manager.get_openai_memory_llm()
         
         # Create a chain using the pipe operator
         profile_chain = profile_prompt | llm
