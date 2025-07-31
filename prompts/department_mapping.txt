@@ -1,6 +1,0 @@
-Given the department name "{department_name}", please find the most likely match from the following list of Columbia University departments and their codes:
-
-{dept_list}
-
-Return ONLY the department code (e.g., "COMS", "MATH", etc.) that best matches the department name "{department_name}".
-If there's no good match, return "UNKNOWN". 

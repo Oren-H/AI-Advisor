@@ -20,7 +20,7 @@ class LLMManager:
     
     def get_llm(self, 
                 model_provider: str,
-                model: str = "gpt-4.1-mini", 
+                model: str = "o4-mini", 
                 temperature: float = 0.7,
                 use_structured_output: bool = False,
                 structured_output_class: Optional[type] = None):
@@ -29,7 +29,7 @@ class LLMManager:
         
         Args:
             model_provider: The provider to use ("openai" or "cerebras")
-            model: The model to use (default: gpt-4.1-mini)
+            model: The model to use (default: o4-mini)
             temperature: The temperature setting (default: 0.7)
             use_structured_output: Whether to use structured output (default: False, OpenAI only)
             structured_output_class: The class to use for structured output (required if use_structured_output=True)
@@ -67,6 +67,34 @@ class LLMManager:
         
         return self._llm_cache[cache_key]
 
-    
+    def clear_cache(self):
+        """
+        Clear all cached LLM instances.
+        
+        This is useful for:
+        - Debugging configuration issues
+        - Memory management in long-running applications
+        - Forcing recreation of LLM instances after configuration changes
+        """
+        self._llm_cache.clear()
+        print(f"✅ LLM cache cleared. All cached instances have been removed.")
+
+    def get_cache_info(self):
+        """
+        Get information about the current cache state.
+        
+        Returns:
+            dict: Cache statistics including number of cached instances and their keys
+        """
+        cache_keys = list(self._llm_cache.keys())
+        return {
+            "cached_instances": len(cache_keys),
+            "cache_keys": cache_keys
+        }
+
+
 # Global instance
-llm_manager = LLMManager() 
+llm_manager = LLMManager()
+
+if __name__ == "__main__":
+    llm_manager.clear_cache()
