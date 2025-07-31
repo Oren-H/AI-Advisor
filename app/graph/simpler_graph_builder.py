@@ -36,10 +36,10 @@ def create_simplified_course_advisor_graph():
     
     # Add edges with conditional routing
     workflow.add_edge(START, "update_memory")
-    workflow.add_edge(update_memory_node, "generate_filters")
-    workflow.add_edge(generate_filters_node, "search_courses")
-    workflow.add_edge(search_courses_node, "generate_response")
-    workflow.add_edge(generate_response_node, "finalize_memory")
-    workflow.add_edge(finalize_memory_node, END)
+    workflow.add_edge("update_memory", "generate_filters")
+    workflow.add_edge("generate_filters", "search_courses")
+    workflow.add_edge("search_courses", "generate_response")
+    workflow.add_edge("generate_response", "finalize_memory")
+    workflow.add_edge("finalize_memory", END)
     
-    return workflow
+    return workflow.compile()
