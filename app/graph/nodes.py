@@ -31,7 +31,7 @@ def intent_classification_node(state: CourseAdvisorState) -> CourseAdvisorState:
         intent_prompt = ChatPromptTemplate.from_template(prompt_manager.get_prompt("intent_classification"))
         
         # Get shared LLM instance
-        llm = llm_manager.get_intent_classification_llm()
+        llm = llm_manager.get_llm(model_provider="openai", temperature=0.1)
         
         # Create the chain
         chain = intent_prompt | llm
@@ -127,7 +127,7 @@ def advisory_response_node(state: CourseAdvisorState) -> CourseAdvisorState:
         advisory_prompt = ChatPromptTemplate.from_template(prompt_manager.get_prompt("advisory_response"))
         
         # Get shared LLM instance
-        llm = llm_manager.get_advisory_llm()
+        llm = llm_manager.get_llm(model_provider="openai", temperature=0.7)
         
         # Create the chain
         chain = advisory_prompt | llm
@@ -172,7 +172,7 @@ def generate_response_node(state: CourseAdvisorState) -> CourseAdvisorState:
             prompt_template = ChatPromptTemplate.from_template(prompt_manager.get_prompt("specific_response"))
         
         # Get shared LLM instance
-        llm = llm_manager.get_response_llm()
+        llm = llm_manager.get_llm(model_provider="openai", temperature=0.7)
         
         # Create the chain
         chain = prompt_template | llm

@@ -86,7 +86,7 @@ def generate_response_node(state: CourseAdvisorState) -> CourseAdvisorState:
         # Choose prompt template based on intent
         
         # Get shared LLM instance
-        llm = llm_manager.get_response_llm()
+        llm = llm_manager.get_llm(model_provider="cerebras", model="llama-4-scout-17b-16e-instruct")
         
         # Create the chain
         chain = prompt_template | llm
