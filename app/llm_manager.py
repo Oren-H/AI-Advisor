@@ -20,8 +20,8 @@ class LLMManager:
     
     def get_llm(self, 
                 model_provider: str,
-                model: str = "o4-mini", 
-                temperature: float = 0.7,
+                model: str = "gpt-4o-mini", 
+                temperature: int = 1,
                 use_structured_output: bool = False,
                 structured_output_class: Optional[type] = None):
         """

@@ -94,6 +94,7 @@ async def chat(request: ChatRequest):
             "user_query": request.message,
             "intent": "",
             "filters": {},
+            "text_query": "",
             "course_results": [],
             "course_info_json": "",
             "response": "",
@@ -130,13 +131,23 @@ async def chat(request: ChatRequest):
 
 @app.post("/chat/stream")
 async def chat_stream(request: ChatRequest):
-    """Streaming chat endpoint for real-time response generation"""
+    """Streaming chat endpoint for real-time response generation.
+
+    This implementation streams tokens as they are produced by the LLM instead
+    of waiting for the entire response to finish. It does this by executing the
+    non-streaming steps synchronously (memory update, filter generation, course
+    search) and then piping the state object into the async generator
+    `generate_response_node_streaming`, yielding each token to the client as an
+    SSE event.
+    """
+
     async def generate_stream():
         try:
-            # Generate conversation ID if not provided
+            # ------------------------------------------------------------------
+            # 1. Conversation setup
+            # ------------------------------------------------------------------
             conversation_id = request.conversation_id or str(uuid.uuid4())
-            
-            # Get or create conversation history
+
             if conversation_id in conversations:
                 conversation_history = conversations[conversation_id]["history"]
                 user_profile = conversations[conversation_id].get("user_profile", {})
@@ -147,60 +158,87 @@ async def chat_stream(request: ChatRequest):
                     "history": conversation_history,
                     "user_profile": user_profile,
                     "created_at": datetime.now(),
-                    "last_updated": datetime.now()
+                    "last_updated": datetime.now(),
                 }
-            
-            # Prepare initial state
-            initial_state: CourseAdvisorState = {
+
+            # ------------------------------------------------------------------
+            # 2. Build initial state and run the non-streaming nodes
+            # ------------------------------------------------------------------
+            state: CourseAdvisorState = {
                 "user_query": request.message,
-                "intent": "",
+                "intent": "",  # intent not used in simplified graph
                 "filters": {},
+                "text_query": "",
                 "course_results": [],
                 "course_info_json": "",
                 "response": "",
                 "error": "",
                 "conversation_history": conversation_history,
-                "user_profile": user_profile
+                "user_profile": user_profile,
             }
-            
-            # Run the graph
-            print(f"🚀 Processing streaming query: {request.message}")
-            final_state = await course_advisor_graph.ainvoke(initial_state)
-            
-            # Update conversation storage
-            conversations[conversation_id]["history"] = final_state["conversation_history"]
-            conversations[conversation_id]["user_profile"] = final_state["user_profile"]
-            conversations[conversation_id]["last_updated"] = datetime.now()
-            
-            # Stream the response character by character
-            response_text = final_state["response"]
-            
-            # Send metadata first
+
+            # Run the nodes from the simplified graph manually so that we can
+            # start streaming right after the heavy lifting is done.
+            from app.graph.memory_nodes import update_memory_node, finalize_memory_node
+            from app.graph.simplified_nodes import (
+                generate_filters_node,
+                search_courses_node,
+                generate_response_node_streaming,
+            )
+
+            # Update memory (profile extraction, etc.)
+            state = update_memory_node(state)
+            # Generate filters & potential text query
+            state = generate_filters_node(state)
+            # Search courses
+            state = search_courses_node(state)
+
+            # ------------------------------------------------------------------
+            # 3. Send metadata to the client BEFORE we start LLM streaming
+            # ------------------------------------------------------------------
             metadata = {
                 "type": "metadata",
                 "conversation_id": conversation_id,
-                "intent": final_state["intent"],
-                "course_results": final_state.get("course_results"),
-                "filters": final_state.get("filters"),
-                "error": final_state.get("error")
+                "intent": state.get("intent", ""),
+                "course_results": state.get("course_results", []),
+                "filters": state.get("filters", {}),
+                "error": state.get("error", ""),
             }
             yield f"data: {json.dumps(metadata)}\n\n"
-            
-            # Stream the response text
-            for char in response_text:
-                yield f"data: {json.dumps({'type': 'token', 'content': char})}\n\n"
-                # Small delay to simulate real streaming
-                import asyncio
-                await asyncio.sleep(0.02)  # 20ms delay
-            
-            # Send end marker
+
+            # ------------------------------------------------------------------
+            # 4. Stream the LLM response token-by-token
+            # ------------------------------------------------------------------
+            full_response = ""
+            async for chunk in generate_response_node_streaming(state):
+                # The chain may yield partial strings (not necessarily single
+                # characters). Stream them character-by-character so the
+                # frontend behaves the same as before.
+                for char in chunk:
+                    full_response += char
+                    yield f"data: {json.dumps({'type': 'token', 'content': char})}\n\n"
+
+            # ------------------------------------------------------------------
+            # 5. Finalise memory & update conversation store
+            # ------------------------------------------------------------------
+            state["response"] = full_response
+            state = finalize_memory_node(state)
+
+            conversations[conversation_id]["history"] = state["conversation_history"]
+            conversations[conversation_id]["user_profile"] = state["user_profile"]
+            conversations[conversation_id]["last_updated"] = datetime.now()
+
+            # ------------------------------------------------------------------
+            # 6. Notify client of completion
+            # ------------------------------------------------------------------
             yield f"data: {json.dumps({'type': 'end'})}\n\n"
-            
+
         except Exception as e:
             print(f"❌ Error in streaming chat endpoint: {e}")
             error_data = {"type": "error", "error": str(e)}
             yield f"data: {json.dumps(error_data)}\n\n"
-    
+
+    # Return the StreamingResponse so FastAPI keeps the connection open
     return StreamingResponse(
         generate_stream(),
         media_type="text/plain",
@@ -208,7 +246,7 @@ async def chat_stream(request: ChatRequest):
             "Cache-Control": "no-cache",
             "Connection": "keep-alive",
             "Content-Type": "text/event-stream",
-        }
+        },
     )
 
 @app.get("/conversations", response_model=List[ConversationInfo])

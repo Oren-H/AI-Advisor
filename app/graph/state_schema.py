@@ -6,6 +6,7 @@ class CourseAdvisorState(TypedDict):
     user_query: str
     intent: str  # "specific", "advisory", or "mixed"
     filters: Dict[str, Any]
+    text_query: str  # Generated text query for vector search
     course_results: List[Dict[str, Any]]
     course_info_json: str
     response: str

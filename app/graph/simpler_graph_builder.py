@@ -1,7 +1,7 @@
 """
 This is a simpler graph builder that only includes the nodes that are necessary for the course advisor.
 
-START - update_memory (get rid of user profile feature?)
+START - update_memory
 update_memory - filter_generation
 filter_generation - search_courses
 search_courses - generate_response
@@ -34,7 +34,7 @@ def create_simplified_course_advisor_graph():
     workflow.add_node("generate_response", generate_response_node)
     workflow.add_node("finalize_memory", finalize_memory_node)
     
-    # Add edges with conditional routing
+    # Add edges
     workflow.add_edge(START, "update_memory")
     workflow.add_edge("update_memory", "generate_filters")
     workflow.add_edge("generate_filters", "search_courses")
