@@ -68,12 +68,12 @@ def search_courses_node(state: CourseAdvisorState) -> CourseAdvisorState:
         print(f"❌ Error searching courses: {e}")
         return {**state, "course_results": [], "course_info_json": "[]", "error": f"Failed to search courses: {str(e)}"}
 
-@timed_step("generate_response")
-def generate_response_node(state: CourseAdvisorState) -> CourseAdvisorState:
-    """Generate the final response using the conversational agent template with memory."""
+async def generate_response_node_streaming(state: CourseAdvisorState):
+    """Generate streaming response using the conversational agent template with memory."""
     try:
         if state.get("error"):
-            return {**state, "response": f"I encountered an error: {state['error']}. Please try rephrasing your query."}
+            yield f"I encountered an error: {state['error']}. Please try rephrasing your query."
+            return
         
         # Get conversation history and user profile
         history = state.get("conversation_history", [])
@@ -86,21 +86,41 @@ def generate_response_node(state: CourseAdvisorState) -> CourseAdvisorState:
         # Choose prompt template based on intent
         
         # Get shared LLM instance
-        llm = llm_manager.get_llm(model_provider="openai", model="o4-mini", temperature=1)
+        llm = llm_manager.get_llm(model_provider="openai", temperature=1)
         
         # Create the chain
         chain = prompt_template | llm
         
-        # Generate response
-        response = chain.invoke({
+        # Stream the response
+        async for chunk in chain.astream({
             "course_info": state["course_info_json"],
             "user_query": state["user_query"],
             "conversation_context": conversation_context,
             "user_profile": json.dumps(user_profile, indent=2)
-        })
+        }):
+            if hasattr(chunk, 'content') and chunk.content:
+                yield chunk.content
         
-        print(f"✅ Generated response for user query")
-        return {**state, "response": response.content, "error": ""}
+        print(f"✅ Generated streaming response for user query")
+        
+    except Exception as e:
+        print(f"❌ Error generating streaming response: {e}")
+        yield f"I encountered an error while generating a response: {str(e)}"
+
+@timed_step("generate_response")
+async def generate_response_node(state: CourseAdvisorState) -> CourseAdvisorState:
+    """Generate response using streaming internally but return complete response for graph."""
+    try:
+        if state.get("error"):
+            return {**state, "response": f"I encountered an error: {state['error']}. Please try rephrasing your query."}
+        
+        # Collect streaming response into complete text
+        full_response = ""
+        async for chunk in generate_response_node_streaming(state):
+            full_response += chunk
+        
+        print(f"✅ Generated complete response for user query")
+        return {**state, "response": full_response, "error": ""}
         
     except Exception as e:
         print(f"❌ Error generating response: {e}")

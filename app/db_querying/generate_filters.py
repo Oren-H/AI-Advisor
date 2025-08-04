@@ -43,7 +43,6 @@ def generate_filters_from_prompt(user_prompt: str, conversation_context: str = "
     
     llm = llm_manager.get_llm(
         model_provider="openai",
-        model="o4-mini",
         temperature=0,
         use_structured_output=True,
         structured_output_class=CourseQuery
