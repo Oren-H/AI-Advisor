@@ -281,5 +281,176 @@
       ]
     }
   ],
-  "majors": {}
+  "majors": {
+    "PHYS1": {
+      "major_name": "Major in Physics",
+      "course_lists": [
+        {
+          "rows": [
+            [
+              "Introductory Sequences",
+              ""
+            ],
+            [
+              "Select one of the following sequences:",
+              ""
+            ],
+            [
+              "Sequence A: Students with a limited background in high school physics may elect to take:",
+              ""
+            ],
+            [
+              "PHYS UN1401 & PHYS UN1402 & PHYS UN2601",
+              "INTRO TO MECHANICS ＆ THERMO and INTRO ELEC/MAGNETSM ＆ OPTCS and PHYSICS III:CLASS/QUANTUM WAVE",
+              ""
+            ],
+            [
+              "Sequence B:",
+              ""
+            ],
+            [
+              "PHYS UN1601 & PHYS UN1602 & PHYS UN2601",
+              "PHYSICS I:MECHANICS/RELATIVITY and PHYSICS II: THERMO, ELEC ＆ MAG and PHYSICS III:CLASS/QUANTUM WAVE",
+              ""
+            ],
+            [
+              "Sequence C: Students with advanced preparation in both physics and mathematics may be eligible to take:",
+              ""
+            ],
+            [
+              "PHYS UN2801 & PHYS UN2802",
+              "ACCELERATED PHYSICS I and ACCELERATED PHYSICS II",
+              ""
+            ],
+            [
+              "Core Physics Courses",
+              ""
+            ],
+            [
+              "PHYS UN3003",
+              "MECHANICS",
+              ""
+            ],
+            [
+              "PHYS UN3007",
+              "ELECTRICITY-MAGNETISM",
+              ""
+            ],
+            [
+              "PHYS UN3008",
+              "ELECTROMAGNETIC WAVES ＆ OPTICS",
+              ""
+            ],
+            [
+              "PHYS GU4021",
+              "QUANTUM MECHANICS I",
+              ""
+            ],
+            [
+              "PHYS GU4022",
+              "QUANTUM MECHANICS II",
+              ""
+            ],
+            [
+              "PHYS GU4023",
+              "THERMAL ＆ STATISTICAL PHYSICS",
+              ""
+            ],
+            [
+              "Elective Courses",
+              ""
+            ],
+            [
+              "Select at least six points of the following courses:",
+              ""
+            ],
+            [
+              "PHYS UN3002",
+              "From Quarks To the Cosmos: Applications of Modern Physics",
+              ""
+            ],
+            [
+              "PHYS GU4003",
+              "ADVANCED MECHANICS",
+              ""
+            ],
+            [
+              "PHYS GU4011",
+              "PARTICLE ASTROPHYS ＆ COSMOLOGY",
+              ""
+            ],
+            [
+              "PHYS GU4018",
+              "SOLID STATE PHYSICS",
+              ""
+            ],
+            [
+              "PHYS GU4019",
+              "MATHEMATICL METHODS OF PHYSICS",
+              ""
+            ],
+            [
+              "PHYS GU4040",
+              "INTRO TO GENERAL RELATIVITY",
+              ""
+            ],
+            [
+              "PHYS GU4050",
+              "Introduction to Particle Physics",
+              ""
+            ],
+            [
+              "With the permission of the Director of Undergraduate Studies, 4000- or 6000-level courses offered in this or other science departments",
+              ""
+            ],
+            [
+              "Laboratory Work at the Intermediate Level *",
+              ""
+            ],
+            [
+              "Select one of the following options:",
+              ""
+            ],
+            [
+              "Option 1:",
+              ""
+            ],
+            [
+              "PHYS UN3081",
+              "INTERMEDIATE LABORATORY WORK (two semesters)",
+              ""
+            ],
+            [
+              "PHYS UN3083",
+              "ELECTRONICS LABORATORY",
+              ""
+            ],
+            [
+              "Option 2:",
+              ""
+            ],
+            [
+              "PHYS UN3081",
+              "INTERMEDIATE LABORATORY WORK (three semesters)",
+              ""
+            ],
+            [
+              "Senior Seminar",
+              ""
+            ],
+            [
+              "PHYS UN3072",
+              "SEM IN CURRENT RES. PROBLEMS",
+              ""
+            ]
+          ],
+          "html": "<table class=\"sc_courselist\">\n<caption class=\"hidden noscript\">Course List</caption>\n<colgroup>\n<col class=\"codecol\"/>\n<col class=\"titlecol\"/>\n<col align=\"char\" char=\".\" class=\"hourscol\"/>\n</colgroup>\n<thead>\n<tr class=\"hidden noscript\">\n<th scope=\"col\">Code</th>\n<th scope=\"col\">Title</th>\n<th class=\"hourscol\" scope=\"col\">Points</th>\n</tr>\n</thead>\n<tbody>\n<tr class=\"even areaheader firstrow\"><td colspan=\"2\"><span class=\"courselistcomment areaheader\">Introductory Sequences</span></td><td class=\"hourscol\"></td></tr>\n<tr class=\"odd\"><td colspan=\"2\"><span class=\"courselistcomment\">Select one of the following sequences:</span></td><td class=\"hourscol\"></td></tr>\n<tr class=\"even\"><td colspan=\"2\"><div class=\"blockindent\" style=\"margin-left:20px;\"><span class=\"courselistcomment commentindent\">Sequence A: Students with a limited background in high school physics may elect to take:</span></div></td><td class=\"hourscol\"></td></tr>\n<tr class=\"odd\"><td class=\"codecol\"><div class=\"blockindent\" style=\"margin-left:20px;\"><a class=\"bubblelink code\" href=\"/search/?P=PHYS%20UN1401\" onclick=\"return showCourse(this, 'PHYS UN1401');\" title=\"PHYS UN1401\">PHYS UN1401</a><br/><span class=\"blockindent\" style=\"margin-left:20px;\">&amp; <a class=\"bubblelink code\" href=\"/search/?P=PHYS%20UN1402\" onclick=\"return showCourse(this, 'PHYS UN1402');\" title=\"PHYS UN1402\">PHYS UN1402</a></span><br/><span class=\"blockindent\" style=\"margin-left:20px;\">&amp; <a class=\"bubblelink code\" href=\"/search/?P=PHYS%20UN2601\" onclick=\"return showCourse(this, 'PHYS UN2601');\" title=\"PHYS UN2601\">PHYS UN2601</a></span></div></td><td>INTRO TO MECHANICS ＆ THERMO<br/><span class=\"blockindent\" style=\"margin-left:20px;\">and INTRO ELEC/MAGNETSM ＆ OPTCS</span><br/><span class=\"blockindent\" style=\"margin-left:20px;\">and PHYSICS III:CLASS/QUANTUM WAVE</span></td><td class=\"hourscol\"></td></tr>\n<tr class=\"even\"><td colspan=\"2\"><div class=\"blockindent\" style=\"margin-left:20px;\"><span class=\"courselistcomment commentindent\">Sequence B:</span></div></td><td class=\"hourscol\"></td></tr>\n<tr class=\"odd\"><td class=\"codecol\"><div class=\"blockindent\" style=\"margin-left:20px;\"><a class=\"bubblelink code\" href=\"/search/?P=PHYS%20UN1601\" onclick=\"return showCourse(this, 'PHYS UN1601');\" title=\"PHYS UN1601\">PHYS UN1601</a><br/><span class=\"blockindent\" style=\"margin-left:20px;\">&amp; <a class=\"bubblelink code\" href=\"/search/?P=PHYS%20UN1602\" onclick=\"return showCourse(this, 'PHYS UN1602');\" title=\"PHYS UN1602\">PHYS UN1602</a></span><br/><span class=\"blockindent\" style=\"margin-left:20px;\">&amp; <a class=\"bubblelink code\" href=\"/search/?P=PHYS%20UN2601\" onclick=\"return showCourse(this, 'PHYS UN2601');\" title=\"PHYS UN2601\">PHYS UN2601</a></span></div></td><td>PHYSICS I:MECHANICS/RELATIVITY<br/><span class=\"blockindent\" style=\"margin-left:20px;\">and PHYSICS II: THERMO, ELEC ＆ MAG</span><br/><span class=\"blockindent\" style=\"margin-left:20px;\">and PHYSICS III:CLASS/QUANTUM WAVE</span></td><td class=\"hourscol\"></td></tr>\n<tr class=\"even\"><td colspan=\"2\"><div class=\"blockindent\" style=\"margin-left:20px;\"><span class=\"courselistcomment commentindent\">Sequence C: Students with advanced preparation in both physics and mathematics may be eligible to take:</span></div></td><td class=\"hourscol\"></td></tr>\n<tr class=\"odd\"><td class=\"codecol\"><div class=\"blockindent\" style=\"margin-left:20px;\"><a class=\"bubblelink code\" href=\"/search/?P=PHYS%20UN2801\" onclick=\"return showCourse(this, 'PHYS UN2801');\" title=\"PHYS UN2801\">PHYS UN2801</a><br/><span class=\"blockindent\" style=\"margin-left:20px;\">&amp; <a class=\"bubblelink code\" href=\"/search/?P=PHYS%20UN2802\" onclick=\"return showCourse(this, 'PHYS UN2802');\" title=\"PHYS UN2802\">PHYS UN2802</a></span></div></td><td>ACCELERATED PHYSICS I<br/><span class=\"blockindent\" style=\"margin-left:20px;\">and ACCELERATED PHYSICS II</span></td><td class=\"hourscol\"></td></tr>\n<tr class=\"even areaheader\"><td colspan=\"2\"><span class=\"courselistcomment areaheader\">Core Physics Courses</span></td><td class=\"hourscol\"></td></tr>\n<tr class=\"odd\"><td class=\"codecol\"><div class=\"blockindent\" style=\"margin-left:20px;\"><a class=\"bubblelink code\" href=\"/search/?P=PHYS%20UN3003\" onclick=\"return showCourse(this, 'PHYS UN3003');\" title=\"PHYS UN3003\">PHYS UN3003</a></div></td><td>MECHANICS</td><td class=\"hourscol\"></td></tr>\n<tr class=\"even\"><td class=\"codecol\"><div class=\"blockindent\" style=\"margin-left:20px;\"><a class=\"bubblelink code\" href=\"/search/?P=PHYS%20UN3007\" onclick=\"return showCourse(this, 'PHYS UN3007');\" title=\"PHYS UN3007\">PHYS UN3007</a></div></td><td>ELECTRICITY-MAGNETISM</td><td class=\"hourscol\"></td></tr>\n<tr class=\"odd\"><td class=\"codecol\"><div class=\"blockindent\" style=\"margin-left:20px;\"><a class=\"bubblelink code\" href=\"/search/?P=PHYS%20UN3008\" onclick=\"return showCourse(this, 'PHYS UN3008');\" title=\"PHYS UN3008\">PHYS UN3008</a></div></td><td>ELECTROMAGNETIC WAVES ＆ OPTICS</td><td class=\"hourscol\"></td></tr>\n<tr class=\"even\"><td class=\"codecol\"><div class=\"blockindent\" style=\"margin-left:20px;\"><a class=\"bubblelink code\" href=\"/search/?P=PHYS%20GU4021\" onclick=\"return showCourse(this, 'PHYS GU4021');\" title=\"PHYS GU4021\">PHYS GU4021</a></div></td><td>QUANTUM MECHANICS I</td><td class=\"hourscol\"></td></tr>\n<tr class=\"odd\"><td class=\"codecol\"><div class=\"blockindent\" style=\"margin-left:20px;\"><a class=\"bubblelink code\" href=\"/search/?P=PHYS%20GU4022\" onclick=\"return showCourse(this, 'PHYS GU4022');\" title=\"PHYS GU4022\">PHYS GU4022</a></div></td><td>QUANTUM MECHANICS II</td><td class=\"hourscol\"></td></tr>\n<tr class=\"even\"><td class=\"codecol\"><div class=\"blockindent\" style=\"margin-left:20px;\"><a class=\"bubblelink code\" href=\"/search/?P=PHYS%20GU4023\" onclick=\"return showCourse(this, 'PHYS GU4023');\" title=\"PHYS GU4023\">PHYS GU4023</a></div></td><td>THERMAL ＆ STATISTICAL PHYSICS</td><td class=\"hourscol\"></td></tr>\n<tr class=\"odd areaheader\"><td colspan=\"2\"><span class=\"courselistcomment areaheader\">Elective Courses</span></td><td class=\"hourscol\"></td></tr>\n<tr class=\"even\"><td colspan=\"2\"><span class=\"courselistcomment\">Select at least six points of the following courses:</span></td><td class=\"hourscol\"></td></tr>\n<tr class=\"odd\"><td class=\"codecol\"><div class=\"blockindent\" style=\"margin-left:20px;\"><a class=\"bubblelink code\" href=\"/search/?P=PHYS%20UN3002\" onclick=\"return showCourse(this, 'PHYS UN3002');\" title=\"PHYS UN3002\">PHYS UN3002</a></div></td><td>From Quarks To the Cosmos: Applications of Modern Physics</td><td class=\"hourscol\"></td></tr>\n<tr class=\"even\"><td class=\"codecol\"><div class=\"blockindent\" style=\"margin-left:20px;\"><a class=\"bubblelink code\" href=\"/search/?P=PHYS%20GU4003\" onclick=\"return showCourse(this, 'PHYS GU4003');\" title=\"PHYS GU4003\">PHYS GU4003</a></div></td><td>ADVANCED MECHANICS</td><td class=\"hourscol\"></td></tr>\n<tr class=\"odd\"><td class=\"codecol\"><div class=\"blockindent\" style=\"margin-left:20px;\"><a class=\"bubblelink code\" href=\"/search/?P=PHYS%20GU4011\" onclick=\"return showCourse(this, 'PHYS GU4011');\" title=\"PHYS GU4011\">PHYS GU4011</a></div></td><td>PARTICLE ASTROPHYS ＆ COSMOLOGY</td><td class=\"hourscol\"></td></tr>\n<tr class=\"even\"><td class=\"codecol\"><div class=\"blockindent\" style=\"margin-left:20px;\"><a class=\"bubblelink code\" href=\"/search/?P=PHYS%20GU4018\" onclick=\"return showCourse(this, 'PHYS GU4018');\" title=\"PHYS GU4018\">PHYS GU4018</a></div></td><td>SOLID STATE PHYSICS</td><td class=\"hourscol\"></td></tr>\n<tr class=\"odd\"><td class=\"codecol\"><div class=\"blockindent\" style=\"margin-left:20px;\"><a class=\"bubblelink code\" href=\"/search/?P=PHYS%20GU4019\" onclick=\"return showCourse(this, 'PHYS GU4019');\" title=\"PHYS GU4019\">PHYS GU4019</a></div></td><td>MATHEMATICL METHODS OF PHYSICS</td><td class=\"hourscol\"></td></tr>\n<tr class=\"even\"><td class=\"codecol\"><div class=\"blockindent\" style=\"margin-left:20px;\"><a class=\"bubblelink code\" href=\"/search/?P=PHYS%20GU4040\" onclick=\"return showCourse(this, 'PHYS GU4040');\" title=\"PHYS GU4040\">PHYS GU4040</a></div></td><td>INTRO TO GENERAL RELATIVITY</td><td class=\"hourscol\"></td></tr>\n<tr class=\"odd\"><td class=\"codecol\"><div class=\"blockindent\" style=\"margin-left:20px;\"><a class=\"bubblelink code\" href=\"/search/?P=PHYS%20GU4050\" onclick=\"return showCourse(this, 'PHYS GU4050');\" title=\"PHYS GU4050\">PHYS GU4050</a></div></td><td>Introduction to Particle Physics</td><td class=\"hourscol\"></td></tr>\n<tr class=\"even\"><td colspan=\"2\"><div class=\"blockindent\" style=\"margin-left:20px;\"><span class=\"courselistcomment commentindent\">With the permission of the Director of Undergraduate Studies, 4000- or 6000-level courses offered in this or other science departments</span></div></td><td class=\"hourscol\"></td></tr>\n<tr class=\"odd areaheader\"><td colspan=\"2\"><span class=\"courselistcomment areaheader\">Laboratory Work at the Intermediate Level</span> <sup>*</sup></td><td class=\"hourscol\"></td></tr>\n<tr class=\"even\"><td colspan=\"2\"><span class=\"courselistcomment\">Select one of the following options:</span></td><td class=\"hourscol\"></td></tr>\n<tr class=\"odd\"><td colspan=\"2\"><div class=\"blockindent\" style=\"margin-left:20px;\"><span class=\"courselistcomment commentindent\">Option 1:</span></div></td><td class=\"hourscol\"></td></tr>\n<tr class=\"even\"><td class=\"codecol\"><div class=\"blockindent\" style=\"margin-left:20px;\"><a class=\"bubblelink code\" href=\"/search/?P=PHYS%20UN3081\" onclick=\"return showCourse(this, 'PHYS UN3081');\" title=\"PHYS UN3081\">PHYS UN3081</a></div></td><td>INTERMEDIATE LABORATORY WORK (two semesters)</td><td class=\"hourscol\"></td></tr>\n<tr class=\"odd\"><td class=\"codecol\"><div class=\"blockindent\" style=\"margin-left:20px;\"><a class=\"bubblelink code\" href=\"/search/?P=PHYS%20UN3083\" onclick=\"return showCourse(this, 'PHYS UN3083');\" title=\"PHYS UN3083\">PHYS UN3083</a></div></td><td>ELECTRONICS LABORATORY</td><td class=\"hourscol\"></td></tr>\n<tr class=\"even\"><td colspan=\"2\"><div class=\"blockindent\" style=\"margin-left:20px;\"><span class=\"courselistcomment commentindent\">Option 2:</span></div></td><td class=\"hourscol\"></td></tr>\n<tr class=\"odd\"><td class=\"codecol\"><div class=\"blockindent\" style=\"margin-left:20px;\"><a class=\"bubblelink code\" href=\"/search/?P=PHYS%20UN3081\" onclick=\"return showCourse(this, 'PHYS UN3081');\" title=\"PHYS UN3081\">PHYS UN3081</a></div></td><td>INTERMEDIATE LABORATORY WORK (three semesters)</td><td class=\"hourscol\"></td></tr>\n<tr class=\"even areaheader\"><td colspan=\"2\"><span class=\"courselistcomment areaheader\">Senior Seminar</span></td><td class=\"hourscol\"></td></tr>\n<tr class=\"odd lastrow\"><td class=\"codecol\"><div class=\"blockindent\" style=\"margin-left:20px;\"><a class=\"bubblelink code\" href=\"/search/?P=PHYS%20UN3072\" onclick=\"return showCourse(this, 'PHYS UN3072');\" title=\"PHYS UN3072\">PHYS UN3072</a></div></td><td>SEM IN CURRENT RES. PROBLEMS</td><td class=\"hourscol\"></td></tr>\n</tbody>\n</table>"
+        }
+      ],
+      "prerequisites": [],
+      "footnotes": [
+        "Approved experimental work with a faculty research group may satisfy one semester of the laboratory requirement."
+      ]
+    }
+  }
 }

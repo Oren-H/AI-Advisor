@@ -72,13 +72,27 @@ def build_sections(container):
 
     return sections
 
-def parse_table(tbl: Tag):
-    """Return a list-of-lists of cell‐texts for a <table>."""
+def parse_table(tbl: Tag, include_html: bool = False):
+    """
+    Return either:
+      - if include_html=False: list-of-lists of cell‐texts
+      - if include_html=True: dict with 'rows' and 'html'
+    """
+    if tbl is None:
+        return None
+    
     rows = []
     for tr in tbl.select("tbody tr"):
         cells = [clean_text(td.get_text(" ")) for td in tr.find_all(["td","th"])]
         rows.append(cells)
-    return rows
+
+    if include_html:
+        return {
+            "rows": rows,
+            "html": str(tbl)
+        }
+    else:
+        return rows
 
 def scrape_department(url, department_name=None):
     """
@@ -120,13 +134,14 @@ def scrape_department(url, department_name=None):
     else:
         requirements_sections = []
 
-    # Parse majors and minors
+    # Parse majors (any h2 or h3 toggle whose text includes "Major")
     majors = {}
+    counter = 1
     if requirements_container:
-        counter = 1
-        for toggle in requirements_container.find_all("h2", class_="toggle"):
+        # look for BOTH h2 and h3 toggles
+        for toggle in requirements_container.find_all(["h2","h3"], class_="toggle"):
             title = clean_text(toggle.get_text())
-            if "major" not in title.lower() and "minor" not in title.lower():
+            if "major" not in title.lower():
                 continue
 
             major_id = f"{department_code}{counter}"
@@ -139,24 +154,36 @@ def scrape_department(url, department_name=None):
                 "footnotes": []
             }
 
-            # Walk forward through siblings until the next <h2 class="toggle">
-            for sib in toggle.next_siblings:
-                if isinstance(sib, Tag) and sib.name=="h2" and "toggle" in sib.get("class", []):
+            # collect everything up to the next toggle heading
+            for sib in toggle.find_next_siblings():
+                # stop when you hit the next h2/h3.toggle
+                if sib.name in ("h2","h3") and "toggle" in (sib.get("class") or []):
                     break
 
-                if isinstance(sib, Tag):
-                    # 1) course lists
-                    if sib.name=="table" and "sc_courselist" in sib.get("class", []):
-                        majors[major_id]["course_lists"].append(parse_table(sib))
+                if not isinstance(sib, Tag):
+                    continue
 
-                    # 2) prerequisites
-                    elif sib.name=="table" and "sc_prerequisite" in sib.get("class", []):
-                        majors[major_id]["prerequisites"].append(parse_table(sib))
+                # course tables
+                if sib.name == "table" and "sc_courselist" in sib.get("class", []):
+                    majors[major_id]["course_lists"].append(
+                        parse_table(sib, include_html=True)
+                    )
 
-                    # 3) footnotes
-                    elif sib.name=="dl" and "sc_footnotes" in sib.get("class", []):
-                        notes = [clean_text(dd.get_text(" ")) for dd in sib.find_all("dd")]
-                        majors[major_id]["footnotes"].extend(notes)
+                # prerequisite tables
+                elif sib.name == "table" and "sc_prerequisite" in sib.get("class", []):
+                    majors[major_id]["prerequisites"].append(
+                        parse_table(sib, include_html=True)
+                    )
+
+                # footnotes
+                elif sib.name == "dl" and "sc_footnotes" in sib.get("class", []):
+                    notes = [ clean_text(dd.get_text(" ")) for dd in sib.find_all("dd") ]
+                    majors[major_id]["footnotes"].extend(notes)
+
+            # if you found zero tables, drop this phantom entry
+            if not majors[major_id]["course_lists"]:
+                del majors[major_id]
+                counter -= 1
 
     # Build the comprehensive structure
     comprehensive_data = {

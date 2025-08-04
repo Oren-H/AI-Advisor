@@ -4,7 +4,7 @@ Example script to demonstrate the generalizable department scraper.
 This script shows how to scrape different departments and create the comprehensive JSON structure.
 """
 
-from scraping_math import scrape_department, save_comprehensive_json
+from scraping_functions import scrape_department, save_comprehensive_json
 import json
 
 def main():
