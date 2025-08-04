@@ -4,7 +4,7 @@ import os
 from app.db_building.database_utils import load_vector_database
 from app.db_querying.generate_filters import generate_filters_from_prompt
 
-def query_courses_with_filters(query: str, filters: dict = None, k: int = 1, conversation_context: str = ""):
+def query_courses_with_filters(text_query: str, filters: dict = None, k: int = 1):
     """
     Query the course database with filters and semantic search.
     
@@ -12,7 +12,6 @@ def query_courses_with_filters(query: str, filters: dict = None, k: int = 1, con
         query (str): Natural language query about courses
         filters (dict): Metadata filters to apply (from generate_filters)
         k (int): Number of results to return
-        conversation_context (str): Optional conversation history for context
     
     Returns:
         List of relevant course documents
@@ -24,18 +23,14 @@ def query_courses_with_filters(query: str, filters: dict = None, k: int = 1, con
         chroma_db_path = os.path.join(os.path.dirname(os.path.dirname(script_dir)), "data", "chroma_db")
         vectordb = load_vector_database(chroma_db_path)
         
-        # Enhance the query with conversation context if available
-        enhanced_query = query
-        if conversation_context:
-            enhanced_query = f"Context: {conversation_context}\nQuery: {query}"
         
         # Perform semantic search with filters
-        print(f"Performing semantic search: {enhanced_query}")
+        print(f"Performing semantic search: {text_query}")
         # Only pass filters if they're not empty
         if filters:
-            results = vectordb.similarity_search(enhanced_query, k=k, filter=filters)
+            results = vectordb.similarity_search(text_query, k=k, filter=filters)
         else:
-            results = vectordb.similarity_search(enhanced_query, k=k)
+            results = vectordb.similarity_search(text_query, k=k)
         # results = [d for d in raw if metadata_matches_filters(d.metadata, filters)]
 
         # Display results
@@ -77,13 +72,14 @@ def query_courses_with_filters(query: str, filters: dict = None, k: int = 1, con
 if __name__ == "__main__":
     # Example queries
     queries = [
-        "Find me a science course on Mondays and Wednesdays"
+        "Find me a quant course on Mondays and Wednesdays"
     ]
     
     for query in queries:
+
         print("=" * 60)
         filters, text_query = generate_filters_from_prompt(query)
         print(f"Filters: {filters}")
         print(f"Text Query: {text_query}")
-        results = query_courses_with_filters(query, filters=filters, k=10, conversation_context="")
+        results = query_courses_with_filters(query, filters=filters, k=10)
    

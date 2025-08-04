@@ -52,10 +52,9 @@ def search_courses_node(state: CourseAdvisorState) -> CourseAdvisorState:
         
         # Use the filters from the previous node
         course_results = query_courses_with_filters(
-            state['user_query'], 
+            state['text_query'], 
             filters=state['filters'], 
-            k=8,
-            conversation_context=conversation_context
+            k=8
         )
         
         # Convert to JSON string for the conversational agent
