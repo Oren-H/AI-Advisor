@@ -84,6 +84,10 @@ Instructions:
    - Wednesdays : "W"
    - Thursdays : "TR"
    - Fridays : "F"
+
+   If the query references multiple days, return each individual day code and a concatenated day code.
+   For example, if the query is "Find me courses on Mondays and Wednesdays," you should return ["M","W","MW"] where "MW" represents courses that are on both Mondays and Wednesdays
+   
 4. For credits: Extract specific credit amounts
 5. For text_query: Extract keywords for semantic search, including all relevant terms for course content
 
