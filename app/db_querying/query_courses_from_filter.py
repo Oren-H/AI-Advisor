@@ -77,7 +77,7 @@ def query_courses_with_filters(query: str, filters: dict = None, k: int = 1, con
 if __name__ == "__main__":
     # Example queries
     queries = [
-        "Find me courses on foreign literature in the morning"
+        "Find me courses on foreign literature on Thursday"
     ]
     
     for query in queries:
@@ -86,5 +86,4 @@ if __name__ == "__main__":
         print(f"Filters: {filters}")
         print(f"Text Query: {text_query}")
         results = query_courses_with_filters(query, filters=filters, k=10, conversation_context="")
-        print(results)
    
