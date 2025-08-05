@@ -36,41 +36,39 @@ def build_sections(container):
     sections = []
     for hdr in container.find_all(["h2","h3"], class_="toggle"):
         title = clean_text(hdr.get_text())
-        if "major" in title.lower() or "minor" in title.lower() or "concentration" in title.lower():
-            continue
-
         paras = extract_block(hdr)
+        
+        if "major" not in title.lower() or "minor" not in title.lower() or "concentration" not in title.lower():
+            # Case A: H2 with no paras but with H3 children -> subsections
+            if hdr.name == "h2" and not paras:
+                child_sections = []
+                for sib in hdr.find_next_siblings():
+                    # stop at next H2
+                    if sib.name == "h2" and "toggle" in (sib.get("class") or []):
+                        break
+                    if sib.name == "h3" and "toggle" in (sib.get("class") or []):
+                        sub_title = clean_text(sib.get_text())
+                        sub_paras = extract_block(sib)
+                        if sub_paras:
+                            child_sections.append({
+                                "section_name": sub_title,
+                                "paragraphs": sub_paras
+                            })
+                if child_sections:
+                    sections.append({
+                        "section_name": title,
+                        "subsections": child_sections
+                    })
+                continue
 
-        # Case A: H2 with no paras but with H3 children -> subsections
-        if hdr.name == "h2" and not paras:
-            child_sections = []
-            for sib in hdr.find_next_siblings():
-                # stop at next H2
-                if sib.name == "h2" and "toggle" in (sib.get("class") or []):
-                    break
-                if sib.name == "h3" and "toggle" in (sib.get("class") or []):
-                    sub_title = clean_text(sib.get_text())
-                    sub_paras = extract_block(sib)
-                    if sub_paras:
-                        child_sections.append({
-                            "section_name": sub_title,
-                            "paragraphs": sub_paras
-                        })
-            if child_sections:
+            # Case B: normal header with its own paragraphs
+            if paras:
                 sections.append({
                     "section_name": title,
-                    "subsections": child_sections
+                    "paragraphs": paras
                 })
-            continue
 
-        # Case B: normal header with its own paragraphs
-        if paras:
-            sections.append({
-                "section_name": title,
-                "paragraphs": paras
-            })
-
-    return sections
+        return sections
 
 def parse_table(tbl: Tag, include_html: bool = False):
     """
@@ -149,6 +147,7 @@ def scrape_department(url, department_name=None):
 
             majors[major_id] = {
                 "major_name": title,
+                "descriptions": [],
                 "course_lists": [],
                 "prerequisites": [],
                 "footnotes": []
@@ -226,40 +225,7 @@ def main():
         
         # Save the comprehensive data
         save_comprehensive_json(data, filename)
-        
-        # # Also save individual files for backward compatibility
-        # overview_data = {
-        #     "dept_code": data["department_code"],
-        #     "name": data["department_name"],
-        #     "website": data["website"],
-        #     "sections": data["overview_sections"]
-        # }
-        
-        # requirements_text_data = {
-        #     "dept_code": data["department_code"],
-        #     "name": data["department_name"],
-        #     "website": data["website"],
-        #     "sections": data["requirements_sections"]
-        # }
-        
-        # # Save individual files
-        # overview_filename = f"{data['department_code'].lower()}_major_overview.json"
-        # requirements_filename = f"{data['department_code'].lower()}_major_requirement_text.json"
-        # majors_filename = f"{data['department_code'].lower()}_major_requirements.json"
-        
-        # with open(overview_filename, 'w', encoding='utf-8') as f:
-        #     json.dump(overview_data, f, ensure_ascii=False, indent=2)
-        
-        # with open(requirements_filename, 'w', encoding='utf-8') as f:
-        #     json.dump(requirements_text_data, f, ensure_ascii=False, indent=2)
-        
-        # with open(majors_filename, 'w', encoding='utf-8') as f:
-        # #     json.dump(data["majors"], f, ensure_ascii=False, indent=2)
-        
-        # print(f"Saved individual files:")
-        # print(f"  - {overview_filename}")
-        # print(f"  - {requirements_filename}")
-        # print(f"  - {majors_filename}")
+    
         
     except Exception as e:
         print(f"Error scraping department: {e}")

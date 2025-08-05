@@ -45,7 +45,7 @@ def main():
             print(f"Department: {data['department_name']}")
             print(f"Code: {data['department_code']}")
             print(f"Overview sections: {len(data['overview_sections'])}")
-            print(f"Requirements sections: {len(data['requirements_sections'])}")
+            print(f"Requirements sections: {len(data['department_wide_requirements'])}")
             print(f"Majors/Minors: {len(data['majors'])}")
             
             # List the majors
