@@ -18,7 +18,7 @@ class CourseQuery(BaseModel):
         "'mathematics', 'statistics', etc. Do NOT assign codes for general topics."
         )
     )
-    scheduled_days: List[str] = Field(description="Day abbreviations M,T,W,Th,F.")
+    scheduled_days: List[str] = Field(description="Day abbreviations M,T,W,TR,F.")
     scheduled_time_start: Optional[int] = Field(description="Earliest start time in minutes from midnight")
     scheduled_time_end: Optional[int] = Field(description="Latest end time in minutes from midnight")
     credits: Optional[float] = Field(description="Number of credits the course is worth.")
