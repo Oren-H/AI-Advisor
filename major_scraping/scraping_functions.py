@@ -68,7 +68,7 @@ def build_sections(container):
                     "paragraphs": paras
                 })
 
-        return sections
+    return sections
 
 def parse_table(tbl: Tag, include_html: bool = False):
     """
@@ -235,10 +235,3 @@ def main():
 
 if __name__ == "__main__":
     exit(main())
-
-     
-
-
-
-
-

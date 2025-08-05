@@ -10,7 +10,7 @@ import pprint
 import sys
 import os
 
-url = "https://bulletin.columbia.edu/columbia-college/departments-instruction/computer-science/"
+url = "https://bulletin.columbia.edu/columbia-college/departments-instruction/physics/"
 
 resp = requests.get(url)
 soup = BeautifulSoup(resp.text, 'html.parser')
