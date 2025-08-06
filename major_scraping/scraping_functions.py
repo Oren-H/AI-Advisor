@@ -34,39 +34,56 @@ def extract_block(header_tag):
 def build_sections(container):
     """Build sections structure for overview and requirements text."""
     sections = []
-    for hdr in container.find_all(["h2","h3"], class_="toggle"):
+    for hdr in container.find_all("h2", class_="toggle"):
         title = clean_text(hdr.get_text())
-        paras = extract_block(hdr)
         
-        if "major" not in title.lower() or "minor" not in title.lower() or "concentration" not in title.lower():
-            # Case A: H2 with no paras but with H3 children -> subsections
-            if hdr.name == "h2" and not paras:
-                child_sections = []
-                for sib in hdr.find_next_siblings():
-                    # stop at next H2
-                    if sib.name == "h2" and "toggle" in (sib.get("class") or []):
-                        break
-                    if sib.name == "h3" and "toggle" in (sib.get("class") or []):
-                        sub_title = clean_text(sib.get_text())
-                        sub_paras = extract_block(sib)
-                        if sub_paras:
-                            child_sections.append({
-                                "section_name": sub_title,
-                                "paragraphs": sub_paras
-                            })
-                if child_sections:
-                    sections.append({
-                        "section_name": title,
-                        "subsections": child_sections
-                    })
-                continue
+        # skip any “major” / “minor” entries here
+        if any(k in title.lower() for k in ("major", "minor", "concentration")):
+            continue
 
-            # Case B: normal header with its own paragraphs
-            if paras:
+        # collect all <p> until the next h2
+        paras = []
+        for sib in hdr.find_next_siblings():
+            if sib.name == "h2" and "toggle" in (sib.get("class") or []):
+                break
+            if sib.name == "p":
+                txt = clean_text(sib.get_text())
+                if txt:
+                    paras.append(txt)
+
+        # if this h2 has no paras, try to find h3 subsections
+        if not paras:
+            child_secs = []
+            for sib in hdr.find_next_siblings():
+                if sib.name == "h2" and "toggle" in (sib.get("class") or []):
+                    break
+                if sib.name == "h3" and "toggle" in (sib.get("class") or []):
+                    sub_title = clean_text(sib.get_text())
+                    # collect its paragraphs
+                    sub_paras = []
+                    for ps in sib.find_next_siblings():
+                        if ps.name in ("h2","h3") and "toggle" in (ps.get("class") or []):
+                            break
+                        if ps.name == "p":
+                            t = clean_text(ps.get_text())
+                            if t:
+                                sub_paras.append(t)
+                    if sub_paras:
+                        child_secs.append({
+                            "section_name": sub_title,
+                            "paragraphs": sub_paras
+                        })
+            if child_secs:
                 sections.append({
                     "section_name": title,
-                    "paragraphs": paras
+                    "subsections": child_secs
                 })
+            # if no paras *and* no subsections, we simply skip it
+        else:
+            sections.append({
+                "section_name": title,
+                "paragraphs": paras
+            })
 
     return sections
 
@@ -135,11 +152,19 @@ def scrape_department(url, department_name=None):
     # Parse majors (any h2 or h3 toggle whose text includes "Major")
     majors = {}
     counter = 1
+    
+    # Get all text from requirements container
+    requirements_text = []
+    if requirements_container:
+        for text in requirements_container.stripped_strings:
+            requirements_text.append(text)
+
     if requirements_container:
         # look for BOTH h2 and h3 toggles
         for toggle in requirements_container.find_all(["h2","h3"], class_="toggle"):
             title = clean_text(toggle.get_text())
-            if "major" not in title.lower():
+
+            if "major" not in title.lower() and "minor" not in title.lower():
                 continue
 
             major_id = f"{department_code}{counter}"
@@ -147,11 +172,21 @@ def scrape_department(url, department_name=None):
 
             majors[major_id] = {
                 "major_name": title,
-                "descriptions": [],
                 "course_lists": [],
-                "prerequisites": [],
+                "cognates": [],
                 "footnotes": []
             }
+            
+            # Get all text under this toggle until next toggle
+            # not a list of strings, but a continous string
+            toggle_text = ""
+            for sib in toggle.find_next_siblings():
+                if sib.name in ("h2","h3") and "toggle" in (sib.get("class") or []):
+                    break
+                if isinstance(sib, Tag):
+                    text = clean_text(sib.get_text())
+                    if text:
+                        toggle_text += text
 
             # collect everything up to the next toggle heading
             for sib in toggle.find_next_siblings():
@@ -170,7 +205,7 @@ def scrape_department(url, department_name=None):
 
                 # prerequisite tables
                 elif sib.name == "table" and "sc_prerequisite" in sib.get("class", []):
-                    majors[major_id]["prerequisites"].append(
+                    majors[major_id]["cognates"].append(
                         parse_table(sib, include_html=True)
                     )
 
@@ -178,11 +213,14 @@ def scrape_department(url, department_name=None):
                 elif sib.name == "dl" and "sc_footnotes" in sib.get("class", []):
                     notes = [ clean_text(dd.get_text(" ")) for dd in sib.find_all("dd") ]
                     majors[major_id]["footnotes"].extend(notes)
-
+            
             # if you found zero tables, drop this phantom entry
             if not majors[major_id]["course_lists"]:
-                del majors[major_id]
-                counter -= 1
+                if department_code not in toggle_text:
+                    del majors[major_id]
+                    counter -= 1
+                else: 
+                    majors[major_id]["course_lists"] = toggle_text    
 
     # Build the comprehensive structure
     comprehensive_data = {
@@ -198,14 +236,14 @@ def scrape_department(url, department_name=None):
 
 def save_comprehensive_json(data, filename):
     """Save the comprehensive data to a JSON file."""
-    with open(filename, 'w', encoding='utf-8') as f:
+    with open(f"major_scraping/data/{filename}", 'w', encoding='utf-8') as f:
         json.dump(data, f, ensure_ascii=False, indent=2)
     print(f"Saved comprehensive data to: {filename}")
 
 def main():
     """Main function to run the scraper."""
     # Default URL for mathematics (can be overridden)
-    url = "https://bulletin.columbia.edu/columbia-college/departments-instruction/mathematics/"
+    url = "https://bulletin.columbia.edu/columbia-college/departments-instruction/computer-science/"
     
     # Check if URL is provided as command line argument
     if len(sys.argv) > 1:
