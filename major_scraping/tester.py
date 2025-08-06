@@ -10,15 +10,15 @@ import pprint
 import sys
 import os
 
-url = "https://bulletin.columbia.edu/columbia-college/departments-instruction/physics/"
+url = "https://bulletin.columbia.edu/columbia-college/departments-instruction/computer-science/"
 
 resp = requests.get(url)
 soup = BeautifulSoup(resp.text, 'html.parser')
 
-requirements_container = soup.find(id="requirementstextcontainer")
+requirements_container = soup.find(id="textcontainer")
 
 # save soup in an html file
-with open("physics_requirements.html", "w") as f:
+with open("computer_science_overview.html", "w") as f:
     f.write(requirements_container.prettify())
     
 exit()

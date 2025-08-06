@@ -10,6 +10,7 @@ from bs4.element import Tag
 import pprint
 import sys
 import os
+from bs4 import NavigableString
 
 def clean_text(text: str) -> str:
     """Collapse whitespace and strip."""
@@ -112,127 +113,122 @@ def parse_table(tbl: Tag, include_html: bool = False):
 def scrape_department(url, department_name=None):
     """
     Scrape a department page and return comprehensive JSON structure.
-    
+
     Args:
         url: The department URL to scrape
         department_name: Optional department name override
-    
+
     Returns:
         Dictionary with the comprehensive structure
     """
     print(f"Scraping department from: {url}")
-    
     resp = requests.get(url)
     soup = BeautifulSoup(resp.text, 'html.parser')
 
-    # Find department code from course block
+    # 1) Department code (first courseblocktitle fallback)
     course_block = soup.find(class_="courseblocktitle")
     if course_block:
-        department_code = str(course_block.text)[:4]
+        department_code = course_block.text.strip()[:4]
     else:
-        # Fallback: try to extract from URL or use a default
         department_code = "UNKN"
 
-    # Get overview sections
+    # 2) Overview sections (unchanged)
     overview_container = soup.find(id="textcontainer")
     if overview_container:
-        dept_name = clean_text(overview_container.find("h2", class_="toggle").get_text())
+        dept_name = clean_text(
+            overview_container.find("h2", class_="toggle").get_text()
+        )
         overview_sections = build_sections(overview_container)
     else:
         dept_name = department_name or "Unknown Department"
         overview_sections = []
 
-    # Get requirements sections
+    # 3) Department-wide requirements (unchanged)
     requirements_container = soup.find(id="requirementstextcontainer")
     if requirements_container:
-        requirements_sections = build_sections(requirements_container)
+        department_wide_requirements = build_sections(requirements_container)
     else:
-        requirements_sections = []
+        department_wide_requirements = []
 
-    # Parse majors (any h2 or h3 toggle whose text includes "Major")
+    # 4) One-pass grouping of every child under #requirementstextcontainer
+    blocks = []
+    if requirements_container:
+        for child in requirements_container.find_all(recursive=False):
+            # start a new block at each <h2>/<h3 class="toggle">
+            if child.name in ("h2","h3") and "toggle" in (child.get("class") or []):
+                blocks.append({"header": child, "nodes": []})
+            elif blocks:
+                blocks[-1]["nodes"].append(child)
+
+    # 5) Extract JUST the Major/Minor blocks
     majors = {}
     counter = 1
-    
-    # Get all text from requirements container
-    requirements_text = []
-    if requirements_container:
-        for text in requirements_container.stripped_strings:
-            requirements_text.append(text)
+    for blk in blocks:
+        title = clean_text(blk["header"].get_text())
+        if "major" not in title.lower() and "minor" not in title.lower():
+            continue
 
-    if requirements_container:
-        # look for BOTH h2 and h3 toggles
-        for toggle in requirements_container.find_all(["h2","h3"], class_="toggle"):
-            title = clean_text(toggle.get_text())
+        major_id = f"{department_code}{counter}"
+        counter += 1
 
-            if "major" not in title.lower() and "minor" not in title.lower():
-                continue
+        # re-serialize header + all its nodes into one <div class="toggle-wrap">
+        html_snippet = ['<div class="toggle-wrap">']
+        html_snippet.append(str(blk["header"]))
+        for node in blk["nodes"]:
+            html_snippet.append(str(node))
+        html_snippet.append("</div>")
 
-            major_id = f"{department_code}{counter}"
-            counter += 1
+        majors[major_id] = {
+            "major_name":    title,
+            "major_html":    "\n".join(html_snippet),
+            "course_lists":  [],
+            "cognates":      [],
+            "footnotes":     []
+        }
 
-            majors[major_id] = {
-                "major_name": title,
-                "course_lists": [],
-                "cognates": [],
-                "footnotes": []
-            }
-            
-            # Get all text under this toggle until next toggle
-            # not a list of strings, but a continous string
-            toggle_text = ""
-            for sib in toggle.find_next_siblings():
-                if sib.name in ("h2","h3") and "toggle" in (sib.get("class") or []):
-                    break
-                if isinstance(sib, Tag):
-                    text = clean_text(sib.get_text())
-                    if text:
-                        toggle_text += text
+        # now pull out tables & footnotes from blk["nodes"]
+        for node in blk["nodes"]:
+            if node.name == "table" and "sc_courselist" in node.get("class", []):
+                majors[major_id]["course_lists"].append(
+                    parse_table(node, include_html=False)
+                )
+            elif node.name == "table" and "sc_prerequisite" in node.get("class", []):
+                majors[major_id]["cognates"].append(
+                    parse_table(node, include_html=False)
+                )
+            elif node.name == "dl" and "sc_footnotes" in node.get("class", []):
+                notes = [ clean_text(dd.get_text(" ")) for dd in node.find_all("dd") ]
+                majors[major_id]["footnotes"].extend(notes)
+        
+        toggle = blk["header"]
+        toggle_text = ""
+        for sib in toggle.find_next_siblings():
+            if sib.name in ("h2","h3") and "toggle" in (sib.get("class") or []):
+                break
+            if isinstance(sib, Tag):
+                text = clean_text(sib.get_text())
+                if text:
+                    toggle_text += text
 
-            # collect everything up to the next toggle heading
-            for sib in toggle.find_next_siblings():
-                # stop when you hit the next h2/h3.toggle
-                if sib.name in ("h2","h3") and "toggle" in (sib.get("class") or []):
-                    break
+        if not majors[major_id]["course_lists"]:
+            if department_code not in toggle_text:
+                del majors[major_id]
+                counter -= 1
+            else: 
+                majors[major_id]["course_lists"] = toggle_text 
 
-                if not isinstance(sib, Tag):
-                    continue
-
-                # course tables
-                if sib.name == "table" and "sc_courselist" in sib.get("class", []):
-                    majors[major_id]["course_lists"].append(
-                        parse_table(sib, include_html=True)
-                    )
-
-                # prerequisite tables
-                elif sib.name == "table" and "sc_prerequisite" in sib.get("class", []):
-                    majors[major_id]["cognates"].append(
-                        parse_table(sib, include_html=True)
-                    )
-
-                # footnotes
-                elif sib.name == "dl" and "sc_footnotes" in sib.get("class", []):
-                    notes = [ clean_text(dd.get_text(" ")) for dd in sib.find_all("dd") ]
-                    majors[major_id]["footnotes"].extend(notes)
-            
-            # if you found zero tables, drop this phantom entry
-            if not majors[major_id]["course_lists"]:
-                if department_code not in toggle_text:
-                    del majors[major_id]
-                    counter -= 1
-                else: 
-                    majors[major_id]["course_lists"] = toggle_text    
-
-    # Build the comprehensive structure
+    # 6) Bundle into final structure
     comprehensive_data = {
-        "department_code": department_code,
-        "department_name": dept_name,
-        "website": url,
-        "overview_sections": overview_sections,
-        "department_wide_requirements": requirements_sections,
-        "majors": majors
+        "department_code":             department_code,
+        "department_name":             dept_name,
+        "website":                     url,
+        "overview_sections":           overview_sections,
+        "department_wide_requirements":department_wide_requirements,
+        "majors":                      majors
     }
 
     return comprehensive_data
+
 
 def save_comprehensive_json(data, filename):
     """Save the comprehensive data to a JSON file."""

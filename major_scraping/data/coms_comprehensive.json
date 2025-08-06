@@ -150,646 +150,617 @@
   "majors": {
     "COMS1": {
       "major_name": "Major in Computer Science",
+      "major_html": "<div class=\"toggle-wrap\">\n<h3 class=\"toggle\"><span id=\"docs-internal-guid-a35ae23d-7fff-adec-0993-06a915665c3d\">Major in Computer Science</span></h3>\n<p><span id=\"docs-internal-guid-a35ae23d-7fff-adec-0993-06a915665c3d\">All majors should confer with their program adviser each term to plan their programs of study. Students considering a major in computer science are encouraged to talk to a program adviser during their first or second year. The Computer Science major is composed of four basic components: The Mathematics Requirement, the Computer Science Core, the Area Foundation Courses, and the Computer Science Electives.</span></p>\n<h4>Mathematics Requirement (6-11 points)</h4>\n<table class=\"sc_courselist\">\n<caption class=\"hidden noscript\">Course List</caption>\n<colgroup>\n<col class=\"codecol\"/>\n<col class=\"titlecol\"/>\n<col align=\"char\" char=\".\" class=\"hourscol\"/>\n</colgroup>\n<thead>\n<tr class=\"hidden noscript\">\n<th scope=\"col\">Code</th>\n<th scope=\"col\">Title</th>\n<th class=\"hourscol\" scope=\"col\">Points</th>\n</tr>\n</thead>\n<tbody>\n<tr class=\"even areaheader firstrow\"><td colspan=\"2\"><span class=\"courselistcomment areaheader\">Calculus Requirement: Select one of the following courses:</span></td><td class=\"hourscol\"></td></tr>\n<tr class=\"odd\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=MATH%20UN1201\" onclick=\"return showCourse(this, 'MATH UN1201');\" title=\"MATH UN1201\">MATH UN1201</a></td><td>CALCULUS III</td><td class=\"hourscol\"></td></tr>\n<tr class=\"even\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=MATH%20UN1205\" onclick=\"return showCourse(this, 'MATH UN1205');\" title=\"MATH UN1205\">MATH UN1205</a></td><td>ACCELERATED MULTIVARIABLE CALC</td><td class=\"hourscol\"></td></tr>\n<tr class=\"odd\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=APMA%20E2000\" onclick=\"return showCourse(this, 'APMA E2000');\" title=\"APMA E2000\">APMA E2000</a></td><td>MULTV. CALC. FOR ENGI ＆ APP SCI</td><td class=\"hourscol\"></td></tr>\n<tr class=\"even lastrow\"><td colspan=\"2\"><span class=\"courselistcomment\">Note that <a class=\"bubblelink code\" href=\"/search/?P=MATH%20UN1201\" onclick=\"return showCourse(this, 'MATH UN1201');\" title=\"MATH UN1201\">MATH UN1201</a> (Calculus III) requires Calculus I as a prerequisite but does NOT require Calculus II. <a class=\"bubblelink code\" href=\"/search/?P=MATH%20UN1205\" onclick=\"return showCourse(this, 'MATH UN1205');\" title=\"MATH UN1205\">MATH UN1205</a> and <a class=\"bubblelink code\" href=\"/search/?P=APMA%20E2000\" onclick=\"return showCourse(this, 'APMA E2000');\" title=\"APMA E2000\">APMA E2000</a>, however, require both Calculus I and Calculus II as  prerequisites.</span></td><td class=\"hourscol\"></td></tr>\n</tbody>\n</table>\n<table class=\"sc_courselist\">\n<caption class=\"hidden noscript\">Course List</caption>\n<colgroup>\n<col class=\"codecol\"/>\n<col class=\"titlecol\"/>\n<col align=\"char\" char=\".\" class=\"hourscol\"/>\n</colgroup>\n<thead>\n<tr class=\"hidden noscript\">\n<th scope=\"col\">Code</th>\n<th scope=\"col\">Title</th>\n<th class=\"hourscol\" scope=\"col\">Points</th>\n</tr>\n</thead>\n<tbody>\n<tr class=\"even areaheader firstrow\"><td colspan=\"2\"><span class=\"courselistcomment areaheader\"> Linear Algebra Requirement: Select one of the following courses:</span></td><td class=\"hourscol\"></td></tr>\n<tr class=\"odd\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=COMS%20W3251\" onclick=\"return showCourse(this, 'COMS W3251');\" title=\"COMS W3251\">COMS W3251</a></td><td>COMPUTATIONAL LINEAR ALGEBRA (recommended)</td><td class=\"hourscol\"></td></tr>\n<tr class=\"even\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=MATH%20UN2010\" onclick=\"return showCourse(this, 'MATH UN2010');\" title=\"MATH UN2010\">MATH UN2010</a></td><td>LINEAR ALGEBRA</td><td class=\"hourscol\"></td></tr>\n<tr class=\"odd\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=MATH%20UN2015\" onclick=\"return showCourse(this, 'MATH UN2015');\" title=\"MATH UN2015\">MATH UN2015</a></td><td>Linear Algebra and Probability</td><td class=\"hourscol\"></td></tr>\n<tr class=\"even\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=MATH%20UN2020\" onclick=\"return showCourse(this, 'MATH UN2020');\" title=\"MATH UN2020\">MATH UN2020</a></td><td>Honors Linear Algebra</td><td class=\"hourscol\"></td></tr>\n<tr class=\"odd\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=APMA%20E2101\" onclick=\"return showCourse(this, 'APMA E2101');\" title=\"APMA E2101\">APMA E2101</a></td><td>INTRO TO APPLIED MATHEMATICS</td><td class=\"hourscol\"></td></tr>\n<tr class=\"even lastrow\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=APMA%20E3101\" onclick=\"return showCourse(this, 'APMA E3101');\" title=\"APMA E3101\">APMA E3101</a></td><td>APPLIED MATH I: LINEAR ALGEBRA</td><td class=\"hourscol\"></td></tr>\n</tbody>\n</table>\n<table class=\"sc_courselist\">\n<caption class=\"hidden noscript\">Course List</caption>\n<colgroup>\n<col class=\"codecol\"/>\n<col class=\"titlecol\"/>\n<col align=\"char\" char=\".\" class=\"hourscol\"/>\n</colgroup>\n<thead>\n<tr class=\"hidden noscript\">\n<th scope=\"col\">Code</th>\n<th scope=\"col\">Title</th>\n<th class=\"hourscol\" scope=\"col\">Points</th>\n</tr>\n</thead>\n<tbody>\n<tr class=\"even areaheader firstrow\"><td colspan=\"2\"><span class=\"courselistcomment areaheader\"> Probability / Statistics Requirement: Select one of the following courses:</span></td><td class=\"hourscol\"></td></tr>\n<tr class=\"odd\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=MATH%20UN2015\" onclick=\"return showCourse(this, 'MATH UN2015');\" title=\"MATH UN2015\">MATH UN2015</a></td><td>Linear Algebra and Probability</td><td class=\"hourscol\"></td></tr>\n<tr class=\"even\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=IEOR%20E3658\" onclick=\"return showCourse(this, 'IEOR E3658');\" title=\"IEOR E3658\">IEOR E3658</a></td><td>PROBABILITY FOR ENGINEERS</td><td class=\"hourscol\"></td></tr>\n<tr class=\"odd\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=STAT%20UN1201\" onclick=\"return showCourse(this, 'STAT UN1201');\" title=\"STAT UN1201\">STAT UN1201</a></td><td>CALC-BASED INTRO TO STATISTICS</td><td class=\"hourscol\"></td></tr>\n<tr class=\"even\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=STAT%20GU4001\" onclick=\"return showCourse(this, 'STAT GU4001');\" title=\"STAT GU4001\">STAT GU4001</a></td><td>INTRODUCTION TO PROBABILITY AND STATISTICS</td><td class=\"hourscol\"></td></tr>\n<tr class=\"odd lastrow\"><td colspan=\"2\"><span class=\"courselistcomment\">NOTE: Math 2015 Linear Algebra and Probability may simultaneously satisfy both linear algebra and probability requirements without the need to take additional classes thus reducing the total number of points required.</span></td><td class=\"hourscol\"></td></tr>\n</tbody>\n</table>\n<h4> <span id=\"docs-internal-guid-4655d28a-7fff-ed7a-69de-e61c1177b600\">Pre-intro course (Optional, 3-4 points)</span></h4>\n<table class=\"sc_courselist\">\n<caption class=\"hidden noscript\">Course List</caption>\n<colgroup>\n<col class=\"codecol\"/>\n<col class=\"titlecol\"/>\n<col align=\"char\" char=\".\" class=\"hourscol\"/>\n</colgroup>\n<thead>\n<tr class=\"hidden noscript\">\n<th scope=\"col\">Code</th>\n<th scope=\"col\">Title</th>\n<th class=\"hourscol\" scope=\"col\">Points</th>\n</tr>\n</thead>\n<tbody>\n<tr class=\"even lastrow firstrow\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=ENGI%20E1006\" onclick=\"return showCourse(this, 'ENGI E1006');\" title=\"ENGI E1006\">ENGI E1006</a></td><td>INTRO TO COMP FOR ENG/APP SCI (recommended but not required)</td><td class=\"hourscol\"></td></tr>\n<tr class=\"orclass even lastrow firstrow\"><td class=\"codecol orclass\">or <a class=\"bubblelink code\" href=\"/search/?P=COMS%20W1002\" onclick=\"return showCourse(this, 'COMS W1002');\" title=\"COMS W1002\">COMS W1002</a></td><td colspan=\"2\"> COMPUTING IN CONTEXT</td></tr>\n</tbody>\n</table>\n<h4>Computer Science Core (20-21 points):</h4>\n<table class=\"sc_courselist\">\n<caption class=\"hidden noscript\">Course List</caption>\n<colgroup>\n<col class=\"codecol\"/>\n<col class=\"titlecol\"/>\n<col align=\"char\" char=\".\" class=\"hourscol\"/>\n</colgroup>\n<thead>\n<tr class=\"hidden noscript\">\n<th scope=\"col\">Code</th>\n<th scope=\"col\">Title</th>\n<th class=\"hourscol\" scope=\"col\">Points</th>\n</tr>\n</thead>\n<tbody>\n<tr class=\"even areaheader firstrow\"><td colspan=\"2\"><span class=\"courselistcomment areaheader\">First Year</span></td><td class=\"hourscol\"></td></tr>\n<tr class=\"odd\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=COMS%20W1004\" onclick=\"return showCourse(this, 'COMS W1004');\" title=\"COMS W1004\">COMS W1004</a></td><td>Introduction to Computer Science and Programming in Java</td><td class=\"hourscol\"></td></tr>\n<tr class=\"orclass odd\"><td class=\"codecol orclass\">or COMS W1007</td><td colspan=\"2\"> </td></tr>\n<tr class=\"even areaheader\"><td colspan=\"2\"><span class=\"courselistcomment areaheader\">Sophomore Year</span></td><td class=\"hourscol\"></td></tr>\n<tr class=\"odd\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=COMS%20W3134\" onclick=\"return showCourse(this, 'COMS W3134');\" title=\"COMS W3134\">COMS W3134</a></td><td>Data Structures in Java</td><td class=\"hourscol\"></td></tr>\n<tr class=\"orclass odd\"><td class=\"codecol orclass\">or <a class=\"bubblelink code\" href=\"/search/?P=COMS%20W3137\" onclick=\"return showCourse(this, 'COMS W3137');\" title=\"COMS W3137\">COMS W3137</a></td><td colspan=\"2\"> HONORS DATA STRUCTURES ＆ ALGOL</td></tr>\n<tr class=\"even\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=COMS%20W3157\" onclick=\"return showCourse(this, 'COMS W3157');\" title=\"COMS W3157\">COMS W3157</a></td><td>ADVANCED PROGRAMMING</td><td class=\"hourscol\"></td></tr>\n<tr class=\"odd\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=COMS%20W3203\" onclick=\"return showCourse(this, 'COMS W3203');\" title=\"COMS W3203\">COMS W3203</a></td><td>DISCRETE MATHEMATICS</td><td class=\"hourscol\"></td></tr>\n<tr class=\"even areaheader\"><td colspan=\"2\"><span class=\"courselistcomment areaheader\">Junior and Senior Year</span></td><td class=\"hourscol\"></td></tr>\n<tr class=\"odd\"><td colspan=\"2\"><span class=\"courselistcomment\">Complete the remaining required core courses:</span></td><td class=\"hourscol\"></td></tr>\n<tr class=\"even\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=COMS%20W3261\" onclick=\"return showCourse(this, 'COMS W3261');\" title=\"COMS W3261\">COMS W3261</a></td><td>COMPUTER SCIENCE THEORY</td><td class=\"hourscol\"></td></tr>\n<tr class=\"odd lastrow\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=CSEE%20W3827\" onclick=\"return showCourse(this, 'CSEE W3827');\" title=\"CSEE W3827\">CSEE W3827</a></td><td>FUNDAMENTALS OF COMPUTER SYSTS</td><td class=\"hourscol\"></td></tr>\n</tbody>\n</table>\n<h4>Area Foundation Courses (9 to 12 points):</h4>\n<p>Select three from the following list:</p>\n<table class=\"sc_courselist\">\n<caption class=\"hidden noscript\">Course List</caption>\n<colgroup>\n<col class=\"codecol\"/>\n<col class=\"titlecol\"/>\n<col align=\"char\" char=\".\" class=\"hourscol\"/>\n</colgroup>\n<thead>\n<tr class=\"hidden noscript\">\n<th scope=\"col\">Code</th>\n<th scope=\"col\">Title</th>\n<th class=\"hourscol\" scope=\"col\">Points</th>\n</tr>\n</thead>\n<tbody>\n<tr class=\"even areaheader firstrow\"><td colspan=\"2\"></td><td class=\"hourscol\"></td></tr>\n<tr class=\"odd\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=COMS%20W4111\" onclick=\"return showCourse(this, 'COMS W4111');\" title=\"COMS W4111\">COMS W4111</a></td><td>INTRODUCTION TO DATABASES</td><td class=\"hourscol\"></td></tr>\n<tr class=\"even\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=COMS%20W4113\" onclick=\"return showCourse(this, 'COMS W4113');\" title=\"COMS W4113\">COMS W4113</a></td><td>FUND-LARGE-SCALE DIST SYSTEMS</td><td class=\"hourscol\"></td></tr>\n<tr class=\"odd\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=COMS%20W4115\" onclick=\"return showCourse(this, 'COMS W4115');\" title=\"COMS W4115\">COMS W4115</a></td><td>PROGRAMMING LANG ＆ TRANSLATORS</td><td class=\"hourscol\"></td></tr>\n<tr class=\"even\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=COMS%20W4118\" onclick=\"return showCourse(this, 'COMS W4118');\" title=\"COMS W4118\">COMS W4118</a></td><td>OPERATING SYSTEMS I</td><td class=\"hourscol\"></td></tr>\n<tr class=\"odd\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=COMS%20W4119\" onclick=\"return showCourse(this, 'COMS W4119');\" title=\"COMS W4119\">COMS W4119</a></td><td>COMPUTER NETWORKS</td><td class=\"hourscol\"></td></tr>\n<tr class=\"even\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=COMS%20W4152\" onclick=\"return showCourse(this, 'COMS W4152');\" title=\"COMS W4152\">COMS W4152</a></td><td>Engineering Software-as-a-Service</td><td class=\"hourscol\"></td></tr>\n<tr class=\"odd\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=COMS%20W4156\" onclick=\"return showCourse(this, 'COMS W4156');\" title=\"COMS W4156\">COMS W4156</a></td><td>ADVANCED SOFTWARE ENGINEERING</td><td class=\"hourscol\"></td></tr>\n<tr class=\"even\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=COMS%20W4160\" onclick=\"return showCourse(this, 'COMS W4160');\" title=\"COMS W4160\">COMS W4160</a></td><td>COMPUTER GRAPHICS</td><td class=\"hourscol\"></td></tr>\n<tr class=\"odd\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=COMS%20W4167\" onclick=\"return showCourse(this, 'COMS W4167');\" title=\"COMS W4167\">COMS W4167</a></td><td>COMPUTER ANIMATION</td><td class=\"hourscol\"></td></tr>\n<tr class=\"even\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=COMS%20W4170\" onclick=\"return showCourse(this, 'COMS W4170');\" title=\"COMS W4170\">COMS W4170</a></td><td>USER INTERFACE DESIGN</td><td class=\"hourscol\"></td></tr>\n<tr class=\"odd\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=COMS%20W4181\" onclick=\"return showCourse(this, 'COMS W4181');\" title=\"COMS W4181\">COMS W4181</a></td><td>SECURITY I</td><td class=\"hourscol\"></td></tr>\n<tr class=\"even\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=CSOR%20E4231\" onclick=\"return showCourse(this, 'CSOR E4231');\" title=\"CSOR E4231\">CSOR E4231</a></td><td>ANALYSIS OF ALGORITHMS I</td><td class=\"hourscol\"></td></tr>\n<tr class=\"odd\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=COMS%20W4236\" onclick=\"return showCourse(this, 'COMS W4236');\" title=\"COMS W4236\">COMS W4236</a></td><td>INTRO-COMPUTATIONAL COMPLEXITY</td><td class=\"hourscol\"></td></tr>\n<tr class=\"even\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=COMS%20W4701\" onclick=\"return showCourse(this, 'COMS W4701');\" title=\"COMS W4701\">COMS W4701</a></td><td>ARTIFICIAL INTELLIGENCE</td><td class=\"hourscol\"></td></tr>\n<tr class=\"odd\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=COMS%20W4705\" onclick=\"return showCourse(this, 'COMS W4705');\" title=\"COMS W4705\">COMS W4705</a></td><td>NATURAL LANGUAGE PROCESSING</td><td class=\"hourscol\"></td></tr>\n<tr class=\"even\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=COMS%20W4731\" onclick=\"return showCourse(this, 'COMS W4731');\" title=\"COMS W4731\">COMS W4731</a></td><td>Computer Vision I: First Principles</td><td class=\"hourscol\"></td></tr>\n<tr class=\"odd\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=COMS%20W4733\" onclick=\"return showCourse(this, 'COMS W4733');\" title=\"COMS W4733\">COMS W4733</a></td><td>COMPUTATIONAL ASPECTS OF ROBOTICS</td><td class=\"hourscol\"></td></tr>\n<tr class=\"even\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=CBMF%20W4761\" onclick=\"return showCourse(this, 'CBMF W4761');\" title=\"CBMF W4761\">CBMF W4761</a></td><td>COMPUTATIONAL GENOMICS</td><td class=\"hourscol\"></td></tr>\n<tr class=\"odd\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=COMS%20W4771\" onclick=\"return showCourse(this, 'COMS W4771');\" title=\"COMS W4771\">COMS W4771</a></td><td>MACHINE LEARNING</td><td class=\"hourscol\"></td></tr>\n<tr class=\"even\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=CSEE%20W4824\" onclick=\"return showCourse(this, 'CSEE W4824');\" title=\"CSEE W4824\">CSEE W4824</a></td><td>COMPUTER ARCHITECTURE</td><td class=\"hourscol\"></td></tr>\n<tr class=\"odd lastrow\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=CSEE%20W4868\" onclick=\"return showCourse(this, 'CSEE W4868');\" title=\"CSEE W4868\">CSEE W4868</a></td><td>SYSTEM-ON-CHIP PLATFORMS</td><td class=\"hourscol\"></td></tr>\n</tbody>\n</table>\n<h4>Computer Science Electives (9 to 12 points)</h4>\n<p>Any three COMS courses or jointly offered computer science courses such as CSXX or XXCS course that are worth at least 3 points and are at the 3000 level or above. This includes 3000-level courses offered by Barnard CS.</p>\n<h4>Restrictions</h4>\n<p>No more than 6 points of project/thesis courses (COMS W3902, W3998, W4901) can count toward the major. COMS W3999 Fieldwork cannot be used as a CS Elective.</p>\n<p>No more than one course from each set below may be applied towards the computer science major:</p>\n<ul>\n<li>\n<p> IEOR E3658, STAT UN1201, MATH UN2015</p>\n</li>\n<li>\n<p> MATH UN2015, MATH UN2010, APAM E3101, COMS W3251</p>\n</li>\n<li>\n<p> COMS W4771, COMS W4721</p>\n</li>\n</ul>\n<hr/>\n</div>",
       "course_lists": [
-        {
-          "rows": [
-            [
-              "Calculus Requirement: Select one of the following courses:",
-              ""
-            ],
-            [
-              "MATH UN1201",
-              "CALCULUS III",
-              ""
-            ],
-            [
-              "MATH UN1205",
-              "ACCELERATED MULTIVARIABLE CALC",
-              ""
-            ],
-            [
-              "APMA E2000",
-              "MULTV. CALC. FOR ENGI ＆ APP SCI",
-              ""
-            ],
-            [
-              "Note that MATH UN1201 (Calculus III) requires Calculus I as a prerequisite but does NOT require Calculus II. MATH UN1205 and APMA E2000 , however, require both Calculus I and Calculus II as prerequisites.",
-              ""
-            ]
+        [
+          [
+            "Calculus Requirement: Select one of the following courses:",
+            ""
           ],
-          "html": "<table class=\"sc_courselist\">\n<caption class=\"hidden noscript\">Course List</caption>\n<colgroup>\n<col class=\"codecol\"/>\n<col class=\"titlecol\"/>\n<col align=\"char\" char=\".\" class=\"hourscol\"/>\n</colgroup>\n<thead>\n<tr class=\"hidden noscript\">\n<th scope=\"col\">Code</th>\n<th scope=\"col\">Title</th>\n<th class=\"hourscol\" scope=\"col\">Points</th>\n</tr>\n</thead>\n<tbody>\n<tr class=\"even areaheader firstrow\"><td colspan=\"2\"><span class=\"courselistcomment areaheader\">Calculus Requirement: Select one of the following courses:</span></td><td class=\"hourscol\"></td></tr>\n<tr class=\"odd\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=MATH%20UN1201\" onclick=\"return showCourse(this, 'MATH UN1201');\" title=\"MATH UN1201\">MATH UN1201</a></td><td>CALCULUS III</td><td class=\"hourscol\"></td></tr>\n<tr class=\"even\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=MATH%20UN1205\" onclick=\"return showCourse(this, 'MATH UN1205');\" title=\"MATH UN1205\">MATH UN1205</a></td><td>ACCELERATED MULTIVARIABLE CALC</td><td class=\"hourscol\"></td></tr>\n<tr class=\"odd\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=APMA%20E2000\" onclick=\"return showCourse(this, 'APMA E2000');\" title=\"APMA E2000\">APMA E2000</a></td><td>MULTV. CALC. FOR ENGI ＆ APP SCI</td><td class=\"hourscol\"></td></tr>\n<tr class=\"even lastrow\"><td colspan=\"2\"><span class=\"courselistcomment\">Note that <a class=\"bubblelink code\" href=\"/search/?P=MATH%20UN1201\" onclick=\"return showCourse(this, 'MATH UN1201');\" title=\"MATH UN1201\">MATH UN1201</a> (Calculus III) requires Calculus I as a prerequisite but does NOT require Calculus II. <a class=\"bubblelink code\" href=\"/search/?P=MATH%20UN1205\" onclick=\"return showCourse(this, 'MATH UN1205');\" title=\"MATH UN1205\">MATH UN1205</a> and <a class=\"bubblelink code\" href=\"/search/?P=APMA%20E2000\" onclick=\"return showCourse(this, 'APMA E2000');\" title=\"APMA E2000\">APMA E2000</a>, however, require both Calculus I and Calculus II as  prerequisites.</span></td><td class=\"hourscol\"></td></tr>\n</tbody>\n</table>"
-        },
-        {
-          "rows": [
-            [
-              "Linear Algebra Requirement: Select one of the following courses:",
-              ""
-            ],
-            [
-              "COMS W3251",
-              "COMPUTATIONAL LINEAR ALGEBRA (recommended)",
-              ""
-            ],
-            [
-              "MATH UN2010",
-              "LINEAR ALGEBRA",
-              ""
-            ],
-            [
-              "MATH UN2015",
-              "Linear Algebra and Probability",
-              ""
-            ],
-            [
-              "MATH UN2020",
-              "Honors Linear Algebra",
-              ""
-            ],
-            [
-              "APMA E2101",
-              "INTRO TO APPLIED MATHEMATICS",
-              ""
-            ],
-            [
-              "APMA E3101",
-              "APPLIED MATH I: LINEAR ALGEBRA",
-              ""
-            ]
+          [
+            "MATH UN1201",
+            "CALCULUS III",
+            ""
           ],
-          "html": "<table class=\"sc_courselist\">\n<caption class=\"hidden noscript\">Course List</caption>\n<colgroup>\n<col class=\"codecol\"/>\n<col class=\"titlecol\"/>\n<col align=\"char\" char=\".\" class=\"hourscol\"/>\n</colgroup>\n<thead>\n<tr class=\"hidden noscript\">\n<th scope=\"col\">Code</th>\n<th scope=\"col\">Title</th>\n<th class=\"hourscol\" scope=\"col\">Points</th>\n</tr>\n</thead>\n<tbody>\n<tr class=\"even areaheader firstrow\"><td colspan=\"2\"><span class=\"courselistcomment areaheader\"> Linear Algebra Requirement: Select one of the following courses:</span></td><td class=\"hourscol\"></td></tr>\n<tr class=\"odd\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=COMS%20W3251\" onclick=\"return showCourse(this, 'COMS W3251');\" title=\"COMS W3251\">COMS W3251</a></td><td>COMPUTATIONAL LINEAR ALGEBRA (recommended)</td><td class=\"hourscol\"></td></tr>\n<tr class=\"even\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=MATH%20UN2010\" onclick=\"return showCourse(this, 'MATH UN2010');\" title=\"MATH UN2010\">MATH UN2010</a></td><td>LINEAR ALGEBRA</td><td class=\"hourscol\"></td></tr>\n<tr class=\"odd\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=MATH%20UN2015\" onclick=\"return showCourse(this, 'MATH UN2015');\" title=\"MATH UN2015\">MATH UN2015</a></td><td>Linear Algebra and Probability</td><td class=\"hourscol\"></td></tr>\n<tr class=\"even\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=MATH%20UN2020\" onclick=\"return showCourse(this, 'MATH UN2020');\" title=\"MATH UN2020\">MATH UN2020</a></td><td>Honors Linear Algebra</td><td class=\"hourscol\"></td></tr>\n<tr class=\"odd\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=APMA%20E2101\" onclick=\"return showCourse(this, 'APMA E2101');\" title=\"APMA E2101\">APMA E2101</a></td><td>INTRO TO APPLIED MATHEMATICS</td><td class=\"hourscol\"></td></tr>\n<tr class=\"even lastrow\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=APMA%20E3101\" onclick=\"return showCourse(this, 'APMA E3101');\" title=\"APMA E3101\">APMA E3101</a></td><td>APPLIED MATH I: LINEAR ALGEBRA</td><td class=\"hourscol\"></td></tr>\n</tbody>\n</table>"
-        },
-        {
-          "rows": [
-            [
-              "Probability / Statistics Requirement: Select one of the following courses:",
-              ""
-            ],
-            [
-              "MATH UN2015",
-              "Linear Algebra and Probability",
-              ""
-            ],
-            [
-              "IEOR E3658",
-              "PROBABILITY FOR ENGINEERS",
-              ""
-            ],
-            [
-              "STAT UN1201",
-              "CALC-BASED INTRO TO STATISTICS",
-              ""
-            ],
-            [
-              "STAT GU4001",
-              "INTRODUCTION TO PROBABILITY AND STATISTICS",
-              ""
-            ],
-            [
-              "NOTE: Math 2015 Linear Algebra and Probability may simultaneously satisfy both linear algebra and probability requirements without the need to take additional classes thus reducing the total number of points required.",
-              ""
-            ]
+          [
+            "MATH UN1205",
+            "ACCELERATED MULTIVARIABLE CALC",
+            ""
           ],
-          "html": "<table class=\"sc_courselist\">\n<caption class=\"hidden noscript\">Course List</caption>\n<colgroup>\n<col class=\"codecol\"/>\n<col class=\"titlecol\"/>\n<col align=\"char\" char=\".\" class=\"hourscol\"/>\n</colgroup>\n<thead>\n<tr class=\"hidden noscript\">\n<th scope=\"col\">Code</th>\n<th scope=\"col\">Title</th>\n<th class=\"hourscol\" scope=\"col\">Points</th>\n</tr>\n</thead>\n<tbody>\n<tr class=\"even areaheader firstrow\"><td colspan=\"2\"><span class=\"courselistcomment areaheader\"> Probability / Statistics Requirement: Select one of the following courses:</span></td><td class=\"hourscol\"></td></tr>\n<tr class=\"odd\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=MATH%20UN2015\" onclick=\"return showCourse(this, 'MATH UN2015');\" title=\"MATH UN2015\">MATH UN2015</a></td><td>Linear Algebra and Probability</td><td class=\"hourscol\"></td></tr>\n<tr class=\"even\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=IEOR%20E3658\" onclick=\"return showCourse(this, 'IEOR E3658');\" title=\"IEOR E3658\">IEOR E3658</a></td><td>PROBABILITY FOR ENGINEERS</td><td class=\"hourscol\"></td></tr>\n<tr class=\"odd\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=STAT%20UN1201\" onclick=\"return showCourse(this, 'STAT UN1201');\" title=\"STAT UN1201\">STAT UN1201</a></td><td>CALC-BASED INTRO TO STATISTICS</td><td class=\"hourscol\"></td></tr>\n<tr class=\"even\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=STAT%20GU4001\" onclick=\"return showCourse(this, 'STAT GU4001');\" title=\"STAT GU4001\">STAT GU4001</a></td><td>INTRODUCTION TO PROBABILITY AND STATISTICS</td><td class=\"hourscol\"></td></tr>\n<tr class=\"odd lastrow\"><td colspan=\"2\"><span class=\"courselistcomment\">NOTE: Math 2015 Linear Algebra and Probability may simultaneously satisfy both linear algebra and probability requirements without the need to take additional classes thus reducing the total number of points required.</span></td><td class=\"hourscol\"></td></tr>\n</tbody>\n</table>"
-        },
-        {
-          "rows": [
-            [
-              "ENGI E1006",
-              "INTRO TO COMP FOR ENG/APP SCI (recommended but not required)",
-              ""
-            ],
-            [
-              "or COMS W1002",
-              "COMPUTING IN CONTEXT"
-            ]
+          [
+            "APMA E2000",
+            "MULTV. CALC. FOR ENGI ＆ APP SCI",
+            ""
           ],
-          "html": "<table class=\"sc_courselist\">\n<caption class=\"hidden noscript\">Course List</caption>\n<colgroup>\n<col class=\"codecol\"/>\n<col class=\"titlecol\"/>\n<col align=\"char\" char=\".\" class=\"hourscol\"/>\n</colgroup>\n<thead>\n<tr class=\"hidden noscript\">\n<th scope=\"col\">Code</th>\n<th scope=\"col\">Title</th>\n<th class=\"hourscol\" scope=\"col\">Points</th>\n</tr>\n</thead>\n<tbody>\n<tr class=\"even lastrow firstrow\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=ENGI%20E1006\" onclick=\"return showCourse(this, 'ENGI E1006');\" title=\"ENGI E1006\">ENGI E1006</a></td><td>INTRO TO COMP FOR ENG/APP SCI (recommended but not required)</td><td class=\"hourscol\"></td></tr>\n<tr class=\"orclass even lastrow firstrow\"><td class=\"codecol orclass\">or <a class=\"bubblelink code\" href=\"/search/?P=COMS%20W1002\" onclick=\"return showCourse(this, 'COMS W1002');\" title=\"COMS W1002\">COMS W1002</a></td><td colspan=\"2\"> COMPUTING IN CONTEXT</td></tr>\n</tbody>\n</table>"
-        },
-        {
-          "rows": [
-            [
-              "First Year",
-              ""
-            ],
-            [
-              "COMS W1004",
-              "Introduction to Computer Science and Programming in Java",
-              ""
-            ],
-            [
-              "or COMS W1007",
-              ""
-            ],
-            [
-              "Sophomore Year",
-              ""
-            ],
-            [
-              "COMS W3134",
-              "Data Structures in Java",
-              ""
-            ],
-            [
-              "or COMS W3137",
-              "HONORS DATA STRUCTURES ＆ ALGOL"
-            ],
-            [
-              "COMS W3157",
-              "ADVANCED PROGRAMMING",
-              ""
-            ],
-            [
-              "COMS W3203",
-              "DISCRETE MATHEMATICS",
-              ""
-            ],
-            [
-              "Junior and Senior Year",
-              ""
-            ],
-            [
-              "Complete the remaining required core courses:",
-              ""
-            ],
-            [
-              "COMS W3261",
-              "COMPUTER SCIENCE THEORY",
-              ""
-            ],
-            [
-              "CSEE W3827",
-              "FUNDAMENTALS OF COMPUTER SYSTS",
-              ""
-            ]
+          [
+            "Note that MATH UN1201 (Calculus III) requires Calculus I as a prerequisite but does NOT require Calculus II. MATH UN1205 and APMA E2000 , however, require both Calculus I and Calculus II as prerequisites.",
+            ""
+          ]
+        ],
+        [
+          [
+            "Linear Algebra Requirement: Select one of the following courses:",
+            ""
           ],
-          "html": "<table class=\"sc_courselist\">\n<caption class=\"hidden noscript\">Course List</caption>\n<colgroup>\n<col class=\"codecol\"/>\n<col class=\"titlecol\"/>\n<col align=\"char\" char=\".\" class=\"hourscol\"/>\n</colgroup>\n<thead>\n<tr class=\"hidden noscript\">\n<th scope=\"col\">Code</th>\n<th scope=\"col\">Title</th>\n<th class=\"hourscol\" scope=\"col\">Points</th>\n</tr>\n</thead>\n<tbody>\n<tr class=\"even areaheader firstrow\"><td colspan=\"2\"><span class=\"courselistcomment areaheader\">First Year</span></td><td class=\"hourscol\"></td></tr>\n<tr class=\"odd\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=COMS%20W1004\" onclick=\"return showCourse(this, 'COMS W1004');\" title=\"COMS W1004\">COMS W1004</a></td><td>Introduction to Computer Science and Programming in Java</td><td class=\"hourscol\"></td></tr>\n<tr class=\"orclass odd\"><td class=\"codecol orclass\">or COMS W1007</td><td colspan=\"2\"> </td></tr>\n<tr class=\"even areaheader\"><td colspan=\"2\"><span class=\"courselistcomment areaheader\">Sophomore Year</span></td><td class=\"hourscol\"></td></tr>\n<tr class=\"odd\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=COMS%20W3134\" onclick=\"return showCourse(this, 'COMS W3134');\" title=\"COMS W3134\">COMS W3134</a></td><td>Data Structures in Java</td><td class=\"hourscol\"></td></tr>\n<tr class=\"orclass odd\"><td class=\"codecol orclass\">or <a class=\"bubblelink code\" href=\"/search/?P=COMS%20W3137\" onclick=\"return showCourse(this, 'COMS W3137');\" title=\"COMS W3137\">COMS W3137</a></td><td colspan=\"2\"> HONORS DATA STRUCTURES ＆ ALGOL</td></tr>\n<tr class=\"even\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=COMS%20W3157\" onclick=\"return showCourse(this, 'COMS W3157');\" title=\"COMS W3157\">COMS W3157</a></td><td>ADVANCED PROGRAMMING</td><td class=\"hourscol\"></td></tr>\n<tr class=\"odd\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=COMS%20W3203\" onclick=\"return showCourse(this, 'COMS W3203');\" title=\"COMS W3203\">COMS W3203</a></td><td>DISCRETE MATHEMATICS</td><td class=\"hourscol\"></td></tr>\n<tr class=\"even areaheader\"><td colspan=\"2\"><span class=\"courselistcomment areaheader\">Junior and Senior Year</span></td><td class=\"hourscol\"></td></tr>\n<tr class=\"odd\"><td colspan=\"2\"><span class=\"courselistcomment\">Complete the remaining required core courses:</span></td><td class=\"hourscol\"></td></tr>\n<tr class=\"even\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=COMS%20W3261\" onclick=\"return showCourse(this, 'COMS W3261');\" title=\"COMS W3261\">COMS W3261</a></td><td>COMPUTER SCIENCE THEORY</td><td class=\"hourscol\"></td></tr>\n<tr class=\"odd lastrow\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=CSEE%20W3827\" onclick=\"return showCourse(this, 'CSEE W3827');\" title=\"CSEE W3827\">CSEE W3827</a></td><td>FUNDAMENTALS OF COMPUTER SYSTS</td><td class=\"hourscol\"></td></tr>\n</tbody>\n</table>"
-        },
-        {
-          "rows": [
-            [
-              "",
-              ""
-            ],
-            [
-              "COMS W4111",
-              "INTRODUCTION TO DATABASES",
-              ""
-            ],
-            [
-              "COMS W4113",
-              "FUND-LARGE-SCALE DIST SYSTEMS",
-              ""
-            ],
-            [
-              "COMS W4115",
-              "PROGRAMMING LANG ＆ TRANSLATORS",
-              ""
-            ],
-            [
-              "COMS W4118",
-              "OPERATING SYSTEMS I",
-              ""
-            ],
-            [
-              "COMS W4119",
-              "COMPUTER NETWORKS",
-              ""
-            ],
-            [
-              "COMS W4152",
-              "Engineering Software-as-a-Service",
-              ""
-            ],
-            [
-              "COMS W4156",
-              "ADVANCED SOFTWARE ENGINEERING",
-              ""
-            ],
-            [
-              "COMS W4160",
-              "COMPUTER GRAPHICS",
-              ""
-            ],
-            [
-              "COMS W4167",
-              "COMPUTER ANIMATION",
-              ""
-            ],
-            [
-              "COMS W4170",
-              "USER INTERFACE DESIGN",
-              ""
-            ],
-            [
-              "COMS W4181",
-              "SECURITY I",
-              ""
-            ],
-            [
-              "CSOR E4231",
-              "ANALYSIS OF ALGORITHMS I",
-              ""
-            ],
-            [
-              "COMS W4236",
-              "INTRO-COMPUTATIONAL COMPLEXITY",
-              ""
-            ],
-            [
-              "COMS W4701",
-              "ARTIFICIAL INTELLIGENCE",
-              ""
-            ],
-            [
-              "COMS W4705",
-              "NATURAL LANGUAGE PROCESSING",
-              ""
-            ],
-            [
-              "COMS W4731",
-              "Computer Vision I: First Principles",
-              ""
-            ],
-            [
-              "COMS W4733",
-              "COMPUTATIONAL ASPECTS OF ROBOTICS",
-              ""
-            ],
-            [
-              "CBMF W4761",
-              "COMPUTATIONAL GENOMICS",
-              ""
-            ],
-            [
-              "COMS W4771",
-              "MACHINE LEARNING",
-              ""
-            ],
-            [
-              "CSEE W4824",
-              "COMPUTER ARCHITECTURE",
-              ""
-            ],
-            [
-              "CSEE W4868",
-              "SYSTEM-ON-CHIP PLATFORMS",
-              ""
-            ]
+          [
+            "COMS W3251",
+            "COMPUTATIONAL LINEAR ALGEBRA (recommended)",
+            ""
           ],
-          "html": "<table class=\"sc_courselist\">\n<caption class=\"hidden noscript\">Course List</caption>\n<colgroup>\n<col class=\"codecol\"/>\n<col class=\"titlecol\"/>\n<col align=\"char\" char=\".\" class=\"hourscol\"/>\n</colgroup>\n<thead>\n<tr class=\"hidden noscript\">\n<th scope=\"col\">Code</th>\n<th scope=\"col\">Title</th>\n<th class=\"hourscol\" scope=\"col\">Points</th>\n</tr>\n</thead>\n<tbody>\n<tr class=\"even areaheader firstrow\"><td colspan=\"2\"></td><td class=\"hourscol\"></td></tr>\n<tr class=\"odd\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=COMS%20W4111\" onclick=\"return showCourse(this, 'COMS W4111');\" title=\"COMS W4111\">COMS W4111</a></td><td>INTRODUCTION TO DATABASES</td><td class=\"hourscol\"></td></tr>\n<tr class=\"even\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=COMS%20W4113\" onclick=\"return showCourse(this, 'COMS W4113');\" title=\"COMS W4113\">COMS W4113</a></td><td>FUND-LARGE-SCALE DIST SYSTEMS</td><td class=\"hourscol\"></td></tr>\n<tr class=\"odd\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=COMS%20W4115\" onclick=\"return showCourse(this, 'COMS W4115');\" title=\"COMS W4115\">COMS W4115</a></td><td>PROGRAMMING LANG ＆ TRANSLATORS</td><td class=\"hourscol\"></td></tr>\n<tr class=\"even\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=COMS%20W4118\" onclick=\"return showCourse(this, 'COMS W4118');\" title=\"COMS W4118\">COMS W4118</a></td><td>OPERATING SYSTEMS I</td><td class=\"hourscol\"></td></tr>\n<tr class=\"odd\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=COMS%20W4119\" onclick=\"return showCourse(this, 'COMS W4119');\" title=\"COMS W4119\">COMS W4119</a></td><td>COMPUTER NETWORKS</td><td class=\"hourscol\"></td></tr>\n<tr class=\"even\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=COMS%20W4152\" onclick=\"return showCourse(this, 'COMS W4152');\" title=\"COMS W4152\">COMS W4152</a></td><td>Engineering Software-as-a-Service</td><td class=\"hourscol\"></td></tr>\n<tr class=\"odd\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=COMS%20W4156\" onclick=\"return showCourse(this, 'COMS W4156');\" title=\"COMS W4156\">COMS W4156</a></td><td>ADVANCED SOFTWARE ENGINEERING</td><td class=\"hourscol\"></td></tr>\n<tr class=\"even\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=COMS%20W4160\" onclick=\"return showCourse(this, 'COMS W4160');\" title=\"COMS W4160\">COMS W4160</a></td><td>COMPUTER GRAPHICS</td><td class=\"hourscol\"></td></tr>\n<tr class=\"odd\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=COMS%20W4167\" onclick=\"return showCourse(this, 'COMS W4167');\" title=\"COMS W4167\">COMS W4167</a></td><td>COMPUTER ANIMATION</td><td class=\"hourscol\"></td></tr>\n<tr class=\"even\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=COMS%20W4170\" onclick=\"return showCourse(this, 'COMS W4170');\" title=\"COMS W4170\">COMS W4170</a></td><td>USER INTERFACE DESIGN</td><td class=\"hourscol\"></td></tr>\n<tr class=\"odd\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=COMS%20W4181\" onclick=\"return showCourse(this, 'COMS W4181');\" title=\"COMS W4181\">COMS W4181</a></td><td>SECURITY I</td><td class=\"hourscol\"></td></tr>\n<tr class=\"even\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=CSOR%20E4231\" onclick=\"return showCourse(this, 'CSOR E4231');\" title=\"CSOR E4231\">CSOR E4231</a></td><td>ANALYSIS OF ALGORITHMS I</td><td class=\"hourscol\"></td></tr>\n<tr class=\"odd\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=COMS%20W4236\" onclick=\"return showCourse(this, 'COMS W4236');\" title=\"COMS W4236\">COMS W4236</a></td><td>INTRO-COMPUTATIONAL COMPLEXITY</td><td class=\"hourscol\"></td></tr>\n<tr class=\"even\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=COMS%20W4701\" onclick=\"return showCourse(this, 'COMS W4701');\" title=\"COMS W4701\">COMS W4701</a></td><td>ARTIFICIAL INTELLIGENCE</td><td class=\"hourscol\"></td></tr>\n<tr class=\"odd\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=COMS%20W4705\" onclick=\"return showCourse(this, 'COMS W4705');\" title=\"COMS W4705\">COMS W4705</a></td><td>NATURAL LANGUAGE PROCESSING</td><td class=\"hourscol\"></td></tr>\n<tr class=\"even\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=COMS%20W4731\" onclick=\"return showCourse(this, 'COMS W4731');\" title=\"COMS W4731\">COMS W4731</a></td><td>Computer Vision I: First Principles</td><td class=\"hourscol\"></td></tr>\n<tr class=\"odd\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=COMS%20W4733\" onclick=\"return showCourse(this, 'COMS W4733');\" title=\"COMS W4733\">COMS W4733</a></td><td>COMPUTATIONAL ASPECTS OF ROBOTICS</td><td class=\"hourscol\"></td></tr>\n<tr class=\"even\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=CBMF%20W4761\" onclick=\"return showCourse(this, 'CBMF W4761');\" title=\"CBMF W4761\">CBMF W4761</a></td><td>COMPUTATIONAL GENOMICS</td><td class=\"hourscol\"></td></tr>\n<tr class=\"odd\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=COMS%20W4771\" onclick=\"return showCourse(this, 'COMS W4771');\" title=\"COMS W4771\">COMS W4771</a></td><td>MACHINE LEARNING</td><td class=\"hourscol\"></td></tr>\n<tr class=\"even\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=CSEE%20W4824\" onclick=\"return showCourse(this, 'CSEE W4824');\" title=\"CSEE W4824\">CSEE W4824</a></td><td>COMPUTER ARCHITECTURE</td><td class=\"hourscol\"></td></tr>\n<tr class=\"odd lastrow\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=CSEE%20W4868\" onclick=\"return showCourse(this, 'CSEE W4868');\" title=\"CSEE W4868\">CSEE W4868</a></td><td>SYSTEM-ON-CHIP PLATFORMS</td><td class=\"hourscol\"></td></tr>\n</tbody>\n</table>"
-        }
+          [
+            "MATH UN2010",
+            "LINEAR ALGEBRA",
+            ""
+          ],
+          [
+            "MATH UN2015",
+            "Linear Algebra and Probability",
+            ""
+          ],
+          [
+            "MATH UN2020",
+            "Honors Linear Algebra",
+            ""
+          ],
+          [
+            "APMA E2101",
+            "INTRO TO APPLIED MATHEMATICS",
+            ""
+          ],
+          [
+            "APMA E3101",
+            "APPLIED MATH I: LINEAR ALGEBRA",
+            ""
+          ]
+        ],
+        [
+          [
+            "Probability / Statistics Requirement: Select one of the following courses:",
+            ""
+          ],
+          [
+            "MATH UN2015",
+            "Linear Algebra and Probability",
+            ""
+          ],
+          [
+            "IEOR E3658",
+            "PROBABILITY FOR ENGINEERS",
+            ""
+          ],
+          [
+            "STAT UN1201",
+            "CALC-BASED INTRO TO STATISTICS",
+            ""
+          ],
+          [
+            "STAT GU4001",
+            "INTRODUCTION TO PROBABILITY AND STATISTICS",
+            ""
+          ],
+          [
+            "NOTE: Math 2015 Linear Algebra and Probability may simultaneously satisfy both linear algebra and probability requirements without the need to take additional classes thus reducing the total number of points required.",
+            ""
+          ]
+        ],
+        [
+          [
+            "ENGI E1006",
+            "INTRO TO COMP FOR ENG/APP SCI (recommended but not required)",
+            ""
+          ],
+          [
+            "or COMS W1002",
+            "COMPUTING IN CONTEXT"
+          ]
+        ],
+        [
+          [
+            "First Year",
+            ""
+          ],
+          [
+            "COMS W1004",
+            "Introduction to Computer Science and Programming in Java",
+            ""
+          ],
+          [
+            "or COMS W1007",
+            ""
+          ],
+          [
+            "Sophomore Year",
+            ""
+          ],
+          [
+            "COMS W3134",
+            "Data Structures in Java",
+            ""
+          ],
+          [
+            "or COMS W3137",
+            "HONORS DATA STRUCTURES ＆ ALGOL"
+          ],
+          [
+            "COMS W3157",
+            "ADVANCED PROGRAMMING",
+            ""
+          ],
+          [
+            "COMS W3203",
+            "DISCRETE MATHEMATICS",
+            ""
+          ],
+          [
+            "Junior and Senior Year",
+            ""
+          ],
+          [
+            "Complete the remaining required core courses:",
+            ""
+          ],
+          [
+            "COMS W3261",
+            "COMPUTER SCIENCE THEORY",
+            ""
+          ],
+          [
+            "CSEE W3827",
+            "FUNDAMENTALS OF COMPUTER SYSTS",
+            ""
+          ]
+        ],
+        [
+          [
+            "",
+            ""
+          ],
+          [
+            "COMS W4111",
+            "INTRODUCTION TO DATABASES",
+            ""
+          ],
+          [
+            "COMS W4113",
+            "FUND-LARGE-SCALE DIST SYSTEMS",
+            ""
+          ],
+          [
+            "COMS W4115",
+            "PROGRAMMING LANG ＆ TRANSLATORS",
+            ""
+          ],
+          [
+            "COMS W4118",
+            "OPERATING SYSTEMS I",
+            ""
+          ],
+          [
+            "COMS W4119",
+            "COMPUTER NETWORKS",
+            ""
+          ],
+          [
+            "COMS W4152",
+            "Engineering Software-as-a-Service",
+            ""
+          ],
+          [
+            "COMS W4156",
+            "ADVANCED SOFTWARE ENGINEERING",
+            ""
+          ],
+          [
+            "COMS W4160",
+            "COMPUTER GRAPHICS",
+            ""
+          ],
+          [
+            "COMS W4167",
+            "COMPUTER ANIMATION",
+            ""
+          ],
+          [
+            "COMS W4170",
+            "USER INTERFACE DESIGN",
+            ""
+          ],
+          [
+            "COMS W4181",
+            "SECURITY I",
+            ""
+          ],
+          [
+            "CSOR E4231",
+            "ANALYSIS OF ALGORITHMS I",
+            ""
+          ],
+          [
+            "COMS W4236",
+            "INTRO-COMPUTATIONAL COMPLEXITY",
+            ""
+          ],
+          [
+            "COMS W4701",
+            "ARTIFICIAL INTELLIGENCE",
+            ""
+          ],
+          [
+            "COMS W4705",
+            "NATURAL LANGUAGE PROCESSING",
+            ""
+          ],
+          [
+            "COMS W4731",
+            "Computer Vision I: First Principles",
+            ""
+          ],
+          [
+            "COMS W4733",
+            "COMPUTATIONAL ASPECTS OF ROBOTICS",
+            ""
+          ],
+          [
+            "CBMF W4761",
+            "COMPUTATIONAL GENOMICS",
+            ""
+          ],
+          [
+            "COMS W4771",
+            "MACHINE LEARNING",
+            ""
+          ],
+          [
+            "CSEE W4824",
+            "COMPUTER ARCHITECTURE",
+            ""
+          ],
+          [
+            "CSEE W4868",
+            "SYSTEM-ON-CHIP PLATFORMS",
+            ""
+          ]
+        ]
       ],
       "cognates": [],
       "footnotes": []
     },
     "COMS2": {
       "major_name": "Major in Information Science",
+      "major_html": "<div class=\"toggle-wrap\">\n<h3 class=\"toggle\">Major in Information Science</h3>\n<p>The major in information science requires a minimum of 33 points, including a core requirement of five courses. Adjustments were made to the course lists below in March 2022.</p>\n<p><span id=\"docs-internal-guid-6729dd40-7914-f124-e24d-93ecde5d3877\">The elective courses must be chosen with a faculty adviser to focus on the modeling and use of information within the context of a disciplinary theme. After discussing potential selections, students prepare a proposal of study that must be approved by the faculty adviser. In all cases, the six courses must be at the 3000 level or above, with at least three courses chosen from computer science. Following are some example programs. For more examples or templates for the program proposal, see a faculty adviser.</span></p>\n<p><span id=\"docs-internal-guid-6729dd40-7914-f124-e24d-93ecde5d3877\">Note: In most cases, additional courses will be necessary as prerequisites in order to take some of the elective courses. This will depend on the student's proposed program of study.</span></p>\n<h4><span class=\"gsonly\"><span class=\"cconly\">Core Requirement</span></span></h4>\n<table class=\"sc_courselist\">\n<caption class=\"hidden noscript\">Course List</caption>\n<colgroup>\n<col class=\"codecol\"/>\n<col class=\"titlecol\"/>\n<col align=\"char\" char=\".\" class=\"hourscol\"/>\n</colgroup>\n<thead>\n<tr class=\"hidden noscript\">\n<th scope=\"col\">Code</th>\n<th scope=\"col\">Title</th>\n<th class=\"hourscol\" scope=\"col\">Points</th>\n</tr>\n</thead>\n<tbody>\n<tr class=\"even firstrow\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=COMS%20W1001\" onclick=\"return showCourse(this, 'COMS W1001');\" title=\"COMS W1001\">COMS W1001</a></td><td>Introduction to Information Science</td><td class=\"hourscol\"></td></tr>\n<tr class=\"odd\"><td colspan=\"2\"><div class=\"blockindent\" style=\"margin-left:20px;\"><span class=\"courselistcomment commentindent\">or <a class=\"bubblelink code\" href=\"/search/?P=COMS%20W1002\" onclick=\"return showCourse(this, 'COMS W1002');\" title=\"COMS W1002\">COMS W1002</a> Computing in Context</span></div></td><td class=\"hourscol\"></td></tr>\n<tr class=\"even\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=COMS%20W1004\" onclick=\"return showCourse(this, 'COMS W1004');\" title=\"COMS W1004\">COMS W1004</a></td><td>Introduction to Computer Science and Programming in Java</td><td class=\"hourscol\"></td></tr>\n<tr class=\"odd\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=COMS%20W3107\" onclick=\"return showCourse(this, 'COMS W3107');\" title=\"COMS W3107\">COMS W3107</a></td><td>Clean Object-Oriented Design</td><td class=\"hourscol\"></td></tr>\n<tr class=\"even\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=COMS%20W3134\" onclick=\"return showCourse(this, 'COMS W3134');\" title=\"COMS W3134\">COMS W3134</a></td><td>Data Structures in Java</td><td class=\"hourscol\"></td></tr>\n<tr class=\"odd lastrow\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=STAT%20GU4001\" onclick=\"return showCourse(this, 'STAT GU4001');\" title=\"STAT GU4001\">STAT GU4001</a></td><td>INTRODUCTION TO PROBABILITY AND STATISTICS</td><td class=\"hourscol\"></td></tr>\n</tbody>\n</table>\n<p>Following are some suggested programs of instruction:</p>\n<h4>Information Science and Contemporary Society</h4>\n<p><span id=\"docs-internal-guid-6729dd40-7916-3640-c66d-152da024dc3c\">Students may focus on how humans use technology and how technology has changed society.</span></p>\n<p>The requirements include:</p>\n<table class=\"sc_courselist\">\n<caption class=\"hidden noscript\">Course List</caption>\n<colgroup>\n<col class=\"codecol\"/>\n<col class=\"titlecol\"/>\n<col align=\"char\" char=\".\" class=\"hourscol\"/>\n</colgroup>\n<thead>\n<tr class=\"hidden noscript\">\n<th scope=\"col\">Code</th>\n<th scope=\"col\">Title</th>\n<th class=\"hourscol\" scope=\"col\">Points</th>\n</tr>\n</thead>\n<tbody>\n<tr class=\"even firstrow\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=COMS%20W4111\" onclick=\"return showCourse(this, 'COMS W4111');\" title=\"COMS W4111\">COMS W4111</a></td><td>INTRODUCTION TO DATABASES</td><td class=\"hourscol\"></td></tr>\n<tr class=\"odd\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=COMS%20W4170\" onclick=\"return showCourse(this, 'COMS W4170');\" title=\"COMS W4170\">COMS W4170</a></td><td>USER INTERFACE DESIGN</td><td class=\"hourscol\"></td></tr>\n<tr class=\"even\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=COMS%20W4701\" onclick=\"return showCourse(this, 'COMS W4701');\" title=\"COMS W4701\">COMS W4701</a></td><td>ARTIFICIAL INTELLIGENCE</td><td class=\"hourscol\"></td></tr>\n<tr class=\"odd\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=COMS%20W3410\" onclick=\"return showCourse(this, 'COMS W3410');\" title=\"COMS W3410\">COMS W3410</a></td><td>COMPUTERS AND SOCIETY</td><td class=\"hourscol\"></td></tr>\n<tr class=\"even\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=SOCI%20UN3010\" onclick=\"return showCourse(this, 'SOCI UN3010');\" title=\"SOCI UN3010\">SOCI UN3010</a></td><td>METHODS FOR SOCIAL RESEARCH</td><td class=\"hourscol\"></td></tr>\n<tr class=\"odd lastrow\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=SOCI%20UN3960\" onclick=\"return showCourse(this, 'SOCI UN3960');\" title=\"SOCI UN3960\">SOCI UN3960</a></td><td>SEMINAR - PROBLEMS OF LAW ＆ SOCIETY</td><td class=\"hourscol\"></td></tr>\n</tbody>\n</table>\n<h4>Information Science and the Economy</h4>\n<p><span id=\"docs-internal-guid-6729dd40-791e-e4f3-2160-530740357cde\">Students may focus on understanding information modeling together with existing and emerging needs in economics and finance as well as algorithms and systems to address those needs.</span></p>\n<p>The requirements include:</p>\n<table class=\"sc_courselist\">\n<caption class=\"hidden noscript\">Course List</caption>\n<colgroup>\n<col class=\"codecol\"/>\n<col class=\"titlecol\"/>\n<col align=\"char\" char=\".\" class=\"hourscol\"/>\n</colgroup>\n<thead>\n<tr class=\"hidden noscript\">\n<th scope=\"col\">Code</th>\n<th scope=\"col\">Title</th>\n<th class=\"hourscol\" scope=\"col\">Points</th>\n</tr>\n</thead>\n<tbody>\n<tr class=\"even firstrow\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=COMS%20W4111\" onclick=\"return showCourse(this, 'COMS W4111');\" title=\"COMS W4111\">COMS W4111</a></td><td>INTRODUCTION TO DATABASES</td><td class=\"hourscol\"></td></tr>\n<tr class=\"odd\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=COMS%20W4701\" onclick=\"return showCourse(this, 'COMS W4701');\" title=\"COMS W4701\">COMS W4701</a></td><td>ARTIFICIAL INTELLIGENCE</td><td class=\"hourscol\"></td></tr>\n<tr class=\"even\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=COMS%20W4771\" onclick=\"return showCourse(this, 'COMS W4771');\" title=\"COMS W4771\">COMS W4771</a></td><td>MACHINE LEARNING</td><td class=\"hourscol\"></td></tr>\n<tr class=\"odd\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=ECON%20UN3412\" onclick=\"return showCourse(this, 'ECON UN3412');\" title=\"ECON UN3412\">ECON UN3412</a></td><td>INTRODUCTION TO ECONOMETRICS</td><td class=\"hourscol\"></td></tr>\n<tr class=\"even\"><td class=\"codecol\">ECON UN3025</td><td></td><td class=\"hourscol\"></td></tr>\n<tr class=\"odd lastrow\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=ECON%20UN3265\" onclick=\"return showCourse(this, 'ECON UN3265');\" title=\"ECON UN3265\">ECON UN3265</a></td><td>MONEY AND BANKING</td><td class=\"hourscol\"></td></tr>\n</tbody>\n</table>\n<h4>Information Science and Health Sciences</h4>\n<p><span id=\"docs-internal-guid-6729dd40-7920-452b-66c6-135901dfb15a\">Students may focus on understanding information modeling together with existing and emerging needs in health sciences, as well as algorithms and systems to address those needs.</span></p>\n<p>The requirements include:</p>\n<table class=\"sc_courselist\">\n<caption class=\"hidden noscript\">Course List</caption>\n<colgroup>\n<col class=\"codecol\"/>\n<col class=\"titlecol\"/>\n<col align=\"char\" char=\".\" class=\"hourscol\"/>\n</colgroup>\n<thead>\n<tr class=\"hidden noscript\">\n<th scope=\"col\">Code</th>\n<th scope=\"col\">Title</th>\n<th class=\"hourscol\" scope=\"col\">Points</th>\n</tr>\n</thead>\n<tbody>\n<tr class=\"even firstrow\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=COMS%20W4111\" onclick=\"return showCourse(this, 'COMS W4111');\" title=\"COMS W4111\">COMS W4111</a></td><td>INTRODUCTION TO DATABASES</td><td class=\"hourscol\"></td></tr>\n<tr class=\"odd\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=COMS%20W4170\" onclick=\"return showCourse(this, 'COMS W4170');\" title=\"COMS W4170\">COMS W4170</a></td><td>USER INTERFACE DESIGN</td><td class=\"hourscol\"></td></tr>\n<tr class=\"even\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=COMS%20W4701\" onclick=\"return showCourse(this, 'COMS W4701');\" title=\"COMS W4701\">COMS W4701</a></td><td>ARTIFICIAL INTELLIGENCE</td><td class=\"hourscol\"></td></tr>\n<tr class=\"odd\"><td class=\"codecol\">BINF G4001</td><td></td><td class=\"hourscol\"></td></tr>\n<tr class=\"even\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=BIOL%20W4037\" onclick=\"return showCourse(this, 'BIOL W4037');\" title=\"BIOL W4037\">BIOL W4037</a></td><td>Bioinformatics of Gene Expression</td><td class=\"hourscol\"></td></tr>\n<tr class=\"odd lastrow\"><td class=\"codecol\">ECBM E3060/E4060</td><td></td><td class=\"hourscol\"></td></tr>\n</tbody>\n</table>\n<hr/>\n</div>",
       "course_lists": [
-        {
-          "rows": [
-            [
-              "COMS W1001",
-              "Introduction to Information Science",
-              ""
-            ],
-            [
-              "or COMS W1002 Computing in Context",
-              ""
-            ],
-            [
-              "COMS W1004",
-              "Introduction to Computer Science and Programming in Java",
-              ""
-            ],
-            [
-              "COMS W3107",
-              "Clean Object-Oriented Design",
-              ""
-            ],
-            [
-              "COMS W3134",
-              "Data Structures in Java",
-              ""
-            ],
-            [
-              "STAT GU4001",
-              "INTRODUCTION TO PROBABILITY AND STATISTICS",
-              ""
-            ]
+        [
+          [
+            "COMS W1001",
+            "Introduction to Information Science",
+            ""
           ],
-          "html": "<table class=\"sc_courselist\">\n<caption class=\"hidden noscript\">Course List</caption>\n<colgroup>\n<col class=\"codecol\"/>\n<col class=\"titlecol\"/>\n<col align=\"char\" char=\".\" class=\"hourscol\"/>\n</colgroup>\n<thead>\n<tr class=\"hidden noscript\">\n<th scope=\"col\">Code</th>\n<th scope=\"col\">Title</th>\n<th class=\"hourscol\" scope=\"col\">Points</th>\n</tr>\n</thead>\n<tbody>\n<tr class=\"even firstrow\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=COMS%20W1001\" onclick=\"return showCourse(this, 'COMS W1001');\" title=\"COMS W1001\">COMS W1001</a></td><td>Introduction to Information Science</td><td class=\"hourscol\"></td></tr>\n<tr class=\"odd\"><td colspan=\"2\"><div class=\"blockindent\" style=\"margin-left:20px;\"><span class=\"courselistcomment commentindent\">or <a class=\"bubblelink code\" href=\"/search/?P=COMS%20W1002\" onclick=\"return showCourse(this, 'COMS W1002');\" title=\"COMS W1002\">COMS W1002</a> Computing in Context</span></div></td><td class=\"hourscol\"></td></tr>\n<tr class=\"even\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=COMS%20W1004\" onclick=\"return showCourse(this, 'COMS W1004');\" title=\"COMS W1004\">COMS W1004</a></td><td>Introduction to Computer Science and Programming in Java</td><td class=\"hourscol\"></td></tr>\n<tr class=\"odd\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=COMS%20W3107\" onclick=\"return showCourse(this, 'COMS W3107');\" title=\"COMS W3107\">COMS W3107</a></td><td>Clean Object-Oriented Design</td><td class=\"hourscol\"></td></tr>\n<tr class=\"even\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=COMS%20W3134\" onclick=\"return showCourse(this, 'COMS W3134');\" title=\"COMS W3134\">COMS W3134</a></td><td>Data Structures in Java</td><td class=\"hourscol\"></td></tr>\n<tr class=\"odd lastrow\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=STAT%20GU4001\" onclick=\"return showCourse(this, 'STAT GU4001');\" title=\"STAT GU4001\">STAT GU4001</a></td><td>INTRODUCTION TO PROBABILITY AND STATISTICS</td><td class=\"hourscol\"></td></tr>\n</tbody>\n</table>"
-        },
-        {
-          "rows": [
-            [
-              "COMS W4111",
-              "INTRODUCTION TO DATABASES",
-              ""
-            ],
-            [
-              "COMS W4170",
-              "USER INTERFACE DESIGN",
-              ""
-            ],
-            [
-              "COMS W4701",
-              "ARTIFICIAL INTELLIGENCE",
-              ""
-            ],
-            [
-              "COMS W3410",
-              "COMPUTERS AND SOCIETY",
-              ""
-            ],
-            [
-              "SOCI UN3010",
-              "METHODS FOR SOCIAL RESEARCH",
-              ""
-            ],
-            [
-              "SOCI UN3960",
-              "SEMINAR - PROBLEMS OF LAW ＆ SOCIETY",
-              ""
-            ]
+          [
+            "or COMS W1002 Computing in Context",
+            ""
           ],
-          "html": "<table class=\"sc_courselist\">\n<caption class=\"hidden noscript\">Course List</caption>\n<colgroup>\n<col class=\"codecol\"/>\n<col class=\"titlecol\"/>\n<col align=\"char\" char=\".\" class=\"hourscol\"/>\n</colgroup>\n<thead>\n<tr class=\"hidden noscript\">\n<th scope=\"col\">Code</th>\n<th scope=\"col\">Title</th>\n<th class=\"hourscol\" scope=\"col\">Points</th>\n</tr>\n</thead>\n<tbody>\n<tr class=\"even firstrow\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=COMS%20W4111\" onclick=\"return showCourse(this, 'COMS W4111');\" title=\"COMS W4111\">COMS W4111</a></td><td>INTRODUCTION TO DATABASES</td><td class=\"hourscol\"></td></tr>\n<tr class=\"odd\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=COMS%20W4170\" onclick=\"return showCourse(this, 'COMS W4170');\" title=\"COMS W4170\">COMS W4170</a></td><td>USER INTERFACE DESIGN</td><td class=\"hourscol\"></td></tr>\n<tr class=\"even\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=COMS%20W4701\" onclick=\"return showCourse(this, 'COMS W4701');\" title=\"COMS W4701\">COMS W4701</a></td><td>ARTIFICIAL INTELLIGENCE</td><td class=\"hourscol\"></td></tr>\n<tr class=\"odd\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=COMS%20W3410\" onclick=\"return showCourse(this, 'COMS W3410');\" title=\"COMS W3410\">COMS W3410</a></td><td>COMPUTERS AND SOCIETY</td><td class=\"hourscol\"></td></tr>\n<tr class=\"even\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=SOCI%20UN3010\" onclick=\"return showCourse(this, 'SOCI UN3010');\" title=\"SOCI UN3010\">SOCI UN3010</a></td><td>METHODS FOR SOCIAL RESEARCH</td><td class=\"hourscol\"></td></tr>\n<tr class=\"odd lastrow\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=SOCI%20UN3960\" onclick=\"return showCourse(this, 'SOCI UN3960');\" title=\"SOCI UN3960\">SOCI UN3960</a></td><td>SEMINAR - PROBLEMS OF LAW ＆ SOCIETY</td><td class=\"hourscol\"></td></tr>\n</tbody>\n</table>"
-        },
-        {
-          "rows": [
-            [
-              "COMS W4111",
-              "INTRODUCTION TO DATABASES",
-              ""
-            ],
-            [
-              "COMS W4701",
-              "ARTIFICIAL INTELLIGENCE",
-              ""
-            ],
-            [
-              "COMS W4771",
-              "MACHINE LEARNING",
-              ""
-            ],
-            [
-              "ECON UN3412",
-              "INTRODUCTION TO ECONOMETRICS",
-              ""
-            ],
-            [
-              "ECON UN3025",
-              "",
-              ""
-            ],
-            [
-              "ECON UN3265",
-              "MONEY AND BANKING",
-              ""
-            ]
+          [
+            "COMS W1004",
+            "Introduction to Computer Science and Programming in Java",
+            ""
           ],
-          "html": "<table class=\"sc_courselist\">\n<caption class=\"hidden noscript\">Course List</caption>\n<colgroup>\n<col class=\"codecol\"/>\n<col class=\"titlecol\"/>\n<col align=\"char\" char=\".\" class=\"hourscol\"/>\n</colgroup>\n<thead>\n<tr class=\"hidden noscript\">\n<th scope=\"col\">Code</th>\n<th scope=\"col\">Title</th>\n<th class=\"hourscol\" scope=\"col\">Points</th>\n</tr>\n</thead>\n<tbody>\n<tr class=\"even firstrow\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=COMS%20W4111\" onclick=\"return showCourse(this, 'COMS W4111');\" title=\"COMS W4111\">COMS W4111</a></td><td>INTRODUCTION TO DATABASES</td><td class=\"hourscol\"></td></tr>\n<tr class=\"odd\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=COMS%20W4701\" onclick=\"return showCourse(this, 'COMS W4701');\" title=\"COMS W4701\">COMS W4701</a></td><td>ARTIFICIAL INTELLIGENCE</td><td class=\"hourscol\"></td></tr>\n<tr class=\"even\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=COMS%20W4771\" onclick=\"return showCourse(this, 'COMS W4771');\" title=\"COMS W4771\">COMS W4771</a></td><td>MACHINE LEARNING</td><td class=\"hourscol\"></td></tr>\n<tr class=\"odd\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=ECON%20UN3412\" onclick=\"return showCourse(this, 'ECON UN3412');\" title=\"ECON UN3412\">ECON UN3412</a></td><td>INTRODUCTION TO ECONOMETRICS</td><td class=\"hourscol\"></td></tr>\n<tr class=\"even\"><td class=\"codecol\">ECON UN3025</td><td></td><td class=\"hourscol\"></td></tr>\n<tr class=\"odd lastrow\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=ECON%20UN3265\" onclick=\"return showCourse(this, 'ECON UN3265');\" title=\"ECON UN3265\">ECON UN3265</a></td><td>MONEY AND BANKING</td><td class=\"hourscol\"></td></tr>\n</tbody>\n</table>"
-        },
-        {
-          "rows": [
-            [
-              "COMS W4111",
-              "INTRODUCTION TO DATABASES",
-              ""
-            ],
-            [
-              "COMS W4170",
-              "USER INTERFACE DESIGN",
-              ""
-            ],
-            [
-              "COMS W4701",
-              "ARTIFICIAL INTELLIGENCE",
-              ""
-            ],
-            [
-              "BINF G4001",
-              "",
-              ""
-            ],
-            [
-              "BIOL W4037",
-              "Bioinformatics of Gene Expression",
-              ""
-            ],
-            [
-              "ECBM E3060/E4060",
-              "",
-              ""
-            ]
+          [
+            "COMS W3107",
+            "Clean Object-Oriented Design",
+            ""
           ],
-          "html": "<table class=\"sc_courselist\">\n<caption class=\"hidden noscript\">Course List</caption>\n<colgroup>\n<col class=\"codecol\"/>\n<col class=\"titlecol\"/>\n<col align=\"char\" char=\".\" class=\"hourscol\"/>\n</colgroup>\n<thead>\n<tr class=\"hidden noscript\">\n<th scope=\"col\">Code</th>\n<th scope=\"col\">Title</th>\n<th class=\"hourscol\" scope=\"col\">Points</th>\n</tr>\n</thead>\n<tbody>\n<tr class=\"even firstrow\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=COMS%20W4111\" onclick=\"return showCourse(this, 'COMS W4111');\" title=\"COMS W4111\">COMS W4111</a></td><td>INTRODUCTION TO DATABASES</td><td class=\"hourscol\"></td></tr>\n<tr class=\"odd\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=COMS%20W4170\" onclick=\"return showCourse(this, 'COMS W4170');\" title=\"COMS W4170\">COMS W4170</a></td><td>USER INTERFACE DESIGN</td><td class=\"hourscol\"></td></tr>\n<tr class=\"even\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=COMS%20W4701\" onclick=\"return showCourse(this, 'COMS W4701');\" title=\"COMS W4701\">COMS W4701</a></td><td>ARTIFICIAL INTELLIGENCE</td><td class=\"hourscol\"></td></tr>\n<tr class=\"odd\"><td class=\"codecol\">BINF G4001</td><td></td><td class=\"hourscol\"></td></tr>\n<tr class=\"even\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=BIOL%20W4037\" onclick=\"return showCourse(this, 'BIOL W4037');\" title=\"BIOL W4037\">BIOL W4037</a></td><td>Bioinformatics of Gene Expression</td><td class=\"hourscol\"></td></tr>\n<tr class=\"odd lastrow\"><td class=\"codecol\">ECBM E3060/E4060</td><td></td><td class=\"hourscol\"></td></tr>\n</tbody>\n</table>"
-        }
+          [
+            "COMS W3134",
+            "Data Structures in Java",
+            ""
+          ],
+          [
+            "STAT GU4001",
+            "INTRODUCTION TO PROBABILITY AND STATISTICS",
+            ""
+          ]
+        ],
+        [
+          [
+            "COMS W4111",
+            "INTRODUCTION TO DATABASES",
+            ""
+          ],
+          [
+            "COMS W4170",
+            "USER INTERFACE DESIGN",
+            ""
+          ],
+          [
+            "COMS W4701",
+            "ARTIFICIAL INTELLIGENCE",
+            ""
+          ],
+          [
+            "COMS W3410",
+            "COMPUTERS AND SOCIETY",
+            ""
+          ],
+          [
+            "SOCI UN3010",
+            "METHODS FOR SOCIAL RESEARCH",
+            ""
+          ],
+          [
+            "SOCI UN3960",
+            "SEMINAR - PROBLEMS OF LAW ＆ SOCIETY",
+            ""
+          ]
+        ],
+        [
+          [
+            "COMS W4111",
+            "INTRODUCTION TO DATABASES",
+            ""
+          ],
+          [
+            "COMS W4701",
+            "ARTIFICIAL INTELLIGENCE",
+            ""
+          ],
+          [
+            "COMS W4771",
+            "MACHINE LEARNING",
+            ""
+          ],
+          [
+            "ECON UN3412",
+            "INTRODUCTION TO ECONOMETRICS",
+            ""
+          ],
+          [
+            "ECON UN3025",
+            "",
+            ""
+          ],
+          [
+            "ECON UN3265",
+            "MONEY AND BANKING",
+            ""
+          ]
+        ],
+        [
+          [
+            "COMS W4111",
+            "INTRODUCTION TO DATABASES",
+            ""
+          ],
+          [
+            "COMS W4170",
+            "USER INTERFACE DESIGN",
+            ""
+          ],
+          [
+            "COMS W4701",
+            "ARTIFICIAL INTELLIGENCE",
+            ""
+          ],
+          [
+            "BINF G4001",
+            "",
+            ""
+          ],
+          [
+            "BIOL W4037",
+            "Bioinformatics of Gene Expression",
+            ""
+          ],
+          [
+            "ECBM E3060/E4060",
+            "",
+            ""
+          ]
+        ]
       ],
       "cognates": [],
       "footnotes": []
     },
     "COMS3": {
       "major_name": "Major in Data Science",
+      "major_html": "<div class=\"toggle-wrap\">\n<h3 class=\"toggle\">Major in Data Science</h3>\n<p>In response to the ever-growing importance of \"big data\" in scientific and policy endeavors, the last few years have seen explosive growth in theory, methods, and applications at the interface between computer science and statistics. The statistics and computer science departments have responded with a joint major that emphasizes the interface between the disciplines.</p>\n<table class=\"sc_courselist\">\n<caption class=\"hidden noscript\">Course List</caption>\n<colgroup>\n<col class=\"codecol\"/>\n<col class=\"titlecol\"/>\n<col align=\"char\" char=\".\" class=\"hourscol\"/>\n</colgroup>\n<thead>\n<tr class=\"hidden noscript\">\n<th scope=\"col\">Code</th>\n<th scope=\"col\">Title</th>\n<th class=\"hourscol\" scope=\"col\">Points</th>\n</tr>\n</thead>\n<tbody>\n<tr class=\"even areaheader firstrow\"><td colspan=\"2\"><span class=\"courselistcomment areaheader\">Prerequisites (15 points)</span></td><td class=\"hourscol\"></td></tr>\n<tr class=\"odd\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=MATH%20UN1101\" onclick=\"return showCourse(this, 'MATH UN1101');\" title=\"MATH UN1101\">MATH UN1101</a></td><td>CALCULUS I</td><td class=\"hourscol\"></td></tr>\n<tr class=\"even\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=MATH%20UN1102\" onclick=\"return showCourse(this, 'MATH UN1102');\" title=\"MATH UN1102\">MATH UN1102</a></td><td>CALCULUS II</td><td class=\"hourscol\"></td></tr>\n<tr class=\"odd\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=MATH%20UN1201\" onclick=\"return showCourse(this, 'MATH UN1201');\" title=\"MATH UN1201\">MATH UN1201</a></td><td>CALCULUS III</td><td class=\"hourscol\"></td></tr>\n<tr class=\"even\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=MATH%20UN2010\" onclick=\"return showCourse(this, 'MATH UN2010');\" title=\"MATH UN2010\">MATH UN2010</a></td><td>LINEAR ALGEBRA</td><td class=\"hourscol\"></td></tr>\n<tr class=\"odd\"><td colspan=\"2\"><span class=\"courselistcomment\">This introductory Statistics course:</span></td><td class=\"hourscol\"></td></tr>\n<tr class=\"even\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=STAT%20UN1201\" onclick=\"return showCourse(this, 'STAT UN1201');\" title=\"STAT UN1201\">STAT UN1201</a></td><td>CALC-BASED INTRO TO STATISTICS</td><td class=\"hourscol\"></td></tr>\n<tr class=\"odd areaheader\"><td colspan=\"2\"><span class=\"courselistcomment areaheader\">Statistics (12 points)</span></td><td class=\"hourscol\"></td></tr>\n<tr class=\"even\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=STAT%20GU4203\" onclick=\"return showCourse(this, 'STAT GU4203');\" title=\"STAT GU4203\">STAT GU4203</a></td><td>PROBABILITY THEORY</td><td class=\"hourscol\"></td></tr>\n<tr class=\"odd\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=STAT%20GU4204\" onclick=\"return showCourse(this, 'STAT GU4204');\" title=\"STAT GU4204\">STAT GU4204</a></td><td>STATISTICAL INFERENCE</td><td class=\"hourscol\"></td></tr>\n<tr class=\"even\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=STAT%20GU4205\" onclick=\"return showCourse(this, 'STAT GU4205');\" title=\"STAT GU4205\">STAT GU4205</a></td><td>LINEAR REGRESSION MODELS</td><td class=\"hourscol\"></td></tr>\n<tr class=\"odd\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=STAT%20GU4241\" onclick=\"return showCourse(this, 'STAT GU4241');\" title=\"STAT GU4241\">STAT GU4241</a></td><td>STATISTICAL MACHINE LEARNING</td><td class=\"hourscol\"></td></tr>\n<tr class=\"even\"><td colspan=\"2\"><div class=\"blockindent\" style=\"margin-left:20px;\"><span class=\"courselistcomment commentindent\">or <a class=\"bubblelink code\" href=\"/search/?P=COMS%20W4771\" onclick=\"return showCourse(this, 'COMS W4771');\" title=\"COMS W4771\">COMS W4771</a> Machine Learning</span></div></td><td class=\"hourscol\"></td></tr>\n<tr class=\"odd areaheader\"><td colspan=\"2\"><span class=\"courselistcomment areaheader\">Computer Science (12 points)</span></td><td class=\"hourscol\"></td></tr>\n<tr class=\"even\"><td colspan=\"2\"><span class=\"courselistcomment\">Select one of the following courses:</span></td><td class=\"hourscol\"></td></tr>\n<tr class=\"odd\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=COMS%20W1004\" onclick=\"return showCourse(this, 'COMS W1004');\" title=\"COMS W1004\">COMS W1004</a></td><td>Introduction to Computer Science and Programming in Java</td><td class=\"hourscol\"></td></tr>\n<tr class=\"even\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=COMS%20W1005\" onclick=\"return showCourse(this, 'COMS W1005');\" title=\"COMS W1005\">COMS W1005</a></td><td>Introduction to Computer Science and Programming in MATLAB</td><td class=\"hourscol\"></td></tr>\n<tr class=\"odd\"><td class=\"codecol\">COMS W1007</td><td></td><td class=\"hourscol\"></td></tr>\n<tr class=\"even\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=ENGI%20E1006\" onclick=\"return showCourse(this, 'ENGI E1006');\" title=\"ENGI E1006\">ENGI E1006</a></td><td>INTRO TO COMP FOR ENG/APP SCI</td><td class=\"hourscol\"></td></tr>\n<tr class=\"odd\"><td colspan=\"2\"><span class=\"courselistcomment\">Select one of the following courses:</span></td><td class=\"hourscol\"></td></tr>\n<tr class=\"even\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=COMS%20W3134\" onclick=\"return showCourse(this, 'COMS W3134');\" title=\"COMS W3134\">COMS W3134</a></td><td>Data Structures in Java</td><td class=\"hourscol\"></td></tr>\n<tr class=\"odd\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=COMS%20W3136\" onclick=\"return showCourse(this, 'COMS W3136');\" title=\"COMS W3136\">COMS W3136</a></td><td>ESSENTIAL DATA STRUCTURES</td><td class=\"hourscol\"></td></tr>\n<tr class=\"even\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=COMS%20W3137\" onclick=\"return showCourse(this, 'COMS W3137');\" title=\"COMS W3137\">COMS W3137</a></td><td>HONORS DATA STRUCTURES ＆ ALGOL</td><td class=\"hourscol\"></td></tr>\n<tr class=\"odd\"><td colspan=\"2\"><span class=\"courselistcomment\">Two required courses:</span></td><td class=\"hourscol\"></td></tr>\n<tr class=\"even\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=COMS%20W3203\" onclick=\"return showCourse(this, 'COMS W3203');\" title=\"COMS W3203\">COMS W3203</a></td><td>DISCRETE MATHEMATICS</td><td class=\"hourscol\"></td></tr>\n<tr class=\"odd\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=CSOR%20W4231\" onclick=\"return showCourse(this, 'CSOR W4231');\" title=\"CSOR W4231\">CSOR W4231</a></td><td>ANALYSIS OF ALGORITHMS I</td><td class=\"hourscol\"></td></tr>\n<tr class=\"even areaheader\"><td colspan=\"2\"><span class=\"courselistcomment areaheader\">Electives (15 points)</span></td><td class=\"hourscol\"></td></tr>\n<tr class=\"odd\"><td colspan=\"2\"><span class=\"courselistcomment\">Select two of the following courses:</span></td><td class=\"hourscol\"></td></tr>\n<tr class=\"even\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=STAT%20UN3106\" onclick=\"return showCourse(this, 'STAT UN3106');\" title=\"STAT UN3106\">STAT UN3106</a></td><td>APPLIED MACHINE LEARNING</td><td class=\"hourscol\"></td></tr>\n<tr class=\"odd\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=STAT%20GU4206\" onclick=\"return showCourse(this, 'STAT GU4206');\" title=\"STAT GU4206\">STAT GU4206</a></td><td>STAT COMP ＆ INTRO DATA SCIENCE</td><td class=\"hourscol\"></td></tr>\n<tr class=\"even\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=STAT%20GU4224\" onclick=\"return showCourse(this, 'STAT GU4224');\" title=\"STAT GU4224\">STAT GU4224</a></td><td>BAYESIAN STATISTICS</td><td class=\"hourscol\"></td></tr>\n<tr class=\"odd\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=STAT%20GU4243\" onclick=\"return showCourse(this, 'STAT GU4243');\" title=\"STAT GU4243\">STAT GU4243</a></td><td>APPLIED DATA SCIENCE</td><td class=\"hourscol\"></td></tr>\n<tr class=\"even\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=STAT%20Q4242\" onclick=\"return showCourse(this, 'STAT Q4242');\" title=\"STAT Q4242\">STAT Q4242</a></td><td>Advanced Machine Learning</td><td class=\"hourscol\"></td></tr>\n<tr class=\"odd\"><td colspan=\"2\"><span class=\"courselistcomment\">Select three of the following courses:</span></td><td class=\"hourscol\"></td></tr>\n<tr class=\"even\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=COMS%20W3261\" onclick=\"return showCourse(this, 'COMS W3261');\" title=\"COMS W3261\">COMS W3261</a></td><td>COMPUTER SCIENCE THEORY</td><td class=\"hourscol\"></td></tr>\n<tr class=\"odd\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=COMS%20W4111\" onclick=\"return showCourse(this, 'COMS W4111');\" title=\"COMS W4111\">COMS W4111</a></td><td>INTRODUCTION TO DATABASES</td><td class=\"hourscol\"></td></tr>\n<tr class=\"even\"><td class=\"codecol\">COMS W4130</td><td></td><td class=\"hourscol\"></td></tr>\n<tr class=\"odd\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=COMS%20W4236\" onclick=\"return showCourse(this, 'COMS W4236');\" title=\"COMS W4236\">COMS W4236</a></td><td>INTRO-COMPUTATIONAL COMPLEXITY</td><td class=\"hourscol\"></td></tr>\n<tr class=\"even\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=COMS%20W4252\" onclick=\"return showCourse(this, 'COMS W4252');\" title=\"COMS W4252\">COMS W4252</a></td><td>INTRO-COMPUTATIONAL LEARN THRY</td><td class=\"hourscol\"></td></tr>\n<tr class=\"odd lastrow\"><td colspan=\"2\"><span class=\"courselistcomment\">Any COMS W47xx course EXCEPT W4771</span></td><td class=\"hourscol\"></td></tr>\n</tbody>\n</table>\n</div>",
       "course_lists": [
-        {
-          "rows": [
-            [
-              "Prerequisites (15 points)",
-              ""
-            ],
-            [
-              "MATH UN1101",
-              "CALCULUS I",
-              ""
-            ],
-            [
-              "MATH UN1102",
-              "CALCULUS II",
-              ""
-            ],
-            [
-              "MATH UN1201",
-              "CALCULUS III",
-              ""
-            ],
-            [
-              "MATH UN2010",
-              "LINEAR ALGEBRA",
-              ""
-            ],
-            [
-              "This introductory Statistics course:",
-              ""
-            ],
-            [
-              "STAT UN1201",
-              "CALC-BASED INTRO TO STATISTICS",
-              ""
-            ],
-            [
-              "Statistics (12 points)",
-              ""
-            ],
-            [
-              "STAT GU4203",
-              "PROBABILITY THEORY",
-              ""
-            ],
-            [
-              "STAT GU4204",
-              "STATISTICAL INFERENCE",
-              ""
-            ],
-            [
-              "STAT GU4205",
-              "LINEAR REGRESSION MODELS",
-              ""
-            ],
-            [
-              "STAT GU4241",
-              "STATISTICAL MACHINE LEARNING",
-              ""
-            ],
-            [
-              "or COMS W4771 Machine Learning",
-              ""
-            ],
-            [
-              "Computer Science (12 points)",
-              ""
-            ],
-            [
-              "Select one of the following courses:",
-              ""
-            ],
-            [
-              "COMS W1004",
-              "Introduction to Computer Science and Programming in Java",
-              ""
-            ],
-            [
-              "COMS W1005",
-              "Introduction to Computer Science and Programming in MATLAB",
-              ""
-            ],
-            [
-              "COMS W1007",
-              "",
-              ""
-            ],
-            [
-              "ENGI E1006",
-              "INTRO TO COMP FOR ENG/APP SCI",
-              ""
-            ],
-            [
-              "Select one of the following courses:",
-              ""
-            ],
-            [
-              "COMS W3134",
-              "Data Structures in Java",
-              ""
-            ],
-            [
-              "COMS W3136",
-              "ESSENTIAL DATA STRUCTURES",
-              ""
-            ],
-            [
-              "COMS W3137",
-              "HONORS DATA STRUCTURES ＆ ALGOL",
-              ""
-            ],
-            [
-              "Two required courses:",
-              ""
-            ],
-            [
-              "COMS W3203",
-              "DISCRETE MATHEMATICS",
-              ""
-            ],
-            [
-              "CSOR W4231",
-              "ANALYSIS OF ALGORITHMS I",
-              ""
-            ],
-            [
-              "Electives (15 points)",
-              ""
-            ],
-            [
-              "Select two of the following courses:",
-              ""
-            ],
-            [
-              "STAT UN3106",
-              "APPLIED MACHINE LEARNING",
-              ""
-            ],
-            [
-              "STAT GU4206",
-              "STAT COMP ＆ INTRO DATA SCIENCE",
-              ""
-            ],
-            [
-              "STAT GU4224",
-              "BAYESIAN STATISTICS",
-              ""
-            ],
-            [
-              "STAT GU4243",
-              "APPLIED DATA SCIENCE",
-              ""
-            ],
-            [
-              "STAT Q4242",
-              "Advanced Machine Learning",
-              ""
-            ],
-            [
-              "Select three of the following courses:",
-              ""
-            ],
-            [
-              "COMS W3261",
-              "COMPUTER SCIENCE THEORY",
-              ""
-            ],
-            [
-              "COMS W4111",
-              "INTRODUCTION TO DATABASES",
-              ""
-            ],
-            [
-              "COMS W4130",
-              "",
-              ""
-            ],
-            [
-              "COMS W4236",
-              "INTRO-COMPUTATIONAL COMPLEXITY",
-              ""
-            ],
-            [
-              "COMS W4252",
-              "INTRO-COMPUTATIONAL LEARN THRY",
-              ""
-            ],
-            [
-              "Any COMS W47xx course EXCEPT W4771",
-              ""
-            ]
+        [
+          [
+            "Prerequisites (15 points)",
+            ""
           ],
-          "html": "<table class=\"sc_courselist\">\n<caption class=\"hidden noscript\">Course List</caption>\n<colgroup>\n<col class=\"codecol\"/>\n<col class=\"titlecol\"/>\n<col align=\"char\" char=\".\" class=\"hourscol\"/>\n</colgroup>\n<thead>\n<tr class=\"hidden noscript\">\n<th scope=\"col\">Code</th>\n<th scope=\"col\">Title</th>\n<th class=\"hourscol\" scope=\"col\">Points</th>\n</tr>\n</thead>\n<tbody>\n<tr class=\"even areaheader firstrow\"><td colspan=\"2\"><span class=\"courselistcomment areaheader\">Prerequisites (15 points)</span></td><td class=\"hourscol\"></td></tr>\n<tr class=\"odd\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=MATH%20UN1101\" onclick=\"return showCourse(this, 'MATH UN1101');\" title=\"MATH UN1101\">MATH UN1101</a></td><td>CALCULUS I</td><td class=\"hourscol\"></td></tr>\n<tr class=\"even\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=MATH%20UN1102\" onclick=\"return showCourse(this, 'MATH UN1102');\" title=\"MATH UN1102\">MATH UN1102</a></td><td>CALCULUS II</td><td class=\"hourscol\"></td></tr>\n<tr class=\"odd\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=MATH%20UN1201\" onclick=\"return showCourse(this, 'MATH UN1201');\" title=\"MATH UN1201\">MATH UN1201</a></td><td>CALCULUS III</td><td class=\"hourscol\"></td></tr>\n<tr class=\"even\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=MATH%20UN2010\" onclick=\"return showCourse(this, 'MATH UN2010');\" title=\"MATH UN2010\">MATH UN2010</a></td><td>LINEAR ALGEBRA</td><td class=\"hourscol\"></td></tr>\n<tr class=\"odd\"><td colspan=\"2\"><span class=\"courselistcomment\">This introductory Statistics course:</span></td><td class=\"hourscol\"></td></tr>\n<tr class=\"even\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=STAT%20UN1201\" onclick=\"return showCourse(this, 'STAT UN1201');\" title=\"STAT UN1201\">STAT UN1201</a></td><td>CALC-BASED INTRO TO STATISTICS</td><td class=\"hourscol\"></td></tr>\n<tr class=\"odd areaheader\"><td colspan=\"2\"><span class=\"courselistcomment areaheader\">Statistics (12 points)</span></td><td class=\"hourscol\"></td></tr>\n<tr class=\"even\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=STAT%20GU4203\" onclick=\"return showCourse(this, 'STAT GU4203');\" title=\"STAT GU4203\">STAT GU4203</a></td><td>PROBABILITY THEORY</td><td class=\"hourscol\"></td></tr>\n<tr class=\"odd\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=STAT%20GU4204\" onclick=\"return showCourse(this, 'STAT GU4204');\" title=\"STAT GU4204\">STAT GU4204</a></td><td>STATISTICAL INFERENCE</td><td class=\"hourscol\"></td></tr>\n<tr class=\"even\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=STAT%20GU4205\" onclick=\"return showCourse(this, 'STAT GU4205');\" title=\"STAT GU4205\">STAT GU4205</a></td><td>LINEAR REGRESSION MODELS</td><td class=\"hourscol\"></td></tr>\n<tr class=\"odd\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=STAT%20GU4241\" onclick=\"return showCourse(this, 'STAT GU4241');\" title=\"STAT GU4241\">STAT GU4241</a></td><td>STATISTICAL MACHINE LEARNING</td><td class=\"hourscol\"></td></tr>\n<tr class=\"even\"><td colspan=\"2\"><div class=\"blockindent\" style=\"margin-left:20px;\"><span class=\"courselistcomment commentindent\">or <a class=\"bubblelink code\" href=\"/search/?P=COMS%20W4771\" onclick=\"return showCourse(this, 'COMS W4771');\" title=\"COMS W4771\">COMS W4771</a> Machine Learning</span></div></td><td class=\"hourscol\"></td></tr>\n<tr class=\"odd areaheader\"><td colspan=\"2\"><span class=\"courselistcomment areaheader\">Computer Science (12 points)</span></td><td class=\"hourscol\"></td></tr>\n<tr class=\"even\"><td colspan=\"2\"><span class=\"courselistcomment\">Select one of the following courses:</span></td><td class=\"hourscol\"></td></tr>\n<tr class=\"odd\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=COMS%20W1004\" onclick=\"return showCourse(this, 'COMS W1004');\" title=\"COMS W1004\">COMS W1004</a></td><td>Introduction to Computer Science and Programming in Java</td><td class=\"hourscol\"></td></tr>\n<tr class=\"even\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=COMS%20W1005\" onclick=\"return showCourse(this, 'COMS W1005');\" title=\"COMS W1005\">COMS W1005</a></td><td>Introduction to Computer Science and Programming in MATLAB</td><td class=\"hourscol\"></td></tr>\n<tr class=\"odd\"><td class=\"codecol\">COMS W1007</td><td></td><td class=\"hourscol\"></td></tr>\n<tr class=\"even\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=ENGI%20E1006\" onclick=\"return showCourse(this, 'ENGI E1006');\" title=\"ENGI E1006\">ENGI E1006</a></td><td>INTRO TO COMP FOR ENG/APP SCI</td><td class=\"hourscol\"></td></tr>\n<tr class=\"odd\"><td colspan=\"2\"><span class=\"courselistcomment\">Select one of the following courses:</span></td><td class=\"hourscol\"></td></tr>\n<tr class=\"even\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=COMS%20W3134\" onclick=\"return showCourse(this, 'COMS W3134');\" title=\"COMS W3134\">COMS W3134</a></td><td>Data Structures in Java</td><td class=\"hourscol\"></td></tr>\n<tr class=\"odd\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=COMS%20W3136\" onclick=\"return showCourse(this, 'COMS W3136');\" title=\"COMS W3136\">COMS W3136</a></td><td>ESSENTIAL DATA STRUCTURES</td><td class=\"hourscol\"></td></tr>\n<tr class=\"even\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=COMS%20W3137\" onclick=\"return showCourse(this, 'COMS W3137');\" title=\"COMS W3137\">COMS W3137</a></td><td>HONORS DATA STRUCTURES ＆ ALGOL</td><td class=\"hourscol\"></td></tr>\n<tr class=\"odd\"><td colspan=\"2\"><span class=\"courselistcomment\">Two required courses:</span></td><td class=\"hourscol\"></td></tr>\n<tr class=\"even\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=COMS%20W3203\" onclick=\"return showCourse(this, 'COMS W3203');\" title=\"COMS W3203\">COMS W3203</a></td><td>DISCRETE MATHEMATICS</td><td class=\"hourscol\"></td></tr>\n<tr class=\"odd\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=CSOR%20W4231\" onclick=\"return showCourse(this, 'CSOR W4231');\" title=\"CSOR W4231\">CSOR W4231</a></td><td>ANALYSIS OF ALGORITHMS I</td><td class=\"hourscol\"></td></tr>\n<tr class=\"even areaheader\"><td colspan=\"2\"><span class=\"courselistcomment areaheader\">Electives (15 points)</span></td><td class=\"hourscol\"></td></tr>\n<tr class=\"odd\"><td colspan=\"2\"><span class=\"courselistcomment\">Select two of the following courses:</span></td><td class=\"hourscol\"></td></tr>\n<tr class=\"even\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=STAT%20UN3106\" onclick=\"return showCourse(this, 'STAT UN3106');\" title=\"STAT UN3106\">STAT UN3106</a></td><td>APPLIED MACHINE LEARNING</td><td class=\"hourscol\"></td></tr>\n<tr class=\"odd\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=STAT%20GU4206\" onclick=\"return showCourse(this, 'STAT GU4206');\" title=\"STAT GU4206\">STAT GU4206</a></td><td>STAT COMP ＆ INTRO DATA SCIENCE</td><td class=\"hourscol\"></td></tr>\n<tr class=\"even\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=STAT%20GU4224\" onclick=\"return showCourse(this, 'STAT GU4224');\" title=\"STAT GU4224\">STAT GU4224</a></td><td>BAYESIAN STATISTICS</td><td class=\"hourscol\"></td></tr>\n<tr class=\"odd\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=STAT%20GU4243\" onclick=\"return showCourse(this, 'STAT GU4243');\" title=\"STAT GU4243\">STAT GU4243</a></td><td>APPLIED DATA SCIENCE</td><td class=\"hourscol\"></td></tr>\n<tr class=\"even\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=STAT%20Q4242\" onclick=\"return showCourse(this, 'STAT Q4242');\" title=\"STAT Q4242\">STAT Q4242</a></td><td>Advanced Machine Learning</td><td class=\"hourscol\"></td></tr>\n<tr class=\"odd\"><td colspan=\"2\"><span class=\"courselistcomment\">Select three of the following courses:</span></td><td class=\"hourscol\"></td></tr>\n<tr class=\"even\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=COMS%20W3261\" onclick=\"return showCourse(this, 'COMS W3261');\" title=\"COMS W3261\">COMS W3261</a></td><td>COMPUTER SCIENCE THEORY</td><td class=\"hourscol\"></td></tr>\n<tr class=\"odd\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=COMS%20W4111\" onclick=\"return showCourse(this, 'COMS W4111');\" title=\"COMS W4111\">COMS W4111</a></td><td>INTRODUCTION TO DATABASES</td><td class=\"hourscol\"></td></tr>\n<tr class=\"even\"><td class=\"codecol\">COMS W4130</td><td></td><td class=\"hourscol\"></td></tr>\n<tr class=\"odd\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=COMS%20W4236\" onclick=\"return showCourse(this, 'COMS W4236');\" title=\"COMS W4236\">COMS W4236</a></td><td>INTRO-COMPUTATIONAL COMPLEXITY</td><td class=\"hourscol\"></td></tr>\n<tr class=\"even\"><td class=\"codecol\"><a class=\"bubblelink code\" href=\"/search/?P=COMS%20W4252\" onclick=\"return showCourse(this, 'COMS W4252');\" title=\"COMS W4252\">COMS W4252</a></td><td>INTRO-COMPUTATIONAL LEARN THRY</td><td class=\"hourscol\"></td></tr>\n<tr class=\"odd lastrow\"><td colspan=\"2\"><span class=\"courselistcomment\">Any COMS W47xx course EXCEPT W4771</span></td><td class=\"hourscol\"></td></tr>\n</tbody>\n</table>"
-        }
+          [
+            "MATH UN1101",
+            "CALCULUS I",
+            ""
+          ],
+          [
+            "MATH UN1102",
+            "CALCULUS II",
+            ""
+          ],
+          [
+            "MATH UN1201",
+            "CALCULUS III",
+            ""
+          ],
+          [
+            "MATH UN2010",
+            "LINEAR ALGEBRA",
+            ""
+          ],
+          [
+            "This introductory Statistics course:",
+            ""
+          ],
+          [
+            "STAT UN1201",
+            "CALC-BASED INTRO TO STATISTICS",
+            ""
+          ],
+          [
+            "Statistics (12 points)",
+            ""
+          ],
+          [
+            "STAT GU4203",
+            "PROBABILITY THEORY",
+            ""
+          ],
+          [
+            "STAT GU4204",
+            "STATISTICAL INFERENCE",
+            ""
+          ],
+          [
+            "STAT GU4205",
+            "LINEAR REGRESSION MODELS",
+            ""
+          ],
+          [
+            "STAT GU4241",
+            "STATISTICAL MACHINE LEARNING",
+            ""
+          ],
+          [
+            "or COMS W4771 Machine Learning",
+            ""
+          ],
+          [
+            "Computer Science (12 points)",
+            ""
+          ],
+          [
+            "Select one of the following courses:",
+            ""
+          ],
+          [
+            "COMS W1004",
+            "Introduction to Computer Science and Programming in Java",
+            ""
+          ],
+          [
+            "COMS W1005",
+            "Introduction to Computer Science and Programming in MATLAB",
+            ""
+          ],
+          [
+            "COMS W1007",
+            "",
+            ""
+          ],
+          [
+            "ENGI E1006",
+            "INTRO TO COMP FOR ENG/APP SCI",
+            ""
+          ],
+          [
+            "Select one of the following courses:",
+            ""
+          ],
+          [
+            "COMS W3134",
+            "Data Structures in Java",
+            ""
+          ],
+          [
+            "COMS W3136",
+            "ESSENTIAL DATA STRUCTURES",
+            ""
+          ],
+          [
+            "COMS W3137",
+            "HONORS DATA STRUCTURES ＆ ALGOL",
+            ""
+          ],
+          [
+            "Two required courses:",
+            ""
+          ],
+          [
+            "COMS W3203",
+            "DISCRETE MATHEMATICS",
+            ""
+          ],
+          [
+            "CSOR W4231",
+            "ANALYSIS OF ALGORITHMS I",
+            ""
+          ],
+          [
+            "Electives (15 points)",
+            ""
+          ],
+          [
+            "Select two of the following courses:",
+            ""
+          ],
+          [
+            "STAT UN3106",
+            "APPLIED MACHINE LEARNING",
+            ""
+          ],
+          [
+            "STAT GU4206",
+            "STAT COMP ＆ INTRO DATA SCIENCE",
+            ""
+          ],
+          [
+            "STAT GU4224",
+            "BAYESIAN STATISTICS",
+            ""
+          ],
+          [
+            "STAT GU4243",
+            "APPLIED DATA SCIENCE",
+            ""
+          ],
+          [
+            "STAT Q4242",
+            "Advanced Machine Learning",
+            ""
+          ],
+          [
+            "Select three of the following courses:",
+            ""
+          ],
+          [
+            "COMS W3261",
+            "COMPUTER SCIENCE THEORY",
+            ""
+          ],
+          [
+            "COMS W4111",
+            "INTRODUCTION TO DATABASES",
+            ""
+          ],
+          [
+            "COMS W4130",
+            "",
+            ""
+          ],
+          [
+            "COMS W4236",
+            "INTRO-COMPUTATIONAL COMPLEXITY",
+            ""
+          ],
+          [
+            "COMS W4252",
+            "INTRO-COMPUTATIONAL LEARN THRY",
+            ""
+          ],
+          [
+            "Any COMS W47xx course EXCEPT W4771",
+            ""
+          ]
+        ]
       ],
       "cognates": [],
       "footnotes": []
     },
     "COMS4": {
       "major_name": "Minor in Computer Science",
+      "major_html": "<div class=\"toggle-wrap\">\n<h3 class=\"toggle\"><span id=\"docs-internal-guid-3b45f457-7fff-ea82-f1eb-8bb42da71b5a\">Minor in Computer Science </span></h3>\n<p><span id=\"docs-internal-guid-3b45f457-7fff-ea82-f1eb-8bb42da71b5a\">Students who pass the Computer Science Advanced Placement Exam A with a 4 or 5 will receive 3 points and an exemption from COMS W1004. </span></p>\n<p><span id=\"docs-internal-guid-3b45f457-7fff-ea82-f1eb-8bb42da71b5a\">The Computer Science Minor consists of 6 courses as follows:</span></p>\n<p><span id=\"docs-internal-guid-3b45f457-7fff-ea82-f1eb-8bb42da71b5a\">1. COMS W1004: Intro to computer science and programming in Java (3) </span><span id=\"docs-internal-guid-3b45f457-7fff-ea82-f1eb-8bb42da71b5a\">or COMS W1007: Honors intro to comp sci (3)</span></p>\n<p><span id=\"docs-internal-guid-3b45f457-7fff-ea82-f1eb-8bb42da71b5a\">2. COMS W3134: Data structures in Java (3) or COMS W3137: Honors data structures and algorithms (4)</span></p>\n<p><span id=\"docs-internal-guid-3b45f457-7fff-ea82-f1eb-8bb42da71b5a\">3. COMS W3203: Discrete mathematics (4)</span></p>\n<p><span id=\"docs-internal-guid-3b45f457-7fff-ea82-f1eb-8bb42da71b5a\">4. One course of the following:</span></p>\n<p><span id=\"docs-internal-guid-3b45f457-7fff-ea82-f1eb-8bb42da71b5a\">COMS W3157: Advanced programming (4)</span></p>\n<p><span id=\"docs-internal-guid-3b45f457-7fff-ea82-f1eb-8bb42da71b5a\">COMS W3261: Comp science theory (3)</span></p>\n<p><span id=\"docs-internal-guid-3b45f457-7fff-ea82-f1eb-8bb42da71b5a\">CSEE W3827: Fundamentals of computer systems (3)</span></p>\n<p><span id=\"docs-internal-guid-3b45f457-7fff-ea82-f1eb-8bb42da71b5a\">5. Any 3000-level or 4000-level COMS/CSXX/XXCS course of at least 3 points</span></p>\n<p><span id=\"docs-internal-guid-3b45f457-7fff-ea82-f1eb-8bb42da71b5a\">6. Any 3000-level or 4000-level COMS/CSXX/XXCS course of at least 3 points OR one </span><span id=\"docs-internal-guid-65c4bacf-7fff-b261-779d-bc37c69672a6\">linear algebra or probability/statistics course from the following</span><span>: APMA E3101, APMA E2101, MATH UN2010, MATH UN2015, IEOR E3658, STAT UN1201, STAT GU4001 </span>or STAT GU4203<span>.</span></p>\n<h4><span id=\"docs-internal-guid-3b45f457-7fff-ea82-f1eb-8bb42da71b5a\">Restrictions</span></h4>\n<p><span id=\"docs-internal-guid-3b45f457-7fff-ea82-f1eb-8bb42da71b5a\">No more than 6 points of project/thesis courses (COMS W3902, W3998, W4901) can count toward the major. COMS W3999 Fieldwork cannot be used as a CS Elective.</span></p>\n<p><span id=\"docs-internal-guid-3b45f457-7fff-ea82-f1eb-8bb42da71b5a\">No more than one course from each set below may be applied towards the computer science major:</span></p>\n<ul>\n<li>\n<p><span id=\"docs-internal-guid-3b45f457-7fff-ea82-f1eb-8bb42da71b5a\"> IEOR E3658, STAT UN1201, MATH UN2015</span></p>\n</li>\n<li>\n<p><span id=\"docs-internal-guid-3b45f457-7fff-ea82-f1eb-8bb42da71b5a\"> MATH UN2015, MATH UN2010, APAM E3101, COMS W3251</span></p>\n</li>\n<li>\n<p><span id=\"docs-internal-guid-3b45f457-7fff-ea82-f1eb-8bb42da71b5a\"> COMS W4771, COMS W4721</span></p>\n</li>\n</ul>\n<hr/>\n</div>",
       "course_lists": "Students who pass the Computer Science Advanced Placement Exam A with a 4 or 5 will receive 3 points and an exemption from COMS W1004.The Computer Science Minor consists of 6 courses as follows:1. COMS W1004: Intro to computer science and programming in Java (3) or COMS W1007: Honors intro to comp sci (3)2. COMS W3134: Data structures in Java (3) or COMS W3137: Honors data structures and algorithms (4)3. COMS W3203: Discrete mathematics (4)4. One course of the following:COMS W3157: Advanced programming (4)COMS W3261: Comp science theory (3)CSEE W3827: Fundamentals of computer systems (3)5. Any 3000-level or 4000-level COMS/CSXX/XXCS course of at least 3 points6. Any 3000-level or 4000-level COMS/CSXX/XXCS course of at least 3 points OR one linear algebra or probability/statistics course from the following: APMA E3101, APMA E2101, MATH UN2010, MATH UN2015, IEOR E3658, STAT UN1201, STAT GU4001 or STAT GU4203.RestrictionsNo more than 6 points of project/thesis courses (COMS W3902, W3998, W4901) can count toward the major. COMS W3999 Fieldwork cannot be used as a CS Elective.No more than one course from each set below may be applied towards the computer science major:IEOR E3658, STAT UN1201, MATH UN2015 MATH UN2015, MATH UN2010, APAM E3101, COMS W3251 COMS W4771, COMS W4721",
       "cognates": [],
       "footnotes": []
