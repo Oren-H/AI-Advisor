@@ -1,0 +1,27 @@
+{
+  "department_code": "UNKN",
+  "department_name": "East Central European Center",
+  "website": "https://bulletin.columbia.edu/columbia-college/departments-instruction/regional-studies/",
+  "overview_sections": [
+    {
+      "section_name": "East Central European Center",
+      "paragraphs": [
+        "http://ece.columbia.edu/",
+        "Director: Prof. Jessica Merrill, jem2159@columbia.edu",
+        "Related Departments: Anthropology, Economics, History, Political Science, Slavic Languages and Literatures, and Sociology.",
+        "Language Requirement: Two years or demonstrated reading knowledge of one of the following languages: Czech, Hungarian, Polish, Romanian, Russian, Bosnian/Croatian/Serbian, or Ukrainian.",
+        "The regional studies major is designed to give undergraduates the general mastery of a discipline and at the same time permit them to do specialized work in the history and cultures of a particular geographic area through the associated institutes of the Faculty of Arts and Sciences. It is an interdisciplinary major in which students divide their work between the associated institute and an appropriate academic department. Students plan their programs with the consultant of the associated institute they have selected."
+      ]
+    }
+  ],
+  "department_wide_requirements": [],
+  "majors": {
+    "UNKN1": {
+      "major_name": "Major in Regional Studies",
+      "major_html": "<div class=\"toggle-wrap\">\n<h2>Major in Regional Studies</h2>\n<p>The major in regional studies requires a minimum of 36 points, of which 18 must be credited by the associated institute, i.e. East Central European Center, and an additional 18 must be in one of the College departments designated as relevant by the institute. Six points of seminar work approved by the institute are required of all majors and are included in the total of 36 points.</p>\n</div>",
+      "course_lists": "The major in regional studies requires a minimum of 36 points, of which 18 must be credited by the associated institute, i.e. East Central European Center, and an additional 18 must be in one of the College departments designated as relevant by the institute. Six points of seminar work approved by the institute are required of all majors and are included in the total of 36 points.",
+      "cognates": [],
+      "footnotes": []
+    }
+  }
+}

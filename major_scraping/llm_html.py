@@ -7,11 +7,6 @@ import os
 
 load_dotenv()
 
-def load_html(path: str) -> str:
-    """Read an HTML file from disk."""
-    with open(path, "r", encoding="utf-8") as f:
-        return f.read()
-
 def clean_json_response(response_content: str) -> str:
     """Remove markdown code blocks from LLM response."""
     # Remove ```json and ``` markers
@@ -21,16 +16,14 @@ def clean_json_response(response_content: str) -> str:
 
 def parse_department_html(overview_html: str, requirements_html: str) -> dict:
     """
-    Use an LLM (gpt-4o-mini) via LangChain to parse two HTML documents
+    Use an LLM (gpt-4o-mini) via LangChain to parse JSON file 
     into a structured JSON according to your spec.
     """
     # Remove temperature parameter since this model doesn't support it
     llm = ChatOpenAI(model_name="gpt-4o-mini", api_key=os.getenv("OPENAI_API_KEY"))
 
     system_prompt = """
-You are an expert parser.  I will give you two HTML documents:
-1) Department overview HTML
-2) Department requirements HTML
+You are an expert parser.  
 
 Extract and output JSON with these top‐level keys:
 - department_code: string
