@@ -15,13 +15,5 @@
     }
   ],
   "department_wide_requirements": [],
-  "majors": {
-    "UNKN1": {
-      "major_name": "Major in Regional Studies",
-      "major_html": "<div class=\"toggle-wrap\">\n<h2>Major in Regional Studies</h2>\n<p>The major in regional studies requires a minimum of 36 points, of which 18 must be credited by the associated institute, i.e. East Central European Center, and an additional 18 must be in one of the College departments designated as relevant by the institute. Six points of seminar work approved by the institute are required of all majors and are included in the total of 36 points.</p>\n</div>",
-      "course_lists": "The major in regional studies requires a minimum of 36 points, of which 18 must be credited by the associated institute, i.e. East Central European Center, and an additional 18 must be in one of the College departments designated as relevant by the institute. Six points of seminar work approved by the institute are required of all majors and are included in the total of 36 points.",
-      "cognates": [],
-      "footnotes": []
-    }
-  }
+  "majors": {}
 }

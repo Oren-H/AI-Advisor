@@ -1,9 +1,11 @@
 import json
 import re
+import os
+import requests
+from bs4 import BeautifulSoup
 from langchain_openai import ChatOpenAI
 from langchain_core.messages import SystemMessage, HumanMessage
 from dotenv import load_dotenv
-import os
 
 load_dotenv()
 
@@ -89,15 +91,30 @@ Please parse these and return the JSON.
         print(f"Error calling LLM: {e}")
         raise
 
+def fetch_department_sections_html(url: str) -> tuple[str, str]:
+    """Fetch overview and requirements HTML blocks directly from a department URL."""
+    resp = requests.get(url, timeout=60)
+    resp.raise_for_status()
+    soup = BeautifulSoup(resp.text, 'html.parser')
+
+    overview_container = soup.find(id="textcontainer")
+    requirements_container = soup.find(id="requirementstextcontainer")
+
+    overview_html = overview_container.prettify() if overview_container else ""
+    requirements_html = requirements_container.prettify() if requirements_container else ""
+    return overview_html, requirements_html
+
 def main():
-    overview = load_html("/Users/alt2005/ai_advisor/AI-Advisor/major_scraping/raw_html/mathematics_major_requirements.html")
-    requirements = load_html("/Users/alt2005/ai_advisor/AI-Advisor/major_scraping/raw_html/mathematics_major_requirements.html")
+    # Example department URL; can be parameterized
+    url = os.environ.get("MAJOR_URL", "https://bulletin.columbia.edu/columbia-college/departments-instruction/mathematics/")
+    overview_html, requirements_html = fetch_department_sections_html(url)
 
-    parsed = parse_department_html(overview, requirements)
+    parsed = parse_department_html(overview_html, requirements_html)
 
-    with open("major_scraping/llm_math_comprehensive.json", "w", encoding="utf-8") as out:
+    output_path = os.environ.get("LLM_OUTPUT_PATH", "major_scraping/llm_comprehensive.json")
+    with open(output_path, "w", encoding="utf-8") as out:
         json.dump(parsed, out, ensure_ascii=False, indent=2)
-    print("➡️ Saved parsed JSON to math_comprehensive_llm.json")
+    print(f"➡️ Saved parsed JSON to {output_path}")
 
 if __name__ == "__main__":
     main()

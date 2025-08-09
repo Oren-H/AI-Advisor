@@ -213,79 +213,44 @@
     },
     {
       "section_name": "Undergraduate Programs of Study",
-      "subsections": [
-        {
-          "section_name": "Major in Computer Science",
-          "paragraphs": [
-            "All majors should confer with their program adviser each term to plan their programs of study. Students considering a major in computer science are encouraged to talk to a program adviser during their first or second year. The Computer Science major is composed of four basic components: The Mathematics Requirement, the Computer Science Core, the Area Foundation Courses, and the Computer Science Electives.",
-            "Select three from the following list:",
-            "Any three COMS courses or jointly offered computer science courses such as CSXX or XXCS course that are worth at least 3 points and are at the 3000 level or above. This includes 3000-level courses offered by Barnard CS.",
-            "No more than 6 points of project/thesis courses (COMS W3902, W3998, W4901) can count toward the major. COMS W3999 Fieldwork cannot be used as a CS Elective.",
-            "No more than one course from each set below may be applied towards the computer science major:"
-          ]
-        },
-        {
-          "section_name": "Major in Computational Biology",
-          "paragraphs": [
-            "For a description of the joint major in computer science—Biology, see the Biological Sciences section in this bulletin."
-          ]
-        },
-        {
-          "section_name": "Major in Computer Science - Mathematics",
-          "paragraphs": [
-            "For a description of the joint major in computer science—mathematics, see the Mathematics section in this bulletin."
-          ]
-        },
-        {
-          "section_name": "Major in Information Science",
-          "paragraphs": [
-            "The major in information science requires a minimum of 33 points, including a core requirement of five courses. Adjustments were made to the course lists below in March 2022.",
-            "The elective courses must be chosen with a faculty adviser to focus on the modeling and use of information within the context of a disciplinary theme. After discussing potential selections, students prepare a proposal of study that must be approved by the faculty adviser. In all cases, the six courses must be at the 3000 level or above, with at least three courses chosen from computer science. Following are some example programs. For more examples or templates for the program proposal, see a faculty adviser.",
-            "Note: In most cases, additional courses will be necessary as prerequisites in order to take some of the elective courses. This will depend on the student's proposed program of study.",
-            "Following are some suggested programs of instruction:",
-            "Students may focus on how humans use technology and how technology has changed society.",
-            "The requirements include:",
-            "Students may focus on understanding information modeling together with existing and emerging needs in economics and finance as well as algorithms and systems to address those needs.",
-            "The requirements include:",
-            "Students may focus on understanding information modeling together with existing and emerging needs in health sciences, as well as algorithms and systems to address those needs.",
-            "The requirements include:"
-          ]
-        },
-        {
-          "section_name": "Major in Data Science",
-          "paragraphs": [
-            "In response to the ever-growing importance of \"big data\" in scientific and policy endeavors, the last few years have seen explosive growth in theory, methods, and applications at the interface between computer science and statistics. The statistics and computer science departments have responded with a joint major that emphasizes the interface between the disciplines."
-          ]
-        },
-        {
-          "section_name": "Minor in Computer Science",
-          "paragraphs": [
-            "Students who pass the Computer Science Advanced Placement Exam A with a 4 or 5 will receive 3 points and an exemption from COMS W1004.",
-            "The Computer Science Minor consists of 6 courses as follows:",
-            "1. COMS W1004: Intro to computer science and programming in Java (3) or COMS W1007: Honors intro to comp sci (3)",
-            "2. COMS W3134: Data structures in Java (3) or COMS W3137: Honors data structures and algorithms (4)",
-            "3. COMS W3203: Discrete mathematics (4)",
-            "4. One course of the following:",
-            "COMS W3157: Advanced programming (4)",
-            "COMS W3261: Comp science theory (3)",
-            "CSEE W3827: Fundamentals of computer systems (3)",
-            "5. Any 3000-level or 4000-level COMS/CSXX/XXCS course of at least 3 points",
-            "6. Any 3000-level or 4000-level COMS/CSXX/XXCS course of at least 3 points OR one linear algebra or probability/statistics course from the following: APMA E3101, APMA E2101, MATH UN2010, MATH UN2015, IEOR E3658, STAT UN1201, STAT GU4001 or STAT GU4203.",
-            "No more than 6 points of project/thesis courses (COMS W3902, W3998, W4901) can count toward the major. COMS W3999 Fieldwork cannot be used as a CS Elective.",
-            "No more than one course from each set below may be applied towards the computer science major:"
-          ]
-        }
+      "paragraphs": [
+        "All majors should confer with their program adviser each term to plan their programs of study. Students considering a major in computer science are encouraged to talk to a program adviser during their first or second year. The Computer Science major is composed of four basic components: The Mathematics Requirement, the Computer Science Core, the Area Foundation Courses, and the Computer Science Electives.",
+        "Select three from the following list:",
+        "Any three COMS courses or jointly offered computer science courses such as CSXX or XXCS course that are worth at least 3 points and are at the 3000 level or above. This includes 3000-level courses offered by Barnard CS.",
+        "No more than 6 points of project/thesis courses (COMS W3902, W3998, W4901) can count toward the major. COMS W3999 Fieldwork cannot be used as a CS Elective.",
+        "No more than one course from each set below may be applied towards the computer science major:",
+        "For a description of the joint major in computer science—Biology, see the Biological Sciences section in this bulletin.",
+        "For a description of the joint major in computer science—mathematics, see the Mathematics section in this bulletin.",
+        "The major in information science requires a minimum of 33 points, including a core requirement of five courses. Adjustments were made to the course lists below in March 2022.",
+        "The elective courses must be chosen with a faculty adviser to focus on the modeling and use of information within the context of a disciplinary theme. After discussing potential selections, students prepare a proposal of study that must be approved by the faculty adviser. In all cases, the six courses must be at the 3000 level or above, with at least three courses chosen from computer science. Following are some example programs. For more examples or templates for the program proposal, see a faculty adviser.",
+        "Note: In most cases, additional courses will be necessary as prerequisites in order to take some of the elective courses. This will depend on the student's proposed program of study.",
+        "Following are some suggested programs of instruction:",
+        "Students may focus on how humans use technology and how technology has changed society.",
+        "The requirements include:",
+        "Students may focus on understanding information modeling together with existing and emerging needs in economics and finance as well as algorithms and systems to address those needs.",
+        "The requirements include:",
+        "Students may focus on understanding information modeling together with existing and emerging needs in health sciences, as well as algorithms and systems to address those needs.",
+        "The requirements include:",
+        "In response to the ever-growing importance of \"big data\" in scientific and policy endeavors, the last few years have seen explosive growth in theory, methods, and applications at the interface between computer science and statistics. The statistics and computer science departments have responded with a joint major that emphasizes the interface between the disciplines.",
+        "Students who pass the Computer Science Advanced Placement Exam A with a 4 or 5 will receive 3 points and an exemption from COMS W1004.",
+        "The Computer Science Minor consists of 6 courses as follows:",
+        "1. COMS W1004: Intro to computer science and programming in Java (3) or COMS W1007: Honors intro to comp sci (3)",
+        "2. COMS W3134: Data structures in Java (3) or COMS W3137: Honors data structures and algorithms (4)",
+        "3. COMS W3203: Discrete mathematics (4)",
+        "4. One course of the following:",
+        "COMS W3157: Advanced programming (4)",
+        "COMS W3261: Comp science theory (3)",
+        "CSEE W3827: Fundamentals of computer systems (3)",
+        "5. Any 3000-level or 4000-level COMS/CSXX/XXCS course of at least 3 points",
+        "6. Any 3000-level or 4000-level COMS/CSXX/XXCS course of at least 3 points OR one linear algebra or probability/statistics course from the following: APMA E3101, APMA E2101, MATH UN2010, MATH UN2015, IEOR E3658, STAT UN1201, STAT GU4001 or STAT GU4203.",
+        "No more than 6 points of project/thesis courses (COMS W3902, W3998, W4901) can count toward the major. COMS W3999 Fieldwork cannot be used as a CS Elective.",
+        "No more than one course from each set below may be applied towards the computer science major:"
       ]
     },
     {
       "section_name": "For students who entered Columbia in or before the 2023-24 academic year",
-      "subsections": [
-        {
-          "section_name": "Concentration in Computer Science",
-          "paragraphs": [
-            "The concentration in computer science requires a minimum of 22-24 points, as follows:"
-          ]
-        }
+      "paragraphs": [
+        "The concentration in computer science requires a minimum of 22-24 points, as follows:"
       ]
     }
   ],

@@ -19,9 +19,11 @@ def build_sections(container, exclude_titles=None):
     whose title contains one of those substrings.
     """
     exclude_titles = [e.lower() for e in (exclude_titles or [])]
+
     sections = []
     for hdr in container.find_all("h2", recursive=False):
         title = clean_text(hdr.get_text())
+
         # <-- skip unwanted titles when requested
         if any(ex in title.lower() for ex in exclude_titles):
             continue
@@ -44,6 +46,8 @@ def build_sections(container, exclude_titles=None):
                         paras.append(txt)
                 elif sib.name == "h3":
                     sub_title = clean_text(sib.get_text())
+                    if any(ex in sub_title.lower() for ex in exclude_titles):
+                        continue 
                     current_sub = {"section_name": sub_title, "paragraphs": []}
                     subsections.append(current_sub)
 
@@ -175,7 +179,7 @@ def save_comprehensive_json(data, filename):
     print(f"Saved comprehensive data to: {filename}")
 
 def main():
-    url = "https://bulletin.columbia.edu/columbia-college/departments-instruction/regional-studies/"
+    url = "https://bulletin.columbia.edu/columbia-college/departments-instruction/computer-science/"
     if len(sys.argv) > 1:
         url = sys.argv[1]
     department_name = sys.argv[2] if len(sys.argv) > 2 else None
