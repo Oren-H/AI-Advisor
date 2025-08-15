@@ -29,7 +29,7 @@ app.add_middleware(
 )
 
 # Initialize the graph
-course_advisor_graph = create_simplified_course_advisor_graph()
+course_advisor_graph = create_course_advisor_graph()
 
 # In-memory storage for conversations (use a proper database in production)
 conversations: Dict[str, Dict[str, Any]] = {}

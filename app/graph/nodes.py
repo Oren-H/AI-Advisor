@@ -4,6 +4,8 @@ from typing import Dict, Any
 from langchain.prompts import ChatPromptTemplate
 from langchain.schema import HumanMessage
 import logging
+import requests
+from bs4 import BeautifulSoup
 
 # Import our existing modules using absolute imports
 from app.db_querying.generate_filters import generate_filters_from_prompt
@@ -31,7 +33,7 @@ def intent_classification_node(state: CourseAdvisorState) -> CourseAdvisorState:
         intent_prompt = ChatPromptTemplate.from_template(prompt_manager.get_prompt("intent_classification"))
         
         # Get shared LLM instance
-        llm = llm_manager.get_llm(model_provider="openai", temperature=0.1)
+        llm = llm_manager.get_llm(model_provider="openai", model="gpt-4o-mini", temperature=0.1)
         
         # Create the chain
         chain = intent_prompt | llm
@@ -45,7 +47,7 @@ def intent_classification_node(state: CourseAdvisorState) -> CourseAdvisorState:
         intent = intent_response.content.strip().upper()
         
         # Validate the response
-        if intent not in ["SPECIFIC", "ADVISORY", "MIXED"]:
+        if intent not in ["SPECIFIC", "ADVISORY", "MIXED", "MAJOR"]:
             # Default to mixed if classification is unclear
             intent = "MIXED"
         
@@ -127,7 +129,7 @@ def advisory_response_node(state: CourseAdvisorState) -> CourseAdvisorState:
         advisory_prompt = ChatPromptTemplate.from_template(prompt_manager.get_prompt("advisory_response"))
         
         # Get shared LLM instance
-        llm = llm_manager.get_llm(model_provider="openai", temperature=0.7)
+        llm = llm_manager.get_llm(model_provider="openai", model="gpt-4o-mini", temperature=0.7)
         
         # Create the chain
         chain = advisory_prompt | llm
@@ -153,8 +155,11 @@ def generate_response_node(state: CourseAdvisorState) -> CourseAdvisorState:
         if state.get("error"):
             return {**state, "response": f"I encountered an error: {state['error']}. Please try rephrasing your query."}
         
-        if not state.get("course_results"):
+        if not state.get("course_results") and not state.get("course_plan"):
             return {**state, "response": "I couldn't find any courses matching your criteria. Please try broadening your search or rephrasing your query."}
+        
+        if state.get("intent") == "major":
+            return {**state, "response": state.get("course_plan", "")}
         
         # Get conversation history and user profile
         history = state.get("conversation_history", [])
@@ -172,7 +177,7 @@ def generate_response_node(state: CourseAdvisorState) -> CourseAdvisorState:
             prompt_template = ChatPromptTemplate.from_template(prompt_manager.get_prompt("specific_response"))
         
         # Get shared LLM instance
-        llm = llm_manager.get_llm(model_provider="openai", temperature=0.7)
+        llm = llm_manager.get_llm(model_provider="openai", model="gpt-4o-mini", temperature=0.7)
         
         # Create the chain
         chain = prompt_template | llm
@@ -192,6 +197,93 @@ def generate_response_node(state: CourseAdvisorState) -> CourseAdvisorState:
         print(f"❌ Error generating response: {e}")
         return {**state, "response": f"I encountered an error while generating a response: {str(e)}", "error": str(e)}
 
+@timed_step("generate_major_context")
+def major_context_node(state: CourseAdvisorState) -> CourseAdvisorState:
+    try: 
+        print(f"💡 Generating major plan for user: {state.get('user_profile', {})}")
+
+        major = "Major in Applied Mathematics"
+        dept_html = "major_scraping/data/mathematics_comprehensive.json"
+
+        # url = "https://bulletin.columbia.edu/columbia-college/departments-instruction/mathematics/"
+
+        # resp = requests.get(url)
+        # soup = BeautifulSoup(resp.text, 'html.parser')
+
+        # requirements_container = soup.find(id="requirementstextcontainer")
+        # overview_container = soup.find(id="textcontainer")
+
+        # requirements_txt = requirements_container.get_text()
+        # overview_txt = overview_container.get_text()
+
+        # dept_html = f"Major:{major} --> {overview_txt} --> {requirements_txt}"
+
+        # with open(overview_path, "r", encoding="utf-8") as f:
+        #     overview_html = f.read()
+            
+        # with open(requirements_path, "r", encoding="utf-8") as f:
+        #     requirements_html = f.read()
+        
+        # dept_html = f"Major:{major} --> {overview_html} --> {requirements_html}"
+
+        baseline_profile = {
+            "major": major,
+            "completed_courses": [
+                "MATH 1101",
+                "MATH 1102",
+                "MATH 1201",
+                "MATH 1202",
+                "MATH 2010"
+            ],
+            "years_left": 3,
+        }
+        merged_profile = {**baseline_profile, **state.get("user_profile", {})}
+
+        return {
+            **state,
+            "dept_html": dept_html,
+            "user_profile": merged_profile,
+            "error": ""
+        }
+    except Exception as e:
+        print(f"❌ Error generating major context: {e}")
+        return {**state, "error": f"Failed to generate major context: {str(e)}"}
+
+@timed_step("plan_major_from_html")
+def plan_major_from_html_node(state: CourseAdvisorState) -> CourseAdvisorState:
+    try:
+        if not state.get("dept_html"):
+            return {**state, "error": "No department HTML provided"}
+        
+        print(f"💡 Planning major from HTML for user: {state['user_profile']}")
+        
+        user_profile = state.get("user_profile", {})
+        completed_courses = user_profile.get("completed_courses", [])
+        major = user_profile.get("major", "")
+        years_left = user_profile.get("years_left", 3)
+        preferences = user_profile.get("preferences", {})
+        
+        # Create a prompt for the planner
+        major_plan_prompt = ChatPromptTemplate.from_template(prompt_manager.get_prompt("plan_major_from_html"))
+        llm = llm_manager.get_llm(model_provider="openai", model="gpt-4o-mini", temperature=1)
+        
+        # Create the chain
+        chain = major_plan_prompt | llm
+        
+        # Generate response
+        response = chain.invoke({
+            "user_profile": json.dumps(user_profile, indent=2),
+            "dept_html": state.get("dept_html", ""),
+            "major": major,
+            "completed_courses": completed_courses,
+            "years_left": years_left,
+        })
+        print(f"✅ Course plan: {response.content}")
+        return {**state, "course_plan": response.content, "error": ""}
+    except Exception as e:
+        print(f"❌ Error planning major from HTML: {e}")
+        return {**state, "error": f"Failed to plan major from HTML: {str(e)}"}
+
 @timed_step("route_by_intent")
 def route_by_intent(state: CourseAdvisorState) -> str:
     """Route to different paths based on the user's intent."""
@@ -201,5 +293,7 @@ def route_by_intent(state: CourseAdvisorState) -> str:
         return "advisory_response"
     elif intent == "specific":
         return "generate_filters"
+    elif intent == "major":
+        return "generate_major_context"
     else:  # mixed
         return "generate_filters" 

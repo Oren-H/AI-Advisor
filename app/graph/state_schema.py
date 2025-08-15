@@ -11,4 +11,10 @@ class CourseAdvisorState(TypedDict):
     response: str
     error: str
     conversation_history: List[BaseMessage]  # Memory for conversation context
-    user_profile: Dict[str, Any]  # Store user preferences and context 
+    user_profile: Dict[str, Any]  # Store user preferences and context
+
+    # New fields for major planning path
+    dept_html: str  # Full department HTML (overview + requirements)
+    course_plan: Dict[str, Any]  # Finalized YAML after lightweight validation
+    quotes: List[str]  # Verbatim HTML quotes used to justify numbers/levels
+    

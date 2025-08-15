@@ -124,7 +124,7 @@ def massage(doc):
         
     return doc
 
-def build_vector_database(csv_file="2025-Spring.csv", persist_directory="./data/chroma_db"):
+def build_vector_database(csv_file="data/2025-Spring.csv", persist_directory="./data/chroma_db"):
     """
     Build and persist the vector database from CSV data.
     Only run this when your data changes.
