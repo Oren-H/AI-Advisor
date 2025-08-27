@@ -44,9 +44,12 @@ async def main():
     print("Fetching department links...")
     dept_links = await scraper.get_department_links()
     print(f"Found {len(dept_links)} department links.")
-
+    
     all_departments = []
     for i, url in enumerate(dept_links, 1):
+        if url == "https://bulletin.columbia.edu/columbia-college/departments-instruction/search":
+            continue
+
         print(f"[{i}/{len(dept_links)}] Scraping: {url}")
         try:
             # Use scrape_department from scraping_functions.py
@@ -59,7 +62,7 @@ async def main():
     await scraper.cleanup()
 
     # Save collected data
-    output_file = 'all_departments.json'
+    output_file = 'major_scraping/data/major_data.json'
     with open(output_file, 'w', encoding='utf-8') as f:
         json.dump(all_departments, f, indent=2, ensure_ascii=False)
     print(f"Scraped data for {len(all_departments)} departments saved to {output_file}")
@@ -67,4 +70,3 @@ async def main():
 if __name__ == "__main__":
     asyncio.run(main())
 
-        
