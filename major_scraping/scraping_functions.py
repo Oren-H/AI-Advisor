@@ -169,7 +169,7 @@ def scrape_department(url):
                 majors[title]["course_lists"] = toggle_text
 
     # 6) Bundle final structure - keyed by department code
-    comprehensive_data = {
+    comprehensive_data[department_code] = {
         department_code: {
             "department_name":              dept_name,
             "website":                      url,

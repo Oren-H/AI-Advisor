@@ -45,7 +45,7 @@ async def main():
     dept_links = await scraper.get_department_links()
     print(f"Found {len(dept_links)} department links.")
     
-    all_departments = []
+    all_departments = {}
     for i, url in enumerate(dept_links, 1):
         if url == "https://bulletin.columbia.edu/columbia-college/departments-instruction/search":
             continue
@@ -54,8 +54,11 @@ async def main():
         try:
             # Use scrape_department from scraping_functions.py
             data = sf.scrape_department(url)
-            data['scraped_at'] = time.strftime('%Y-%m-%d %H:%M:%S')
-            all_departments.append(data)
+            # Add timestamp to each department's data
+            for dept_code in data:
+                data[dept_code]['scraped_at'] = time.strftime('%Y-%m-%d %H:%M:%S')
+            # Merge into main dictionary
+            all_departments.update(data)
         except Exception as e:
             print(f"Error scraping {url}: {e}")
 
