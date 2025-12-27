@@ -27,6 +27,7 @@ def massage(doc):
     
     # Convert credits to float, handling various formats
     credits_str = row.get("credits", "0")
+    
     try:
         # Handle ranges like "2.00-6.00" by taking the first number
         if "-" in credits_str:
@@ -40,16 +41,33 @@ def massage(doc):
     def parse_time(time_str):
         if not time_str or time_str == 'N/A' or time_str.strip() == '':
             return None
-        try: # hour value * 12 + minute value (12 hour clock, do not include am/pm)
-            hour = time_str.split(":")[0]
-            minute = time_str.split(":")[1].lower().rstrip("apm")
-            return int(hour) * 60 + int(minute)
-        except (ValueError, TypeError):
+        try:
+            # Parse format like "2:20pm" or "10:50am"
+            time_str = time_str.lower().strip()
+            is_pm = 'pm' in time_str
+
+            # Extract hour and minute
+            time_part = time_str.rstrip('apm')
+            hour = int(time_part.split(":")[0])
+            minute = int(time_part.split(":")[1])
+
+            # Convert to 24-hour format
+            if is_pm and hour != 12:
+                hour += 12
+            elif not is_pm and hour == 12:
+                hour = 0
+
+            return hour * 60 + minute
+        except (ValueError, TypeError, IndexError):
             return None
 
     # Parse time_starting and time_ending (already in minutes from midnight)
     time_starting_minutes = parse_time(row.get("scheduled_time_start"))
     time_ending_minutes = parse_time(row.get("scheduled_time_end"))
+
+    scheduled_days = row.get("scheduled_days", None)
+    if scheduled_days:
+        scheduled_days = scheduled_days.replace("Th", "R")
     
     # Adds all numerical data as metadata for each document
     meta.update({
@@ -69,7 +87,7 @@ def massage(doc):
         "method_of_instruction" : row["method_of_instruction"],
         "open_to" : row["open_to"],
         "points" : row["points"],
-        "scheduled_days" : row["scheduled_days"],
+        "scheduled_days" : scheduled_days,
         "section_key" : row["section_key"],
         "type" : row["type"],  
     })
@@ -124,7 +142,7 @@ def massage(doc):
         
     return doc
 
-def build_vector_database(csv_file="data/2025-Spring.csv", persist_directory="./data/chroma_db"):
+def build_vector_database(csv_file="course_data/csv/2025-Spring.csv", persist_directory="course_data/chroma_db"):
     """
     Build and persist the vector database from CSV data.
     Only run this when your data changes.
@@ -140,6 +158,7 @@ def build_vector_database(csv_file="data/2025-Spring.csv", persist_directory="./
         if processed_doc is not None:
             processed_docs.append(processed_doc)
     docs = processed_docs
+    print(f"Number of documents: {len(docs)}")
     
     print("Creating embeddings and vector database...")
     emb = OpenAIEmbeddings(model="text-embedding-3-small")

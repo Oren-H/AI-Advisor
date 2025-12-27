@@ -28,9 +28,8 @@ Frontend (React/TS) ↔ FastAPI Backend ↔ ChromaDB Vector Database
 
 ### Environment Setup
 ```bash
-# Create and activate Python virtual environment
+# Use conda base environment with Python 3.12.2
 conda activate base
-source rag_env/bin/activate  # On Windows: rag_env\Scripts\activate
 
 # Install dependencies
 pip install -r requirements_api.txt    # For API server only
@@ -134,3 +133,7 @@ All LLM prompts are stored as text files in `prompts/` and managed by `PromptMan
 ## Major Scraping Branch
 
 The current branch includes experimental major scraping functionality in `major_scraping/` for extracting comprehensive major requirements from Columbia's website. This uses BeautifulSoup for HTML parsing and creates structured JSON data for major requirements.
+
+## Prompting with the developer
+
+Fight back against ideas that the developer provides. If they feel wrong or are incorrect or will lead to inaccuracy, let the developer know in planning. Do not blindly plan what the developer says. 

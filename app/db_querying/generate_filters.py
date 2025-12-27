@@ -1,4 +1,12 @@
 import os
+import sys
+from pathlib import Path
+
+# Add project root to path for imports when running as script
+if __name__ == "__main__":
+    project_root = Path(__file__).parent.parent.parent
+    sys.path.insert(0, str(project_root))
+
 from typing import List, Optional, Tuple
 from pydantic import BaseModel, Field
 from langchain_core.prompts import PromptTemplate
@@ -14,15 +22,13 @@ class CourseQuery(BaseModel):
         description=(
         "List of department codes ONLY if the user explicitly mentions specific departments. "
         "Use the exact department codes provided in the prompt (e.g., 'COMS', 'MATH', 'STAT'). "
-        "Only include codes if the user specifically names departments like 'computer science', "
-        "'mathematics', 'statistics', etc. Do NOT assign codes for general topics."
         )
     )
-    scheduled_days: List[str] = Field(description="Day abbreviations M,T,W,Th,F.")
-    scheduled_time_start: Optional[int] = Field(description="Earliest start time in minutes from midnight")
-    scheduled_time_end: Optional[int] = Field(description="Latest end time in minutes from midnight")
-    credits: Optional[float] = Field(description="Number of credits the course is worth.")
-    type: Optional[str] = Field(description="Type of course, such as 'LECTURE', 'SEMINAR', 'LAB', 'RECITATION', 'OTHER'.")
+    scheduled_days: List[str] = Field(description="Day abbreviations M,T,W,R,F. Do not put a comma between days.")
+    scheduled_time_start: Optional[int] = Field(description="Earliest start time in minutes from midnight.Earliest is 0 by default.")
+    scheduled_time_end: Optional[int] = Field(description="Latest end time in minutes from midnight. Latest is 1439 by default.")
+    credits: Optional[float] = Field(description="Number of credits the course is worth. If the user does not specify a credit amount, do not include this field.")
+    type: Optional[str] = Field(description="Type of course, such as 'LECTURE', 'SEMINAR', 'LAB', 'RECITATION', 'OTHER'. If the user does not specify a type, do not include this field.")
 
 def generate_filters_from_prompt(user_prompt: str, conversation_context: str = "") -> Tuple[dict, str]:
     """
@@ -36,26 +42,30 @@ def generate_filters_from_prompt(user_prompt: str, conversation_context: str = "
     Returns:
         A tuple containing (filter_dict, text_query)
     """
+
     # Create langchain chain with prompt template and structured LLM
     prompt_template = PromptTemplate.from_template(
         prompt_manager.get_prompt("filter_generation")
     )
-    
+
     llm = llm_manager.get_llm(
         model_provider="openai",
         model="gpt-4o-mini",
-        temperature=0,
+        temperature=0.1,
         use_structured_output=True,
         structured_output_class=CourseQuery
     )
+
     chain = prompt_template | llm
-    
+
     result = chain.invoke({
         "user_prompt": user_prompt,
-        "conversation_context": conversation_context
+        "conversation_context": conversation_context,
+        "dept_codes": dept_codes
     })
-    
+
     filter_dict = build_chroma_filters(result)
+
     return filter_dict, result.text_query
 
 def build_chroma_filters(q: CourseQuery) -> dict:
@@ -77,9 +87,12 @@ def build_chroma_filters(q: CourseQuery) -> dict:
             else:
                 filters["department_code"] = {"$in": valid_codes}
 
-    # Days (expecting q.days as iterable like ['T','Th'])
+    # Days - exact string match (e.g., "TR", "MWF")
+    # Join requested days into concatenated string for exact matching
     if q.scheduled_days:
-        filters["scheduled_days"] = {"$in": list(q.scheduled_days)}
+        # Sort to match database format: MTWRF order
+        days_str = ''.join(sorted(q.scheduled_days, key=lambda d: 'MTWRF'.index(d) if d in 'MTWRF' else 99))
+        filters["scheduled_days"] = days_str
 
     # Credits
     if q.credits is not None:
@@ -121,7 +134,7 @@ def to_chroma_where(flat: dict) -> dict:
 
 # Test the function
 if __name__ == "__main__":
-    user_prompt = "Find me a stats or simulations class that is computational and not proof based"
+    user_prompt = "Find me a math or computer science class after 2pm"
     filters, text_query = generate_filters_from_prompt(user_prompt, conversation_context="")
     print(f"Text Query: {text_query}")
     print(f"Filters: {filters}")

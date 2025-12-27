@@ -2,68 +2,11 @@ Please analyze this course query and extract structured information:
 
 Query: "{user_prompt}"
 
-{conversation_context}
+Here is the conversation context: {conversation_context}
 
-Available Columbia University Departments and Codes:
-- African American and African Diaspora Studies: AFAS
-- American Studies: AMST
-- Ancient Studies: ANHS
-- Anthropology: ANTH
-- Archaeology: AHUM
-- Architecture: ARCH
-- Art History and Archaeology: AHIS
-- Astronomy: ASTR
-- Biological Sciences: BIOL
-- Business: BUSI
-- Chemistry: CHEM
-- Classics: CLCV
-- Cognitive Science: COGS
-- Comparative Literature and Society: CPLS
-- Computer Science: COMS
-- Creative Writing: WRIT
-- Dance: DNCE
-- Drama and Theatre Arts: THTR
-- Earth and Environmental Sciences: EESC
-- East Asian Languages and Cultures: EAAS
-- Ecology, Evolution, and Environmental Biology: EEEB
-- Economics: ECON
-- Education: EDUC
-- English and Comparative Literature: ENGL
-- Electrical Engineering: ELEN
-- Comparative Literature and Society: CLEN
-- Ethnicity and Race Studies: CSER
-- Film and Media Studies: FILM
-- French: FREN
-- Germanic Languages: GERM
-- History: HIST
-- Human Rights: HRTS
-- Italian: ITAL
-- Jazz Studies: JAZZ
-- Jewish Studies: JWST
-- Language Resource Center: SOAR
-- Latin American and Caribbean Studies: CLRS
-- Latin American and Iberian Cultures: SPAN
-- Linguistics: LING
-- Mathematics: MATH
-- Medieval and Renaissance Studies: CLME
-- Middle Eastern, South Asian, and African Studies: MDES
-- Music: MUSI
-- Philosophy: PHIL
-- Physical Education and Intercollegiate Athletics: PHED
-- Physics: PHYS
-- Political Science: POLS
-- Psychology: PSYC
-- Public Health: PUBH
-- Regional Studies: ASCE
-- Religion: RELI
-- Science and Society: STEM
-- Slavic Languages: SLCL
-- Sociology: SOCI
-- Statistics: STAT
-- Sustainable Development: SDEV
-- Urban Studies: URBS
-- Visual Arts: VIAR
-- Women's and Gender Studies: WMST
+Here are the available department codes: {dept_codes}
+
+Do not include filters if they are not explicitly mentioned by user. 
 
 Instructions:
 1. For departments: ONLY assign department codes if the user explicitly mentions specific departments. Note that the user might not know the precise name of the department.  
@@ -82,4 +25,6 @@ Instructions:
 4. For credits: Extract specific credit amounts
 5. For text_query: Extract keywords for semantic search, including all relevant terms for course content
 
-IMPORTANT: If this is a follow-up question that references previous conversation, use the conversation context to understand what the user is referring to. For example, if they ask "What courses should I take to become that?" and the context mentions "quantitative finance", extract relevant department and keyword information accordingly. 
+IMPORTANT: If this is a follow-up question that references previous conversation, use the conversation context to understand what the user is referring to. 
+For example, if they ask "What courses should I take to become that?" and the context mentions "quantitative finance", 
+extract relevant department and keyword information accordingly. 

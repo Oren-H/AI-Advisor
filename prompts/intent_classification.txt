@@ -14,6 +14,8 @@ Classify the user's intent into one of three categories:
 - "Compare COMS 3157 and COMS 3134"
 - "Show me advanced math courses"
 - "What courses should I take for a data science minor?"
+- "CS classes Mon/Wed afternoon under 4 credits”
+- “Show 3000-level COMS AI courses”
 
 **ADVISORY**: User is asking for general academic advice, career guidance, or broader educational planning. Examples:
 - "How should I plan my major?"
@@ -23,10 +25,10 @@ Classify the user's intent into one of three categories:
 
 **MAJOR**: User is asking about requirements, progress, or planning for a specific major, including checking completed courses against requirements, figuring out what’s left, or mapping a schedule to complete a major.
 Examples:
-"What do I need to graduate with an Applied Math major ?"
-"Given I’ve taken Calc I–IV and Linear Algebra, what’s left for my Statistics major?"
-"How many 4000-level electives do I still need for CS?"
-"Plan my remaining semesters to finish the economics major."
+- "What do I need to graduate with an Applied Math major?"
+- "Given I’ve taken Calc I–IV and Linear Algebra, what’s left for my Statistics major?"
+- "How many 4000-level electives do I still need for CS?"
+- "Plan my remaining semesters to finish the economics major."
 
 **MIXED**: User wants a combination of advisory guidance with some course suggestions sprinkled in. Examples:
 - "I want to study AI, what should I focus on and which courses would help?"

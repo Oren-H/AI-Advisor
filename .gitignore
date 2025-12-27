@@ -47,3 +47,6 @@ rag_env/
 .DS_Store
 Thumbs.db
 
+.claude
+/course_data/
+/columbia-catalog-scraper/

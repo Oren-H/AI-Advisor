@@ -1,6 +1,14 @@
+import os
+import sys
+from pathlib import Path
+
+# Add project root to path for imports when running as script
+if __name__ == "__main__":
+    project_root = Path(__file__).parent.parent.parent
+    sys.path.insert(0, str(project_root))
+
 from langchain_openai import OpenAIEmbeddings, ChatOpenAI
 from langchain_chroma import Chroma
-import os
 from app.db_building.database_utils import load_vector_database
 from app.db_querying.generate_filters import generate_filters_from_prompt
 
@@ -18,10 +26,8 @@ def query_courses_with_filters(query: str, filters: dict = None, k: int = 1, con
         List of relevant course documents
     """
     try:
-        # Get the correct path to the database (inside the data folder)
         script_dir = os.path.dirname(os.path.abspath(__file__))
-        # Go up two levels: app/db_querying/ -> app/ -> root, then add data/chroma_db
-        chroma_db_path = os.path.join(os.path.dirname(os.path.dirname(script_dir)), "data", "chroma_db")
+        chroma_db_path = os.path.join(os.path.dirname(os.path.dirname(script_dir)), "course_data", "chroma_db")
         vectordb = load_vector_database(chroma_db_path)
         
         # Enhance the query with conversation context if available
@@ -33,17 +39,25 @@ def query_courses_with_filters(query: str, filters: dict = None, k: int = 1, con
         print(f"Performing semantic search: {enhanced_query}")
         # Only pass filters if they're not empty
         if filters:
-            results = vectordb.similarity_search(enhanced_query, k=k, filter=filters)
+            results_with_scores = vectordb.similarity_search_with_score(enhanced_query, k=k, filter=filters)
+            # Sort by score (lower is better for distance metrics)
+            results_with_scores = sorted(results_with_scores, key=lambda x: -x[1])
         else:
-            results = vectordb.similarity_search(enhanced_query, k=k)
-        # results = [d for d in raw if metadata_matches_filters(d.metadata, filters)]
+            raw_results = vectordb.similarity_search(enhanced_query, k=k)
+            # Create tuples with None score for consistency
+            results_with_scores = [(doc, None) for doc in raw_results]
 
         # Display results
-        print(f"\nFound {len(results)} relevant course{'s' if len(results) != 1 else ''}:")
-        
+        print(f"\nFound {len(results_with_scores)} relevant course{'s' if len(results_with_scores) != 1 else ''}:")
+
+        if(len(results_with_scores)==0):
+            print("No results found with filters. Trying without filters.")
+            raw_results = vectordb.similarity_search(enhanced_query, k=k)
+            results_with_scores = [(doc, None) for doc in raw_results]
+
         # Convert Document objects to dictionaries for JSON serialization
         course_dicts = []
-        for i, doc in enumerate(results, 1):
+        for i, (doc, score) in enumerate(results_with_scores, 1):
             course_dict = {
                 "course_title": doc.metadata.get('course_title', None),
                 "course_code": doc.metadata.get('course_code', None),
@@ -55,11 +69,13 @@ def query_courses_with_filters(query: str, filters: dict = None, k: int = 1, con
                 "scheduled_time_end": doc.metadata.get('scheduled_time_end', None),
                 "scheduled_days": doc.metadata.get('scheduled_days', None),
                 "type": doc.metadata.get('type', None),
-                "content": doc.page_content[:500] + "..." if len(doc.page_content) > 500 else doc.page_content
+                "content": doc.page_content[:500] + "..." if len(doc.page_content) > 500 else doc.page_content,
+                "similarity_score": score
             }
             course_dicts.append(course_dict)
-            
-            print(f"\n{i}. {course_dict['course_title']} ({course_dict['course_code']})")
+
+            score_text = f" (score: {score:.4f})" if score is not None else ""
+            print(f"\n{i}. {course_dict['course_title']} ({course_dict['course_code']}){score_text}")
             print(f"   Department: {course_dict['department']}")
             print(f"   Credits: {course_dict['points']}")
             print(f"   Instructor: {course_dict['instructor']}")
@@ -77,14 +93,13 @@ def query_courses_with_filters(query: str, filters: dict = None, k: int = 1, con
 if __name__ == "__main__":
     # Example queries
     queries = [
-        "Find me courses on foreign literature in the morning"
+        "Find me a IEOR class about optimization after 10am on Tuesday and Thursday "
     ]
-    
+
     for query in queries:
-        print("=" * 60)
         filters, text_query = generate_filters_from_prompt(query)
         print(f"Filters: {filters}")
         print(f"Text Query: {text_query}")
-        results = query_courses_with_filters(query, filters=filters, k=10, conversation_context="")
+        results = query_courses_with_filters(text_query, filters=filters, k=10, conversation_context="")
         print(results)
    

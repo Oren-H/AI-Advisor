@@ -61,7 +61,7 @@ Main endpoint for course advisor interactions.
   "conversation_id": "optional-existing-conversation-id",
   "user_profile": {
     "major": "Computer Science",
-    "year": "Freshman",
+    "year": "1",
     "interests": ["programming", "algorithms"]
   }
 }

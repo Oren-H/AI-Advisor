@@ -59,6 +59,19 @@ class HealthResponse(BaseModel):
     timestamp: datetime
     graph_ready: bool
 
+class UserProfileRequest(BaseModel):
+    conversation_id: str = Field(..., description="Conversation ID to associate profile with")
+    department_of_major: str = Field(..., description="Department code (e.g., 'MATH', 'COMS')")
+    major: str = Field(..., description="Full major name (e.g., 'Major in Applied Mathematics')")
+    completed_courses: List[str] = Field(default_factory=list, description="List of completed course codes")
+    years_left: int = Field(default=4, description="Years left until graduation")
+    career_goals: List[str] = Field(default_factory=list, description="Career interests/goals")
+
+class UserProfileResponse(BaseModel):
+    conversation_id: str
+    profile: Dict[str, Any]
+    message: str
+
 @app.get("/", response_model=HealthResponse)
 async def health_check():
     """Health check endpoint"""
@@ -94,12 +107,15 @@ async def chat(request: ChatRequest):
             "user_query": request.message,
             "intent": "",
             "filters": {},
+            "text_query": "",  # Added missing field
             "course_results": [],
             "course_info_json": "",
             "response": "",
             "error": "",
             "conversation_history": conversation_history,
-            "user_profile": user_profile
+            "user_profile": user_profile,
+            "major_context": {},  # Added missing field
+            "course_plan": "",  # Added missing field
         }
         
         # Run the graph
@@ -130,12 +146,15 @@ async def chat(request: ChatRequest):
 
 @app.post("/chat/stream")
 async def chat_stream(request: ChatRequest):
-    """Streaming chat endpoint for real-time response generation"""
+    """Streaming chat endpoint with REAL LLM token streaming using astream_events"""
     async def generate_stream():
+        conversation_id = None
+        final_state = None
+
         try:
             # Generate conversation ID if not provided
             conversation_id = request.conversation_id or str(uuid.uuid4())
-            
+
             # Get or create conversation history
             if conversation_id in conversations:
                 conversation_history = conversations[conversation_id]["history"]
@@ -149,65 +168,97 @@ async def chat_stream(request: ChatRequest):
                     "created_at": datetime.now(),
                     "last_updated": datetime.now()
                 }
-            
+
             # Prepare initial state
             initial_state: CourseAdvisorState = {
                 "user_query": request.message,
                 "intent": "",
                 "filters": {},
+                "text_query": "",
                 "course_results": [],
                 "course_info_json": "",
                 "response": "",
                 "error": "",
                 "conversation_history": conversation_history,
-                "user_profile": user_profile
+                "user_profile": user_profile,
+                "major_context": {},
+                "course_plan": "",
             }
-            
-            # Run the graph
+
             print(f"🚀 Processing streaming query: {request.message}")
-            final_state = await course_advisor_graph.ainvoke(initial_state)
-            
-            # Update conversation storage
-            conversations[conversation_id]["history"] = final_state["conversation_history"]
-            conversations[conversation_id]["user_profile"] = final_state["user_profile"]
-            conversations[conversation_id]["last_updated"] = datetime.now()
-            
-            # Stream the response character by character
-            response_text = final_state["response"]
-            
-            # Send metadata first
+
+            # Send initial metadata with conversation_id
             metadata = {
                 "type": "metadata",
                 "conversation_id": conversation_id,
-                "intent": final_state["intent"],
-                "course_results": final_state.get("course_results"),
-                "filters": final_state.get("filters"),
-                "error": final_state.get("error")
             }
             yield f"data: {json.dumps(metadata)}\n\n"
-            
-            # Stream the response text
-            for char in response_text:
-                yield f"data: {json.dumps({'type': 'token', 'content': char})}\n\n"
-                # Small delay to simulate real streaming
-                import asyncio
-                await asyncio.sleep(0.02)  # 20ms delay
-            
+
+            # Use astream_events for REAL streaming of LLM tokens
+            async for event in course_advisor_graph.astream_events(
+                initial_state,
+                version="v2"
+            ):
+                kind = event["event"]
+
+                # Stream LLM tokens as they're generated (REAL streaming!)
+                if kind == "on_chat_model_stream":
+                    chunk = event["data"]["chunk"]
+                    if hasattr(chunk, 'content') and chunk.content:
+                        yield f"data: {json.dumps({'type': 'token', 'content': chunk.content})}\n\n"
+
+                # Send node execution updates for progress tracking
+                elif kind == "on_chain_start":
+                    node_name = event.get("name", "")
+                    if node_name:
+                        print(f"  ▶️  Node started: {node_name}")
+                        yield f"data: {json.dumps({'type': 'node_start', 'node': node_name})}\n\n"
+
+                elif kind == "on_chain_end":
+                    node_name = event.get("name", "")
+
+                    # Capture final state from the last node
+                    if node_name == "finalize_memory":
+                        final_state = event["data"].get("output")
+                        if final_state:
+                            print(f"  ✅ Graph execution complete")
+                            # Update conversation storage
+                            conversations[conversation_id]["history"] = final_state.get("conversation_history", conversation_history)
+                            conversations[conversation_id]["user_profile"] = final_state.get("user_profile", user_profile)
+                            conversations[conversation_id]["last_updated"] = datetime.now()
+
+                            # Send final metadata with intent, filters, and results
+                            final_metadata = {
+                                "type": "metadata_final",
+                                "intent": final_state.get("intent", ""),
+                                "filters": final_state.get("filters", {}),
+                                "course_results": final_state.get("course_results", []),
+                                "error": final_state.get("error", "")
+                            }
+                            yield f"data: {json.dumps(final_metadata)}\n\n"
+
+                    if node_name:
+                        print(f"  ✅ Node completed: {node_name}")
+
             # Send end marker
             yield f"data: {json.dumps({'type': 'end'})}\n\n"
-            
+            print(f"✅ Streaming complete for conversation {conversation_id}")
+
         except Exception as e:
             print(f"❌ Error in streaming chat endpoint: {e}")
+            import traceback
+            traceback.print_exc()
             error_data = {"type": "error", "error": str(e)}
             yield f"data: {json.dumps(error_data)}\n\n"
-    
+
     return StreamingResponse(
         generate_stream(),
-        media_type="text/plain",
+        media_type="text/event-stream",
         headers={
             "Cache-Control": "no-cache",
             "Connection": "keep-alive",
             "Content-Type": "text/event-stream",
+            "X-Accel-Buffering": "no",  # Disable buffering in nginx
         }
     )
 
@@ -290,6 +341,47 @@ async def update_user_profile(conversation_id: str, profile: Dict[str, Any]):
         "user_profile": profile,
         "message": "Profile updated successfully"
     }
+
+@app.post("/profile", response_model=UserProfileResponse)
+async def set_user_profile(request: UserProfileRequest):
+    """Set structured user profile for a conversation"""
+    conversation_id = request.conversation_id
+    
+    # Create conversation if it doesn't exist
+    if conversation_id not in conversations:
+        conversations[conversation_id] = {
+            "history": [],
+            "user_profile": {},
+            "created_at": datetime.now(),
+            "last_updated": datetime.now()
+        }
+    
+    # Structure the profile data
+    profile_data = {
+        "department_of_major": request.department_of_major,
+        "major": request.major,
+        "completed_courses": request.completed_courses,
+        "years_left": request.years_left,
+        "career_goals": request.career_goals
+    }
+    
+    # Validate major exists (using our generate_major_context function)
+    try:
+        from major_scraping.generate_major_context import generate_major_context
+        generate_major_context(request.department_of_major, request.major)
+        validation_message = "Profile set successfully and major validated"
+    except ValueError as e:
+        validation_message = f"Profile set successfully but major validation failed: {str(e)}"
+    
+    # Update the conversation
+    conversations[conversation_id]["user_profile"] = profile_data
+    conversations[conversation_id]["last_updated"] = datetime.now()
+    
+    return UserProfileResponse(
+        conversation_id=conversation_id,
+        profile=profile_data,
+        message=validation_message
+    )
 
 if __name__ == "__main__":
     import uvicorn

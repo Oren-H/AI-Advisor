@@ -65,7 +65,6 @@ AI-Advisor/
 2. **Set up Python virtual environment**
    ```bash
    python3 -m venv rag_env
-   source rag_env/bin/activate  # On Windows: rag_env\Scripts\activate
    ```
 
 3. **Install backend dependencies**
