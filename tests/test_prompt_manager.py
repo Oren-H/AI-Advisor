@@ -2,7 +2,7 @@ import sys
 import os
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-from app.prompt_manager import prompt_manager
+from agent.prompt_manager import prompt_manager
 
 def test_prompt_manager():
     """Test the prompt manager functionality."""

@@ -10,7 +10,7 @@ from pathlib import Path
 # Add the app directory to the path
 sys.path.append(os.path.join(os.path.dirname(__file__), '..', 'app'))
 
-from app.prompt_manager import prompt_manager
+from agent.prompt_manager import prompt_manager
 
 def list_prompts():
     """List all available prompts with their sizes."""
