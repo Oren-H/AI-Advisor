@@ -104,7 +104,7 @@ export const useChat = () => {
           setState(prev => ({
             ...prev,
             conversationId: metadata.conversation_id,
-            userProfile: { ...prev.userProfile, ...metadata.filters },
+            userProfile: { ...prev.userProfile, ...(metadata?.filters || {}) },
           }));
         },
         // onComplete callback
@@ -193,3 +193,4 @@ export const useChat = () => {
     updateUserProfile,
   };
 }; 
+

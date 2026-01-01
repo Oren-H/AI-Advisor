@@ -1,0 +1,2080 @@
+Retrieving pages [166, 167, 168, 169] for Computer Science
+Retrieving pages [8, 9, 10, 11, 12, 13, 14, 15] for SEAS
+Loading cached documents from /Users/alt2005/ai_advisor/AI-Advisor/agent/graph/__pklcache__/bulletin_doc_cache.pkl
+Loading cached documents from /Users/alt2005/ai_advisor/AI-Advisor/agent/graph/__pklcache__/bulletin_doc_cache.pkl
+✓ Loaded 339 documents from cache
+Major context: Page 166:
+Columbia Engineering Bulletin 2025-2026 165
+ORCS E4200 Data-driven Decision Modeling. 3.00 points.
+Introduction to modeling, estimating, and solving decision-making
+problems in the context of artiﬁcial intelligence and analytics. Potential
+topics include choice models, quantity models, online learning using
+multi-armed bandits, dynamic decision modeling, dynamic games, and
+Bayesian learning theory. Practice both theory and applications using
+Python programming
+Fall 2025: ORCS E4200
+Course
+Number
+Section/Call
+Number
+Times/Location Instructor Points Enrollment
+ORCS 4200 001/12280 T Th 4:10pm - 5:25pm 
+331 Uris Hall
+Lily Xu 3.00 27/50
+ORCS E4201 Policy for Privacy Technologies. 3.00 points.
+Introduction to privacy technologies, their use in practice, and privacy
+regulations. Potential topics include anonymization, differential privacy,
+cryptography, secure multi-party computation, and legislation. Course
+material will be abased in real-world use cases of these tools
+Spring 2025: ORCS E4201
+Course
+Number
+Section/Call
+Number
+Times/Location Instructor Points Enrollment
+ORCS 4201 001/14666 M W 8:40am - 9:55am 
+303 Seeley W. Mudd
+Building
+Rachel
+Cummings
+3.00 34/40
+ORCS E4529 Reinforcement Learning. 3.00 points.
+Prerequisites: Probability and statistics, basic optimization e.g.,
+familiarity with linear and convex optimization, gradient descent, basic
+algorithm design constructs, familiarity with programming in python. 
+Markov Decision Processes (MDP) and Reinforcement Learning (RL)
+problems. Reinforcement Learning algorithms including Q-learning, policy
+gradient methods, actor-critic method. Reinforcement learning while
+doing exploration-exploitation dilemma, multi-armed bandit problem.
+Monte Carlo Tree Search methods, Distributional, Multi-agent, and Causal
+Reinforcement Learning
+Fall 2025: ORCS E4529
+Course
+Number
+Section/Call
+Number
+Times/Location Instructor Points Enrollment
+ORCS 4529 001/11860 M W 1:10pm - 2:25pm 
+303 Seeley W. Mudd
+Building
+Shipra Agrawal 3.00 64/60
+Undergraduate Programs
+Computer science majors at Columbia study an integrated curriculum,
+partially in areas with an immediate relationship to the computer, such as
+programming languages, operating systems, and computer architecture,
+and partially in theoretical computer science and mathematics. Thus,
+students obtain the background to pursue their interests both in
+applications and in theoretical developments.
+Practical experience is an essential component of the computer science
+program. Undergraduate students are often involved in advanced
+faculty research projects using state-of-the-art computing facilities.
+Qualiﬁed majors sometimes serve as consultants at Columbia University
+Information Technology (CUIT), which operates several labs with
+microcomputers and terminals available at convenient locations on the
+campus.
+Upper-level students in computer science may assist faculty members
+with research projects, particularly in the development of software.
+Ongoing faculty projects include algorithmic analysis, computational
+complexity, software tool design, distributed computation, modeling and
+performance evaluation, computer networks, computer architecture,
+CAD for digital systems, computer graphics, programming environments,
+expert systems, natural language processing, computer vision, robotics,
+computational biology, computer security, multicomputer design,
+user interfaces, VLSI applications, artiﬁcial intelligence, combinatorial
+modeling, virtual environments, and microprocessor applications.
+Students are strongly encouraged to arrange for participation by
+consulting individual faculty members and by attending the Computer
+Science Research Fair held at the beginning of each semester.
+Most graduates of the computer science program at Columbia step
+directly into career positions in computer science with industry or
+government, or continue their education in graduate degree programs.
+Many choose to combine computer science with a second career interest
+by taking additional programs in business administration, medicine, or
+other professional studies.
+For further information on the undergraduate computer science program,
+please see the home page and the Quick Guide at cs.columbia.edu/
+education/undergraduate.
+• Computer Science (BS) (p. 165)
+• Computer Science Minor (p. 314)
+Computer Science (BS)
+The CS Major Requirements
+The Undergraduate program requires at minimum 62 points (including
+ENGI E1006 INTRO TO COMP FOR ENG/APP SCI as a prerequisite to the
+major) and is composed of four basic components:
+• the Computer Science Core (7-8 courses),
+• the Area Foundation Courses (4 courses),
+• the Computer Science Electives (4 courses),
+• and the General Technical Electives (4 courses).
+Students are encouraged to work with their faculty adviser to create a
+plan tailored to ﬁt their goals and interests. The department webpage
+provides several example programs for students interested in a variety of
+speciﬁc areas in computer science.
+Note: All courses toward the CS major must be taken for a letter grade. A
+maximum of one course worth no more than 4 points passed with a grade
+of D may be counted toward the major.
+Prerequisite to the CS Major
+ENGI E1006 INTRO TO COMP FOR ENG/APP SCI. All CS majors should
+take this course in their ﬁrst or second semester.
+Mathematics Requirements
+Calculus Requirement
+MATH UN1101 CALCULUS I
+MATH UN1102 CALCULUS II
+APMA E2000 MULTV. CALC. FOR ENGI # APP SCI
+Linear Algebra Requirement
+Choose one of the following:
+COMS W3251 COMPUTATIONAL LINEAR ALGEBRA
+MATH UN2010 LINEAR ALGEBRA
+MATH UN2015 Linear Algebra and Probability 1
+MATH UN2020 Honors Linear Algebra
+APMA E2101 INTRO TO APPLIED MATHEMATICS
+APMA E3101 APPLIED MATH I: LINEAR ALGEBRA
+
+---
+
+Page 167:
+166  Computer Science (BS)
+Probability/Statistics Requirement
+Choose one of the following:
+IEOR E3658 PROBABILITY FOR ENGINEERS
+STAT UN1201 CALC-BASED INTRO TO STATISTICS
+STAT GU4001 INTRODUCTION TO PROBABILITY AND
+STATISTICS
+MATH UN2015 Linear Algebra and Probability
+1 MATH UN2015 Linear Algebra and Probability may simultaneously
+satisfy both linear algebra and probability/statistics requirements
+without the need to take additional classes, thus reducing the total
+number of courses required.
+Computer Science Core
+COMS W1004 PROGRAMMING IN JAVA
+or COMS W1007
+COMS W3134 Data Structures in Java
+or COMS W3137 HONORS DATA STRUCTURES # ALGOL
+COMS W3157 ADVANCED PROGRAMMING
+COMS W3203 DISCRETE MATHEMATICS
+COMS W3261 COMPUTER SCIENCE THEORY
+CSEE W3827 FUNDAMENTALS OF COMPUTER SYSTS
+Area Foundation Courses
+Choose four of the following:
+COMS W4111 INTRODUCTION TO DATABASES
+COMS W4113 FUND-LARGE-SCALE DIST SYSTEMS
+COMS W4115 PROGRAMMING LANG # TRANSLATORS
+COMS W4118 OPERATING SYSTEMS I
+CSEE W4119 COMPUTER NETWORKS
+COMS W4152 Engineering Software-as-a-Service
+COMS W4156 ADVANCED SOFTWARE ENGINEERING
+COMS W4160 COMPUTER GRAPHICS
+COMS W4167 COMPUTER ANIMATION
+COMS W4170 USER INTERFACE DESIGN
+COMS W4181 SECURITY I
+CSOR W4231 ANALYSIS OF ALGORITHMS I
+COMS W4236 INTRO-COMPUTATIONAL COMPLEXITY
+COMS W4701 ARTIFICIAL INTELLIGENCE
+COMS W4705 NATURAL LANGUAGE PROCESSING
+COMS W4731 Computer Vision I: First Principles
+COMS W4733 COMPUTATIONAL ASPECTS OF
+ROBOTICS
+CBMF W4761 COMPUTATIONAL GENOMICS
+COMS W4771 MACHINE LEARNING
+CSEE W4824 COMPUTER ARCHITECTURE
+CSEE W4868 SYSTEM-ON-CHIP PLATFORMS
+Computer Science Electives
+Any four COMS courses, or jointly offered computer science courses such
+as CSXX or XXCS courses, that are worth at least 3 points and are at the
+3000 level or above.
+General Technical Electives
+Four General Technical Elective (GTE) courses are required. GTE courses
+must be worth at least 3 points, at the 3000  level or above, and must be
+selected from the list of departments below. There are no exceptions.
+• Any SEAS department
+• Astronomy
+• Biomedical Informatics
+• Biological Science
+• Chemistry
+• Earth and Environmental Sciences
+• Ecology, Evolution, and Environmental Biology
+• Mathematics
+• Physics
+• Psychology
+• Statistics
+• Economics
+Undergraduate Thesis
+A student may, with adviser approval, choose to complete a thesis. A
+thesis may be used in place of up to 6 points from the Computer Science
+Electives requirement. A thesis may not be used in place of any Area
+Foundation Courses. A thesis consists of an independent theoretical
+or experimental investigation of an appropriate problem in computer
+science carried out under the supervision of a Computer Science
+Department faculty member. A formal written report is mandatory and an
+oral presentation may also be required.
+Restrictions
+Transfer Credit:
+Major: Up to four transfer courses are accepted toward the major.
+Calculus, linear algebra, and probability/statistics courses can be
+transferred in addition to the four-course limits.
+Minor: Up to two transfer courses are accepted toward the minor. A
+transfer course in linear algebra or probability/statistics counts as one of
+the two allowed transfers.
+All transfer courses must be reviewed as an equivalent to a COMS course
+by the Columbia instructor for that course and must have been passed
+with a B grade or higher.
+Course restrictions:
+Note: No more than 6 points of individual research, project, or
+thesis courses (including COMS W3902 UNDERGRADUATE THESIS,
+COMS W3998 UNDERGRAD PROJECTS IN COMPUTER SCIENCE,
+COMS W4901 Projects in Computer Science, COMS W6901 , and
+equivalent project/research courses from other departments) may
+be applied towards the computer science major. COMS W3999
+FIELDWORK cannot be used as a CS elective. No more than one course
+from each set below may be applied towards the computer science major.
+• IEOR E3658, STAT UN1201, STAT GU4001
+• MATH UN2015, MATH UN2010, APAM E3101, COMS W3251
+• COMS W4771, COMS W4721, STAT GU4241
+Advanced Placement
+Students who pass the Computer Science Advanced Placement (AP)
+Exam with a 4 or 5 will receive 3 points of credit and an exemption from
+COMS W1004 PROGRAMMING IN JAVA.
+
+---
+
+Page 168:
+Columbia Engineering Bulletin 2025-2026 167
+Computer Science Program
+An overview of the degree track in PDF format can be found here. For
+program information before Fall 2023, please view the 2022–2023
+Bulletin.
+First Year
+Semester I
+MATH UN1101 CALCULUS I  
+Choose one of the following Physics courses depending on
+sequence:
+ 
+PHYS UN1401
+(Sequence 1)
+INTRO TO MECHANICS # THERMO  
+PHYS UN1601
+(Sequence 2)
+PHYSICS I:MECHANICS/RELATIVITY  
+PHYS UN2801
+(Sequence 3)
+ACCELERATED PHYSICS I  
+Choose one of the following Chemistry/Biology courses (taken
+Semester I or II):
+ 
+CHEM UN1403 (or
+higher)
+GENERAL CHEMISTRY I-LECTURES  
+EEEB UN2001 ENVIRONMENTAL BIOLOGY I  
+EEEB UN2005 (or
+higher)
+ 
+ENGL CC1010 (taken
+Semester l or ll)
+UNIVERSITY WRITING  
+ECON UN1105 
+& UN1105 (taken
+Semester l, ll, lll, or
+lV)
+PRINCIPLES OF ECONOMICS  
+ENGI E1006 (taken
+Semester l or ll)
+INTRO TO COMP FOR ENG/APP SCI  
+COMS W1004 or
+W1007 (taken
+Semester l or ll)
+PROGRAMMING IN JAVA  
+PHED UN1001 PHYSICAL EDUCATION ACTIVITIES  
+ENGI E1102 (taken
+Semester l or ll)
+THE ART OF ENGINEERING  
+Semester II
+MATH UN1102 CALCULUS II  
+Choose one of the following Physics courses depending on
+sequence:
+ 
+PHYS UN1402
+(Sequence 1)
+INTRO ELEC/MAGNETSM # OPTCS  
+PHYS UN1602
+(Sequence 2)
+PHYSICS II: THERMO, ELEC # MAG  
+PHYS UN2802
+(Sequence 3)
+ACCELERATED PHYSICS II  
+Choose one of the following Chemistry/Biology courses (taken
+Semester I or II):
+ 
+CHEM UN1403 (or
+higher)
+GENERAL CHEMISTRY I-LECTURES  
+EEEB UN2001 ENVIRONMENTAL BIOLOGY I  
+EEEB UN2005 (or
+higher)
+ 
+ENGL CC1010 (taken
+Semester l or ll)
+UNIVERSITY WRITING  
+ECON UN1105 
+& UN1105 (taken
+Semester l, ll, lll, or
+lV)
+PRINCIPLES OF ECONOMICS  
+ENGI E1006 (taken
+Semester l or ll)
+INTRO TO COMP FOR ENG/APP SCI  
+COMS W1004 or
+W1007 (taken
+Semester l or ll)
+PROGRAMMING IN JAVA  
+PHED UN1002 PHYSICAL EDUCATION ACTIVITIES  
+ENGI E1102 (taken
+Semester l or ll)
+THE ART OF ENGINEERING  
+Second Year
+Semester III
+APMA E2000 
+& APMA E2001
+MULTV. CALC. FOR ENGI # APP SCI  
+Choose a lab from the following:  
+PHYS UN1494 INTRO TO EXPERIMENTAL PHYS-LAB  
+PHYS UN3081 INTERMEDIATE LABORATORY WORK  
+CHEM UN1500 GENERAL CHEMISTRY LABORATORY  
+CHEM UN1507 INTENSVE GENERAL CHEMISTRY-LAB  
+CHEM UN3085 PHYSICL-ANALYTICL LABORATORY I  
+ECON UN1105 
+& UN1105 (taken
+Semester l, ll, lll, or
+lV)
+PRINCIPLES OF ECONOMICS  
+Choose one of the following Required Nontechnical Electives:  
+HUMA CC1001 Literature Humanities I  
+COCI CC1101 CONTEMP WESTERN CIVILIZATION I  
+Major Cultures (3–4)  
+COMS W3134 or
+W3137
+Data Structures in Java  
+COMS W3203 DISCRETE MATHEMATICS  
+Semester IV
+ECON UN1105 
+& UN1105 (taken
+Semester l, ll, lll, or
+lV)
+PRINCIPLES OF ECONOMICS  
+Choose one of the following Required Nontechnical Electives:  
+HUMA CC1002 Literature Humanities II  
+COCI CC1102 CONTEMP WESTRN CIVILIZATION II  
+Major Cultures (3–4)  
+HUMA UN1121 or
+UN1123
+Art Humanities,Masterpieces of Western
+Art
+ 
+COMS W3157 ADVANCED PROGRAMMING  
+Linear algebra or probability/statistics requirement (see list of
+accepted courses)1
+ 
+Third Year
+Semester V
+CSEE W3827 FUNDAMENTALS OF COMPUTER SYSTS  
+COMS W3261 COMPUTER SCIENCE THEORY
+
+---
+
+Page 169:
+168  Graduate Programs
+Linear Algebra or Probability/Statistics requirement (see list of
+accepted courses)
+ 
+Tech Electives (6 points)  
+Semester VI
+Nontech Electives (3 points)  
+Tech Electives (12 points)  
+Fourth Year
+Semester VII
+Nontech Electives (6 points)  
+Tech Electives (9 points)  
+Semester VIII
+Nontech Electives (3 points)  
+Tech Electives (9 points)  
+Graduate Programs
+The Department of Computer Science offers graduate programs
+leading to the degree of Master of Science and the degree of Doctor of
+Philosophy.
+M.S. students must complete the professional development and
+leadership course, ENGI E4000 PROF DEVELOPMENT#LEADERSHIP,
+as a graduation requirement. Doctoral students will be enrolled in
+ENGI E6001 Professional development and leadership for ﬁrst year
+doctoral students–ENGI E6004 Professional development and leadership
+for fourth year doctoral students and should consult their program for
+speciﬁc PDL requirements.
+• Computer Science (MS) (p. 168)
+• Computer Science (PhD) (p. 168)
+• Dual Degree Program in Journalism and Computer Science (p. 168)
+• CS@CU MS Bridge Program in Computer Science (p. 168)
+Computer Science (MS)
+M.S. in Computer Science Program
+The Master of Science (M.S.) program is intended for students with a
+bachelor's degree in Computer Science or a strongly related ﬁeld who
+wish to broaden and deepen their understanding of computer science.
+Columbia University and the New York City environment provide excellent
+career opportunities with multiple industries. The program provides
+a unique opportunity to develop leading-edge in-depth knowledge of
+speciﬁc computer science disciplines.
+Students in the M.S. program must complete a total of 30 points
+(including at least 6 credits at the 6000 level) with a GPA of at least 2.7.
+Every student completes Breadth and selects a track that focuses on a
+particular ﬁeld of computer science. There are currently eight predeﬁned
+M.S. tracks: Computational Biology; Computer Security; Foundations
+of Computer Science; Machine Learning; Natural Language Processing;
+Network Systems; Software Systems; Vision, Graphics, Interaction,
+and Robotics. Every track has a set of required courses and a wide
+range of elective courses that allow the students flexibility in designing
+their program according to their interests, under the guidance of a
+faculty adviser. Besides the eight predeﬁned tracks, there is also the
+option, under the supervision of a faculty member, of a M.S. Personalized
+track for students who want to study an area of computer science that is
+not covered by one of the eight tracks, and the option of the M.S. Thesis
+track for students who want to do extensive research in a subﬁeld and
+write an M.S. thesis. Students in all the tracks are encouraged to pursue
+research if they wish, and many participate in research projects with the
+faculty. The faculty in the department conduct research in all areas of
+computer science. For detailed information on the M.S. program, please
+see cs.columbia.edu/education/ms.
+Computer Science (PhD)
+Ph.D. in Computer Science Program
+The primary focus of the doctoral program is research, with the
+philosophy that students learn best by doing—beginning as apprentices
+and becoming junior colleagues working with faculty on scholarly
+research projects. The faculty in the department conduct research
+in all areas of computer science. The degree of Doctor of Philosophy
+requires a dissertation based on the candidate's original research,
+which is supervised by a faculty member, and all students in the Ph.D.
+program are actively engaged in research throughout the program. Ph.D.
+students spend at least half of their time on research under the direction
+of their faculty adviser from their ﬁrst day in the program and devote
+themselves full time to research after coursework and other preliminaries
+have been completed. Ph.D. students are also expected to participate in
+departmental and laboratory activities full time on campus throughout
+the program, except possibly for summer internships elsewhere, and the
+department does not consider admission of part-time Ph.D. students.
+Further information is available at cs.columbia.edu/education/phd.
+Dual Degree Program in Journalism
+and Computer Science
+The Graduate School of Journalism and the School of Engineering and
+Applied Science offer a dual degree program leading to the M.S. degree
+in Journalism from the Graduate School of Journalism and the M.S.
+degree in Computer Science from the School of Engineering and Applied
+Science.
+Admitted students enroll for a total of four semesters consisting of 27
+points of Computer Science coursework in which an overall 2.7 GPA must
+be maintained and of 37 points of Journalism coursework. In addition
+to taking classes already offered at the two schools, students will take
+Frontiers of computational journalism, a course designed speciﬁcally for
+the dual program. The course will teach students about the impact of
+digital techniques on journalism; the emerging role of citizens in the
+news process; the influence of social media; and the changing business
+models that will support newsgathering. Students will use a hands-
+on approach to delve deeply into information design, focusing on how
+to build a site, section, or application from concept to development,
+ensuring the editorial goals are kept uppermost in mind. Further
+information is available at cs.columbia.edu/education/ms/journalism/.
+CS@CU MS Bridge Program in
+Computer Science
+The CS@CU MS Bridge Program in Computer Science offers prospective
+applicants from noncomputer science backgrounds, including those
+without programming experience, the opportunity to acquire the
+knowledge and skills necessary to build careers in technology.
+Admitted students will ﬁrst take a total of seven undergraduate courses
+(the bridge curriculum) over two to three semesters, which will build the✓ Loaded 339 documents from cache
+Retrieved 8 pages for SEAS
+
+Retrieved 4 pages for Computer Science
+{'messages': [HumanMessage(content='Help me plan my major in Computer Science.', additional_kwargs={}, response_metadata={}, id='195ecbc3-6664-4d04-80c4-45a5805c8fb4'), AIMessage(content=[{'text': "I'll help you plan your Computer Science major at Columbia. Let me gather information about the major requirements and school-wide requirements.", 'type': 'text'}, {'id': 'toolu_01AYGusKQykEbc7RJYkEgA12', 'input': {'major': 'Computer Science'}, 'name': 'lookup_major', 'type': 'tool_use'}, {'id': 'toolu_01SojgTj2GDsgthV5vvaGDrf', 'input': {'school': 'SEAS'}, 'name': 'lookup_school_wide_requirements', 'type': 'tool_use'}], additional_kwargs={}, response_metadata={'id': 'msg_019YtUTtpRUwqH71Pbv7CPx5', 'model': 'claude-sonnet-4-5-20250929', 'stop_reason': 'tool_use', 'stop_sequence': None, 'usage': {'cache_creation': {'ephemeral_1h_input_tokens': 0, 'ephemeral_5m_input_tokens': 0}, 'cache_creation_input_tokens': 0, 'cache_read_input_tokens': 0, 'input_tokens': 1420, 'output_tokens': 122, 'server_tool_use': None, 'service_tier': 'standard'}, 'model_name': 'claude-sonnet-4-5-20250929', 'model_provider': 'anthropic'}, id='lc_run--019b6e29-553d-7443-a545-e286e2fcef8e-0', tool_calls=[{'name': 'lookup_major', 'args': {'major': 'Computer Science'}, 'id': 'toolu_01AYGusKQykEbc7RJYkEgA12', 'type': 'tool_call'}, {'name': 'lookup_school_wide_requirements', 'args': {'school': 'SEAS'}, 'id': 'toolu_01SojgTj2GDsgthV5vvaGDrf', 'type': 'tool_call'}], usage_metadata={'input_tokens': 1420, 'output_tokens': 122, 'total_tokens': 1542, 'input_token_details': {'cache_read': 0, 'cache_creation': 0, 'ephemeral_5m_input_tokens': 0, 'ephemeral_1h_input_tokens': 0}}), ToolMessage(content="Major requirements for 'Computer Science':\n\nPage 166:\nColumbia Engineering Bulletin 2025-2026 165\nORCS\xa0E4200\xa0Data-driven Decision Modeling. 3.00 points.\nIntroduction to modeling, estimating, and solving decision-making\nproblems in the context of artiﬁcial intelligence and analytics. Potential\ntopics include choice models, quantity models, online learning using\nmulti-armed bandits, dynamic decision modeling, dynamic games, and\nBayesian learning theory. Practice both theory and applications using\nPython programming\nFall\xa02025:\xa0ORCS E4200\nCourse\nNumber\nSection/Call\nNumber\nTimes/Location Instructor Points Enrollment\nORCS 4200 001/12280 T Th\xa04:10pm - 5:25pm \n331 Uris Hall\nLily Xu 3.00 27/50\nORCS\xa0E4201\xa0Policy for Privacy Technologies. 3.00 points.\nIntroduction to privacy technologies, their use in practice, and privacy\nregulations. Potential topics include anonymization, differential privacy,\ncryptography, secure multi-party computation, and legislation. Course\nmaterial will be abased in real-world use cases of these tools\nSpring\xa02025:\xa0ORCS E4201\nCourse\nNumber\nSection/Call\nNumber\nTimes/Location Instructor Points Enrollment\nORCS 4201 001/14666 M W\xa08:40am - 9:55am \n303 Seeley W. Mudd\nBuilding\nRachel\nCummings\n3.00 34/40\nORCS\xa0E4529\xa0Reinforcement Learning. 3.00 points.\nPrerequisites: Probability and statistics, basic optimization e.g.,\nfamiliarity with linear and convex optimization, gradient descent, basic\nalgorithm design constructs, familiarity with programming in python. \nMarkov Decision Processes (MDP) and Reinforcement Learning (RL)\nproblems. Reinforcement Learning algorithms including Q-learning, policy\ngradient methods, actor-critic method. Reinforcement learning while\ndoing exploration-exploitation dilemma, multi-armed bandit problem.\nMonte Carlo Tree Search methods, Distributional, Multi-agent, and Causal\nReinforcement Learning\nFall\xa02025:\xa0ORCS E4529\nCourse\nNumber\nSection/Call\nNumber\nTimes/Location Instructor Points Enrollment\nORCS 4529 001/11860 M W\xa01:10pm - 2:25pm \n303 Seeley W. Mudd\nBuilding\nShipra Agrawal 3.00 64/60\nUndergraduate Programs\nComputer science majors at Columbia study an integrated curriculum,\npartially in areas with an immediate relationship to the computer, such as\nprogramming languages, operating systems, and computer architecture,\nand partially in theoretical computer science and mathematics. Thus,\nstudents obtain the background to pursue their interests both in\napplications and in theoretical developments.\nPractical experience is an essential component of the computer science\nprogram. Undergraduate students are often involved in advanced\nfaculty research projects using state-of-the-art computing facilities.\nQualiﬁed majors sometimes serve as consultants at Columbia University\nInformation Technology (CUIT), which operates several labs with\nmicrocomputers and terminals available at convenient locations on the\ncampus.\nUpper-level students in computer science may assist faculty members\nwith research projects, particularly in the development of software.\nOngoing faculty projects include algorithmic analysis, computational\ncomplexity, software tool design, distributed computation, modeling and\nperformance evaluation, computer networks, computer architecture,\nCAD for digital systems, computer graphics, programming environments,\nexpert systems, natural language processing, computer vision, robotics,\ncomputational biology, computer security, multicomputer design,\nuser interfaces, VLSI applications, artiﬁcial intelligence, combinatorial\nmodeling, virtual environments, and microprocessor applications.\nStudents are strongly encouraged to arrange for participation by\nconsulting individual faculty members and by attending the Computer\nScience Research Fair held at the beginning of each semester.\nMost graduates of the computer science program at Columbia step\ndirectly into career positions in computer science with industry or\ngovernment, or continue their education in graduate degree programs.\nMany choose to combine computer science with a second career interest\nby taking additional programs in business administration, medicine, or\nother professional studies.\nFor further information on the undergraduate computer science program,\nplease see the home page and the Quick Guide at cs.columbia.edu/\neducation/undergraduate.\n• Computer Science (BS) (p.\xa0165)\n• Computer Science Minor (p.\xa0314)\nComputer Science (BS)\nThe CS Major Requirements\nThe Undergraduate program requires at minimum 62 points (including\nENGI\xa0E1006 INTRO TO COMP FOR ENG/APP SCI as a prerequisite to the\nmajor) and is composed of four basic components:\n• the Computer Science Core (7-8 courses),\n• the Area Foundation Courses (4 courses),\n• the Computer Science Electives (4 courses),\n• and the General Technical Electives (4 courses).\nStudents are encouraged to work with their faculty adviser to create a\nplan tailored to ﬁt their goals and interests. The department webpage\nprovides several example programs for students interested in a variety of\nspeciﬁc areas in computer science.\nNote: All courses toward the CS major must be taken for a letter grade. A\nmaximum of one course worth no more than 4 points passed with a grade\nof D may be counted toward the major.\nPrerequisite to the CS Major\nENGI\xa0E1006 INTRO TO COMP FOR ENG/APP SCI. All CS majors should\ntake this course in their ﬁrst or second semester.\nMathematics Requirements\nCalculus Requirement\nMATH\xa0UN1101 CALCULUS I\nMATH\xa0UN1102 CALCULUS II\nAPMA\xa0E2000 MULTV. CALC. FOR ENGI # APP SCI\nLinear Algebra Requirement\nChoose one of the following:\nCOMS\xa0W3251 COMPUTATIONAL LINEAR ALGEBRA\nMATH\xa0UN2010 LINEAR ALGEBRA\nMATH\xa0UN2015 Linear Algebra and Probability 1\nMATH\xa0UN2020 Honors Linear Algebra\nAPMA\xa0E2101 INTRO TO APPLIED MATHEMATICS\nAPMA\xa0E3101 APPLIED MATH I: LINEAR ALGEBRA\n\n---\n\nPage 167:\n166  Computer Science (BS)\nProbability/Statistics Requirement\nChoose one of the following:\nIEOR\xa0E3658 PROBABILITY FOR ENGINEERS\nSTAT\xa0UN1201 CALC-BASED INTRO TO STATISTICS\nSTAT\xa0GU4001 INTRODUCTION TO PROBABILITY AND\nSTATISTICS\nMATH\xa0UN2015 Linear Algebra and Probability\n1 MATH\xa0UN2015 Linear Algebra and Probability\xa0may simultaneously\nsatisfy both linear algebra and probability/statistics requirements\nwithout the need to take additional classes, thus reducing the total\nnumber of courses required.\nComputer Science Core\nCOMS\xa0W1004 PROGRAMMING IN JAVA\nor\xa0COMS\xa0W1007\nCOMS\xa0W3134 Data Structures in Java\nor\xa0COMS\xa0W3137 HONORS DATA STRUCTURES # ALGOL\nCOMS\xa0W3157 ADVANCED PROGRAMMING\nCOMS\xa0W3203 DISCRETE MATHEMATICS\nCOMS\xa0W3261 COMPUTER SCIENCE THEORY\nCSEE\xa0W3827 FUNDAMENTALS OF COMPUTER SYSTS\nArea Foundation Courses\nChoose four of the following:\nCOMS\xa0W4111 INTRODUCTION TO DATABASES\nCOMS\xa0W4113 FUND-LARGE-SCALE DIST SYSTEMS\nCOMS\xa0W4115 PROGRAMMING LANG # TRANSLATORS\nCOMS\xa0W4118 OPERATING SYSTEMS I\nCSEE\xa0W4119 COMPUTER NETWORKS\nCOMS\xa0W4152 Engineering Software-as-a-Service\nCOMS\xa0W4156 ADVANCED SOFTWARE ENGINEERING\nCOMS\xa0W4160 COMPUTER GRAPHICS\nCOMS\xa0W4167 COMPUTER ANIMATION\nCOMS\xa0W4170 USER INTERFACE DESIGN\nCOMS\xa0W4181 SECURITY I\nCSOR\xa0W4231 ANALYSIS OF ALGORITHMS I\nCOMS\xa0W4236 INTRO-COMPUTATIONAL COMPLEXITY\nCOMS\xa0W4701 ARTIFICIAL INTELLIGENCE\nCOMS\xa0W4705 NATURAL LANGUAGE PROCESSING\nCOMS\xa0W4731 Computer Vision I: First Principles\nCOMS\xa0W4733 COMPUTATIONAL ASPECTS OF\nROBOTICS\nCBMF\xa0W4761 COMPUTATIONAL GENOMICS\nCOMS\xa0W4771 MACHINE LEARNING\nCSEE\xa0W4824 COMPUTER ARCHITECTURE\nCSEE\xa0W4868 SYSTEM-ON-CHIP PLATFORMS\nComputer Science Electives\nAny four COMS courses, or jointly offered computer science courses such\nas CSXX or XXCS courses, that are worth at least 3 points and are at the\n3000 level or above.\nGeneral Technical Electives\nFour General Technical Elective (GTE) courses are required. GTE courses\nmust be worth at least 3 points, at the 3000\xa0 level or above, and must be\nselected from the list of departments below. There are no exceptions.\n• Any SEAS department\n• Astronomy\n• Biomedical Informatics\n• Biological Science\n• Chemistry\n• Earth and Environmental Sciences\n• Ecology, Evolution, and Environmental Biology\n• Mathematics\n• Physics\n• Psychology\n• Statistics\n• Economics\nUndergraduate Thesis\nA student may, with adviser approval, choose to complete a thesis. A\nthesis may be used in place of up to 6 points from the Computer Science\nElectives requirement. A thesis may not be used in place of any Area\nFoundation Courses. A thesis consists of an independent theoretical\nor experimental investigation of an appropriate problem in computer\nscience carried out under the supervision of a Computer Science\nDepartment faculty member. A formal written report is mandatory and an\noral presentation may also be required.\nRestrictions\nTransfer Credit:\nMajor: Up to four transfer courses are accepted toward the major.\nCalculus, linear algebra, and probability/statistics courses can be\ntransferred in addition to the four-course limits.\nMinor: Up to two transfer courses are accepted toward the minor. A\ntransfer\xa0course\xa0in linear algebra or probability/statistics counts as one of\nthe two allowed transfers.\nAll transfer courses must be reviewed as an equivalent to a COMS course\nby the Columbia instructor for that course and must have been passed\nwith a B grade or higher.\nCourse restrictions:\nNote: No more than 6 points of individual research, project, or\nthesis courses (including\xa0COMS\xa0W3902 UNDERGRADUATE THESIS,\nCOMS\xa0W3998 UNDERGRAD PROJECTS IN COMPUTER SCIENCE,\nCOMS\xa0W4901 Projects in Computer Science, COMS\xa0W6901 , and\nequivalent project/research courses from other departments) may\nbe applied towards the computer science major.\xa0COMS\xa0W3999\nFIELDWORK\xa0cannot be used as a CS elective. No more than one course\nfrom each set below may be applied towards the computer science major.\n• IEOR\xa0E3658,\xa0STAT\xa0UN1201,\xa0STAT\xa0GU4001\n• MATH\xa0UN2015,\xa0MATH\xa0UN2010,\xa0APAM\xa0E3101,\xa0COMS\xa0W3251\n• COMS\xa0W4771,\xa0COMS\xa0W4721,\xa0STAT\xa0GU4241\nAdvanced Placement\nStudents who pass the Computer Science Advanced Placement (AP)\nExam with a 4 or 5 will receive 3 points of credit and an exemption from\nCOMS\xa0W1004 PROGRAMMING IN JAVA.\n\n---\n\nPage 168:\nColumbia Engineering Bulletin 2025-2026 167\nComputer Science Program\nAn overview of the degree track in PDF format can be found\xa0here.\xa0For\nprogram information before Fall 2023, please view the 2022–2023\nBulletin.\nFirst Year\nSemester I\nMATH\xa0UN1101 CALCULUS I \xa0\nChoose one of the following Physics courses depending on\nsequence:\n\xa0\nPHYS\xa0UN1401\n(Sequence 1)\nINTRO TO MECHANICS # THERMO \xa0\nPHYS\xa0UN1601\n(Sequence 2)\nPHYSICS I:MECHANICS/RELATIVITY \xa0\nPHYS\xa0UN2801\n(Sequence 3)\nACCELERATED PHYSICS I \xa0\nChoose one of the following Chemistry/Biology courses (taken\nSemester I or II):\n\xa0\nCHEM\xa0UN1403 (or\nhigher)\nGENERAL CHEMISTRY I-LECTURES \xa0\nEEEB\xa0UN2001 ENVIRONMENTAL BIOLOGY I \xa0\nEEEB\xa0UN2005 (or\nhigher)\n\xa0\nENGL\xa0CC1010 (taken\nSemester l or ll)\nUNIVERSITY WRITING \xa0\nECON\xa0UN1105 \n&\xa0UN1105 (taken\nSemester l, ll, lll, or\nlV)\nPRINCIPLES OF ECONOMICS \xa0\nENGI\xa0E1006 (taken\nSemester l or ll)\nINTRO TO COMP FOR ENG/APP SCI \xa0\nCOMS\xa0W1004 or\nW1007 (taken\nSemester l or ll)\nPROGRAMMING IN JAVA \xa0\nPHED\xa0UN1001 PHYSICAL EDUCATION ACTIVITIES \xa0\nENGI\xa0E1102 (taken\nSemester l or ll)\nTHE ART OF ENGINEERING \xa0\nSemester II\nMATH\xa0UN1102 CALCULUS II \xa0\nChoose one of the following Physics courses depending on\nsequence:\n\xa0\nPHYS\xa0UN1402\n(Sequence 1)\nINTRO ELEC/MAGNETSM # OPTCS \xa0\nPHYS\xa0UN1602\n(Sequence 2)\nPHYSICS II: THERMO, ELEC # MAG \xa0\nPHYS\xa0UN2802\n(Sequence 3)\nACCELERATED PHYSICS II \xa0\nChoose one of the following Chemistry/Biology courses (taken\nSemester I or II):\n\xa0\nCHEM\xa0UN1403 (or\nhigher)\nGENERAL CHEMISTRY I-LECTURES \xa0\nEEEB\xa0UN2001 ENVIRONMENTAL BIOLOGY I \xa0\nEEEB\xa0UN2005 (or\nhigher)\n\xa0\nENGL\xa0CC1010 (taken\nSemester l or ll)\nUNIVERSITY WRITING \xa0\nECON\xa0UN1105 \n&\xa0UN1105 (taken\nSemester l, ll, lll, or\nlV)\nPRINCIPLES OF ECONOMICS \xa0\nENGI\xa0E1006 (taken\nSemester l or ll)\nINTRO TO COMP FOR ENG/APP SCI \xa0\nCOMS\xa0W1004 or\nW1007 (taken\nSemester l or ll)\nPROGRAMMING IN JAVA \xa0\nPHED\xa0UN1002 PHYSICAL EDUCATION ACTIVITIES \xa0\nENGI\xa0E1102 (taken\nSemester l or ll)\nTHE ART OF ENGINEERING \xa0\nSecond Year\nSemester III\nAPMA\xa0E2000 \n&\xa0APMA\xa0E2001\nMULTV. CALC. FOR ENGI # APP SCI \xa0\nChoose a lab from the following: \xa0\nPHYS\xa0UN1494 INTRO TO EXPERIMENTAL PHYS-LAB \xa0\nPHYS\xa0UN3081 INTERMEDIATE LABORATORY WORK \xa0\nCHEM\xa0UN1500 GENERAL CHEMISTRY LABORATORY \xa0\nCHEM\xa0UN1507 INTENSVE GENERAL CHEMISTRY-LAB \xa0\nCHEM\xa0UN3085 PHYSICL-ANALYTICL LABORATORY I \xa0\nECON\xa0UN1105 \n&\xa0UN1105 (taken\nSemester l, ll, lll, or\nlV)\nPRINCIPLES OF ECONOMICS \xa0\nChoose one of the following Required Nontechnical Electives: \xa0\nHUMA\xa0CC1001 Literature Humanities I \xa0\nCOCI\xa0CC1101 CONTEMP WESTERN CIVILIZATION I \xa0\nMajor Cultures (3–4) \xa0\nCOMS\xa0W3134 or\nW3137\nData Structures in Java \xa0\nCOMS\xa0W3203 DISCRETE MATHEMATICS \xa0\nSemester IV\nECON\xa0UN1105 \n&\xa0UN1105 (taken\nSemester l, ll, lll, or\nlV)\nPRINCIPLES OF ECONOMICS \xa0\nChoose one of the following Required Nontechnical Electives: \xa0\nHUMA\xa0CC1002 Literature Humanities II \xa0\nCOCI\xa0CC1102 CONTEMP WESTRN CIVILIZATION II \xa0\nMajor Cultures (3–4) \xa0\nHUMA\xa0UN1121 or\nUN1123\nArt Humanities,Masterpieces of Western\nArt\n\xa0\nCOMS\xa0W3157 ADVANCED PROGRAMMING \xa0\nLinear algebra or probability/statistics requirement (see list of\naccepted courses)1\n\xa0\nThird Year\nSemester V\nCSEE\xa0W3827 FUNDAMENTALS OF COMPUTER SYSTS \xa0\nCOMS\xa0W3261 COMPUTER SCIENCE THEORY\n\n---\n\nPage 169:\n168  Graduate Programs\nLinear Algebra or Probability/Statistics requirement (see list of\naccepted courses)\n\xa0\nTech Electives (6 points) \xa0\nSemester VI\nNontech Electives (3 points) \xa0\nTech Electives (12 points) \xa0\nFourth Year\nSemester VII\nNontech Electives (6 points) \xa0\nTech Electives (9 points) \xa0\nSemester VIII\nNontech Electives (3 points) \xa0\nTech Electives (9 points) \xa0\nGraduate Programs\nThe Department of Computer Science offers graduate programs\nleading to the degree of Master of Science and the degree of Doctor of\nPhilosophy.\nM.S. students must complete the professional development and\nleadership course, ENGI\xa0E4000 PROF DEVELOPMENT#LEADERSHIP,\nas a graduation requirement. Doctoral students will be enrolled in\nENGI\xa0E6001 Professional development and leadership for ﬁrst year\ndoctoral students–ENGI\xa0E6004 Professional development and leadership\nfor fourth year doctoral students and should consult their program for\nspeciﬁc PDL requirements.\n• Computer Science (MS) (p.\xa0168)\n• Computer Science (PhD) (p.\xa0168)\n• Dual Degree Program in Journalism and Computer Science (p.\xa0168)\n• CS@CU MS Bridge Program in Computer Science (p.\xa0168)\nComputer Science (MS)\nM.S. in Computer Science Program\nThe Master of Science (M.S.) program is intended for students with a\nbachelor's degree in Computer Science or a strongly related ﬁeld who\nwish to broaden and deepen their understanding of computer science.\nColumbia University and the New York City environment provide excellent\ncareer opportunities with multiple industries. The program provides\na unique opportunity to develop leading-edge in-depth knowledge of\nspeciﬁc computer science disciplines.\nStudents in the M.S. program must complete a total of 30 points\n(including at least 6 credits at the 6000 level) with a GPA of at least 2.7.\nEvery student completes Breadth and selects a track that focuses on a\nparticular ﬁeld of computer science. There are currently eight predeﬁned\nM.S. tracks: Computational Biology; Computer Security; Foundations\nof Computer Science; Machine Learning; Natural Language Processing;\nNetwork Systems; Software Systems; Vision, Graphics, Interaction,\nand Robotics. Every track has a set of required courses and a wide\nrange of elective courses that allow the students flexibility in designing\ntheir program according to their interests, under the guidance of a\nfaculty adviser. Besides the eight predeﬁned tracks, there is also the\noption,\xa0under the supervision of a faculty member, of a M.S. Personalized\ntrack for students who want to study an area of computer science that is\nnot covered by one of the eight tracks, and the option of the M.S. Thesis\ntrack for students who want to do extensive research in a subﬁeld and\nwrite an M.S. thesis. Students in all the tracks are encouraged to pursue\nresearch if they wish, and many participate in research projects with the\nfaculty. The faculty in the department conduct research in all areas of\ncomputer science. For detailed information on the M.S. program, please\nsee\xa0cs.columbia.edu/education/ms.\nComputer Science (PhD)\nPh.D. in Computer Science Program\nThe primary focus of the doctoral program is research, with the\nphilosophy that students learn best by doing—beginning as apprentices\nand becoming junior colleagues working with faculty on scholarly\nresearch projects. The faculty in the department conduct research\nin all areas of computer science. The degree of Doctor of Philosophy\nrequires a dissertation based on the candidate's original research,\nwhich is supervised by a faculty member, and all students in the Ph.D.\nprogram are actively engaged in research throughout the program. Ph.D.\nstudents spend at least half of their time on research under the direction\nof their faculty adviser from their ﬁrst day in the program and devote\nthemselves full time to research after coursework and other preliminaries\nhave been completed. Ph.D. students are also expected to participate in\ndepartmental and laboratory activities full time on campus throughout\nthe program, except possibly for summer internships elsewhere, and the\ndepartment does not consider admission of part-time Ph.D. students.\nFurther information is available at cs.columbia.edu/education/phd.\nDual Degree Program in Journalism\nand Computer Science\nThe Graduate School of Journalism and the School of Engineering and\nApplied Science offer a dual degree program leading to the M.S. degree\nin Journalism from the Graduate School of Journalism and the M.S.\ndegree in Computer Science from the School of Engineering and Applied\nScience.\nAdmitted students enroll for a total of four semesters consisting of 27\npoints of Computer Science coursework in which an overall 2.7 GPA must\nbe maintained and of 37 points of Journalism coursework. In addition\nto taking classes already offered at the two schools, students will take\nFrontiers of computational journalism, a course designed speciﬁcally for\nthe dual program. The course will teach students about the impact of\ndigital techniques on journalism; the emerging role of citizens in the\nnews process; the influence of social media; and the changing business\nmodels that will support newsgathering. Students will use a hands-\non approach to delve deeply into information design, focusing on how\nto build a site, section, or application from concept to development,\nensuring the editorial goals are kept uppermost in mind. Further\ninformation is available at\xa0cs.columbia.edu/education/ms/journalism/.\nCS@CU MS Bridge Program in\nComputer Science\nThe CS@CU MS Bridge Program in Computer Science offers prospective\napplicants from noncomputer science backgrounds, including those\nwithout programming experience, the opportunity to acquire the\nknowledge and skills necessary to build careers in technology.\nAdmitted students will ﬁrst take a total of seven undergraduate courses\n(the bridge curriculum) over two to three semesters, which will build the\n\nSources: Pages [166, 167, 168, 169]", name='lookup_major', id='acaaacfe-ed4e-4d11-86a2-27349183f2dc', tool_call_id='toolu_01AYGusKQykEbc7RJYkEgA12'), ToolMessage(content="School requirements for 'SEAS':\n\nPage 8:\nColumbia Engineering Bulletin 2025-2026 7\nthan 200 buildings of housing; off-campus apartments and commercial\nbuildings; recreation and research facilities; centers for the humanities\nand social and pure sciences; and professional schools in architecture,\nbusiness, the ﬁne arts, journalism, law, and many other ﬁelds.\nManhattanville Campus\nFrom Broadway and 125th Street West to a revitalized Hudson River\nwaterfront, Columbia's 17-acre Manhattanville campus is a welcoming\nenvironment of publicly accessible open space, tree-lined streets,\nneighborhood-friendly retail, and innovative academic buildings that\ninvite community engagement. It is home to the Jerome L. Greene\nScience Center, Columbia's Mortimer B. Zuckerman Mind Brain Behavior\nInstitute, the Lenfest Center for the Arts, and the University Forum, an\nevent and meeting space. Columbia Business School has relocated to\nthis campus, and plans are underway to develop a new building here\nfor Columbia Engineering, as well. These spaces house cutting-edge\nresearch and teaching in brain science, an art gallery, screening room, and\nperformance spaces, and space for active community engagement.\nColumbia Engineering\nColumbia Engineering occupies laboratory and classroom buildings at\nthe north end of the Morningside campus, including the Northwest Corner\nScience and Engineering Building, an interdisciplinary teaching and\nresearch building. In this building, researchers from across the University\nwork together to create new areas of knowledge, in ﬁelds where the\nbiological, physical, and digital worlds fuse. This pandisciplinary frontier\nwill advance some of modern society’s most challenging problems\nin a wide range of sectors, from health to cybersecurity, from smart\ninfrastructure to the environment.\nSupporting multiple programs of study, the School's facilities are\ndesigned and equipped to meet the laboratory and research needs of\nboth undergraduate and graduate students. The School is also the\nsite of an almost overwhelming array of basic and advanced research\ninstallations, such as the Columbia Genome Center and the Columbia\nNano Initiative, established to serve as the hub for multidisciplinary and\ncollaborative research programs in nanoscale science and engineering.\nShared facilities and equipment to support nano research at the\nEngineering School include a state-of-the-art clean room in the Schapiro\nCenter for Engineering and Physical Science Research (CEPSR) and a\nTransmission Electron Microscope (TEM) Laboratory on the ﬁrst floor of\nHavemeyer.\nFounded in 2012 by Columbia Engineering, the Data Science Institute\nalso sits on the Morningside campus as a University-wide resource that\nspans nine schools, including Journalism, the Graduate School of Arts\nand Sciences, and the Columbia University Irving Medical Center. The\nmission of the Data Science Institute is to train data science innovators\nand develop ideas for the social good.\nDetails about speciﬁc programs’ laboratories and equipment can be\nfound in the sections describing those programs.\nThe Makerspace\nColumbia Engineering’s Makerspace provides students with a dedicated\nplace to collaborate, learn, explore, experiment, and create prototypes.\nStudents can utilize the space to work on a variety of innovative projects,\nincluding independent or group design projects, product development,\nand new venture plans. This facility fosters student creativity by\nbringing together the workspace and tools for 3D printing, laser cutting,\ncomputer-aided design, physical prototyping, fabric arts, wood- and\nmetalworking, jewelry making, sewing and embroidery, stained glass\nmaking, electronics, and software.\nColumbia Engineering Computing\nFacilities\nThe Botwinick Multimedia Learning Laboratory at Columbia University\nhas redeﬁned the way engineers are educated here.\nDesigned with both education and interaction in mind, the lab provides\nstudents and instructors with:\n• 48 desktops\n• A full set of professional-grade engineering software tools\n• A collaborative classroom learning environment\nThe lab is utilized in some of the School’s introductory ﬁrst-year\nengineering projects, as well as advanced classes in modeling and\nanimation, technology and society, and entrepreneurship.\nCarleton Commons\nLocated on the fourth floor (campus level) of the Mudd Building, Carleton\nCommons and Blue Java Café/Chef Don's Pizza comprise 3,200 square\nfeet with seating for 160 and areas for casual meetings, individual\nand group work, and quiet study. Carleton Commons gives students a\ndedicated and comfortable space to gather, relax between classes, or\nmeet and work with one another on problem sets or projects. The new\ndesign also enables flexible and reconﬁgurable use of the space for larger\ngatherings and special events.\nUndergraduate Studies\n• Undergraduate Programs (p.\xa07)\n• Undergraduate Admissions (p.\xa016)\n• Undergraduate Tuition, Fees and Payment (p.\xa016)\n• Financial Aid for Undergraduate Study (p.\xa017)\nUndergraduate Programs\nThe undergraduate programs at Columbia Engineering not only are\nacademically exciting and technically innovative but also lead into a wide\nrange of career paths for the educated citizen of the twenty-ﬁrst century.\nWhether you want to become a professional engineer, work in industry\nor government, or plan to pursue a career in the physical and social\nsciences, medicine, law, business, or education, Columbia Engineering will\nprovide you with an unparalleled education.\nThe School ﬁrmly believes that students gain the most when engineering\nis brought up front, early in the four-year curriculum. Therefore, each\nﬁrst-year student takes the Art of Engineering, which addresses the\nfundamental concepts of math and science in an engineering context,\nas well as nontechnical issues in professional engineering practice such\nas ethics and project management. Students in the Art of Engineering\nchoose a half-semester, hands-on project in one of the School’s nine\nundergraduate engineering disciplines, followed by a half-semester\ngeneral project that changes each year. Depending on the project chosen,\nstudents will solder, 3D print, laser cut, simulate, design websites, and\nmuch more. These skills are further developed as students progress\ntoward their senior year projects. Since the fall of 2014, Columbia\nEngineering students have been able to utilize the School’s brand new\n\n---\n\nPage 9:\n8  The First Year/Sophomore Program\nMakerspace, a collaborative environment where students can learn,\nexplore, experiment, and create prototypes.\nWhile pursuing their own interests, undergraduate students are\nencouraged to participate in a broad range of ongoing faculty research\nprojects encompassed by the Student Research Program. Students\ncan apply for available research positions in Columbia Labs through the\nwebsite at studentresearch.engineering.columbia.edu.\nIn addition to in-depth exploration of engineering and applied science,\nColumbia Engineering undergraduates explore the humanities and\nsocial sciences with Columbia College students through intellectually\nchallenging Core Curriculum courses taught by the Faculty of Arts and\nSciences. These courses in art, literature, music, major cultures, and\neconomics, among others, provide students with a broad, intellectually\ndisciplined, cultural perspective on the times they live in and the work\nthey do.\nPolicy on Degree Requirements\nThe Committee on Instruction and faculty of The Fu Foundation School\nof Engineering and Applied Science review degree requirements and\ncurricula matters each year, and the bulletin reflects these faculty\nrecommendations and curricular changes in its yearly reprinting. School\npolicy requires students to fulﬁll all general degree requirements as\nstated in the bulletin of the ﬁrst year of their matriculation into the\nSchool. Students declare their major during the ﬁrst semester of their\nsophomore year. Requirements for the major or minor are in accordance\nwith the bulletin during the year in which the student declares the major\nor minor.\nThe First Year/Sophomore Program\nStudents entering Columbia Engineering are encouraged to consider\nthe wide range of possibilities open to them, both academically and\nprofessionally. To this end, the ﬁrst and second years of the four-year\nundergraduate program comprise approximately half the total number\nof credits required for the degree that expose students to a cross-\nfertilization of ideas from different disciplines within the University. The\nsequence of study proceeds from an engagement with engineering and\nscientiﬁc fundamentals, along with humanities and social sciences,\ntoward an increasingly focused training in the third and fourth years\ndesigned to give students mastery of certain principles and arts central\nto engineering and applied science.\nLiberal Arts Core for Columbia\nEngineering Students\n27-Point Nontechnical Requirement\nThis requirement provides a broad liberal arts component that enhances\nthe Engineering professional curriculum to help students meet the\nchallenges of the twenty-ﬁrst century. Our students are destined to be\nleaders in their professions and will require sophisticated communication,\nplanning, and management skills. The Committee on Instruction\nestablished the School’s nontechnical requirement so that students\nwould learn perspectives and principles of the humanities and social\nsciences as part of a well-rounded and multiperspective education.\nThrough discussion, debate, and writing, students improve their abilities\nto engage in ethical, analytic, discursive, and imaginative thinking that\nwill prove indispensable later in life.\n• Engineering students must take 16 to 18 points of credit of required\ncourses in list A and 9 to 11 elective points chosen from the approved\ncourses in list B. The total combined number of nontechnical points\n(from lists A and B, below) must add up to at least 27. Neither list can\nbe modiﬁed by advising deans or faculty advisers.\n• Advanced Placement (AP) credit in appropriate subject areas can be\napplied toward the 9-point elective nontechnical requirement and for\nPrinciples of Economics.\nA. Required Nontechnical Courses\xa0\n(16–18 points of credit) \nThese courses must be taken at Columbia.\n1. ENGL\xa0CC1010 UNIVERSITY WRITING\n2. One of the following two-semester sequences: HUMA\xa0CC1001\nLiterature Humanities I-HUMA\xa0CC1002 Literature Humanities II:\nMasterpieces of Western literature and philosophy or COCI\xa0CC1101\nCONTEMP WESTERN CIVILIZATION I-COCI\xa0CC1102 CONTEMP\nWESTRN CIVILIZATION II: Any two courses from approved list\n(6–8 points). If electing Global Core, students must take two\ncourses from the List of Approved Courses for a letter grade.Visit\nbulletin.columbia.edu/columbia-college/core-curriculum/global-core-\nrequirement for more information.\n3. One of the following two courses: \nHUMA\xa0UN1121 Art Humanities,Masterpieces of Western Art or\nHUMA\xa0UN1123 Music Humanities\n4. ECON\xa0UN1105 PRINCIPLES OF ECONOMICS (This course can be\nsatisﬁed through Advanced Placement; see the Advanced Placement\nchart.) Note: Engineering students may not take any Barnard class\nas a substitute for ECON\xa0UN1105 PRINCIPLES OF ECONOMICS. (4\npoints)\nB. Elective Nontechnical Courses\n(9–11 points of credit) \nThe following course listing by department speciﬁes the Columbia\nCollege, Barnard, or Columbia Engineering courses that either fulﬁll or do\nnot fulﬁll the nontechnical requirement. \n(Professional, workshop, lab, project, scientiﬁc, studio, music instruction,\nand master’s-level professional courses do not satisfy the 27-point\nnontechnical requirement.)\nAfrican-American Studies: All courses\nAmerican Studies: All courses\nAncient Studies: All courses\nAnthropology: All courses in sociocultural anthropology\nAll courses in archaeology except ﬁeldwork\nNo courses in biological/physical anthropology 1\nArchitecture: Only\nARCH\xa0BC2500\nARCH\xa0UN2505 Architectural Histories of Colonialism\nand Humanitarianism\nARCH\xa0UN2530 Life Beyond Emergency: Domesticities of\nDisplacement, Inhabitations of Migration\nARCH\xa0UN3117 MOD ARCHITECTURE IN THE WORLD\nARCH\xa0UN3120 CITY,LANDSCAPE, # ECOLOGY\nARCH\xa0UN3123 Spaces and Territories of Housing\nARCH\xa0UN3501 Modern Architecture of South Asia\nARCH\xa0UN3502 URBANIZING CHINA\nArt History and Archeology: All courses\nAsian American Studies: All courses\nAstronomy: No courses\nBiological Sciences: No courses\n\n---\n\nPage 10:\nColumbia Engineering Bulletin 2025-2026 9\nBusiness: No courses\nChemistry: No courses\nClassics: All courses\nColloquia: All courses\nComparative Ethnic Studies: All courses\nComparative Literature and Society: All courses\nComputer Science: No courses\nCreative Writing: All courses (This is an exception to the workshop rule.)\nDance: All courses except performance classes\nDrama and Theatre Arts: All courses except workshops, rehearsal, or\nperformance classes\nEarth and Environmental Sciences: No courses\nEast Asian Languages and Culture: All courses\nEcology, Evolution, and Environmental Biology: No courses except\nEEEB\xa0GU4321 HUM NATURE:DNA,RACE # IDENTITY\nEEEB\xa0GU4700 RACE:TANGLED HIST-BIOL CONCEPT\nEconomics: All courses except:\nECON\xa0UN3025 FINANCIAL ECONOMICS\nECON\xa0UN3211 INTERMEDIATE MICROECONOMICS\nECON\xa0UN3213 INTERMEDIATE MACROECONOMICS\nECON\xa0UN3412 INTRODUCTION TO ECONOMETRICS\nECON\xa0UN3981 APPLIED ECONOMETRICS\nECON\xa0GU4020 ECON OF UNCERTAINTY # INFORMTN\nECON\xa0GU4211 ADVANCED MICROECONOMICS\nECON\xa0GU4213 ADVANCED MACROECONOMICS\nECON\xa0GU4251 INDUSTRIAL ORGANIZATION\nECON\xa0GU4260 MARKET DESIGN\nECON\xa0GU4280 CORPORATE FINANCE\nECON\xa0GU4301 ECONOMIC GROWTH # DEVELOPMNT I\nECON\xa0GU4412 ADVANCED ECONOMETRICS\nECON\xa0GU4413 Econometrics of Time Series and\nForecasting\nECON\xa0GU4415 GAME THEORY\nECON\xa0GU4505 INTERNATIONAL MACROECONOMICS\nECON\xa0GU4526 Transition Reforms, Globalization and\nFinancial Crisis\nECON\xa0GU4911 MICROECONOMICS SEMINAR\nECON\xa0GU4913 MACROECONOMICS SEMINAR\nECON\xa0GU4918 SEMINAR IN ECONOMETRICS\nECON\xa0BC1003 Introduction to Economic Reasoning 2\nECON\xa0BC1007 MATH METHODS FOR ECONOMICS\nECON\xa0BC2411 STATISTICS FOR ECONOMICS\nECON\xa0BC3014 Entrepreneurship\nECON\xa0BC3018 ECONOMETRICS\nECON\xa0BC3033 INTERMEDTE MACROECONOMC\nTHEORY\nECON\xa0BC3035 INTERMEDIATE MICROECONOMICS\nECON\xa0BC3038 INTERNATIONAL MONEY # FINANCE\nEducation: All courses\nEngineering: Only\nBMEN\xa0E4010\nCHEN\xa0E4020 PROTECTN OF INDUST/INTELL PROP\nEEHS\xa0E3900\nEnglish and Comparative Literature: All courses\nFilm Studies: All courses except lab courses, and\nFILM\xa0UN3920 SENIOR SEM IN SCREENWRITING\nFILM\xa0UN2400 Script Analysis\nFrench and Romance Philology: All courses\nGermanic Languages: All courses\nGreek: All courses\nHistory: All courses\nHistory and Philosophy of Science: All courses\nHuman Rights: All courses\nItalian: All courses\nJazz Studies: All course\nLatin: All courses\nLatino Studies: All courses\nLinguistics: All courses except\nCLLN\xa0GU4202\nMathematics: No courses\nMedieval and Renaissance Studies: All courses\nMiddle Eastern and Asian Language and Cultures: All courses\nMusic: All courses except performance courses, instrument instruction\ncourses, and workshops\nPhilosophy: All courses except\nPHIL\xa0UN1401 INTRODUCTION TO LOGIC\nPHIL\xa0UN3411 SYMBOLIC LOGIC\nPHIL\xa0GU4137 Non-Classical Logics\nPHIL\xa0GU4431 INTRODUCTION TO SET THEORY\nPHIL\xa0GU4424 MODAL LOGIC\nCSPH\xa0GU4801 MATH LOGIC I\nCSPH\xa0GU4802 Math Logic II: Incompletness\nPHIL\xa0GU4810 LATTICES AND BOOLEAN ALGEBRA\nCourses in logic\nPhysical Education: No courses\nPhysics: No courses\nPolitical Science: All courses except\nPOLS\xa0UN3220 LOGIC OF COLLECTIVE CHOICE\nPOLS\xa0UN3704 RESEARCH DESIGN: DATA ANALYSIS\nPOLS\xa0UN3720 RESEARCH DESIGN: SCOPE AND\nMETHODS\nPOLS\xa0GU4730 GAME THEORY # POLIT THEORY\nPOLS\xa0GU4732 RESEARCH TOPICS IN GAME THEORY\nPOLS\xa0GU4791 Advanced Topics in Quantitative\nResearch-Discussion\nPOLS\xa0GU4792 Quantitative Methods: Research Topics\nPOLS\xa0GU4700 MATH # STATS FOR POLI SCI\nPOLS\xa0GU4765\nPOLS\xa0GU4768 Experimental Research: Design, Analysis\nand Interpretation\nPOLS\xa0GU4710 PRINC OF QUANT POL RESEARCH 1\nPOLS\xa0GU4711 PRINC OF QUANT POL RESEARCH 1-\nDISC\nPOLS\xa0GU4712 PRINC OF QUANT POL RESEARCH 2\nPSAM\xa0UN3707 Persuasion at scale: causal inference,\nmachine learning, and evidence-based\nunderstanding of the information\nenvironment\nPsychology: Only\nPSYC\xa0UN1001 THE SCIENCE OF PSYCHOLOGY\nPSYC\xa0UN2280 Developmental Psychology\nAll courses on perception, attention, and cognition topics numbered\n2200s, 3200s, or 4200s can be taken as nontech electives except for\nPSYC\xa0UN2235 and PSYC UN4289\n\n---\n\nPage 11:\n10  The First Year/Sophomore Program\nAll courses on social, personality, and abnormal numbered 2600s,\n3600s, or 4600s can be taken as nontech electives\nReligion: All courses\nSlavic Languages: All courses\nSociology: All courses except\nSOCI\xa0UN3020 Social Statistics\nSpanish and Portuguese: All courses\nSpeech: No courses\nStatistics: No courses\nSustainable Development: Only\nSDEV\xa0UN2050 ENVIRONMENTAL POLICY AND\nGOVERNANCE\nSDEV\xa0UN2100 Introduction to Climate Justice\nSDEV\xa0UN2300 CHALLENGES OF SUSTAINABLE DEV\nSDEV\xa0UN3310 ETHICS OF SUSTAINABLE DEVPT\nSDEV\xa0UN2410\nSDEV\xa0UN3400 HUMAN POPULATIONS # SDEV\nSDEV\xa0GU4050 US WATER # ENERGY POLICY\nSDEV\xa0GU4501 History of the Climate Crisis\nUrban Studies: All courses\nVisual Arts: No more than one course, which must be at the 3000-level or\nhigher (This is an exception to the workshop rule.)\nWomen and Gender Studies: All courses\n1 UN1010, UN1011, UN3204, UN3940, GU4147-GU4148, GU4200, GU4700\n2 Equivalent to ECON\xa0UN1105 PRINCIPLES OF ECONOMICS\nMusic Instruction Courses\nMusic instruction and performance courses do not count toward the 128\npoints of credit required for a B.S. degree. Please note that this includes\ncourses taken at Teachers College, Columbia College, and the School of\nthe Arts.\nVisual Arts Courses\nStudents are allowed to take courses in the Visual Arts Department for\ngeneral credit to be applied toward the B.S. degree. However, no more\nthan one visual arts course, which must be taken at the 3000-level or\nhigher, may count toward the nontechnical elective requirement. This\n3000-level course is an exception to the rule that no workshop classes\ncan fulﬁll the nontech elective requirement.\nTechnical Course Requirements\nThe prescribed First-Year/Sophomore Program curriculum requires\nstudents to complete a program of technical coursework introducing\nthem to ﬁve major areas of technical inquiry: engineering, mathematics,\nphysics, chemistry, and computer science.\nAll ﬁrst-year Engineering undergraduate students take ENGI\xa0E1102\nTHE ART OF ENGINEERING\xa0(4 points). In this course, students see how\ntheir high school science and math knowledge can be applied in an\nengineering context to solve real-world problems through classroom\npresentations and participation in an in-depth, hands-on project. Along\nthe way, guest lecturers discuss social implications of technology,\nentrepreneurship, project management, and other important nontechnical\nissues affecting the practicing engineer.\nWhile students need not ofﬁcially commit to a particular branch of\nengineering until the third semester, most programs recommend, and\nin some cases may require, that particular courses be taken earlier for\nmaximum efﬁciency in program planning. For information concerning\nthese requirements, students should turn to the individual program\nsections in this bulletin.\nProfessional Development\nProfessional-Level Courses\nThe courses listed below may be taken by ﬁrst- and second-year\nstudents. Some departments require one of these courses; please\nconsult with departmental charts for more information.\nEach course serves as an introduction to the area of study and is taught\nby department faculty. The courses are:\nCHEN\xa0E2100\xa0Material and Energy Balances. 3.00 points.\nLect: 2.5\nPrerequisites: First-year chemistry and physics or equivalent. \nServes as an introduction to the chemical engineering profession.\nStudents are exposed to concepts used in the analysis of chemical\nengineering problems. Rigorous analysis of material and energy balances\non open and closed systems is emphasized. An introduction to important\nprocesses in the chemical and biochemical industries is provided\nFall\xa02025:\xa0CHEN E2100\nCourse\nNumber\nSection/Call\nNumber\nTimes/Location Instructor Points Enrollment\nCHEN 2100 001/10191 T Th\xa010:10am - 11:25am \n627 Seeley W. Mudd\nBuilding\nChristopher\nVic Chen\n3.00 38/50\nCIEN\xa0E3000\xa0THE ART OF STRUCTURAL DESIGN. 3.00 points.\nLect: 3.\nBasic scientiﬁc and engineering principles used for the design of\nbuildings, bridges, and other parts of the built infrastructure. Application\nof principles to analysis and design of actual large-scale structures.\nCoverage of the history of major structural design innovations\nand of the engineers who introduced them. Critical examination\nof the unique aesthetic/artistic perspectives inherent in structural\ndesign. Consideration of management, socioeconomic, and ethical\nissues involved in design and construction of large-scale structures.\nIntroduction to recent developments in sustainable engineering, including\ngreen building design and adaptable structural systems\nSpring\xa02025:\xa0CIEN E3000\nCourse\nNumber\nSection/Call\nNumber\nTimes/Location Instructor Points Enrollment\nCIEN 3000 001/14913 M W\xa02:40pm - 3:55pm \n313 Fayerweather\nGeorge\nDeodatis\n3.00 37/75\n\n---\n\nPage 12:\nColumbia Engineering Bulletin 2025-2026 11\nEAEE\xa0E2100\xa0A BETTER PLANET BY DESIGN. 3.00 points.\nCC/GS: Partial Fulﬁllment of Science Requirement \nLect: 3.\nIntroduction to design for a sustainable planet. Scientiﬁc understanding\nof the challenges. Innovative technologies for water, energy, food,\nmaterials provision. Multi-scale modeling and conceptual framework\nfor understanding environmental, resource, human, ecological and\neconomic impacts and design performance evaluation. Focus on the\nlinkages between planetary, regional and urban water, energy, mineral,\nfood, climate, economic and ecological cycles. Solution strategies for\ndeveloped and developing country settings\nFall\xa02025:\xa0EAEE E2100\nCourse\nNumber\nSection/Call\nNumber\nTimes/Location Instructor Points Enrollment\nEAEE 2100 001/12493 M W\xa02:40pm - 3:55pm \n627 Seeley W. Mudd\nBuilding\nAdeyemi\nAdeleye\n3.00 48/52\nELEN\xa0E1201\xa0INTRO-ELECTRICAL ENGINEERING. 3.50 points.\nLect: 3. Lab:1.\nPrerequisites: (MATH UN1101) MATH V1101 \nBasic concepts of electrical engineering. Exploration of selected\ntopics and their application. Electrical variables, circuit laws, nonlinear\nand linear elements, ideal and real sources, transducers, operational\nampliﬁers in simple circuits, external behavior of diodes and transistors,\nﬁrst order RC and RL circuits. Digital representation of a signal, digital\nlogic gates, flipflops. A lab is an integral part of the course. Required of\nelectrical engineering and computer engineering majors\nSpring\xa02025:\xa0ELEN E1201\nCourse\nNumber\nSection/Call\nNumber\nTimes/Location Instructor Points Enrollment\nELEN 1201 001/13594 M W\xa04:10pm - 5:25pm \n501 Northwest Corner\nDavid\nVallancourt\n3.50 120/140\nFall\xa02025:\xa0ELEN E1201\nCourse\nNumber\nSection/Call\nNumber\nTimes/Location Instructor Points Enrollment\nELEN 1201 001/11182 T Th\xa04:10pm - 5:25pm \n614 Schermerhorn Hall\nDavid\nVallancourt\n3.50 107/120\nPhysical Education\nTwo terms of physical education (PHED\xa0UN1001 PHYSICAL EDUCATION\nACTIVITIES or PHED\xa0UN1002 PHYSICAL EDUCATION ACTIVITIES\xa0or\nPHED\xa0UN1003 ) are a degree requirement for Columbia Engineering\nstudents. No more than 4 points of physical education courses may be\ncounted toward the degree. The physical education requirement can be\nfulﬁlled with Barnard dance studio/technique courses. A student who\nintends to participate in an intercollegiate sport should register for the\nappropriate section of PHED\xa0UN1005 INTERCOLLEGIATE ATHLETICS.\nIntercollegiate athletes who attend regularly receive 1 point of credit up\nto a maximum of 4. Student-athletes who leave the team in mid-term but\nstill wish to receive academic credit must notify the Physical Education\nOfﬁce and be placed in another physical education activity to complete\nthe attendance requirement. Students who are advised to follow a\nrestricted or adapted activity program should contact the Director of\nPhysical Education and Recreation. The physical education program\noffers a variety of activities in the areas of aquatics, ﬁtness, martial arts,\nindividual and dual sports, team sports, and outdoor education. Most\nactivities are designed for the introductory/beginner levels. Intermediate/\nadvanced courses are indicated on the schedule.\nAdvanced Placement Credit Chart\nIn order to receive AP credit, students must be in possession of\nappropriate transcripts or scores and send ofﬁcial score reports to\nColumbia. The CEEB code is 2116.\nSubject AP\nScore\nAP\nCredit\nRequriements or Placement Status Credit\nArt History 5 3 No exemption from HUMA\xa0UN1121\nBiology 5 3 No exemption\nChemistry 4 or 5 3 Requires completion of CHEM\xa0UN1604 with\ngrade of C or better\n4 or 5 6 Requires completion of CHEM\xa0UN2045-\nCHEM\xa0UN2046 with grade of C or better\nComputer\nScience A\n4 or 5 3 Exemption from COMS\xa0W1004\nComputer\nPrinciples\n4 or 5 3 Exemption from COMS\xa0W1001\nEconomics\nMicro &\nMacro\n5 and\n4\n4 Exemption from ECON\xa0UN1105. Exams\nmust be taken in both micro and macro,\nwith a score of 5 in one and at least a 4 in\nthe other.\nEnglish\nLanguage\nand\nComposition\n5 3 No exemption\nEnglish\nLiterature and\nComposition\n5 3 No Exemption\nFrench\nLanguage\n4 or 5 3\nFrench\nLiterature\n4 or 5 3\nGerman\nLanguage\n4 or 5 3\nGovernment\nand Politics\nUnited States\n5 41 Exemption from POLS\xa0UN1201.\nGovernment\nand Politics\nComparative\n5 41 Exemption from POLS\xa0UN1501.\nHistory\nEuropean\n5 3\nHistory\nUnited States\n5 3\nItalian\nLanguage\n4 or 5 3\nLatin\nLiterature\n5 3\nMathematics\nCalculus AB2\n4 or 5 3 Requires completion of MATH\xa0UN1102 with\na grade of C or better. Credit is reduced to 0\nif MATH\xa0UN1101 is taken.\nMathematics\nCalculus BC2\n4 3 Requires completion of MATH\xa0UN1102 with\na grade of C or better. Credit is reduced to 0\nif MATH\xa0UN1101 is taken.\n\n---\n\nPage 13:\n12  James H. and Christine Turk Berick Center for Student Advising\nMathematics\nCalculus BC2\n5 6 Requires completion of APMA\xa0E2000 with\na grade of C or better. Credit is reduced\nto 0 if MATH\xa0UN1101 is taken, or to 3 if\nMATH\xa0UN1102 is taken.\nPhysics C-\nE&M\n4 or 5 3 Maximum of six credits. Credit is reduced\nto 0 if PHYS\xa0UN1401 or 1601 is taken.\nCredit is reduced to 0 if PHYS\xa0UN2801 is\ntaken and the ﬁnal grade is C- or lower.\nPhysics C-\nMECH\n4 or 5 3 Credit is reduced to 0 if PHYS\xa0UN1401\nor 1601 is taken. Credit is reduced to 0 if\nPHYS\xa0UN2801 is taken and the ﬁnal grade\nis C- or lower.\nPhysics 1 and\n2\n4 or 5 3 No exemption. Both AP Physics 1 and 2\nmust be taken to receive credit.\nSpanish\nLanguage\n4 or 5 3\nSpanish\nLiterature\n4 or 5 3\n1 AP credits may be applied toward minor requirements depending on\nthe speciﬁc rules of the minor. When the rules of the minor allow AP\ncredit to fulﬁll a requirement, then only one course for a minor may be\nreplaced by advanced placement credit.\n2 Columbia Engineering students with a 4 or 5 on Calculus AB or a\n4 on Calculus BC must begin with MATH\xa0UN1101 CALCULUS I\xa0 or\nMATH\xa0UN1102 CALCULUS II. If a Columbia Engineering student with\nthese scores goes directly into APMA\xa0E2000 MULTV. CALC. FOR ENGI\n# APP SCI, they will have to go back and complete MATH\xa0UN1102\nCALCULUS II. Students with A-level or IB calculus credit must start\nwith\xa0MATH\xa0UN1102 CALCULUS II. They cannot self place into\nAPMA\xa0E2000 MULTV. CALC. FOR ENGI # APP SCI. If they\xa0start with\nMATH\xa0UN1101 CALCULUS I, they will not receive any advanced\nstanding credit.\nThe majority of the activities are offered in ten time preferences.\nAdditionally, there are early-morning conditioning activities, Friday-only\nclasses at Baker Athletics Complex, and special courses that utilize off-\ncampus facilities during weekends and vacation periods. The courses\noffered by the department for each term are included in the online\nDirectory of Classes, and a description of the scheduled activities for\neach time preference is posted on\xa0perec.columbia.edu. Students may\nonly register for one section of physical education each term.\nAdvanced Placement\nPrior to entering Columbia, students may have taken Advanced\nPlacement examinations through the College Entrance Examination\nBoard (CEEB) in a number of technical and nontechnical areas. A\nmaximum of 16 points may be applied. Students may be assigned to\nan advanced-level course in mathematics or physics based on their AP\nscores.\nThe beneﬁt of advanced placement is acceleration through certain First-\nYear/Sophomore Program requirements and thus the opportunity of\ntaking specialized courses earlier.\nEach year the School reviews the CEEB advanced placement curriculum\nand makes determinations as to appropriate placements, credit, and/or\nexemption. Please see the Advanced Placement Credit Chart.\nInternational Baccalaureate (IB)\nEntering students may be granted 6 points of credit for each score of 6\nor 7 on IB Higher Level Examinations if taken in disciplines offered as\nundergraduate programs at Columbia. Students should consult their\nadviser at the James H. and Christine Turk Berick Center for Student\nAdvising for further clariﬁcation.\nBritish Advanced Level Examinations\nStudents with grades of A*, A, or B on British Advanced Level\nexaminations may be granted 6 points of credit if the examinations were\ntaken in disciplines offered as undergraduate programs at Columbia\nUniversity. The appropriate transcript should be submitted to the James\nH. and Christine Turk Berick Center for Student Advising, 403 Lerner.\nOther National Systems\nStudents whose secondary school work was in other national systems,\nsuch as the French Baccalauréat, may be granted credit in certain\ndisciplines for sufﬁciently high scores. The appropriate transcript should\nbe submitted to the James H. and Christine Turk Berick Center for\nStudent Advising, 403 Lerner.\nJames H. and Christine Turk Berick\nCenter for Student Advising\n403 Lerner Hall, MC 1201 \n212-854-6378 \ncsa@columbia.edu \ncc-seas.columbia.edu/csa\nThe James H. and Christine Turk Berick Center for Student Advising (CSA)\nguides and supports undergraduates at Columbia College and Columbia\nEngineering as they navigate their educations and lives at Columbia\nUniversity. Individually and collaboratively, each advising dean:\n• provides individual and group academic advisement and counseling\n• provides information on preprofessional studies, major declaration,\nand progress towards the completion of the degree, as well as various\nleadership, career, graduate school, and research opportunities\n• interprets and disseminates information regarding University policies,\nprocedures, resources, and programs\n• educates and empowers students to take responsibility in making\ninformed decisions\n• refers students to additional campus resources\nEvery undergraduate is assigned an adviser from the Berick Center for\nStudent Advising for the duration of their undergraduate career. Generally,\neach matriculating student is assigned to an advising dean who is a\nliaison to the department the student indicated as their ﬁrst intended\nmajor on the admissions application. When a student declares a major, a\nfaculty member is also appointed to advise them for the next two years.\nDepending on their chosen major, students may be assigned to a new\nadvising dean who is a CSA liaison to their department. Advising deans\nregularly refer students to their academic departments to receive expert\nadvice about their engineering course selections.\nPreprofessional Advising\nPreprofessional Advising is a specialized advising unit within the James\nH. and Christine Turk Berick Center for Student Advising. It is dedicated\nto providing information and guidance to students who plan a career\n\n---\n\nPage 14:\nColumbia Engineering Bulletin 2025-2026 13\nin law, business, or the health professions, through individual advising,\nworkshops, and other events related to professions of law and health.\nPreprofessional advisers work closely with other CSA advisers to support\nstudents during their undergraduate program of study. They also provide\nextensive individualized support to students and alumni through their\napplication process to professional schools.\nStudy Abroad\nEngineering today is a global profession. Study abroad allows\nengineering students to discover the ﬁeld through the perspective of\nengineers working in a different language and culture, enabling them\nto learn the relationship of culture to science and develop the range of\ntransferable skills that employers are seeking today. Study abroad will\nhelp students develop intellectually, emotionally, culturally, and socially.\nColumbia Engineering undergraduate students can study abroad for\neither a semester (fall, spring, or summer) or, exceptionally, for a full\nacademic year. Students from every engineering major have studied\nabroad, and most do so in the spring semester of their sophomore year or\nin their junior year. Although not a requirement, students are encouraged\nto have some foreign language skills in order to enhance their cultural\ncompetency and their overall study abroad experience.\nThe Center for Undergraduate Global Engagement will help students\nidentify the appropriate choice for their country of interest and their\nmajor. Departmental advisers and faculty will help students with their\ncourse equivalencies for approved programs so they can graduate\non time. Students can take nontechnical electives overseas, or with\ndepartmental permission, they may choose technical electives or courses\nin their major.\nIt is essential that students begin planning as early as possible. Students\nare encouraged to meet with advisers in the Center for Undergraduate\nGlobal Engagement to review possible global opportunities. Students\nmust obtain approval from their departmental advisers to ensure that\ntheir work abroad meets the requirements of their majors, as well as\nclearance from their Advising Dean in the James H. and Christine Turk\nBerick Center for Student Advising.\nEligibility Requirements\n• Currently enrolled student in good academic and disciplinary\nstanding\n• 3.0 GPA\n• Making adequate progress toward ﬁnishing the ﬁrst and second year\nrequirements\n• Declared a major\nFinances\n• Fall/Spring (academic year)\n• Billed by Columbia: tuition and health insurance\n• Billed by abroad institution/external vendors: room, board, living\nand travel expenses\n• Still eligible for ﬁnancial aid\n• Summer\n• Student pays most expenses directly to the program and external\nvendors\n• Not eligible for ﬁnancial aid\nAcademic Credit\n• Students in Columbia-sponsored programs receive direct Columbia\ncredit, and the courses and grades appear on students' academic\ntranscripts.\n• Credit from approved programs that are not Columbia-sponsored\nis certiﬁed as transfer credit toward the Columbia degree upon\nsuccessful completion of the program veriﬁable by academic\ntranscript. Students must earn a grade of C or better in order for\ncredits to be transferred. Course titles and grades for approved\nprograms do not appear on the Columbia transcript, and grades are\nnot factored into students' GPAs.\n• Faculty from the Columbia Engineering academic departments\xa0have\nthe responsibility to assess all work completed abroad and make\ndecisions about how these courses ﬁt into major requirements. It is\nimperative that students gain course-by-course approval from their\ndepartment prior to departure on a study-abroad program.\nDeadlines\n• Early October: to study abroad during the spring semester\n• Early to mid-March: to study abroad during the fall semester or for\nyear-long trips\n• Early May: to study abroad during the summer term\nFor more information on study abroad, students should contact:\nCenter for Undergraduate Global Engagement \n606 Kent Hall, MC 3948 \n1140 Amsterdam Avenue \nNew York, NY 10027 \n212-854-2559 \nuge@columbia.edu \nuge.columbia.edu\nSEAS Undergraduate Student Affairs \nask-seas@columbia.edu\nCombined Plan Programs\nUndergraduate Admissions \n212 Hamilton Hall, MC 2807 \n1130 Amsterdam Avenue \nNew York, NY 10027 \n212-854-2522 \ncombinedplan@columbia.edu \nundergrad.admissions.columbia.edu/apply/combined-plan\nColumbia Engineering maintains cooperative program relationships with\ninstitutions nationwide and with other Columbia University undergraduate\ndivisions. The Combined Plan programs (3-2 and 4-2) allow students to\nreceive a degree both in the liberal arts and in engineering. Combined\nPlan students complete the requirements for the liberal arts degree along\nwith required prerequisite coursework for their studies in engineering\nduring the three or four years at their liberal arts college before entering\nthe School of Engineering and Applied Science. They then must complete\nall the requirements for the B.S. degree within four semesters.\nThe Combined Plan Program within\nColumbia University\nUnder this plan, the pre-engineering student studies in Columbia College,\nBarnard College, or the School of General Studies for three or four years,\n\n---\n\nPage 15:\n14  The Junior-Senior Programs\nthen attends The Fu Foundation School of Engineering and Applied\nScience for two years, and is awarded the Bachelor of Arts degree and\nthe Bachelor of Science degree in engineering upon completion of the\nﬁfth or sixth year. This program is optional at Columbia, but the School\nrecommends it to all students who wish greater enrichment in the liberal\narts and pure sciences.\nThe Combined Plan with Other Afﬁliated\nColleges\nThere are more than one hundred afﬁliated liberal arts colleges, including\nthose at Columbia, in which a student can enroll in a Combined Plan\nprogram leading to two degrees. Each college requires the completion\nof a speciﬁed curriculum, including major and degree requirements,\nto qualify for the baccalaureate from that institution. Every afﬁliated\nschool has a liaison ofﬁcer who coordinates the program at their home\ninstitution. Students interested in this program should inform the liaison\nofﬁcer as early as possible, preferably in the ﬁrst year, in order to receive\nguidance about completing program requirements. Applicants from\nnonafﬁliated schools are welcome to apply.\nVisit the Undergraduate Admissions website for a complete list of\nafﬁliated schools, admission application instructions, information on\nﬁnancial aid, and curriculum requirements for Combined Plan program\nadmission. Please note that no change of major is allowed after an\nadmission decision has been rendered.\nFor more information, see\xa04-2 Master of Science Program (p.\xa018), BS/\nMS Program (p.\xa023), MS Express Application (p.\xa023), and Barnard\n4+1 Pathway (p.\xa023), which are administered through the Ofﬁce of\nEngineering Student Affairs.\nThe Junior-Senior Programs\nStudents may review degree progress via DARS (Degree Audit\nReporting System) as presented on Student Services Online. Required\ncourses\xa0should be completed according to the\xa0academic charts in\nthe department\xa0sections of the bulletin. Until they\xa0are completed, they\nare listed as\xa0deﬁciencies in the Degree Audit Report.\xa0If they are not\ncompleted according\xa0to the departmental plans, it may be\xa0necessary to\ncomplete these courses\xa0either over the summer or be carried as\xa0overload\ncourses in later semesters.\nHaving chosen their program major in the ﬁrst semester of their\nsophomore year, students are assigned to a faculty adviser in the\ndepartment in which the program is offered. In addition to the courses\nrequired by their program, students must continue to satisfy certain\ndistributive requirements, choosing elective courses that provide\nsufﬁcient content in engineering sciences and engineering design. The\norder and distribution of the prescribed coursework may be changed\nwith the adviser’s approval. Speciﬁc questions concerning course\nrequirements should be addressed to the appropriate department or\ndivision.\nDouble Major\nStudents who wish to apply for a second major must consult their\nadvising dean about next steps. A proposal to double major must be\napproved by both departments and then forwarded to the Vice Dean of\nAcademic Programs for a ﬁnal decision.\nMajor courses cannot be cross-counted between dual majors. Please\nconsult with an Advising Dean and the respective departmental advisors\nto ﬁnd alternative courses for duplicate requirements.\n3-2 students are not eligible to have a second major because of the time\nconstraints of their program.\nTau Beta Pi\nTau Beta Pi is the nation’s second-oldest honor society, founded at\nLehigh University in 1885. With the creed “Integrity and excellence in\nengineering,” it is the only engineering honor society representing the\nentire engineering profession. Columbia’s chapter, New York Alpha, is the\nninth oldest and was founded in 1902. Many Columbia buildings have\nbeen named for some of the more prominent chapter alumni: Charles\nFredrick Chandler, Michael Idvorsky Pupin, Augustus Schermerhorn, and,\nof course, Harvey Seeley Mudd.\nUndergraduate students whose scholarship places them in the top eighth\nof their class in their next-to-last year or in the top ﬁfth of their class in\ntheir last college year are eligible for membership consideration. These\nscholastically eligible students are further considered on the basis of\npersonal integrity, breadth of interest both inside and outside engineering,\nadaptability, and unselﬁsh activity. Beneﬁts of membership include\nexclusive scholarships and fellowships. Many networking opportunities\nfor jobs and internships are also available, with 230 collegiate chapters\nand more than 500,000 members in Tau Beta Pi.\nTaking Graduate Courses as an\nUndergraduate Student & Advanced\nStanding\nWith the faculty adviser’s approval, a student may take graduate courses\nwhile still an undergraduate in the School. Such work may be credited\ntoward one of the graduate degrees offered by the Engineering Faculty,\nsubject to the following conditions:\n1. the course must be accepted as part of an approved graduate\nprogram of study;\n2. the course must not have been used to fulﬁll a requirement for the\nB.S. degree and must be so certiﬁed by Engineering Student Affairs;\nand\n3. the amount of graduate credit earned by an undergraduate cannot\nexceed 15 points.\nUndergraduates may not take CVN courses.\nThe Bachelor of Science Degree\nStudents who complete a four-year sequence of prescribed study are\nawarded the Bachelor of Science degree. The general requirement for\nthe Bachelor of Science degree is the completion of a minimum of\n128 academic credits with a minimum cumulative grade-point average\n(GPA) of 2.0 (C) at the time of graduation. The program requirements,\nspeciﬁed elsewhere in this bulletin, include the ﬁrst-year/sophomore\ncourse requirements, the major departmental requirements, and technical\nand nontechnical elective requirements. Students who wish to transfer\npoints of credit may count no more than 68 transfer points toward the\ndegree and must satisfy the University’s residence requirements by\ntaking at least 60 points of credit that count for Bachelor of Science\nDegree while enrolled in The Fu Foundation School of Engineering and\n\nSources: Pages [8, 9, 10, 11, 12, 13, 14, 15]", name='lookup_school_wide_requirements', id='df7cd9f1-7d2a-43f5-a370-20edeee86a32', tool_call_id='toolu_01SojgTj2GDsgthV5vvaGDrf'), AIMessage(content="Based on the information I've gathered, here's a comprehensive plan for your Computer Science major at Columbia Engineering:\n\n## **Computer Science Major Overview**\n\nThe CS major requires **a minimum of 62 points** (including the prerequisite course) and consists of four main components:\n\n---\n\n## **1. Prerequisite to the Major**\n- **ENGI E1006** - Intro to Computing for Engineers/Applied Sciences\n  - Take in your first or second semester\n\n---\n\n## **2. Mathematics Requirements (3 courses)**\n\n### Calculus (2 courses):\n- **MATH UN1101** - Calculus I\n- **MATH UN1102** - Calculus II\n- **APMA E2000** - Multivariable Calculus for Engineers\n\n### Linear Algebra (choose 1):\n- **COMS W3251** - Computational Linear Algebra\n- **MATH UN2010** - Linear Algebra\n- **MATH UN2015** - Linear Algebra and Probability (satisfies both linear algebra AND probability)\n- **MATH UN2020** - Honors Linear Algebra\n- **APMA E2101** - Intro to Applied Mathematics\n- **APMA E3101** - Applied Math I: Linear Algebra\n\n### Probability/Statistics (choose 1):\n- **IEOR E3658** - Probability for Engineers\n- **STAT UN1201** - Calculus-Based Intro to Statistics\n- **STAT GU4001** - Introduction to Probability and Statistics\n- **MATH UN2015** - Linear Algebra and Probability (can satisfy both requirements)\n\n---\n\n## **3. Computer Science Core (7-8 courses)**\n\n**Required courses:**\n1. **COMS W1004** - Programming in Java (or COMS W1007)\n2. **COMS W3134** - Data Structures in Java (or COMS W3137 - Honors Data Structures)\n3. **COMS W3157** - Advanced Programming\n4. **COMS W3203** - Discrete Mathematics\n5. **COMS W3261** - Computer Science Theory\n6. **CSEE W3827** - Fundamentals of Computer Systems\n\n---\n\n## **4. Area Foundation Courses (choose 4)**\n\nSelect 4 courses from areas like:\n- **COMS W4111** - Introduction to Databases\n- **COMS W4118** - Operating Systems I\n- **CSEE W4119** - Computer Networks\n- **COMS W4115** - Programming Languages & Translators\n- **COMS W4156** - Advanced Software Engineering\n- **CSOR W4231** - Analysis of Algorithms I\n- **COMS W4701** - Artificial Intelligence\n- **COMS W4771** - Machine Learning\n- **COMS W4705** - Natural Language Processing\n- **COMS W4731** - Computer Vision I\n- And more options listed in the bulletin\n\n---\n\n## **5. Computer Science Electives (4 courses)**\n\nAny 4 COMS courses (or jointly offered CS courses) worth at least 3 points at the 3000-level or above.\n\n---\n\n## **6. General Technical Electives (4 courses)**\n\n4 GTE courses worth at least 3 points, at the 3000-level or above, from approved departments:\n- Any SEAS department\n- Astronomy, Biology, Chemistry, Earth Sciences, Mathematics, Physics, Psychology, Statistics, Economics, etc.\n\n---\n\n## **School-Wide Requirements**\n\n### **Nontechnical Requirements (27 points):**\n\n**Required (16-18 points):**\n1. **ENGL CC1010** - University Writing\n2. **Literature Humanities** (HUMA CC1001-1002) OR **Contemporary Civilization** (COCI CC1101-1102) - 6-8 points from Global Core\n3. **Art Humanities** (HUMA UN1121) OR **Music Humanities** (HUMA UN1123)\n4. **ECON UN1105** - Principles of Economics (4 points)\n\n**Electives (9-11 points):** Choose from approved nontechnical elective list\n\n### **Other Requirements:**\n- **ENGI E1102** - The Art of Engineering (first year)\n- **Physics** (2 courses + lab)\n- **Chemistry or Biology** (1 course)\n- **Physical Education** (2 terms)\n\n---\n\n## **Important Notes:**\n\n1. **All courses toward the CS major must be taken for a letter grade**\n2. **Maximum of one course with a grade of D** (worth no more than 4 points) can count toward the major\n3. **No more than 6 points** of research/thesis courses can count toward the major\n4. **Transfer Credit**: Up to 4 transfer courses accepted toward the major\n5. **Restrictions**: Certain course combinations cannot both count (e.g., only one probability course, only one linear algebra course)\n\n---\n\n## **Recommended Timeline:**\n\n- **First Year**: Calculus sequence, Physics, Chemistry/Biology, University Writing, Art of Engineering, ENGI E1006, Programming in Java\n- **Second Year**: Multivariable Calculus, Linear Algebra, Probability/Statistics, CS Core courses (Data Structures, Discrete Math, Advanced Programming)\n- **Third Year**: Complete CS Core (Theory, Fundamentals of Computer Systems), begin Area Foundation Courses, Technical Electives\n- **Fourth Year**: Complete Area Foundation Courses, CS Electives, General Technical Electives, Nontechnical Electives\n\nWould you like me to help you with more specific course recommendations or planning for a particular area of computer science?", additional_kwargs={}, response_metadata={'id': 'msg_01U9aTMX3m1BhxgPfHey9QRB', 'model': 'claude-sonnet-4-5-20250929', 'stop_reason': 'end_turn', 'stop_sequence': None, 'usage': {'cache_creation': {'ephemeral_1h_input_tokens': 0, 'ephemeral_5m_input_tokens': 0}, 'cache_creation_input_tokens': 0, 'cache_read_input_tokens': 0, 'input_tokens': 17830, 'output_tokens': 1340, 'server_tool_use': None, 'service_tier': 'standard'}, 'model_name': 'claude-sonnet-4-5-20250929', 'model_provider': 'anthropic'}, id='lc_run--019b6e29-637a-72d0-a219-73ea2c24abff-0', usage_metadata={'input_tokens': 17830, 'output_tokens': 1340, 'total_tokens': 19170, 'input_token_details': {'cache_read': 0, 'cache_creation': 0, 'ephemeral_5m_input_tokens': 0, 'ephemeral_1h_input_tokens': 0}})], 'department_of_major': 'COMS', 'major': 'Computer Science', 'completed_courses': ['COMS1004, COMSW3134'], 'career_goals': ['Quant Finance related jobs'], 'semester': '3'}
+
+================================================================================
+[1] HumanMessage
+================================ Human Message =================================
+
+Help me plan my major in Computer Science.
+
+================================================================================
+[2] AIMessage
+================================== Ai Message ==================================
+
+[{'text': "I'll help you plan your Computer Science major at Columbia. Let me gather information about the major requirements and school-wide requirements.", 'type': 'text'}, {'id': 'toolu_01AYGusKQykEbc7RJYkEgA12', 'input': {'major': 'Computer Science'}, 'name': 'lookup_major', 'type': 'tool_use'}, {'id': 'toolu_01SojgTj2GDsgthV5vvaGDrf', 'input': {'school': 'SEAS'}, 'name': 'lookup_school_wide_requirements', 'type': 'tool_use'}]
+Tool Calls:
+  lookup_major (toolu_01AYGusKQykEbc7RJYkEgA12)
+ Call ID: toolu_01AYGusKQykEbc7RJYkEgA12
+  Args:
+    major: Computer Science
+  lookup_school_wide_requirements (toolu_01SojgTj2GDsgthV5vvaGDrf)
+ Call ID: toolu_01SojgTj2GDsgthV5vvaGDrf
+  Args:
+    school: SEAS
+
+================================================================================
+[3] ToolMessage
+================================= Tool Message =================================
+Name: lookup_major
+
+Major requirements for 'Computer Science':
+
+Page 166:
+Columbia Engineering Bulletin 2025-2026 165
+ORCS E4200 Data-driven Decision Modeling. 3.00 points.
+Introduction to modeling, estimating, and solving decision-making
+problems in the context of artiﬁcial intelligence and analytics. Potential
+topics include choice models, quantity models, online learning using
+multi-armed bandits, dynamic decision modeling, dynamic games, and
+Bayesian learning theory. Practice both theory and applications using
+Python programming
+Fall 2025: ORCS E4200
+Course
+Number
+Section/Call
+Number
+Times/Location Instructor Points Enrollment
+ORCS 4200 001/12280 T Th 4:10pm - 5:25pm 
+331 Uris Hall
+Lily Xu 3.00 27/50
+ORCS E4201 Policy for Privacy Technologies. 3.00 points.
+Introduction to privacy technologies, their use in practice, and privacy
+regulations. Potential topics include anonymization, differential privacy,
+cryptography, secure multi-party computation, and legislation. Course
+material will be abased in real-world use cases of these tools
+Spring 2025: ORCS E4201
+Course
+Number
+Section/Call
+Number
+Times/Location Instructor Points Enrollment
+ORCS 4201 001/14666 M W 8:40am - 9:55am 
+303 Seeley W. Mudd
+Building
+Rachel
+Cummings
+3.00 34/40
+ORCS E4529 Reinforcement Learning. 3.00 points.
+Prerequisites: Probability and statistics, basic optimization e.g.,
+familiarity with linear and convex optimization, gradient descent, basic
+algorithm design constructs, familiarity with programming in python. 
+Markov Decision Processes (MDP) and Reinforcement Learning (RL)
+problems. Reinforcement Learning algorithms including Q-learning, policy
+gradient methods, actor-critic method. Reinforcement learning while
+doing exploration-exploitation dilemma, multi-armed bandit problem.
+Monte Carlo Tree Search methods, Distributional, Multi-agent, and Causal
+Reinforcement Learning
+Fall 2025: ORCS E4529
+Course
+Number
+Section/Call
+Number
+Times/Location Instructor Points Enrollment
+ORCS 4529 001/11860 M W 1:10pm - 2:25pm 
+303 Seeley W. Mudd
+Building
+Shipra Agrawal 3.00 64/60
+Undergraduate Programs
+Computer science majors at Columbia study an integrated curriculum,
+partially in areas with an immediate relationship to the computer, such as
+programming languages, operating systems, and computer architecture,
+and partially in theoretical computer science and mathematics. Thus,
+students obtain the background to pursue their interests both in
+applications and in theoretical developments.
+Practical experience is an essential component of the computer science
+program. Undergraduate students are often involved in advanced
+faculty research projects using state-of-the-art computing facilities.
+Qualiﬁed majors sometimes serve as consultants at Columbia University
+Information Technology (CUIT), which operates several labs with
+microcomputers and terminals available at convenient locations on the
+campus.
+Upper-level students in computer science may assist faculty members
+with research projects, particularly in the development of software.
+Ongoing faculty projects include algorithmic analysis, computational
+complexity, software tool design, distributed computation, modeling and
+performance evaluation, computer networks, computer architecture,
+CAD for digital systems, computer graphics, programming environments,
+expert systems, natural language processing, computer vision, robotics,
+computational biology, computer security, multicomputer design,
+user interfaces, VLSI applications, artiﬁcial intelligence, combinatorial
+modeling, virtual environments, and microprocessor applications.
+Students are strongly encouraged to arrange for participation by
+consulting individual faculty members and by attending the Computer
+Science Research Fair held at the beginning of each semester.
+Most graduates of the computer science program at Columbia step
+directly into career positions in computer science with industry or
+government, or continue their education in graduate degree programs.
+Many choose to combine computer science with a second career interest
+by taking additional programs in business administration, medicine, or
+other professional studies.
+For further information on the undergraduate computer science program,
+please see the home page and the Quick Guide at cs.columbia.edu/
+education/undergraduate.
+• Computer Science (BS) (p. 165)
+• Computer Science Minor (p. 314)
+Computer Science (BS)
+The CS Major Requirements
+The Undergraduate program requires at minimum 62 points (including
+ENGI E1006 INTRO TO COMP FOR ENG/APP SCI as a prerequisite to the
+major) and is composed of four basic components:
+• the Computer Science Core (7-8 courses),
+• the Area Foundation Courses (4 courses),
+• the Computer Science Electives (4 courses),
+• and the General Technical Electives (4 courses).
+Students are encouraged to work with their faculty adviser to create a
+plan tailored to ﬁt their goals and interests. The department webpage
+provides several example programs for students interested in a variety of
+speciﬁc areas in computer science.
+Note: All courses toward the CS major must be taken for a letter grade. A
+maximum of one course worth no more than 4 points passed with a grade
+of D may be counted toward the major.
+Prerequisite to the CS Major
+ENGI E1006 INTRO TO COMP FOR ENG/APP SCI. All CS majors should
+take this course in their ﬁrst or second semester.
+Mathematics Requirements
+Calculus Requirement
+MATH UN1101 CALCULUS I
+MATH UN1102 CALCULUS II
+APMA E2000 MULTV. CALC. FOR ENGI # APP SCI
+Linear Algebra Requirement
+Choose one of the following:
+COMS W3251 COMPUTATIONAL LINEAR ALGEBRA
+MATH UN2010 LINEAR ALGEBRA
+MATH UN2015 Linear Algebra and Probability 1
+MATH UN2020 Honors Linear Algebra
+APMA E2101 INTRO TO APPLIED MATHEMATICS
+APMA E3101 APPLIED MATH I: LINEAR ALGEBRA
+
+---
+
+Page 167:
+166  Computer Science (BS)
+Probability/Statistics Requirement
+Choose one of the following:
+IEOR E3658 PROBABILITY FOR ENGINEERS
+STAT UN1201 CALC-BASED INTRO TO STATISTICS
+STAT GU4001 INTRODUCTION TO PROBABILITY AND
+STATISTICS
+MATH UN2015 Linear Algebra and Probability
+1 MATH UN2015 Linear Algebra and Probability may simultaneously
+satisfy both linear algebra and probability/statistics requirements
+without the need to take additional classes, thus reducing the total
+number of courses required.
+Computer Science Core
+COMS W1004 PROGRAMMING IN JAVA
+or COMS W1007
+COMS W3134 Data Structures in Java
+or COMS W3137 HONORS DATA STRUCTURES # ALGOL
+COMS W3157 ADVANCED PROGRAMMING
+COMS W3203 DISCRETE MATHEMATICS
+COMS W3261 COMPUTER SCIENCE THEORY
+CSEE W3827 FUNDAMENTALS OF COMPUTER SYSTS
+Area Foundation Courses
+Choose four of the following:
+COMS W4111 INTRODUCTION TO DATABASES
+COMS W4113 FUND-LARGE-SCALE DIST SYSTEMS
+COMS W4115 PROGRAMMING LANG # TRANSLATORS
+COMS W4118 OPERATING SYSTEMS I
+CSEE W4119 COMPUTER NETWORKS
+COMS W4152 Engineering Software-as-a-Service
+COMS W4156 ADVANCED SOFTWARE ENGINEERING
+COMS W4160 COMPUTER GRAPHICS
+COMS W4167 COMPUTER ANIMATION
+COMS W4170 USER INTERFACE DESIGN
+COMS W4181 SECURITY I
+CSOR W4231 ANALYSIS OF ALGORITHMS I
+COMS W4236 INTRO-COMPUTATIONAL COMPLEXITY
+COMS W4701 ARTIFICIAL INTELLIGENCE
+COMS W4705 NATURAL LANGUAGE PROCESSING
+COMS W4731 Computer Vision I: First Principles
+COMS W4733 COMPUTATIONAL ASPECTS OF
+ROBOTICS
+CBMF W4761 COMPUTATIONAL GENOMICS
+COMS W4771 MACHINE LEARNING
+CSEE W4824 COMPUTER ARCHITECTURE
+CSEE W4868 SYSTEM-ON-CHIP PLATFORMS
+Computer Science Electives
+Any four COMS courses, or jointly offered computer science courses such
+as CSXX or XXCS courses, that are worth at least 3 points and are at the
+3000 level or above.
+General Technical Electives
+Four General Technical Elective (GTE) courses are required. GTE courses
+must be worth at least 3 points, at the 3000  level or above, and must be
+selected from the list of departments below. There are no exceptions.
+• Any SEAS department
+• Astronomy
+• Biomedical Informatics
+• Biological Science
+• Chemistry
+• Earth and Environmental Sciences
+• Ecology, Evolution, and Environmental Biology
+• Mathematics
+• Physics
+• Psychology
+• Statistics
+• Economics
+Undergraduate Thesis
+A student may, with adviser approval, choose to complete a thesis. A
+thesis may be used in place of up to 6 points from the Computer Science
+Electives requirement. A thesis may not be used in place of any Area
+Foundation Courses. A thesis consists of an independent theoretical
+or experimental investigation of an appropriate problem in computer
+science carried out under the supervision of a Computer Science
+Department faculty member. A formal written report is mandatory and an
+oral presentation may also be required.
+Restrictions
+Transfer Credit:
+Major: Up to four transfer courses are accepted toward the major.
+Calculus, linear algebra, and probability/statistics courses can be
+transferred in addition to the four-course limits.
+Minor: Up to two transfer courses are accepted toward the minor. A
+transfer course in linear algebra or probability/statistics counts as one of
+the two allowed transfers.
+All transfer courses must be reviewed as an equivalent to a COMS course
+by the Columbia instructor for that course and must have been passed
+with a B grade or higher.
+Course restrictions:
+Note: No more than 6 points of individual research, project, or
+thesis courses (including COMS W3902 UNDERGRADUATE THESIS,
+COMS W3998 UNDERGRAD PROJECTS IN COMPUTER SCIENCE,
+COMS W4901 Projects in Computer Science, COMS W6901 , and
+equivalent project/research courses from other departments) may
+be applied towards the computer science major. COMS W3999
+FIELDWORK cannot be used as a CS elective. No more than one course
+from each set below may be applied towards the computer science major.
+• IEOR E3658, STAT UN1201, STAT GU4001
+• MATH UN2015, MATH UN2010, APAM E3101, COMS W3251
+• COMS W4771, COMS W4721, STAT GU4241
+Advanced Placement
+Students who pass the Computer Science Advanced Placement (AP)
+Exam with a 4 or 5 will receive 3 points of credit and an exemption from
+COMS W1004 PROGRAMMING IN JAVA.
+
+---
+
+Page 168:
+Columbia Engineering Bulletin 2025-2026 167
+Computer Science Program
+An overview of the degree track in PDF format can be found here. For
+program information before Fall 2023, please view the 2022–2023
+Bulletin.
+First Year
+Semester I
+MATH UN1101 CALCULUS I  
+Choose one of the following Physics courses depending on
+sequence:
+ 
+PHYS UN1401
+(Sequence 1)
+INTRO TO MECHANICS # THERMO  
+PHYS UN1601
+(Sequence 2)
+PHYSICS I:MECHANICS/RELATIVITY  
+PHYS UN2801
+(Sequence 3)
+ACCELERATED PHYSICS I  
+Choose one of the following Chemistry/Biology courses (taken
+Semester I or II):
+ 
+CHEM UN1403 (or
+higher)
+GENERAL CHEMISTRY I-LECTURES  
+EEEB UN2001 ENVIRONMENTAL BIOLOGY I  
+EEEB UN2005 (or
+higher)
+ 
+ENGL CC1010 (taken
+Semester l or ll)
+UNIVERSITY WRITING  
+ECON UN1105 
+& UN1105 (taken
+Semester l, ll, lll, or
+lV)
+PRINCIPLES OF ECONOMICS  
+ENGI E1006 (taken
+Semester l or ll)
+INTRO TO COMP FOR ENG/APP SCI  
+COMS W1004 or
+W1007 (taken
+Semester l or ll)
+PROGRAMMING IN JAVA  
+PHED UN1001 PHYSICAL EDUCATION ACTIVITIES  
+ENGI E1102 (taken
+Semester l or ll)
+THE ART OF ENGINEERING  
+Semester II
+MATH UN1102 CALCULUS II  
+Choose one of the following Physics courses depending on
+sequence:
+ 
+PHYS UN1402
+(Sequence 1)
+INTRO ELEC/MAGNETSM # OPTCS  
+PHYS UN1602
+(Sequence 2)
+PHYSICS II: THERMO, ELEC # MAG  
+PHYS UN2802
+(Sequence 3)
+ACCELERATED PHYSICS II  
+Choose one of the following Chemistry/Biology courses (taken
+Semester I or II):
+ 
+CHEM UN1403 (or
+higher)
+GENERAL CHEMISTRY I-LECTURES  
+EEEB UN2001 ENVIRONMENTAL BIOLOGY I  
+EEEB UN2005 (or
+higher)
+ 
+ENGL CC1010 (taken
+Semester l or ll)
+UNIVERSITY WRITING  
+ECON UN1105 
+& UN1105 (taken
+Semester l, ll, lll, or
+lV)
+PRINCIPLES OF ECONOMICS  
+ENGI E1006 (taken
+Semester l or ll)
+INTRO TO COMP FOR ENG/APP SCI  
+COMS W1004 or
+W1007 (taken
+Semester l or ll)
+PROGRAMMING IN JAVA  
+PHED UN1002 PHYSICAL EDUCATION ACTIVITIES  
+ENGI E1102 (taken
+Semester l or ll)
+THE ART OF ENGINEERING  
+Second Year
+Semester III
+APMA E2000 
+& APMA E2001
+MULTV. CALC. FOR ENGI # APP SCI  
+Choose a lab from the following:  
+PHYS UN1494 INTRO TO EXPERIMENTAL PHYS-LAB  
+PHYS UN3081 INTERMEDIATE LABORATORY WORK  
+CHEM UN1500 GENERAL CHEMISTRY LABORATORY  
+CHEM UN1507 INTENSVE GENERAL CHEMISTRY-LAB  
+CHEM UN3085 PHYSICL-ANALYTICL LABORATORY I  
+ECON UN1105 
+& UN1105 (taken
+Semester l, ll, lll, or
+lV)
+PRINCIPLES OF ECONOMICS  
+Choose one of the following Required Nontechnical Electives:  
+HUMA CC1001 Literature Humanities I  
+COCI CC1101 CONTEMP WESTERN CIVILIZATION I  
+Major Cultures (3–4)  
+COMS W3134 or
+W3137
+Data Structures in Java  
+COMS W3203 DISCRETE MATHEMATICS  
+Semester IV
+ECON UN1105 
+& UN1105 (taken
+Semester l, ll, lll, or
+lV)
+PRINCIPLES OF ECONOMICS  
+Choose one of the following Required Nontechnical Electives:  
+HUMA CC1002 Literature Humanities II  
+COCI CC1102 CONTEMP WESTRN CIVILIZATION II  
+Major Cultures (3–4)  
+HUMA UN1121 or
+UN1123
+Art Humanities,Masterpieces of Western
+Art
+ 
+COMS W3157 ADVANCED PROGRAMMING  
+Linear algebra or probability/statistics requirement (see list of
+accepted courses)1
+ 
+Third Year
+Semester V
+CSEE W3827 FUNDAMENTALS OF COMPUTER SYSTS  
+COMS W3261 COMPUTER SCIENCE THEORY
+
+---
+
+Page 169:
+168  Graduate Programs
+Linear Algebra or Probability/Statistics requirement (see list of
+accepted courses)
+ 
+Tech Electives (6 points)  
+Semester VI
+Nontech Electives (3 points)  
+Tech Electives (12 points)  
+Fourth Year
+Semester VII
+Nontech Electives (6 points)  
+Tech Electives (9 points)  
+Semester VIII
+Nontech Electives (3 points)  
+Tech Electives (9 points)  
+Graduate Programs
+The Department of Computer Science offers graduate programs
+leading to the degree of Master of Science and the degree of Doctor of
+Philosophy.
+M.S. students must complete the professional development and
+leadership course, ENGI E4000 PROF DEVELOPMENT#LEADERSHIP,
+as a graduation requirement. Doctoral students will be enrolled in
+ENGI E6001 Professional development and leadership for ﬁrst year
+doctoral students–ENGI E6004 Professional development and leadership
+for fourth year doctoral students and should consult their program for
+speciﬁc PDL requirements.
+• Computer Science (MS) (p. 168)
+• Computer Science (PhD) (p. 168)
+• Dual Degree Program in Journalism and Computer Science (p. 168)
+• CS@CU MS Bridge Program in Computer Science (p. 168)
+Computer Science (MS)
+M.S. in Computer Science Program
+The Master of Science (M.S.) program is intended for students with a
+bachelor's degree in Computer Science or a strongly related ﬁeld who
+wish to broaden and deepen their understanding of computer science.
+Columbia University and the New York City environment provide excellent
+career opportunities with multiple industries. The program provides
+a unique opportunity to develop leading-edge in-depth knowledge of
+speciﬁc computer science disciplines.
+Students in the M.S. program must complete a total of 30 points
+(including at least 6 credits at the 6000 level) with a GPA of at least 2.7.
+Every student completes Breadth and selects a track that focuses on a
+particular ﬁeld of computer science. There are currently eight predeﬁned
+M.S. tracks: Computational Biology; Computer Security; Foundations
+of Computer Science; Machine Learning; Natural Language Processing;
+Network Systems; Software Systems; Vision, Graphics, Interaction,
+and Robotics. Every track has a set of required courses and a wide
+range of elective courses that allow the students flexibility in designing
+their program according to their interests, under the guidance of a
+faculty adviser. Besides the eight predeﬁned tracks, there is also the
+option, under the supervision of a faculty member, of a M.S. Personalized
+track for students who want to study an area of computer science that is
+not covered by one of the eight tracks, and the option of the M.S. Thesis
+track for students who want to do extensive research in a subﬁeld and
+write an M.S. thesis. Students in all the tracks are encouraged to pursue
+research if they wish, and many participate in research projects with the
+faculty. The faculty in the department conduct research in all areas of
+computer science. For detailed information on the M.S. program, please
+see cs.columbia.edu/education/ms.
+Computer Science (PhD)
+Ph.D. in Computer Science Program
+The primary focus of the doctoral program is research, with the
+philosophy that students learn best by doing—beginning as apprentices
+and becoming junior colleagues working with faculty on scholarly
+research projects. The faculty in the department conduct research
+in all areas of computer science. The degree of Doctor of Philosophy
+requires a dissertation based on the candidate's original research,
+which is supervised by a faculty member, and all students in the Ph.D.
+program are actively engaged in research throughout the program. Ph.D.
+students spend at least half of their time on research under the direction
+of their faculty adviser from their ﬁrst day in the program and devote
+themselves full time to research after coursework and other preliminaries
+have been completed. Ph.D. students are also expected to participate in
+departmental and laboratory activities full time on campus throughout
+the program, except possibly for summer internships elsewhere, and the
+department does not consider admission of part-time Ph.D. students.
+Further information is available at cs.columbia.edu/education/phd.
+Dual Degree Program in Journalism
+and Computer Science
+The Graduate School of Journalism and the School of Engineering and
+Applied Science offer a dual degree program leading to the M.S. degree
+in Journalism from the Graduate School of Journalism and the M.S.
+degree in Computer Science from the School of Engineering and Applied
+Science.
+Admitted students enroll for a total of four semesters consisting of 27
+points of Computer Science coursework in which an overall 2.7 GPA must
+be maintained and of 37 points of Journalism coursework. In addition
+to taking classes already offered at the two schools, students will take
+Frontiers of computational journalism, a course designed speciﬁcally for
+the dual program. The course will teach students about the impact of
+digital techniques on journalism; the emerging role of citizens in the
+news process; the influence of social media; and the changing business
+models that will support newsgathering. Students will use a hands-
+on approach to delve deeply into information design, focusing on how
+to build a site, section, or application from concept to development,
+ensuring the editorial goals are kept uppermost in mind. Further
+information is available at cs.columbia.edu/education/ms/journalism/.
+CS@CU MS Bridge Program in
+Computer Science
+The CS@CU MS Bridge Program in Computer Science offers prospective
+applicants from noncomputer science backgrounds, including those
+without programming experience, the opportunity to acquire the
+knowledge and skills necessary to build careers in technology.
+Admitted students will ﬁrst take a total of seven undergraduate courses
+(the bridge curriculum) over two to three semesters, which will build the
+
+Sources: Pages [166, 167, 168, 169]
+
+================================================================================
+[4] ToolMessage
+================================= Tool Message =================================
+Name: lookup_school_wide_requirements
+
+School requirements for 'SEAS':
+
+Page 8:
+Columbia Engineering Bulletin 2025-2026 7
+than 200 buildings of housing; off-campus apartments and commercial
+buildings; recreation and research facilities; centers for the humanities
+and social and pure sciences; and professional schools in architecture,
+business, the ﬁne arts, journalism, law, and many other ﬁelds.
+Manhattanville Campus
+From Broadway and 125th Street West to a revitalized Hudson River
+waterfront, Columbia's 17-acre Manhattanville campus is a welcoming
+environment of publicly accessible open space, tree-lined streets,
+neighborhood-friendly retail, and innovative academic buildings that
+invite community engagement. It is home to the Jerome L. Greene
+Science Center, Columbia's Mortimer B. Zuckerman Mind Brain Behavior
+Institute, the Lenfest Center for the Arts, and the University Forum, an
+event and meeting space. Columbia Business School has relocated to
+this campus, and plans are underway to develop a new building here
+for Columbia Engineering, as well. These spaces house cutting-edge
+research and teaching in brain science, an art gallery, screening room, and
+performance spaces, and space for active community engagement.
+Columbia Engineering
+Columbia Engineering occupies laboratory and classroom buildings at
+the north end of the Morningside campus, including the Northwest Corner
+Science and Engineering Building, an interdisciplinary teaching and
+research building. In this building, researchers from across the University
+work together to create new areas of knowledge, in ﬁelds where the
+biological, physical, and digital worlds fuse. This pandisciplinary frontier
+will advance some of modern society’s most challenging problems
+in a wide range of sectors, from health to cybersecurity, from smart
+infrastructure to the environment.
+Supporting multiple programs of study, the School's facilities are
+designed and equipped to meet the laboratory and research needs of
+both undergraduate and graduate students. The School is also the
+site of an almost overwhelming array of basic and advanced research
+installations, such as the Columbia Genome Center and the Columbia
+Nano Initiative, established to serve as the hub for multidisciplinary and
+collaborative research programs in nanoscale science and engineering.
+Shared facilities and equipment to support nano research at the
+Engineering School include a state-of-the-art clean room in the Schapiro
+Center for Engineering and Physical Science Research (CEPSR) and a
+Transmission Electron Microscope (TEM) Laboratory on the ﬁrst floor of
+Havemeyer.
+Founded in 2012 by Columbia Engineering, the Data Science Institute
+also sits on the Morningside campus as a University-wide resource that
+spans nine schools, including Journalism, the Graduate School of Arts
+and Sciences, and the Columbia University Irving Medical Center. The
+mission of the Data Science Institute is to train data science innovators
+and develop ideas for the social good.
+Details about speciﬁc programs’ laboratories and equipment can be
+found in the sections describing those programs.
+The Makerspace
+Columbia Engineering’s Makerspace provides students with a dedicated
+place to collaborate, learn, explore, experiment, and create prototypes.
+Students can utilize the space to work on a variety of innovative projects,
+including independent or group design projects, product development,
+and new venture plans. This facility fosters student creativity by
+bringing together the workspace and tools for 3D printing, laser cutting,
+computer-aided design, physical prototyping, fabric arts, wood- and
+metalworking, jewelry making, sewing and embroidery, stained glass
+making, electronics, and software.
+Columbia Engineering Computing
+Facilities
+The Botwinick Multimedia Learning Laboratory at Columbia University
+has redeﬁned the way engineers are educated here.
+Designed with both education and interaction in mind, the lab provides
+students and instructors with:
+• 48 desktops
+• A full set of professional-grade engineering software tools
+• A collaborative classroom learning environment
+The lab is utilized in some of the School’s introductory ﬁrst-year
+engineering projects, as well as advanced classes in modeling and
+animation, technology and society, and entrepreneurship.
+Carleton Commons
+Located on the fourth floor (campus level) of the Mudd Building, Carleton
+Commons and Blue Java Café/Chef Don's Pizza comprise 3,200 square
+feet with seating for 160 and areas for casual meetings, individual
+and group work, and quiet study. Carleton Commons gives students a
+dedicated and comfortable space to gather, relax between classes, or
+meet and work with one another on problem sets or projects. The new
+design also enables flexible and reconﬁgurable use of the space for larger
+gatherings and special events.
+Undergraduate Studies
+• Undergraduate Programs (p. 7)
+• Undergraduate Admissions (p. 16)
+• Undergraduate Tuition, Fees and Payment (p. 16)
+• Financial Aid for Undergraduate Study (p. 17)
+Undergraduate Programs
+The undergraduate programs at Columbia Engineering not only are
+academically exciting and technically innovative but also lead into a wide
+range of career paths for the educated citizen of the twenty-ﬁrst century.
+Whether you want to become a professional engineer, work in industry
+or government, or plan to pursue a career in the physical and social
+sciences, medicine, law, business, or education, Columbia Engineering will
+provide you with an unparalleled education.
+The School ﬁrmly believes that students gain the most when engineering
+is brought up front, early in the four-year curriculum. Therefore, each
+ﬁrst-year student takes the Art of Engineering, which addresses the
+fundamental concepts of math and science in an engineering context,
+as well as nontechnical issues in professional engineering practice such
+as ethics and project management. Students in the Art of Engineering
+choose a half-semester, hands-on project in one of the School’s nine
+undergraduate engineering disciplines, followed by a half-semester
+general project that changes each year. Depending on the project chosen,
+students will solder, 3D print, laser cut, simulate, design websites, and
+much more. These skills are further developed as students progress
+toward their senior year projects. Since the fall of 2014, Columbia
+Engineering students have been able to utilize the School’s brand new
+
+---
+
+Page 9:
+8  The First Year/Sophomore Program
+Makerspace, a collaborative environment where students can learn,
+explore, experiment, and create prototypes.
+While pursuing their own interests, undergraduate students are
+encouraged to participate in a broad range of ongoing faculty research
+projects encompassed by the Student Research Program. Students
+can apply for available research positions in Columbia Labs through the
+website at studentresearch.engineering.columbia.edu.
+In addition to in-depth exploration of engineering and applied science,
+Columbia Engineering undergraduates explore the humanities and
+social sciences with Columbia College students through intellectually
+challenging Core Curriculum courses taught by the Faculty of Arts and
+Sciences. These courses in art, literature, music, major cultures, and
+economics, among others, provide students with a broad, intellectually
+disciplined, cultural perspective on the times they live in and the work
+they do.
+Policy on Degree Requirements
+The Committee on Instruction and faculty of The Fu Foundation School
+of Engineering and Applied Science review degree requirements and
+curricula matters each year, and the bulletin reflects these faculty
+recommendations and curricular changes in its yearly reprinting. School
+policy requires students to fulﬁll all general degree requirements as
+stated in the bulletin of the ﬁrst year of their matriculation into the
+School. Students declare their major during the ﬁrst semester of their
+sophomore year. Requirements for the major or minor are in accordance
+with the bulletin during the year in which the student declares the major
+or minor.
+The First Year/Sophomore Program
+Students entering Columbia Engineering are encouraged to consider
+the wide range of possibilities open to them, both academically and
+professionally. To this end, the ﬁrst and second years of the four-year
+undergraduate program comprise approximately half the total number
+of credits required for the degree that expose students to a cross-
+fertilization of ideas from different disciplines within the University. The
+sequence of study proceeds from an engagement with engineering and
+scientiﬁc fundamentals, along with humanities and social sciences,
+toward an increasingly focused training in the third and fourth years
+designed to give students mastery of certain principles and arts central
+to engineering and applied science.
+Liberal Arts Core for Columbia
+Engineering Students
+27-Point Nontechnical Requirement
+This requirement provides a broad liberal arts component that enhances
+the Engineering professional curriculum to help students meet the
+challenges of the twenty-ﬁrst century. Our students are destined to be
+leaders in their professions and will require sophisticated communication,
+planning, and management skills. The Committee on Instruction
+established the School’s nontechnical requirement so that students
+would learn perspectives and principles of the humanities and social
+sciences as part of a well-rounded and multiperspective education.
+Through discussion, debate, and writing, students improve their abilities
+to engage in ethical, analytic, discursive, and imaginative thinking that
+will prove indispensable later in life.
+• Engineering students must take 16 to 18 points of credit of required
+courses in list A and 9 to 11 elective points chosen from the approved
+courses in list B. The total combined number of nontechnical points
+(from lists A and B, below) must add up to at least 27. Neither list can
+be modiﬁed by advising deans or faculty advisers.
+• Advanced Placement (AP) credit in appropriate subject areas can be
+applied toward the 9-point elective nontechnical requirement and for
+Principles of Economics.
+A. Required Nontechnical Courses 
+(16–18 points of credit) 
+These courses must be taken at Columbia.
+1. ENGL CC1010 UNIVERSITY WRITING
+2. One of the following two-semester sequences: HUMA CC1001
+Literature Humanities I-HUMA CC1002 Literature Humanities II:
+Masterpieces of Western literature and philosophy or COCI CC1101
+CONTEMP WESTERN CIVILIZATION I-COCI CC1102 CONTEMP
+WESTRN CIVILIZATION II: Any two courses from approved list
+(6–8 points). If electing Global Core, students must take two
+courses from the List of Approved Courses for a letter grade.Visit
+bulletin.columbia.edu/columbia-college/core-curriculum/global-core-
+requirement for more information.
+3. One of the following two courses: 
+HUMA UN1121 Art Humanities,Masterpieces of Western Art or
+HUMA UN1123 Music Humanities
+4. ECON UN1105 PRINCIPLES OF ECONOMICS (This course can be
+satisﬁed through Advanced Placement; see the Advanced Placement
+chart.) Note: Engineering students may not take any Barnard class
+as a substitute for ECON UN1105 PRINCIPLES OF ECONOMICS. (4
+points)
+B. Elective Nontechnical Courses
+(9–11 points of credit) 
+The following course listing by department speciﬁes the Columbia
+College, Barnard, or Columbia Engineering courses that either fulﬁll or do
+not fulﬁll the nontechnical requirement. 
+(Professional, workshop, lab, project, scientiﬁc, studio, music instruction,
+and master’s-level professional courses do not satisfy the 27-point
+nontechnical requirement.)
+African-American Studies: All courses
+American Studies: All courses
+Ancient Studies: All courses
+Anthropology: All courses in sociocultural anthropology
+All courses in archaeology except ﬁeldwork
+No courses in biological/physical anthropology 1
+Architecture: Only
+ARCH BC2500
+ARCH UN2505 Architectural Histories of Colonialism
+and Humanitarianism
+ARCH UN2530 Life Beyond Emergency: Domesticities of
+Displacement, Inhabitations of Migration
+ARCH UN3117 MOD ARCHITECTURE IN THE WORLD
+ARCH UN3120 CITY,LANDSCAPE, # ECOLOGY
+ARCH UN3123 Spaces and Territories of Housing
+ARCH UN3501 Modern Architecture of South Asia
+ARCH UN3502 URBANIZING CHINA
+Art History and Archeology: All courses
+Asian American Studies: All courses
+Astronomy: No courses
+Biological Sciences: No courses
+
+---
+
+Page 10:
+Columbia Engineering Bulletin 2025-2026 9
+Business: No courses
+Chemistry: No courses
+Classics: All courses
+Colloquia: All courses
+Comparative Ethnic Studies: All courses
+Comparative Literature and Society: All courses
+Computer Science: No courses
+Creative Writing: All courses (This is an exception to the workshop rule.)
+Dance: All courses except performance classes
+Drama and Theatre Arts: All courses except workshops, rehearsal, or
+performance classes
+Earth and Environmental Sciences: No courses
+East Asian Languages and Culture: All courses
+Ecology, Evolution, and Environmental Biology: No courses except
+EEEB GU4321 HUM NATURE:DNA,RACE # IDENTITY
+EEEB GU4700 RACE:TANGLED HIST-BIOL CONCEPT
+Economics: All courses except:
+ECON UN3025 FINANCIAL ECONOMICS
+ECON UN3211 INTERMEDIATE MICROECONOMICS
+ECON UN3213 INTERMEDIATE MACROECONOMICS
+ECON UN3412 INTRODUCTION TO ECONOMETRICS
+ECON UN3981 APPLIED ECONOMETRICS
+ECON GU4020 ECON OF UNCERTAINTY # INFORMTN
+ECON GU4211 ADVANCED MICROECONOMICS
+ECON GU4213 ADVANCED MACROECONOMICS
+ECON GU4251 INDUSTRIAL ORGANIZATION
+ECON GU4260 MARKET DESIGN
+ECON GU4280 CORPORATE FINANCE
+ECON GU4301 ECONOMIC GROWTH # DEVELOPMNT I
+ECON GU4412 ADVANCED ECONOMETRICS
+ECON GU4413 Econometrics of Time Series and
+Forecasting
+ECON GU4415 GAME THEORY
+ECON GU4505 INTERNATIONAL MACROECONOMICS
+ECON GU4526 Transition Reforms, Globalization and
+Financial Crisis
+ECON GU4911 MICROECONOMICS SEMINAR
+ECON GU4913 MACROECONOMICS SEMINAR
+ECON GU4918 SEMINAR IN ECONOMETRICS
+ECON BC1003 Introduction to Economic Reasoning 2
+ECON BC1007 MATH METHODS FOR ECONOMICS
+ECON BC2411 STATISTICS FOR ECONOMICS
+ECON BC3014 Entrepreneurship
+ECON BC3018 ECONOMETRICS
+ECON BC3033 INTERMEDTE MACROECONOMC
+THEORY
+ECON BC3035 INTERMEDIATE MICROECONOMICS
+ECON BC3038 INTERNATIONAL MONEY # FINANCE
+Education: All courses
+Engineering: Only
+BMEN E4010
+CHEN E4020 PROTECTN OF INDUST/INTELL PROP
+EEHS E3900
+English and Comparative Literature: All courses
+Film Studies: All courses except lab courses, and
+FILM UN3920 SENIOR SEM IN SCREENWRITING
+FILM UN2400 Script Analysis
+French and Romance Philology: All courses
+Germanic Languages: All courses
+Greek: All courses
+History: All courses
+History and Philosophy of Science: All courses
+Human Rights: All courses
+Italian: All courses
+Jazz Studies: All course
+Latin: All courses
+Latino Studies: All courses
+Linguistics: All courses except
+CLLN GU4202
+Mathematics: No courses
+Medieval and Renaissance Studies: All courses
+Middle Eastern and Asian Language and Cultures: All courses
+Music: All courses except performance courses, instrument instruction
+courses, and workshops
+Philosophy: All courses except
+PHIL UN1401 INTRODUCTION TO LOGIC
+PHIL UN3411 SYMBOLIC LOGIC
+PHIL GU4137 Non-Classical Logics
+PHIL GU4431 INTRODUCTION TO SET THEORY
+PHIL GU4424 MODAL LOGIC
+CSPH GU4801 MATH LOGIC I
+CSPH GU4802 Math Logic II: Incompletness
+PHIL GU4810 LATTICES AND BOOLEAN ALGEBRA
+Courses in logic
+Physical Education: No courses
+Physics: No courses
+Political Science: All courses except
+POLS UN3220 LOGIC OF COLLECTIVE CHOICE
+POLS UN3704 RESEARCH DESIGN: DATA ANALYSIS
+POLS UN3720 RESEARCH DESIGN: SCOPE AND
+METHODS
+POLS GU4730 GAME THEORY # POLIT THEORY
+POLS GU4732 RESEARCH TOPICS IN GAME THEORY
+POLS GU4791 Advanced Topics in Quantitative
+Research-Discussion
+POLS GU4792 Quantitative Methods: Research Topics
+POLS GU4700 MATH # STATS FOR POLI SCI
+POLS GU4765
+POLS GU4768 Experimental Research: Design, Analysis
+and Interpretation
+POLS GU4710 PRINC OF QUANT POL RESEARCH 1
+POLS GU4711 PRINC OF QUANT POL RESEARCH 1-
+DISC
+POLS GU4712 PRINC OF QUANT POL RESEARCH 2
+PSAM UN3707 Persuasion at scale: causal inference,
+machine learning, and evidence-based
+understanding of the information
+environment
+Psychology: Only
+PSYC UN1001 THE SCIENCE OF PSYCHOLOGY
+PSYC UN2280 Developmental Psychology
+All courses on perception, attention, and cognition topics numbered
+2200s, 3200s, or 4200s can be taken as nontech electives except for
+PSYC UN2235 and PSYC UN4289
+
+---
+
+Page 11:
+10  The First Year/Sophomore Program
+All courses on social, personality, and abnormal numbered 2600s,
+3600s, or 4600s can be taken as nontech electives
+Religion: All courses
+Slavic Languages: All courses
+Sociology: All courses except
+SOCI UN3020 Social Statistics
+Spanish and Portuguese: All courses
+Speech: No courses
+Statistics: No courses
+Sustainable Development: Only
+SDEV UN2050 ENVIRONMENTAL POLICY AND
+GOVERNANCE
+SDEV UN2100 Introduction to Climate Justice
+SDEV UN2300 CHALLENGES OF SUSTAINABLE DEV
+SDEV UN3310 ETHICS OF SUSTAINABLE DEVPT
+SDEV UN2410
+SDEV UN3400 HUMAN POPULATIONS # SDEV
+SDEV GU4050 US WATER # ENERGY POLICY
+SDEV GU4501 History of the Climate Crisis
+Urban Studies: All courses
+Visual Arts: No more than one course, which must be at the 3000-level or
+higher (This is an exception to the workshop rule.)
+Women and Gender Studies: All courses
+1 UN1010, UN1011, UN3204, UN3940, GU4147-GU4148, GU4200, GU4700
+2 Equivalent to ECON UN1105 PRINCIPLES OF ECONOMICS
+Music Instruction Courses
+Music instruction and performance courses do not count toward the 128
+points of credit required for a B.S. degree. Please note that this includes
+courses taken at Teachers College, Columbia College, and the School of
+the Arts.
+Visual Arts Courses
+Students are allowed to take courses in the Visual Arts Department for
+general credit to be applied toward the B.S. degree. However, no more
+than one visual arts course, which must be taken at the 3000-level or
+higher, may count toward the nontechnical elective requirement. This
+3000-level course is an exception to the rule that no workshop classes
+can fulﬁll the nontech elective requirement.
+Technical Course Requirements
+The prescribed First-Year/Sophomore Program curriculum requires
+students to complete a program of technical coursework introducing
+them to ﬁve major areas of technical inquiry: engineering, mathematics,
+physics, chemistry, and computer science.
+All ﬁrst-year Engineering undergraduate students take ENGI E1102
+THE ART OF ENGINEERING (4 points). In this course, students see how
+their high school science and math knowledge can be applied in an
+engineering context to solve real-world problems through classroom
+presentations and participation in an in-depth, hands-on project. Along
+the way, guest lecturers discuss social implications of technology,
+entrepreneurship, project management, and other important nontechnical
+issues affecting the practicing engineer.
+While students need not ofﬁcially commit to a particular branch of
+engineering until the third semester, most programs recommend, and
+in some cases may require, that particular courses be taken earlier for
+maximum efﬁciency in program planning. For information concerning
+these requirements, students should turn to the individual program
+sections in this bulletin.
+Professional Development
+Professional-Level Courses
+The courses listed below may be taken by ﬁrst- and second-year
+students. Some departments require one of these courses; please
+consult with departmental charts for more information.
+Each course serves as an introduction to the area of study and is taught
+by department faculty. The courses are:
+CHEN E2100 Material and Energy Balances. 3.00 points.
+Lect: 2.5
+Prerequisites: First-year chemistry and physics or equivalent. 
+Serves as an introduction to the chemical engineering profession.
+Students are exposed to concepts used in the analysis of chemical
+engineering problems. Rigorous analysis of material and energy balances
+on open and closed systems is emphasized. An introduction to important
+processes in the chemical and biochemical industries is provided
+Fall 2025: CHEN E2100
+Course
+Number
+Section/Call
+Number
+Times/Location Instructor Points Enrollment
+CHEN 2100 001/10191 T Th 10:10am - 11:25am 
+627 Seeley W. Mudd
+Building
+Christopher
+Vic Chen
+3.00 38/50
+CIEN E3000 THE ART OF STRUCTURAL DESIGN. 3.00 points.
+Lect: 3.
+Basic scientiﬁc and engineering principles used for the design of
+buildings, bridges, and other parts of the built infrastructure. Application
+of principles to analysis and design of actual large-scale structures.
+Coverage of the history of major structural design innovations
+and of the engineers who introduced them. Critical examination
+of the unique aesthetic/artistic perspectives inherent in structural
+design. Consideration of management, socioeconomic, and ethical
+issues involved in design and construction of large-scale structures.
+Introduction to recent developments in sustainable engineering, including
+green building design and adaptable structural systems
+Spring 2025: CIEN E3000
+Course
+Number
+Section/Call
+Number
+Times/Location Instructor Points Enrollment
+CIEN 3000 001/14913 M W 2:40pm - 3:55pm 
+313 Fayerweather
+George
+Deodatis
+3.00 37/75
+
+---
+
+Page 12:
+Columbia Engineering Bulletin 2025-2026 11
+EAEE E2100 A BETTER PLANET BY DESIGN. 3.00 points.
+CC/GS: Partial Fulﬁllment of Science Requirement 
+Lect: 3.
+Introduction to design for a sustainable planet. Scientiﬁc understanding
+of the challenges. Innovative technologies for water, energy, food,
+materials provision. Multi-scale modeling and conceptual framework
+for understanding environmental, resource, human, ecological and
+economic impacts and design performance evaluation. Focus on the
+linkages between planetary, regional and urban water, energy, mineral,
+food, climate, economic and ecological cycles. Solution strategies for
+developed and developing country settings
+Fall 2025: EAEE E2100
+Course
+Number
+Section/Call
+Number
+Times/Location Instructor Points Enrollment
+EAEE 2100 001/12493 M W 2:40pm - 3:55pm 
+627 Seeley W. Mudd
+Building
+Adeyemi
+Adeleye
+3.00 48/52
+ELEN E1201 INTRO-ELECTRICAL ENGINEERING. 3.50 points.
+Lect: 3. Lab:1.
+Prerequisites: (MATH UN1101) MATH V1101 
+Basic concepts of electrical engineering. Exploration of selected
+topics and their application. Electrical variables, circuit laws, nonlinear
+and linear elements, ideal and real sources, transducers, operational
+ampliﬁers in simple circuits, external behavior of diodes and transistors,
+ﬁrst order RC and RL circuits. Digital representation of a signal, digital
+logic gates, flipflops. A lab is an integral part of the course. Required of
+electrical engineering and computer engineering majors
+Spring 2025: ELEN E1201
+Course
+Number
+Section/Call
+Number
+Times/Location Instructor Points Enrollment
+ELEN 1201 001/13594 M W 4:10pm - 5:25pm 
+501 Northwest Corner
+David
+Vallancourt
+3.50 120/140
+Fall 2025: ELEN E1201
+Course
+Number
+Section/Call
+Number
+Times/Location Instructor Points Enrollment
+ELEN 1201 001/11182 T Th 4:10pm - 5:25pm 
+614 Schermerhorn Hall
+David
+Vallancourt
+3.50 107/120
+Physical Education
+Two terms of physical education (PHED UN1001 PHYSICAL EDUCATION
+ACTIVITIES or PHED UN1002 PHYSICAL EDUCATION ACTIVITIES or
+PHED UN1003 ) are a degree requirement for Columbia Engineering
+students. No more than 4 points of physical education courses may be
+counted toward the degree. The physical education requirement can be
+fulﬁlled with Barnard dance studio/technique courses. A student who
+intends to participate in an intercollegiate sport should register for the
+appropriate section of PHED UN1005 INTERCOLLEGIATE ATHLETICS.
+Intercollegiate athletes who attend regularly receive 1 point of credit up
+to a maximum of 4. Student-athletes who leave the team in mid-term but
+still wish to receive academic credit must notify the Physical Education
+Ofﬁce and be placed in another physical education activity to complete
+the attendance requirement. Students who are advised to follow a
+restricted or adapted activity program should contact the Director of
+Physical Education and Recreation. The physical education program
+offers a variety of activities in the areas of aquatics, ﬁtness, martial arts,
+individual and dual sports, team sports, and outdoor education. Most
+activities are designed for the introductory/beginner levels. Intermediate/
+advanced courses are indicated on the schedule.
+Advanced Placement Credit Chart
+In order to receive AP credit, students must be in possession of
+appropriate transcripts or scores and send ofﬁcial score reports to
+Columbia. The CEEB code is 2116.
+Subject AP
+Score
+AP
+Credit
+Requriements or Placement Status Credit
+Art History 5 3 No exemption from HUMA UN1121
+Biology 5 3 No exemption
+Chemistry 4 or 5 3 Requires completion of CHEM UN1604 with
+grade of C or better
+4 or 5 6 Requires completion of CHEM UN2045-
+CHEM UN2046 with grade of C or better
+Computer
+Science A
+4 or 5 3 Exemption from COMS W1004
+Computer
+Principles
+4 or 5 3 Exemption from COMS W1001
+Economics
+Micro &
+Macro
+5 and
+4
+4 Exemption from ECON UN1105. Exams
+must be taken in both micro and macro,
+with a score of 5 in one and at least a 4 in
+the other.
+English
+Language
+and
+Composition
+5 3 No exemption
+English
+Literature and
+Composition
+5 3 No Exemption
+French
+Language
+4 or 5 3
+French
+Literature
+4 or 5 3
+German
+Language
+4 or 5 3
+Government
+and Politics
+United States
+5 41 Exemption from POLS UN1201.
+Government
+and Politics
+Comparative
+5 41 Exemption from POLS UN1501.
+History
+European
+5 3
+History
+United States
+5 3
+Italian
+Language
+4 or 5 3
+Latin
+Literature
+5 3
+Mathematics
+Calculus AB2
+4 or 5 3 Requires completion of MATH UN1102 with
+a grade of C or better. Credit is reduced to 0
+if MATH UN1101 is taken.
+Mathematics
+Calculus BC2
+4 3 Requires completion of MATH UN1102 with
+a grade of C or better. Credit is reduced to 0
+if MATH UN1101 is taken.
+
+---
+
+Page 13:
+12  James H. and Christine Turk Berick Center for Student Advising
+Mathematics
+Calculus BC2
+5 6 Requires completion of APMA E2000 with
+a grade of C or better. Credit is reduced
+to 0 if MATH UN1101 is taken, or to 3 if
+MATH UN1102 is taken.
+Physics C-
+E&M
+4 or 5 3 Maximum of six credits. Credit is reduced
+to 0 if PHYS UN1401 or 1601 is taken.
+Credit is reduced to 0 if PHYS UN2801 is
+taken and the ﬁnal grade is C- or lower.
+Physics C-
+MECH
+4 or 5 3 Credit is reduced to 0 if PHYS UN1401
+or 1601 is taken. Credit is reduced to 0 if
+PHYS UN2801 is taken and the ﬁnal grade
+is C- or lower.
+Physics 1 and
+2
+4 or 5 3 No exemption. Both AP Physics 1 and 2
+must be taken to receive credit.
+Spanish
+Language
+4 or 5 3
+Spanish
+Literature
+4 or 5 3
+1 AP credits may be applied toward minor requirements depending on
+the speciﬁc rules of the minor. When the rules of the minor allow AP
+credit to fulﬁll a requirement, then only one course for a minor may be
+replaced by advanced placement credit.
+2 Columbia Engineering students with a 4 or 5 on Calculus AB or a
+4 on Calculus BC must begin with MATH UN1101 CALCULUS I  or
+MATH UN1102 CALCULUS II. If a Columbia Engineering student with
+these scores goes directly into APMA E2000 MULTV. CALC. FOR ENGI
+# APP SCI, they will have to go back and complete MATH UN1102
+CALCULUS II. Students with A-level or IB calculus credit must start
+with MATH UN1102 CALCULUS II. They cannot self place into
+APMA E2000 MULTV. CALC. FOR ENGI # APP SCI. If they start with
+MATH UN1101 CALCULUS I, they will not receive any advanced
+standing credit.
+The majority of the activities are offered in ten time preferences.
+Additionally, there are early-morning conditioning activities, Friday-only
+classes at Baker Athletics Complex, and special courses that utilize off-
+campus facilities during weekends and vacation periods. The courses
+offered by the department for each term are included in the online
+Directory of Classes, and a description of the scheduled activities for
+each time preference is posted on perec.columbia.edu. Students may
+only register for one section of physical education each term.
+Advanced Placement
+Prior to entering Columbia, students may have taken Advanced
+Placement examinations through the College Entrance Examination
+Board (CEEB) in a number of technical and nontechnical areas. A
+maximum of 16 points may be applied. Students may be assigned to
+an advanced-level course in mathematics or physics based on their AP
+scores.
+The beneﬁt of advanced placement is acceleration through certain First-
+Year/Sophomore Program requirements and thus the opportunity of
+taking specialized courses earlier.
+Each year the School reviews the CEEB advanced placement curriculum
+and makes determinations as to appropriate placements, credit, and/or
+exemption. Please see the Advanced Placement Credit Chart.
+International Baccalaureate (IB)
+Entering students may be granted 6 points of credit for each score of 6
+or 7 on IB Higher Level Examinations if taken in disciplines offered as
+undergraduate programs at Columbia. Students should consult their
+adviser at the James H. and Christine Turk Berick Center for Student
+Advising for further clariﬁcation.
+British Advanced Level Examinations
+Students with grades of A*, A, or B on British Advanced Level
+examinations may be granted 6 points of credit if the examinations were
+taken in disciplines offered as undergraduate programs at Columbia
+University. The appropriate transcript should be submitted to the James
+H. and Christine Turk Berick Center for Student Advising, 403 Lerner.
+Other National Systems
+Students whose secondary school work was in other national systems,
+such as the French Baccalauréat, may be granted credit in certain
+disciplines for sufﬁciently high scores. The appropriate transcript should
+be submitted to the James H. and Christine Turk Berick Center for
+Student Advising, 403 Lerner.
+James H. and Christine Turk Berick
+Center for Student Advising
+403 Lerner Hall, MC 1201 
+212-854-6378 
+csa@columbia.edu 
+cc-seas.columbia.edu/csa
+The James H. and Christine Turk Berick Center for Student Advising (CSA)
+guides and supports undergraduates at Columbia College and Columbia
+Engineering as they navigate their educations and lives at Columbia
+University. Individually and collaboratively, each advising dean:
+• provides individual and group academic advisement and counseling
+• provides information on preprofessional studies, major declaration,
+and progress towards the completion of the degree, as well as various
+leadership, career, graduate school, and research opportunities
+• interprets and disseminates information regarding University policies,
+procedures, resources, and programs
+• educates and empowers students to take responsibility in making
+informed decisions
+• refers students to additional campus resources
+Every undergraduate is assigned an adviser from the Berick Center for
+Student Advising for the duration of their undergraduate career. Generally,
+each matriculating student is assigned to an advising dean who is a
+liaison to the department the student indicated as their ﬁrst intended
+major on the admissions application. When a student declares a major, a
+faculty member is also appointed to advise them for the next two years.
+Depending on their chosen major, students may be assigned to a new
+advising dean who is a CSA liaison to their department. Advising deans
+regularly refer students to their academic departments to receive expert
+advice about their engineering course selections.
+Preprofessional Advising
+Preprofessional Advising is a specialized advising unit within the James
+H. and Christine Turk Berick Center for Student Advising. It is dedicated
+to providing information and guidance to students who plan a career
+
+---
+
+Page 14:
+Columbia Engineering Bulletin 2025-2026 13
+in law, business, or the health professions, through individual advising,
+workshops, and other events related to professions of law and health.
+Preprofessional advisers work closely with other CSA advisers to support
+students during their undergraduate program of study. They also provide
+extensive individualized support to students and alumni through their
+application process to professional schools.
+Study Abroad
+Engineering today is a global profession. Study abroad allows
+engineering students to discover the ﬁeld through the perspective of
+engineers working in a different language and culture, enabling them
+to learn the relationship of culture to science and develop the range of
+transferable skills that employers are seeking today. Study abroad will
+help students develop intellectually, emotionally, culturally, and socially.
+Columbia Engineering undergraduate students can study abroad for
+either a semester (fall, spring, or summer) or, exceptionally, for a full
+academic year. Students from every engineering major have studied
+abroad, and most do so in the spring semester of their sophomore year or
+in their junior year. Although not a requirement, students are encouraged
+to have some foreign language skills in order to enhance their cultural
+competency and their overall study abroad experience.
+The Center for Undergraduate Global Engagement will help students
+identify the appropriate choice for their country of interest and their
+major. Departmental advisers and faculty will help students with their
+course equivalencies for approved programs so they can graduate
+on time. Students can take nontechnical electives overseas, or with
+departmental permission, they may choose technical electives or courses
+in their major.
+It is essential that students begin planning as early as possible. Students
+are encouraged to meet with advisers in the Center for Undergraduate
+Global Engagement to review possible global opportunities. Students
+must obtain approval from their departmental advisers to ensure that
+their work abroad meets the requirements of their majors, as well as
+clearance from their Advising Dean in the James H. and Christine Turk
+Berick Center for Student Advising.
+Eligibility Requirements
+• Currently enrolled student in good academic and disciplinary
+standing
+• 3.0 GPA
+• Making adequate progress toward ﬁnishing the ﬁrst and second year
+requirements
+• Declared a major
+Finances
+• Fall/Spring (academic year)
+• Billed by Columbia: tuition and health insurance
+• Billed by abroad institution/external vendors: room, board, living
+and travel expenses
+• Still eligible for ﬁnancial aid
+• Summer
+• Student pays most expenses directly to the program and external
+vendors
+• Not eligible for ﬁnancial aid
+Academic Credit
+• Students in Columbia-sponsored programs receive direct Columbia
+credit, and the courses and grades appear on students' academic
+transcripts.
+• Credit from approved programs that are not Columbia-sponsored
+is certiﬁed as transfer credit toward the Columbia degree upon
+successful completion of the program veriﬁable by academic
+transcript. Students must earn a grade of C or better in order for
+credits to be transferred. Course titles and grades for approved
+programs do not appear on the Columbia transcript, and grades are
+not factored into students' GPAs.
+• Faculty from the Columbia Engineering academic departments have
+the responsibility to assess all work completed abroad and make
+decisions about how these courses ﬁt into major requirements. It is
+imperative that students gain course-by-course approval from their
+department prior to departure on a study-abroad program.
+Deadlines
+• Early October: to study abroad during the spring semester
+• Early to mid-March: to study abroad during the fall semester or for
+year-long trips
+• Early May: to study abroad during the summer term
+For more information on study abroad, students should contact:
+Center for Undergraduate Global Engagement 
+606 Kent Hall, MC 3948 
+1140 Amsterdam Avenue 
+New York, NY 10027 
+212-854-2559 
+uge@columbia.edu 
+uge.columbia.edu
+SEAS Undergraduate Student Affairs 
+ask-seas@columbia.edu
+Combined Plan Programs
+Undergraduate Admissions 
+212 Hamilton Hall, MC 2807 
+1130 Amsterdam Avenue 
+New York, NY 10027 
+212-854-2522 
+combinedplan@columbia.edu 
+undergrad.admissions.columbia.edu/apply/combined-plan
+Columbia Engineering maintains cooperative program relationships with
+institutions nationwide and with other Columbia University undergraduate
+divisions. The Combined Plan programs (3-2 and 4-2) allow students to
+receive a degree both in the liberal arts and in engineering. Combined
+Plan students complete the requirements for the liberal arts degree along
+with required prerequisite coursework for their studies in engineering
+during the three or four years at their liberal arts college before entering
+the School of Engineering and Applied Science. They then must complete
+all the requirements for the B.S. degree within four semesters.
+The Combined Plan Program within
+Columbia University
+Under this plan, the pre-engineering student studies in Columbia College,
+Barnard College, or the School of General Studies for three or four years,
+
+---
+
+Page 15:
+14  The Junior-Senior Programs
+then attends The Fu Foundation School of Engineering and Applied
+Science for two years, and is awarded the Bachelor of Arts degree and
+the Bachelor of Science degree in engineering upon completion of the
+ﬁfth or sixth year. This program is optional at Columbia, but the School
+recommends it to all students who wish greater enrichment in the liberal
+arts and pure sciences.
+The Combined Plan with Other Afﬁliated
+Colleges
+There are more than one hundred afﬁliated liberal arts colleges, including
+those at Columbia, in which a student can enroll in a Combined Plan
+program leading to two degrees. Each college requires the completion
+of a speciﬁed curriculum, including major and degree requirements,
+to qualify for the baccalaureate from that institution. Every afﬁliated
+school has a liaison ofﬁcer who coordinates the program at their home
+institution. Students interested in this program should inform the liaison
+ofﬁcer as early as possible, preferably in the ﬁrst year, in order to receive
+guidance about completing program requirements. Applicants from
+nonafﬁliated schools are welcome to apply.
+Visit the Undergraduate Admissions website for a complete list of
+afﬁliated schools, admission application instructions, information on
+ﬁnancial aid, and curriculum requirements for Combined Plan program
+admission. Please note that no change of major is allowed after an
+admission decision has been rendered.
+For more information, see 4-2 Master of Science Program (p. 18), BS/
+MS Program (p. 23), MS Express Application (p. 23), and Barnard
+4+1 Pathway (p. 23), which are administered through the Ofﬁce of
+Engineering Student Affairs.
+The Junior-Senior Programs
+Students may review degree progress via DARS (Degree Audit
+Reporting System) as presented on Student Services Online. Required
+courses should be completed according to the academic charts in
+the department sections of the bulletin. Until they are completed, they
+are listed as deﬁciencies in the Degree Audit Report. If they are not
+completed according to the departmental plans, it may be necessary to
+complete these courses either over the summer or be carried as overload
+courses in later semesters.
+Having chosen their program major in the ﬁrst semester of their
+sophomore year, students are assigned to a faculty adviser in the
+department in which the program is offered. In addition to the courses
+required by their program, students must continue to satisfy certain
+distributive requirements, choosing elective courses that provide
+sufﬁcient content in engineering sciences and engineering design. The
+order and distribution of the prescribed coursework may be changed
+with the adviser’s approval. Speciﬁc questions concerning course
+requirements should be addressed to the appropriate department or
+division.
+Double Major
+Students who wish to apply for a second major must consult their
+advising dean about next steps. A proposal to double major must be
+approved by both departments and then forwarded to the Vice Dean of
+Academic Programs for a ﬁnal decision.
+Major courses cannot be cross-counted between dual majors. Please
+consult with an Advising Dean and the respective departmental advisors
+to ﬁnd alternative courses for duplicate requirements.
+3-2 students are not eligible to have a second major because of the time
+constraints of their program.
+Tau Beta Pi
+Tau Beta Pi is the nation’s second-oldest honor society, founded at
+Lehigh University in 1885. With the creed “Integrity and excellence in
+engineering,” it is the only engineering honor society representing the
+entire engineering profession. Columbia’s chapter, New York Alpha, is the
+ninth oldest and was founded in 1902. Many Columbia buildings have
+been named for some of the more prominent chapter alumni: Charles
+Fredrick Chandler, Michael Idvorsky Pupin, Augustus Schermerhorn, and,
+of course, Harvey Seeley Mudd.
+Undergraduate students whose scholarship places them in the top eighth
+of their class in their next-to-last year or in the top ﬁfth of their class in
+their last college year are eligible for membership consideration. These
+scholastically eligible students are further considered on the basis of
+personal integrity, breadth of interest both inside and outside engineering,
+adaptability, and unselﬁsh activity. Beneﬁts of membership include
+exclusive scholarships and fellowships. Many networking opportunities
+for jobs and internships are also available, with 230 collegiate chapters
+and more than 500,000 members in Tau Beta Pi.
+Taking Graduate Courses as an
+Undergraduate Student & Advanced
+Standing
+With the faculty adviser’s approval, a student may take graduate courses
+while still an undergraduate in the School. Such work may be credited
+toward one of the graduate degrees offered by the Engineering Faculty,
+subject to the following conditions:
+1. the course must be accepted as part of an approved graduate
+program of study;
+2. the course must not have been used to fulﬁll a requirement for the
+B.S. degree and must be so certiﬁed by Engineering Student Affairs;
+and
+3. the amount of graduate credit earned by an undergraduate cannot
+exceed 15 points.
+Undergraduates may not take CVN courses.
+The Bachelor of Science Degree
+Students who complete a four-year sequence of prescribed study are
+awarded the Bachelor of Science degree. The general requirement for
+the Bachelor of Science degree is the completion of a minimum of
+128 academic credits with a minimum cumulative grade-point average
+(GPA) of 2.0 (C) at the time of graduation. The program requirements,
+speciﬁed elsewhere in this bulletin, include the ﬁrst-year/sophomore
+course requirements, the major departmental requirements, and technical
+and nontechnical elective requirements. Students who wish to transfer
+points of credit may count no more than 68 transfer points toward the
+degree and must satisfy the University’s residence requirements by
+taking at least 60 points of credit that count for Bachelor of Science
+Degree while enrolled in The Fu Foundation School of Engineering and
+
+Sources: Pages [8, 9, 10, 11, 12, 13, 14, 15]
+
+================================================================================
+[5] AIMessage
+================================== Ai Message ==================================
+
+Based on the information I've gathered, here's a comprehensive plan for your Computer Science major at Columbia Engineering:
+
+## **Computer Science Major Overview**
+
+The CS major requires **a minimum of 62 points** (including the prerequisite course) and consists of four main components:
+
+---
+
+## **1. Prerequisite to the Major**
+- **ENGI E1006** - Intro to Computing for Engineers/Applied Sciences
+  - Take in your first or second semester
+
+---
+
+## **2. Mathematics Requirements (3 courses)**
+
+### Calculus (2 courses):
+- **MATH UN1101** - Calculus I
+- **MATH UN1102** - Calculus II
+- **APMA E2000** - Multivariable Calculus for Engineers
+
+### Linear Algebra (choose 1):
+- **COMS W3251** - Computational Linear Algebra
+- **MATH UN2010** - Linear Algebra
+- **MATH UN2015** - Linear Algebra and Probability (satisfies both linear algebra AND probability)
+- **MATH UN2020** - Honors Linear Algebra
+- **APMA E2101** - Intro to Applied Mathematics
+- **APMA E3101** - Applied Math I: Linear Algebra
+
+### Probability/Statistics (choose 1):
+- **IEOR E3658** - Probability for Engineers
+- **STAT UN1201** - Calculus-Based Intro to Statistics
+- **STAT GU4001** - Introduction to Probability and Statistics
+- **MATH UN2015** - Linear Algebra and Probability (can satisfy both requirements)
+
+---
+
+## **3. Computer Science Core (7-8 courses)**
+
+**Required courses:**
+1. **COMS W1004** - Programming in Java (or COMS W1007)
+2. **COMS W3134** - Data Structures in Java (or COMS W3137 - Honors Data Structures)
+3. **COMS W3157** - Advanced Programming
+4. **COMS W3203** - Discrete Mathematics
+5. **COMS W3261** - Computer Science Theory
+6. **CSEE W3827** - Fundamentals of Computer Systems
+
+---
+
+## **4. Area Foundation Courses (choose 4)**
+
+Select 4 courses from areas like:
+- **COMS W4111** - Introduction to Databases
+- **COMS W4118** - Operating Systems I
+- **CSEE W4119** - Computer Networks
+- **COMS W4115** - Programming Languages & Translators
+- **COMS W4156** - Advanced Software Engineering
+- **CSOR W4231** - Analysis of Algorithms I
+- **COMS W4701** - Artificial Intelligence
+- **COMS W4771** - Machine Learning
+- **COMS W4705** - Natural Language Processing
+- **COMS W4731** - Computer Vision I
+- And more options listed in the bulletin
+
+---
+
+## **5. Computer Science Electives (4 courses)**
+
+Any 4 COMS courses (or jointly offered CS courses) worth at least 3 points at the 3000-level or above.
+
+---
+
+## **6. General Technical Electives (4 courses)**
+
+4 GTE courses worth at least 3 points, at the 3000-level or above, from approved departments:
+- Any SEAS department
+- Astronomy, Biology, Chemistry, Earth Sciences, Mathematics, Physics, Psychology, Statistics, Economics, etc.
+
+---
+
+## **School-Wide Requirements**
+
+### **Nontechnical Requirements (27 points):**
+
+**Required (16-18 points):**
+1. **ENGL CC1010** - University Writing
+2. **Literature Humanities** (HUMA CC1001-1002) OR **Contemporary Civilization** (COCI CC1101-1102) - 6-8 points from Global Core
+3. **Art Humanities** (HUMA UN1121) OR **Music Humanities** (HUMA UN1123)
+4. **ECON UN1105** - Principles of Economics (4 points)
+
+**Electives (9-11 points):** Choose from approved nontechnical elective list
+
+### **Other Requirements:**
+- **ENGI E1102** - The Art of Engineering (first year)
+- **Physics** (2 courses + lab)
+- **Chemistry or Biology** (1 course)
+- **Physical Education** (2 terms)
+
+---
+
+## **Important Notes:**
+
+1. **All courses toward the CS major must be taken for a letter grade**
+2. **Maximum of one course with a grade of D** (worth no more than 4 points) can count toward the major
+3. **No more than 6 points** of research/thesis courses can count toward the major
+4. **Transfer Credit**: Up to 4 transfer courses accepted toward the major
+5. **Restrictions**: Certain course combinations cannot both count (e.g., only one probability course, only one linear algebra course)
+
+---
+
+## **Recommended Timeline:**
+
+- **First Year**: Calculus sequence, Physics, Chemistry/Biology, University Writing, Art of Engineering, ENGI E1006, Programming in Java
+- **Second Year**: Multivariable Calculus, Linear Algebra, Probability/Statistics, CS Core courses (Data Structures, Discrete Math, Advanced Programming)
+- **Third Year**: Complete CS Core (Theory, Fundamentals of Computer Systems), begin Area Foundation Courses, Technical Electives
+- **Fourth Year**: Complete Area Foundation Courses, CS Electives, General Technical Electives, Nontechnical Electives
+
+Would you like me to help you with more specific course recommendations or planning for a particular area of computer science?

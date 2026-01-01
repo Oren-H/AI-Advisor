@@ -28,3 +28,4 @@ export const ChatBubble: React.FC<ChatBubbleProps> = ({
     </div>
   );
 }; 
+

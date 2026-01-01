@@ -63,8 +63,10 @@ class PromptManager:
         
         return [f.stem for f in self.prompts_dir.glob("*.txt")]
 
-# Global prompt manager instance
-prompt_manager = PromptManager() 
+# Global prompt manager instance with absolute path to agent/prompts directory
+_agent_dir = Path(__file__).parent  # agent/
+_prompts_dir = _agent_dir / "prompts"
+prompt_manager = PromptManager(str(_prompts_dir))
 
 if __name__ == "__main__":
     prompt_manager.clear_cache()

@@ -29,16 +29,9 @@ class CourseQuery(BaseModel):
     scheduled_time_end: Optional[int] = Field(description="Latest end time in minutes from midnight. Latest is 1439 by default.")
     credits: Optional[float] = Field(description="Number of credits the course is worth. If the user does not specify a credit amount, do not include this field.")
     type: Optional[str] = Field(description="Type of course, such as 'LECTURE', 'SEMINAR', 'LAB', 'RECITATION', 'OTHER'. If the user does not specify a type, do not include this field.")
-    unique_courses_only: bool = Field(
-        default=True,
-        description=(
-            "Set to True when the user wants to explore different courses (e.g: Show me some CS classes that sound interesting). "
-            "Set to False when the user is looking for specific sections of a course with timing constraints "
-            "(e.g., 'find sections of COMS 1004', 'show IEOR classes that meet on Tuesdays and are after 2pm')."
-        )
-    )
 
-def generate_filters_from_prompt(user_prompt: str, conversation_context: str = "") -> Tuple[dict, str, bool]:
+
+def generate_filters_from_prompt(user_prompt: str) -> Tuple[dict, str, bool]: # conversation_context: str = ""
     """
     Generates both filters and text query from the user's query in a single LLM call.
     Includes department codes directly in the prompt and only assigns them if explicitly requested.
@@ -68,13 +61,13 @@ def generate_filters_from_prompt(user_prompt: str, conversation_context: str = "
 
     result = chain.invoke({
         "user_prompt": user_prompt,
-        "conversation_context": conversation_context,
+        # "conversation_context": conversation_context,
         "dept_codes": dept_codes
     })
 
     filter_dict = build_chroma_filters(result)
 
-    return filter_dict, result.text_query, result.unique_courses_only
+    return filter_dict
 
 def build_chroma_filters(q: CourseQuery) -> dict:
     """

@@ -13,7 +13,7 @@ from agent.db_building.database_utils import load_vector_database
 from agent.db_querying.generate_filters import generate_filters_from_prompt
 import agent.llm_manager as llm_manager
 
-def query_courses_with_filters(query: str, filters: dict = None, k: int = 1, conversation_context: str = "", unique_courses_only: bool = True):
+def query_courses_with_filters(query: str, filters: dict = None, k: int = 10, conversation_context: str = "", unique_courses_only: bool = True):
     """
     Query the course database with filters and semantic search.
 

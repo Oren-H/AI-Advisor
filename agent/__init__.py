@@ -5,4 +5,4 @@ This package contains the main application modules for the AI Course Advisor sys
 """
 
 __version__ = "1.0.0"
-__author__ = "AI Advisor Team" 
+__author__ = "AI Advisor Team"

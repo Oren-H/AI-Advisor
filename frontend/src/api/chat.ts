@@ -159,26 +159,3 @@ export const deleteConversation = async (conversationId: string): Promise<void> 
     throw new Error(`HTTP error! status: ${response.status}`);
   }
 };
-
-export const updateUserProfile = async (
-  conversationId: string, 
-  profile: Record<string, any>
-): Promise<{
-  conversation_id: string;
-  user_profile: Record<string, any>;
-  message: string;
-}> => {
-  const response = await fetch(`${API_URL}/conversations/${conversationId}/profile`, {
-    method: 'PUT',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(profile),
-  });
-
-  if (!response.ok) {
-    throw new Error(`HTTP error! status: ${response.status}`);
-  }
-
-  return await response.json();
-}; 

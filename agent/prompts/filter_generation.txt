@@ -2,8 +2,6 @@ Please analyze this course query and extract structured information:
 
 Query: "{user_prompt}"
 
-Here is the conversation context: {conversation_context}
-
 Here are the available department codes: {dept_codes}
 
 Do not include filters if they are not explicitly mentioned by user. 
