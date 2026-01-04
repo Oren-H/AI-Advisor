@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { X } from 'lucide-react';
 
 export interface UserProfileData {
-  major?: string;
   department_of_major?: string;
+  major?: string;
   semester?: number;
   completed_courses?: string[];
   career_goals?: string[];
@@ -22,8 +22,8 @@ export const ProfileForm: React.FC<ProfileFormProps> = ({
   initialProfile
 }) => {
   const [profile, setProfile] = useState<UserProfileData>({
-    major: initialProfile?.major || '',
     department_of_major: initialProfile?.department_of_major || '',
+    major: initialProfile?.major || '',
     semester: initialProfile?.semester || undefined,
     completed_courses: initialProfile?.completed_courses || [],
     career_goals: initialProfile?.career_goals || [],
@@ -38,8 +38,8 @@ export const ProfileForm: React.FC<ProfileFormProps> = ({
   useEffect(() => {
     if (initialProfile) {
       setProfile({
-        major: initialProfile.major || '',
         department_of_major: initialProfile.department_of_major || '',
+        major: initialProfile.major || '',
         semester: initialProfile.semester || undefined,
         completed_courses: initialProfile.completed_courses || [],
         career_goals: initialProfile.career_goals || [],
@@ -105,8 +105,8 @@ export const ProfileForm: React.FC<ProfileFormProps> = ({
     // Clean up the profile - remove empty strings and undefined values
     const cleanProfile: UserProfileData = {};
 
-    if (profile.major?.trim()) cleanProfile.major = profile.major.trim();
     if (profile.department_of_major?.trim()) cleanProfile.department_of_major = profile.department_of_major.trim().toUpperCase();
+    if (profile.major?.trim()) cleanProfile.major = profile.major.trim();
     if (profile.semester) cleanProfile.semester = profile.semester;
     if (profile.completed_courses && profile.completed_courses.length > 0) {
       cleanProfile.completed_courses = profile.completed_courses;
@@ -137,20 +137,19 @@ export const ProfileForm: React.FC<ProfileFormProps> = ({
         </div>
 
         <form onSubmit={handleSubmit} className="p-6 space-y-6">
-          {/* Major */}
-          <div>
+          <div> 
             <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-              Major
+              School
             </label>
-            <input
+            <input 
               type="text"
-              value={profile.major || ''}
-              onChange={(e) => setProfile({ ...profile, major: e.target.value })}
-              placeholder="e.g., Computer Science, Applied Mathematics"
+              // value={profile.school || ''}
+              // onChange={(e) => setProfile({ ...profile, school: e.target.value })}
+              placeholder="SEAS, GS, CC"
               className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-indigo-500 dark:focus:ring-indigo-400 focus:border-transparent"
             />
           </div>
-
+  
           {/* Department */}
           <div>
             <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
@@ -160,16 +159,30 @@ export const ProfileForm: React.FC<ProfileFormProps> = ({
               type="text"
               value={profile.department_of_major || ''}
               onChange={(e) => setProfile({ ...profile, department_of_major: e.target.value.toUpperCase() })}
-              placeholder="e.g., COMS, MATH, PHYS"
+              placeholder="COMS, MATH, PHYS"
               className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-indigo-500 dark:focus:ring-indigo-400 focus:border-transparent uppercase"
               maxLength={4}
+            />
+          </div>
+
+          {/* Major */}
+          <div>
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+              Major
+            </label>
+            <input
+              type="text"
+              value={profile.major || ''}
+              onChange={(e) => setProfile({ ...profile, major: e.target.value })}
+              placeholder="Computer Science, Applied Mathematics"
+              className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-indigo-500 dark:focus:ring-indigo-400 focus:border-transparent"
             />
           </div>
 
           {/* Semester */}
           <div>
             <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-              Current Semester (1-8)
+              Current Semester
             </label>
             <input
               type="number"
@@ -177,7 +190,7 @@ export const ProfileForm: React.FC<ProfileFormProps> = ({
               max="8"
               value={profile.semester || ''}
               onChange={(e) => setProfile({ ...profile, semester: parseInt(e.target.value) || undefined })}
-              placeholder="e.g., 4"
+              placeholder="8"
               className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-indigo-500 dark:focus:ring-indigo-400 focus:border-transparent"
             />
           </div>
@@ -193,7 +206,7 @@ export const ProfileForm: React.FC<ProfileFormProps> = ({
                 value={courseInput}
                 onChange={(e) => setCourseInput(e.target.value.toUpperCase())}
                 onKeyPress={(e) => e.key === 'Enter' && (e.preventDefault(), handleAddCourse())}
-                placeholder="e.g., COMS1004"
+                placeholder="COMS1004"
                 className="flex-1 px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-indigo-500 dark:focus:ring-indigo-400 focus:border-transparent uppercase"
               />
               <button
@@ -234,7 +247,7 @@ export const ProfileForm: React.FC<ProfileFormProps> = ({
                 value={careerGoalInput}
                 onChange={(e) => setCareerGoalInput(e.target.value)}
                 onKeyPress={(e) => e.key === 'Enter' && (e.preventDefault(), handleAddCareerGoal())}
-                placeholder="e.g., Software Engineering, Quantitative Finance"
+                placeholder="Software Engineer, PhD Physics"
                 className="flex-1 px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-indigo-500 dark:focus:ring-indigo-400 focus:border-transparent"
               />
               <button
@@ -275,7 +288,7 @@ export const ProfileForm: React.FC<ProfileFormProps> = ({
                 value={preferenceInput}
                 onChange={(e) => setPreferenceInput(e.target.value)}
                 onKeyPress={(e) => e.key === 'Enter' && (e.preventDefault(), handleAddPreference())}
-                placeholder="e.g., classes after 10am, small class sizes, project-based learning"
+                placeholder="Classes after 10am, 4000+ level classes, 20+ credits a semester"
                 className="flex-1 px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-indigo-500 dark:focus:ring-indigo-400 focus:border-transparent"
               />
               <button

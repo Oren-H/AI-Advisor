@@ -21,7 +21,3 @@ Instructions:
 3. For days: Extract day abbreviations (M, T, W, R, F)
 4. For credits: Extract specific credit amounts
 5. For user_prompt: Extract keywords for semantic search, including all relevant terms for course content
-
-IMPORTANT: If this is a follow-up question that references previous conversation, use the conversation context to understand what the user is referring to. 
-For example, if they ask "What courses should I take to become that?" and the context mentions "quantitative finance", 
-extract relevant department and keyword information accordingly. 
