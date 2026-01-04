@@ -53,3 +53,7 @@ Thumbs.db
 /jupyter/ 
 
 /.langgraph_api/
+ 
+# Databases and caches
+/backend/databases/
+/columbia-catalog-scraper-master/

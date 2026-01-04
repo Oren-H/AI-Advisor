@@ -40,7 +40,8 @@ export const sendMessageStream = async (
   onToken: (token: string) => void,
   onMetadata: (metadata: any) => void,
   onComplete: (metadata: any) => void,
-  onError: (error: string) => void
+  onError: (error: string) => void,
+  onToolCall?: (tool: string, type: 'start' | 'end') => void
 ): Promise<void> => {
   const response = await fetch(`${API_URL}/chat/stream`, {
     method: 'POST',
@@ -82,6 +83,12 @@ export const sendMessageStream = async (
                 break;
               case 'token':
                 onToken(data.content);
+                break;
+              case 'tool_start':
+                if (onToolCall) onToolCall(data.tool, 'start');
+                break;
+              case 'tool_end':
+                if (onToolCall) onToolCall(data.tool, 'end');
                 break;
               case 'end':
                 onComplete(data);
@@ -158,4 +165,73 @@ export const deleteConversation = async (conversationId: string): Promise<void> 
   if (!response.ok) {
     throw new Error(`HTTP error! status: ${response.status}`);
   }
+};
+
+export interface UserProfile {
+  major?: string;
+  department_of_major?: string;
+  semester?: number;
+  completed_courses?: string[];
+  career_goals?: string[];
+  preferences?: Record<string, any>;
+}
+
+export const initializeUserProfile = async (profile: UserProfile): Promise<{
+  conversation_id: string;
+  user_profile: UserProfile;
+}> => {
+  const response = await fetch(`${API_URL}/profile/initialize`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(profile),
+  });
+
+  if (!response.ok) {
+    throw new Error(`HTTP error! status: ${response.status}`);
+  }
+
+  return await response.json();
+};
+
+export const getUserProfile = async (conversationId: string): Promise<{
+  conversation_id: string;
+  user_profile: UserProfile;
+}> => {
+  const response = await fetch(`${API_URL}/conversations/${conversationId}/profile`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
+
+  if (!response.ok) {
+    throw new Error(`HTTP error! status: ${response.status}`);
+  }
+
+  return await response.json();
+};
+
+export const updateUserProfile = async (
+  conversationId: string,
+  profile: UserProfile
+): Promise<{
+  message: string;
+  conversation_id: string;
+  user_profile: UserProfile;
+}> => {
+  const response = await fetch(`${API_URL}/conversations/${conversationId}/profile`, {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(profile),
+  });
+
+  if (!response.ok) {
+    throw new Error(`HTTP error! status: ${response.status}`);
+  }
+
+  return await response.json();
 };

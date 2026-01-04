@@ -137,6 +137,11 @@ export const useChat = () => {
             ...prev,
             messages: prev.messages.filter(msg => msg.id !== assistantMessage.id),
           }));
+        },
+        // onToolCall callback (optional - log tool usage)
+        (tool: string, type: 'start' | 'end') => {
+          console.log(`Tool ${type}:`, tool);
+          // Optionally, you could show a loading indicator here
         }
       );
 
@@ -184,6 +189,14 @@ export const useChat = () => {
     }));
   }, []);
 
+  const setConversationId = useCallback((id: string) => {
+    setState(prev => ({
+      ...prev,
+      conversationId: id,
+    }));
+    localStorage.setItem(CONVERSATION_ID_KEY, id);
+  }, []);
+
   return {
     ...state,
     streamingMessageId,
@@ -191,6 +204,7 @@ export const useChat = () => {
     clearChat,
     retryLastMessage,
     updateUserProfile,
+    setConversationId,
   };
 }; 
 

@@ -1,4 +1,6 @@
 import React from 'react';
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 
 interface StreamingTextProps {
   content: string;
@@ -7,8 +9,10 @@ interface StreamingTextProps {
 
 export const StreamingText: React.FC<StreamingTextProps> = ({ content }) => {
   return (
-    <div className="text-sm whitespace-pre-wrap">
-      {content}
+    <div className="text-sm markdown-content">
+      <ReactMarkdown remarkPlugins={[remarkGfm]}>
+        {content}
+      </ReactMarkdown>
     </div>
   );
 };
