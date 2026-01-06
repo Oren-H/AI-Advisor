@@ -8,17 +8,19 @@ Intelligent course-advising assistant with a FastAPI backend (LangChain + LangGr
 - Vector databases built from course CSV and bulletin PDF (Chroma + OpenAI embeddings)
 - Minimal conversation memory keyed by conversation_id
 - Production-ready React chat UI with dark mode and SSE streaming
+- Structured logging with separate files for API, streaming events, and tool execution
 
 ---
 
 ## Architecture
 
 - Backend (`backend/`)
-  - FastAPI app: `backend/app/api.py`
+  - FastAPI app: `backend/app/main.py`
   - Agent graph and tools: `backend/agent/graph/agent.py`
   - Vector DB/cache management: `backend/agent/database_cache.py`
   - Data builders: `backend/databases/build_course_vector_db.py`, `backend/databases/build_bulletin_vector_db.py`
-  - Startup script with structured logging: `backend/app/run_api.py`
+  - Startup script: `backend/app/run_api.py`
+  - Logging: Separate logs for API, agent streaming, and tool execution in `backend/agent/logs/`
 - Frontend (`frontend/`)
   - React + TypeScript + Vite + Tailwind chat UI
   - SSE integration for token streaming
@@ -135,6 +137,7 @@ Base URL: `http://localhost:8000`
 Notes
 - On startup, the app preloads course CSV, course vector DB, bulletin docs cache, and bulletin DB if present.
 - Course DB must exist; bulletin DB is optional and will be built on first use if not present.
+- Streaming filters out internal tool LLM calls (e.g., filter generation) to only show final agent responses to users.
 
 ---
 
@@ -158,7 +161,7 @@ Notes
 - `PORT=8000` – server port
 - `RELOAD=true` – dev mode live-reload
 
-If you change providers/models, update `backend/agent/graph/agent.py` accordingly.
+If you change providers/models, update `backend/agent/graph/agent.py` accordingly. The agent currently uses OpenAI's GPT model by default.
 
 ---
 
@@ -191,9 +194,9 @@ python ../tests/test_api.py
 
 ## Deployment
 
-- The project includes `railway.toml` for Railway deployments.
 - For containerized deployments, consider a two-stage Dockerfile (backend + frontend build) and setting the required env vars in your platform.
 - Ensure vector DBs are built and persisted on a writable volume or build them during image build.
+- Make sure log directories (`backend/agent/logs/`) are writable in production.
 
 ---
 
@@ -202,11 +205,14 @@ python ../tests/test_api.py
 - Backend fails at startup with "Course database not found":
   - Run the course builder (see Quick Start step 2) and ensure the CSV path is correct.
 - SSE stream terminates immediately:
-  - Confirm the model credentials and that the agent can call tools without errors (check `backend/logs/api.log`).
+  - Confirm the model credentials and that the agent can call tools without errors (check `backend/agent/logs/api.log`).
 - CORS or fetch errors in frontend:
   - Verify `VITE_API_URL` and that backend listens on `http://localhost:8000`.
 - High token usage on bulletin:
   - Provide `TOKENCRUSH_API_KEY` or set `use_tokencrush=False` in the builder if needed.
+- Debugging tool execution:
+  - Check `backend/agent/logs/tools.log` for detailed tool call logs with inputs and outputs.
+  - Check `backend/agent/logs/agent.log` for streaming events and LLM interactions.
 
 ---
 

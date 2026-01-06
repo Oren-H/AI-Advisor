@@ -1,5 +1,4 @@
 /data/
-
 # Environment variables
 .env
 .env.local
@@ -99,3 +98,6 @@ htmlcov/
 # Direnv
 .direnv/
 .envrc
+.cursor/
+
+CLAUDE.md
