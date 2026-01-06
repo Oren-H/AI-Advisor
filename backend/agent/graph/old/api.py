@@ -1,16 +1,15 @@
-from fastapi import FastAPI, HTTPException, BackgroundTasks
-from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import StreamingResponse
-from pydantic import BaseModel, Field
-from typing import Dict, List, Any, Optional
 import json
 import uuid
 from datetime import datetime
+from typing import Any, Dict, List, Optional
 
 from agent.graph.graph_builder import create_course_advisor_graph
-from agent.graph.simpler_graph_builder import create_simplified_course_advisor_graph
 from agent.graph.state_schema import CourseAdvisorState
-from langchain.schema import HumanMessage, AIMessage
+from fastapi import FastAPI, HTTPException
+from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import StreamingResponse
+from langchain.schema import HumanMessage
+from pydantic import BaseModel, Field
 
 # Initialize FastAPI app
 app = FastAPI(
@@ -119,7 +118,7 @@ async def chat(request: ChatRequest):
         }
         
         # Run the graph
-        print(f"🚀 Processing query: {request.message}")
+        print(f"Processing query: {request.message}")
         final_state = await course_advisor_graph.ainvoke(initial_state)
         
         # Update conversation storage
@@ -137,11 +136,11 @@ async def chat(request: ChatRequest):
             error=final_state.get("error")
         )
         
-        print(f"✅ Response generated for conversation {conversation_id}")
+        print(f"Response generated for conversation {conversation_id}")
         return response
         
     except Exception as e:
-        print(f"❌ Error in chat endpoint: {e}")
+        print(f"Error in chat endpoint: {e}")
         raise HTTPException(status_code=500, detail=f"Internal server error: {str(e)}")
 
 @app.post("/chat/stream")
@@ -185,7 +184,7 @@ async def chat_stream(request: ChatRequest):
                 "course_plan": "",
             }
 
-            print(f"🚀 Processing streaming query: {request.message}")
+            print(f"Processing streaming query: {request.message}")
 
             # Send initial metadata with conversation_id
             metadata = {
@@ -211,7 +210,7 @@ async def chat_stream(request: ChatRequest):
                 elif kind == "on_chain_start":
                     node_name = event.get("name", "")
                     if node_name:
-                        print(f"  ▶️  Node started: {node_name}")
+                        print(f"  Node started: {node_name}")
                         yield f"data: {json.dumps({'type': 'node_start', 'node': node_name})}\n\n"
 
                 elif kind == "on_chain_end":
@@ -221,7 +220,7 @@ async def chat_stream(request: ChatRequest):
                     if node_name == "finalize_memory":
                         final_state = event["data"].get("output")
                         if final_state:
-                            print(f"  ✅ Graph execution complete")
+                            print("  Graph execution complete")
                             # Update conversation storage
                             conversations[conversation_id]["history"] = final_state.get("conversation_history", conversation_history)
                             conversations[conversation_id]["user_profile"] = final_state.get("user_profile", user_profile)
@@ -238,14 +237,14 @@ async def chat_stream(request: ChatRequest):
                             yield f"data: {json.dumps(final_metadata)}\n\n"
 
                     if node_name:
-                        print(f"  ✅ Node completed: {node_name}")
+                        print(f"  Node completed: {node_name}")
 
             # Send end marker
             yield f"data: {json.dumps({'type': 'end'})}\n\n"
-            print(f"✅ Streaming complete for conversation {conversation_id}")
+            print(f"Streaming complete for conversation {conversation_id}")
 
         except Exception as e:
-            print(f"❌ Error in streaming chat endpoint: {e}")
+            print(f"Error in streaming chat endpoint: {e}")
             import traceback
             traceback.print_exc()
             error_data = {"type": "error", "error": str(e)}

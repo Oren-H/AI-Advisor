@@ -1,70 +1,54 @@
 #!/usr/bin/env python3
 """
-FastAPI server startup script for the Course Advisor API
-"""
+Convenience runner for the FastAPI app.
 
-import uvicorn
+Usage:
+  python scripts/run_api.py
+
+Environment variables:
+  HOST       - default "0.0.0.0"
+  PORT       - default "8000"
+  RELOAD     - "true" to enable autoreload (default "false")
+  LOG_LEVEL  - uvicorn log level (default "info")
+"""
 import os
 import sys
-from datetime import datetime
+from pathlib import Path
 
-# Add the project root to Python path (go up one level from scripts folder)
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+import uvicorn
 
-class TeeOutput:
-    """Write to both file and terminal"""
-    def __init__(self, file_path, original_stream):
-        self.file = open(file_path, 'a')
-        self.original = original_stream
 
-    def write(self, data):
-        self.file.write(data)
-        self.file.flush()
-        self.original.write(data)
-        self.original.flush()
+def main() -> None:
+    # Ensure app directory is on sys.path
+    app_dir = Path(__file__).resolve().parent
+    project_root = app_dir.parent.parent
+    # Add project root first so absolute imports like `backend.*` resolve
+    if str(project_root) not in sys.path:
+        sys.path.insert(0, str(project_root))
+    # Also add the app directory to import sibling modules like `main`
+    if str(app_dir) not in sys.path:
+        sys.path.insert(0, str(app_dir))
 
-    def flush(self):
-        self.file.flush()
-        self.original.flush()
-
-    def isatty(self):
-        return self.original.isatty()
-
-    def fileno(self):
-        return self.original.fileno()
-
-if __name__ == "__main__":
-    # Set up logging to file
-    log_dir = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "logs")
-    os.makedirs(log_dir, exist_ok=True)
-    log_file = os.path.join(log_dir, "api.log")
-
-    # Redirect stdout and stderr to both file and terminal
-    sys.stdout = TeeOutput(log_file, sys.stdout)
-    sys.stderr = TeeOutput(log_file, sys.stderr)
-
-    print(f"\n{'='*60}")
-    print(f"Server started at {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
-    print(f"{'='*60}")
-
-    # Configuration
     host = os.getenv("HOST", "0.0.0.0")
     port = int(os.getenv("PORT", "8000"))
     reload = os.getenv("RELOAD", "false").lower() == "true"
+    log_level = os.getenv("LOG_LEVEL", "info")
 
-    print(f"Starting Course Advisor API server...")
-    print(f"Host: {host}")
-    print(f"Port: {port}")
-    print(f"Reload: {reload}")
-    print(f"API Documentation: http://{host}:{port}/docs")
-    print(f"Alternative docs: http://{host}:{port}/redoc")
-    print(f"Logging to: {log_file}")
+    print(f"Starting AI Advisor API at http://{host}:{port} (reload={reload})")
 
-    # Start the server
+    # Import after adding to path
+    from backend.app.main import app
+
     uvicorn.run(
-        "app.api:app",
+        app,
         host=host,
         port=port,
         reload=reload,
-        log_level="info"
-    ) 
+        log_level=log_level,
+    )
+
+
+if __name__ == "__main__":
+    main()
+
+

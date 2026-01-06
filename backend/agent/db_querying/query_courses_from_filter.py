@@ -1,4 +1,3 @@
-import os
 import sys
 from pathlib import Path
 
@@ -7,16 +6,16 @@ if __name__ == "__main__":
     project_root = Path(__file__).parent.parent.parent
     sys.path.insert(0, str(project_root))
 
-from langchain_openai import OpenAIEmbeddings, ChatOpenAI
-from langchain_chroma import Chroma
-from databases.database_utils import load_vector_database
-from databases.paths import str_course_db_dir
-from agent.db_querying.generate_course_filters import generate_filters_from_prompt
+from backend.databases.database_utils import load_vector_database
+from backend.databases.paths import str_course_db_dir
+
 from agent.database_cache import db_cache
+from agent.db_querying.generate_course_filters import generate_filters_from_prompt
+
 
 def query_courses_with_filters(
     query: str, filters: dict = None, 
-    k: int = 10, 
+    k: int = 3, 
     conversation_context: str = "",
     unique_courses_only: bool = True, 
     reruns: int = 3

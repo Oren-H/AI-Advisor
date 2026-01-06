@@ -1,6 +1,7 @@
 from typing import List
-from langchain.messages import SystemMessage
+
 from langchain.messages import HumanMessage
+
 
 def generate_conversation_context(history: List, max_messages: int = 8) -> str:
     """

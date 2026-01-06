@@ -1,6 +1,6 @@
-import os
-from typing import Dict, Optional
 from pathlib import Path
+from typing import Dict
+
 
 class PromptManager:
     """Manages loading and caching of prompts from text files."""

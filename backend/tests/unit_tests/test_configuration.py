@@ -1,9 +1,6 @@
-from langgraph.pregel import Pregel
-
-from agent.graph import graph
+import agent
 
 
-def test_placeholder() -> None:
-    # TODO: You can add actual unit tests
-    # for your graph and other logic here.
-    assert isinstance(graph, Pregel)
+def test_agent_package_metadata_exists() -> None:
+    assert hasattr(agent, "__version__")
+    assert isinstance(agent.__version__, str)

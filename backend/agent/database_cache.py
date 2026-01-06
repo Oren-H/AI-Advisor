@@ -3,16 +3,21 @@ Centralized database caching for the application.
 Databases are loaded once on app startup and kept in memory.
 """
 
-from typing import Optional
-import pandas as pd
-from langchain_openai import OpenAIEmbeddings
-from langchain_chroma import Chroma
-from databases.paths import str_course_db_dir, str_bulletin_db_dir, course_csv_path
 import os
-from dotenv import load_dotenv
+from typing import Optional
 
-from databases.build_bulletin_vector_db import load_documents_with_cache
-from databases.paths import str_bulletin_cache_path, PROJECT_ROOT
+import pandas as pd
+from backend.databases.build_bulletin_vector_db import load_documents_with_cache
+from backend.databases.paths import (
+    PROJECT_ROOT,
+    course_csv_path,
+    str_bulletin_cache_path,
+    str_bulletin_db_dir,
+    str_course_db_dir,
+)
+from dotenv import load_dotenv
+from langchain_chroma import Chroma
+from langchain_openai import OpenAIEmbeddings
 
 load_dotenv()
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")

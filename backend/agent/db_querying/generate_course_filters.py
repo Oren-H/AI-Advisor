@@ -1,4 +1,3 @@
-import os
 import sys
 from pathlib import Path
 
@@ -8,18 +7,18 @@ if __name__ == "__main__":
     sys.path.insert(0, str(project_root))
 
 from typing import List, Optional, Tuple
-from pydantic import BaseModel, Field
+
+from backend.databases.data.misc.department_codes import dept_codes
 from langchain_core.prompts import PromptTemplate
-from databases.data.misc.department_codes import dept_codes
-from agent.prompt_manager import prompt_manager
+from pydantic import BaseModel, Field
+
 from agent.llm_manager import llm_manager
+from agent.prompt_manager import prompt_manager
+
 
 # A pydantic schema for the course query
 class CourseQuery(BaseModel):
-    text_query: str = Field(
-        description="Free-text keywords that should be used for vector search.")
-    
-    # to-do: delete this as context, we want to pass it in
+
     department_codes: List[str] = Field(
         description=(
         "List of department codes ONLY if the user explicitly mentions specific departments. "
@@ -30,7 +29,7 @@ class CourseQuery(BaseModel):
     scheduled_time_start: Optional[int] = Field(description="Earliest start time in minutes from midnight.Earliest is 0 by default.")
     scheduled_time_end: Optional[int] = Field(description="Latest end time in minutes from midnight. Latest is 1439 by default.")
     credits: Optional[float] = Field(description="Number of credits the course is worth. If the user does not specify a credit amount, do not include this field.")
-    type: Optional[str] = Field(description="Type of course, such as 'LECTURE', 'SEMINAR', 'LAB', 'RECITATION', 'OTHER'. If the user does not specify a type, do not include this field.")
+    type_of_course: Optional[str] = Field(description="Type of course, such as 'LECTURE', 'SEMINAR', 'LAB', 'RECITATION', 'OTHER'. If the user does not specify a type, do not include this field.")
 
 
 def generate_filters_from_prompt(user_prompt: str) -> Tuple[dict, str, bool]: # conversation_context: str = ""
@@ -54,8 +53,8 @@ def generate_filters_from_prompt(user_prompt: str) -> Tuple[dict, str, bool]: # 
 
     llm = llm_manager.get_llm(
         model_provider="openai",
-        model="gpt-4o-mini",
-        temperature=0.1,
+        model="gpt-4o-2024-11-20",
+        temperature=0.0,
         use_structured_output=True,
         structured_output_class=CourseQuery
     )
@@ -111,8 +110,8 @@ def build_chroma_filters(q: CourseQuery) -> dict:
     if q.scheduled_time_end:
         filters["scheduled_time_end"] = {"$lte": q.scheduled_time_end}
     
-    if q.type:
-        filters["type"] = q.type
+    if q.type_of_course:
+        filters["type_of_course"] = q.type_of_course
     
     filters = to_chroma_where(filters)
     return filters

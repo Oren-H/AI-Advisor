@@ -1,11 +1,8 @@
-from typing import Annotated, Literal, TypedDict
-import operator
-
-from langchain.tools import tool
-from langchain.chat_models import init_chat_model
 
 import os
+
 from langchain.chat_models import init_chat_model
+from langchain.tools import tool
 
 openai_api_key = os.getenv("OPENAI_API_KEY")
 model = init_chat_model("gpt-4o-mini")

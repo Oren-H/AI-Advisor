@@ -1,9 +1,10 @@
 import os
 from typing import Optional
+
 from dotenv import load_dotenv
-from langchain_openai import ChatOpenAI
-from langchain_cerebras import ChatCerebras
 from langchain_anthropic import ChatAnthropic
+from langchain_cerebras import ChatCerebras
+from langchain_openai import ChatOpenAI
 
 load_dotenv()
 
@@ -85,7 +86,7 @@ class LLMManager:
         - Forcing recreation of LLM instances after configuration changes
         """
         self._llm_cache.clear()
-        print(f"✅ LLM cache cleared. All cached instances have been removed.")
+        print("LLM cache cleared. All cached instances have been removed.")
 
     def get_cache_info(self):
         """

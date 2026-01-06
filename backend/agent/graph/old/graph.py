@@ -1,44 +1,36 @@
 
+import os
 import sys
 from pathlib import Path
-import os
 
 # Set up the project root and sys.path for local imports
 project_root = Path(__file__).parent.parent.parent
 sys.path.insert(0, str(project_root))
 
 from dotenv import load_dotenv
+
 load_dotenv(project_root / ".env")
 
-from typing import Dict, List, Any, TypedDict, Annotated, Literal, Optional
-from operator import add
-from pydantic import BaseModel, Field
-
-from langchain.tools import tool
-from langchain.chat_models import init_chat_model
-
-from agent.db_querying.query_courses_from_filter import query_courses_with_filters
-from agent.db_querying.generate_course_filters import generate_filters_from_prompt
-
-from langchain.messages import SystemMessage, HumanMessage
-from langgraph.checkpoint.memory import MemorySaver
-from langgraph.graph import StateGraph, START, END
-
-from databases.build_bulletin_vector_db import create_chroma_db, load_documents_with_cache
-
-from langchain_openai import OpenAIEmbeddings
-from langchain_chroma import Chroma
-from langchain.agents import create_agent
-from langchain_anthropic import ChatAnthropic
-from langchain_community.document_loaders import PyPDFLoader
+from typing import Any, Dict, List, Literal, Optional
 
 # @node 
 # def profile_update(state: CourseAdvisorState) -> CourseAdvisorState:
 #     """Update the user's profile based on the user's query."""
 #     pass
-
 import agent.graph.conversation_utils as conv_utils
+from agent.db_querying.generate_course_filters import generate_filters_from_prompt
+from agent.db_querying.query_courses_from_filter import query_courses_with_filters
 from agent.llm_manager import LLMManager
+from databases.build_bulletin_vector_db import (
+    create_chroma_db,
+    load_documents_with_cache,
+)
+from langchain.messages import HumanMessage, SystemMessage
+from langchain.tools import tool
+from langchain_chroma import Chroma
+from langchain_openai import OpenAIEmbeddings
+from langgraph.graph import END, START, StateGraph
+from pydantic import BaseModel, Field
 
 
 class IntentRoute(BaseModel):

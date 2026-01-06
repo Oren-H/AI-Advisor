@@ -1,7 +1,7 @@
 import functools
 import inspect
-import time 
 import logging
+import time
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
