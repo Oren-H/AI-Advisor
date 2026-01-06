@@ -80,7 +80,7 @@ def build_chroma_filters(q: CourseQuery) -> dict:
 
     # Department - now using direct department codes from LLM
     if q.department_codes:
-        print("department_codes: " + str(q.department_codes))
+        # print("department_codes: " + str(q.department_codes))
         # Validate that all codes exist in our department codes
         valid_codes = [code for code in q.department_codes if code in dept_codes.values()]
         

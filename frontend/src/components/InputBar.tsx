@@ -1,18 +1,13 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Send, Moon, Sun } from 'lucide-react';
 
 interface InputBarProps {
   onSendMessage: (message: string) => void;
   isLoading: boolean;
-  isDarkMode: boolean;
-  onToggleDarkMode: () => void;
 }
 
 export const InputBar: React.FC<InputBarProps> = ({
   onSendMessage,
   isLoading,
-  isDarkMode,
-  onToggleDarkMode,
 }) => {
   const [message, setMessage] = useState('');
   const textareaRef = useRef<HTMLTextAreaElement>(null);
@@ -46,8 +41,8 @@ export const InputBar: React.FC<InputBarProps> = ({
   }, [message]);
 
   return (
-    <div className="border-t border-gray-200 dark:border-gray-700 p-4">
-      <div className="flex items-end space-x-2">
+    <div className="border-t border-gray-200 dark:border-gray-700 px-4 py-4 min-h-[72px] flex items-center">
+      <div className="flex items-center gap-2 w-full">
         <div className="flex-1 relative">
           <textarea
             ref={textareaRef}
@@ -61,23 +56,6 @@ export const InputBar: React.FC<InputBarProps> = ({
             aria-label="Message input"
           />
         </div>
-        
-        <button
-          onClick={handleSubmit}
-          disabled={!message.trim() || isLoading}
-          className="p-2 bg-indigo-600 hover:bg-indigo-700 disabled:bg-gray-400 dark:disabled:bg-gray-600 text-white rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-          aria-label="Send message"
-        >
-          <Send size={20} />
-        </button>
-        
-        <button
-          onClick={onToggleDarkMode}
-          className="p-2 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2"
-          aria-label="Toggle dark mode"
-        >
-          {isDarkMode ? <Sun size={20} /> : <Moon size={20} />}
-        </button>
       </div>
     </div>
   );

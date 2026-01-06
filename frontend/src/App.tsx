@@ -76,9 +76,9 @@ function App() {
   return (
     <div className="h-screen flex bg-white dark:bg-gray-900">
       {/* Left Column - Branding (hidden on small screens) */}
-      <div className="hidden sm:flex sm:w-80 lg:w-96 flex-col bg-gray-50 dark:bg-gray-800 border-r border-gray-200 dark:border-gray-700">
+      <div className="hidden sm:flex sm:w-96 lg:w-[32rem] flex-col bg-gray-50 dark:bg-gray-800 border-r border-gray-200 dark:border-gray-700">
         <div className="p-6">
-          <h1 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-2">
+          <h1 className="text-6xl font-bold text-gray-900 dark:text-gray-100 mb-2">
             AI Advisor
           </h1>
           <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
@@ -87,20 +87,23 @@ function App() {
           </p>
         </div>
         
-        <div className="flex-1 p-6">
+        <div className="p-6">
           <div className="space-y-4">
             <h3 className="text-sm font-medium text-gray-900 dark:text-gray-100">
               Example queries:
             </h3>
             <div className="space-y-2 text-xs text-gray-600 dark:text-gray-400">
               <p>• "Find me a machine learning course in computer science"</p>
-              <p>• "What are the prerequisites for Calculus I?"</p>
-              <p>• "Show me courses offered on Tuesdays after 3 PM"</p>
-              <p>• "What courses are available in the psychology department?"</p>
+              <p>• "Plan my remaining semesters to finish the Mathematics-Economics major"</p>
+              <p>• "Show me psych courses offered on Tuesdays after 3 PM"</p>
+              <p>• "Recommend a schedule for next semester to finish the Economics major"</p>
             </div>
           </div>
         </div>
-        
+
+        {/* Spacer to push buttons to bottom */}
+        <div className="flex-1"></div>
+
         <div className="p-6 border-t border-gray-200 dark:border-gray-700 space-y-2">
           <button
             onClick={() => setShowProfileForm(true)}
@@ -156,8 +159,6 @@ function App() {
         <InputBar
           onSendMessage={(message: string) => sendMessage({ message })}
           isLoading={isLoading}
-          isDarkMode={isDarkMode}
-          onToggleDarkMode={toggleDarkMode}
         />
       </div>
 

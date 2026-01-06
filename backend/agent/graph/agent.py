@@ -19,8 +19,6 @@ from agent.db_querying.generate_course_filters import generate_filters_from_prom
 from langchain.messages import SystemMessage
 from langchain.messages import HumanMessage
 
-from langchain.agents.middleware import TodoListMiddleware
-
 from langgraph.checkpoint.memory import MemorySaver
 from langgraph.graph import StateGraph, START, END
 
@@ -47,10 +45,12 @@ from langchain_community.document_loaders import PyPDFLoader
 
 from langchain_community.retrievers import BM25Retriever
 
-from langchain.agents.middleware import ContextEditingMiddleware, ClearToolUsesEdit, ToolCallLimitMiddleware
+from langchain.agents.middleware import ContextEditingMiddleware, ClearToolUsesEdit, ToolCallLimitMiddleware, TodoListMiddleware
 
 from agent.graph.majors_summary import requirements 
 from agent.graph.school_requirements import school_requirements
+
+from langgraph.config import get_stream_writer  
 
 # @node 
 # def profile_update(state: CourseAdvisorState) -> CourseAdvisorState:
@@ -78,6 +78,7 @@ from typing import Any
 from langgraph.runtime import Runtime
 from dataclasses import dataclass
 from langchain.tools import tool, ToolRuntime 
+from agent.prompt_manager import prompt_manager
 
 openai_api_key = os.getenv("OPENAI_API_KEY")
 anthropic_api_key = os.getenv("ANTHROPIC_API_KEY")
@@ -85,17 +86,15 @@ anthropic_api_key = os.getenv("ANTHROPIC_API_KEY")
 class UserProfile(AgentState):
     """User profile"""
     user_id: str
+    name: str
+    school: str
     department_of_major: str 
     major: str
     completed_courses: List[str]
     semester: int # = Field(description="The semester the user is in out of 8 semesters")
     career_goals: List[str] # = Field(default_factory=list)
     preferences: List[str] # = Field(default_factory=dict)
-    
-class SearchCoursesInput(BaseModel):
-    query: str = Field(description="Natural language query like 'machine learning classes on Mondays'")
-    limit: int = Field(description="Number of courses to return", default=5) 
-    unique_courses_flag: bool = Field(description="Flag to indicate if unique courses should be returned", default=True)
+
 
 @tool(description="Get the user's profile")
 def get_user_profile(runtime: ToolRuntime[None, UserProfile]) -> str:
@@ -104,6 +103,8 @@ def get_user_profile(runtime: ToolRuntime[None, UserProfile]) -> str:
     profile = f"""
     **USER PROFILE**
     ID: {state.get('user_id')}
+    Name: {state.get('name')}
+    School: {state.get('school')}
     Major: {state.get('major')} ({state.get('department_of_major')})
     Semester: {state.get('semester')}/8
     Completed: {state.get('completed_courses', [])}
@@ -112,11 +113,22 @@ def get_user_profile(runtime: ToolRuntime[None, UserProfile]) -> str:
     """
     return profile.strip()
 
+class SearchCoursesInput(BaseModel):
+    query: str = Field(description="Natural language query like 'machine learning classes on Mondays'")
+    limit: int = Field(description="Number of courses to return", default=5) 
+    unique_courses_flag: bool = Field(description="Flag to indicate if unique courses should be returned", default=True)
+
 @tool(description="Vector search for courses based on the user's query that creates filters")
 def search_courses(input: SearchCoursesInput) -> Dict[str, Any]:
     """Retrieve the course context from the database using the query and limit."""
     try:
+        # writer = get_stream_writer()  
+        # writer(f"Tool call: search_courses")
+        # writer(f"Searching up courses with the query: {input.query}")
+
         filters = generate_filters_from_prompt(input.query)
+        # writer(f"Generated filters: {filters}")
+
         course_results = query_courses_with_filters(
             query=input.query,
             filters=filters,
@@ -124,17 +136,24 @@ def search_courses(input: SearchCoursesInput) -> Dict[str, Any]:
             # conversation_context="",
             unique_courses_only=input.unique_courses_flag
         )
+        # writer(f"Found {len(course_results)} courses")
+        # writer(f"Course codes: {[course['course_code'] for course in course_results]}")
         return {"courses": course_results, "total_count": len(course_results)}
     except Exception as e:
-        print(f"Error in search_courses: {e}")
+        # writer(f"Error in search_courses: {e}")
+        # print(f"Error in search_courses: {e}")
         return {"courses": [], "total_count": 0, "error": str(e)}
 
 @tool(description="Lookup a course by course code")
 def lookup_course(course_code: str) -> Dict[str, Any]:
     """Retrieve the course context from the database."""
     try:
+        # writer = get_stream_writer()  
+        # writer(f"Tool call: lookup_course")
+        # writer(f"Looking up course with the code: {course_code}")
         courses_df = db_cache.get_course_df()
         course_results = courses_df[courses_df["course_code"] == course_code].to_dict(orient="records") 
+        # writer(f"\nFound {len(course_results)} courses for the code: {course_code}")
         return {"course_results": course_results}
     except Exception as e:
         print(f"Error in lookup_course: {e}")
@@ -154,9 +173,13 @@ def search_bulletin(input: SearchBulletinInput, crush_flag = True) -> Dict[str, 
         print(f"Error in search_bulletin: {e}")
 
     try:
+        # writer = get_stream_writer()  
+        # writer(f"Tool call: search_bulletin")
+        # writer(f"Searching up bulletin with the query: {input.agentic_query}")
         # Use the bulletin_vector_db already loaded above
         docs = bulletin_vector_db.similarity_search(input.agentic_query, k=input.limit)  # type: ignore[union-attr]
         results = [{"page_content": d.page_content, "metadata": d.metadata} for d in docs]
+        # writer(f"Found {len(results)} results")
         return {"results": results}
     except Exception as e:
         print(f"Error in search_bulletin: {e}")
@@ -175,6 +198,9 @@ def lookup_major(major: str) -> str:
         major = major.lower()
         pages = MAJOR_PAGE_MAPPINGS[major]
 
+        # writer = get_stream_writer()  
+        # writer(f"Tool call: lookup_major")
+        # writer(f"Looking up major requirements for {major}")
         return (
             f"Major requirements for '{major}':\n"
             f"{requirements[major]}\n"
@@ -193,12 +219,15 @@ class SchoolWideRequirementInput(BaseModel):
 def lookup_school_wide_requirements(input: SchoolWideRequirementInput) -> str:
     """Lookup school-wide requirements from the school requirements database."""
     try:
+        # writer = get_stream_writer()  
+        # writer(f"Tool call: lookup_school_wide_requirements")
+        # writer(f"\nLooking up school-wide requirements for: {input.query}")
         return school_requirements[input.query]  
     except Exception as e: 
         print(f"Error in lookup_school_wide_requirements: {e}")
         return "I'm sorry, I'm having trouble getting the school-wide requirements. Please try again."
 
-SYSTEM_PROMPT = llm_manager.get_system_prompt("agent_system_prompt")
+SYSTEM_PROMPT = prompt_manager.get_prompt("agent_system_prompt")
 
 def get_course_advisor_agent():
     """Create and return the course advisor agent configured with tools and memory."""
@@ -245,8 +274,8 @@ def get_course_advisor_agent():
             ),
             ToolCallLimitMiddleware(
                 tool_name="lookup_school_wide_requirements",
-                thread_limit=10, 
-                run_limit=3, 
+                thread_limit=4, 
+                run_limit=4, 
             ),
             ToolCallLimitMiddleware(
                 tool_name="get_user_profile",
@@ -260,35 +289,58 @@ def get_course_advisor_agent():
 
 if __name__ == "__main__":
     agent = get_course_advisor_agent()
-    result = agent.invoke(
-        {"messages": [HumanMessage(content="Tell me the requirements for electrical engineering")],
-        "user_id": "123",
-        "department_of_major": "ELEC",
-        "major": "Electrical Engineering",
-        "completed_courses": [""],
-        "semester": 1,
-        "career_goals": ["FPGA"],
-        "preferences": {"class_time": ""},
-        },
-        {"configurable": {"thread_id": "1"}}, # in production: postgres: https://docs.langchain.com/oss/python/langchain/short-term-memory
-    )
+    # result = agent.invoke(
+    #     {"messages": [HumanMessage(content="Tell me the requirements for electrical engineering")],
+    #     "user_id": "123",
+    #     "department_of_major": "ELEC",
+    #     "major": "Electrical Engineering",
+    #     "completed_courses": [""],
+    #     "semester": 1,
+    #     "career_goals": ["FPGA"],
+    #     "preferences": {"class_time": ""},
+    #     },
+    #     {"configurable": {"thread_id": "1"}}, # in production: postgres: https://docs.langchain.com/oss/python/langchain/short-term-memory
+    # )
 
 
-    # for chunk in agent.stream({
-    #     "messages": [HumanMessage(content="Help me plan my major in Computer Science")]
-    # }, stream_mode="values"):
-    #     # Each chunk contains the full state at that point
-    #     latest_message = chunk["messages"][-1]
-    #     if latest_message.content:
-    #         print(f"Agent: {latest_message.content}")
-    #     elif latest_message.tool_calls:
-    #         print(f"Calling tools: {[tc['name'] for tc in latest_message.tool_calls]}")
+    # This is not working because HumanMessage is not defined/imported in this code snippet.
+    # Make sure to import HumanMessage from the appropriate location, for example:
+    # from langchain.schema import HumanMessage
 
-    # print(result)
-    # conv_utils.dump_messages_pretty(result["messages"])
+    # Additionally, check that the agent instance is constructed correctly and that .stream() is supported.
+    # Also, verify there are no typos in parameter names or in the usage of the API, and that dependencies are installed.
+    # For easier debugging, try catching and printing any exceptions:
 
-    for msg in result["messages"]:
-        msg.pretty_print()
+    try:
+        for chunk in agent.stream(
+            {"messages": [HumanMessage(content="Plan my next semester and give me a timetable")],
+             "user_id": "nl2951@columbia.edu",
+             "department_of_major": "ELEC",
+             "major": "Electrical Engineering",
+             "completed_courses": [],
+             "semester": 2,
+             "career_goals": ["FPGA"],
+             "preferences": [],
+            },
+            {"configurable": {"thread_id": "1"}}, # in production: postgres: https://docs.langchain.com/oss/python/langchain/short-term-memory
+            stream_mode=["updates", "custom"],
+        ):
+            kind, response = chunk 
+            if kind == "updates" and isinstance(response, dict): 
+                model = response.get("model", None)
+                if model:
+                    messages = model.get("messages", None)
+                    if messages:
+                        for msg in messages: 
+                            content = msg.content
+                            if content:
+                                for part in content:
+                                    if part.get("type") == "text":
+                                        print(f"\n{part.get('text','')}", end="", flush=True)
+            if kind == "custom":
+                print(f"\n{response}")
+    except Exception as e:
+        print("An exception occurred during streaming:", e)
 
 
 

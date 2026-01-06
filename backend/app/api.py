@@ -14,6 +14,7 @@ import uuid
 import json
 import asyncio
 from langchain.messages import HumanMessage
+from langchain_core.messages import AIMessageChunk
 from agent.graph.agent import get_course_advisor_agent
 from agent.database_cache import db_cache
 
@@ -26,6 +27,8 @@ class Message(BaseModel):
 # Request/response models
 class UserProfile(BaseModel):
     user_id: Optional[str] = Field(None, description="User ID")
+    name: Optional[str] = Field(None, description="User's name")
+    school: Optional[str] = Field(None, description="School (e.g., 'SEAS', 'GS', 'CC')")
     department_of_major: Optional[str] = Field(None, description="Department of major (e.g., 'COMS', 'MATH')")
     major: Optional[str] = Field(None, description="Major name (e.g., 'Computer Science', 'Applied Mathematics')")
     completed_courses: List[str] = Field(default_factory=list, description="List of completed course codes")
@@ -116,6 +119,8 @@ def _create_default_user_profile() -> Dict[str, Any]:
     """Create a default user profile with empty/null values."""
     return {
         "user_id": None,
+        "name": None,
+        "school": None,
         "department_of_major": None,
         "major": None,
         "completed_courses": [],
@@ -128,12 +133,11 @@ def _get_or_create_conversation(conversation_id: Optional[str], user_profile: Di
     conv_id = conversation_id or str(uuid.uuid4())
     if conv_id not in conversations:
         # Merge provided profile with defaults
-        default_profile = _create_default_user_profile()
-        merged_profile = user_profile if user_profile else default_profile
+        profile = user_profile if user_profile else _create_default_user_profile()
 
         conversations[conv_id] = {
             "history": [],  # List[Message]
-            "user_profile": merged_profile,
+            "user_profile": profile,
             "created_at": datetime.now(),
             "last_updated": datetime.now(),
         }
@@ -149,7 +153,7 @@ def _invoke_agent(conv_id: str, prompt: str, user_profile: Dict[str, Any]) -> st
     """Invoke the course advisor agent from agent/graph/agent.py with thread-based memory."""
     # Map incoming user_profile to agent state fields if provided
     state_payload: Dict[str, Any] = {}
-    allowed_keys = {"user_id", "department_of_major", "major", "completed_courses", "career_goals", "semester", "preferences"}
+    allowed_keys = {"user_id", "name", "school", "department_of_major", "major", "completed_courses", "career_goals", "semester", "preferences"}
     for k, v in (user_profile or {}).items():
         if k in allowed_keys:
             state_payload[k] = v
@@ -187,6 +191,7 @@ async def chat(request: ChatRequest):
         _append_message(conv_id, "user", request.message)
 
         reply = _invoke_agent(conv_id, request.message, conversations[conv_id]["user_profile"])
+
         _append_message(conv_id, "assistant", reply)
 
         return ChatResponse(
@@ -196,6 +201,7 @@ async def chat(request: ChatRequest):
         )
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Internal server error: {str(e)}")
+
 
 @app.post("/chat/stream")
 async def chat_stream(request: ChatRequest):
@@ -207,26 +213,86 @@ async def chat_stream(request: ChatRequest):
             # Send initial metadata with conversation_id
             yield f"data: {json.dumps({'type': 'metadata', 'conversation_id': conv_id})}\n\n"
 
-            # Invoke agent and get full response
-            full_reply = _invoke_agent(conv_id, request.message, conversations[conv_id]['user_profile'])
+            # Prepare state
+            state_payload: Dict[str, Any] = {}
+            allowed_keys = {"user_id", "name", "school", "department_of_major", "major",
+                            "completed_courses", "career_goals", "semester", "preferences"}
+            for k, v in (conversations[conv_id]["user_profile"] or {}).items():
+                if k in allowed_keys:
+                    state_payload[k] = v
+            state_payload["user_id"] = "nl2951@columbia.edu"
 
-            # Simulate streaming by splitting response into chunks
-            for token in full_reply.split(" "):
-                yield f"data: {json.dumps({'type': 'token', 'content': token + ' '})}\n\n"
-                await asyncio.sleep(0.01)  # Small delay for UX
+            full_state = {
+                "messages": [HumanMessage(content=request.message)],
+                **state_payload,
+            }
+
+            full_reply = ""
+
+        # Use astream for async streaming with messages and custom modes
+            async for event in course_agent.astream_events(
+                    full_state,
+                    {"configurable": {"thread_id": conv_id}},
+                    version="v2",  # Use v2 for consistent events
+                ):
+                    print(event)
+                    # Filter for LLM token events
+                    if event["event"] == "on_chat_model_stream":
+                        chunk = event["data"]["chunk"]
+
+                        # TEXT TOKENS
+                        if chunk.content:
+                            # Handle string content
+                            if isinstance(chunk.content, str):
+                                full_reply += chunk.content
+                                yield f"data: {json.dumps({'type': 'token', 'content': chunk.content})}\n\n"
+                            # Handle list of content blocks
+                            elif isinstance(chunk.content, list):
+                                for part in chunk.content:
+                                    if isinstance(part, dict) and part.get("type") == "text":
+                                        text = part["text"]
+                                        full_reply += text
+                                        yield f"data: {json.dumps({'type': 'token', 'content': text})}\n\n"
+
+                    # TOOL START
+                    elif event["event"] == "on_tool_start":
+                        try:
+                            tool_name = event.get("name")
+                            tool_input = event.get("data", {}).get("input")
+                            payload: Dict[str, Any] = {"type": "tool", "tool": tool_name}
+                            if tool_input is not None:
+                                payload["input"] = tool_input
+                            yield f"data: {json.dumps(payload)}\n\n"
+                        except Exception:
+                            pass
+                    # TOOL END 
+                    elif event["event"] == "on_tool_end":
+                        try:
+                            tool_name = event.get("name")
+                            output_obj = event.get("data", {}).get("output")
+                            # Extract content safely
+                            if hasattr(output_obj, "content"):
+                                content = getattr(output_obj, "content")
+                            else:
+                                content = output_obj
+                            if content is None:
+                                continue
+                            if not isinstance(content, str):
+                                try:
+                                    content = json.dumps(content)
+                                except Exception:
+                                    content = str(content)
+                            max_len = 2000
+                            output = content if len(content) <= max_len else (content[:max_len] + "...(truncated)")
+                            yield f"data: {json.dumps({'type': 'tool_result', 'tool': tool_name, 'output': output})}\n\n"
+                        except Exception:
+                            pass
 
             _append_message(conv_id, "assistant", full_reply)
 
-            # Final metadata payload (fields expected by frontend)
-            final_meta = {
-                "type": "metadata_final",
-                "intent": "",
-                "filters": {},
-                "course_results": [],
-                "error": "",
-            }
-            yield f"data: {json.dumps(final_meta)}\n\n"
+            # Just signal we're done
             yield f"data: {json.dumps({'type': 'end'})}\n\n"
+
         except Exception as e:
             yield f"data: {json.dumps({'type': 'error', 'error': str(e)})}\n\n"
 
@@ -318,19 +384,18 @@ async def initialize_user_profile(profile: UserProfile):
     conv_id = str(uuid.uuid4())
 
     # Create conversation with the provided profile
-    default_profile = _create_default_user_profile()
-    merged_profile = {**default_profile, **profile.model_dump(exclude_none=True)}
+    profile_dict = profile.model_dump() if profile else _create_default_user_profile()
 
     conversations[conv_id] = {
         "history": [],
-        "user_profile": merged_profile,
+        "user_profile": profile_dict,
         "created_at": datetime.now(),
         "last_updated": datetime.now(),
     }
 
     return {
         "conversation_id": conv_id,
-        "user_profile": merged_profile
+        "user_profile": profile_dict
     }
 
 

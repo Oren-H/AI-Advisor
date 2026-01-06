@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { X } from 'lucide-react';
 
 export interface UserProfileData {
+  name?: string;
+  school?: string;
   department_of_major?: string;
   major?: string;
   semester?: number;
@@ -14,14 +16,18 @@ interface ProfileFormProps {
   onSubmit: (profile: UserProfileData) => void;
   onClose: () => void;
   initialProfile?: UserProfileData;
+  showOverlay?: boolean;
 }
 
 export const ProfileForm: React.FC<ProfileFormProps> = ({
   onSubmit,
   onClose,
-  initialProfile
+  initialProfile,
+  showOverlay = true
 }) => {
   const [profile, setProfile] = useState<UserProfileData>({
+    name: initialProfile?.name || '',
+    school: initialProfile?.school || '',
     department_of_major: initialProfile?.department_of_major || '',
     major: initialProfile?.major || '',
     semester: initialProfile?.semester || undefined,
@@ -38,6 +44,8 @@ export const ProfileForm: React.FC<ProfileFormProps> = ({
   useEffect(() => {
     if (initialProfile) {
       setProfile({
+        name: initialProfile.name || '',
+        school: initialProfile.school || '',
         department_of_major: initialProfile.department_of_major || '',
         major: initialProfile.major || '',
         semester: initialProfile.semester || undefined,
@@ -105,6 +113,8 @@ export const ProfileForm: React.FC<ProfileFormProps> = ({
     // Clean up the profile - remove empty strings and undefined values
     const cleanProfile: UserProfileData = {};
 
+    if (profile.name?.trim()) cleanProfile.name = profile.name.trim();
+    if (profile.school?.trim()) cleanProfile.school = profile.school.trim().toUpperCase();
     if (profile.department_of_major?.trim()) cleanProfile.department_of_major = profile.department_of_major.trim().toUpperCase();
     if (profile.major?.trim()) cleanProfile.major = profile.major.trim();
     if (profile.semester) cleanProfile.semester = profile.semester;
@@ -122,8 +132,8 @@ export const ProfileForm: React.FC<ProfileFormProps> = ({
   };
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
-      <div className="bg-white dark:bg-gray-800 rounded-lg shadow-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+    <div className={showOverlay ? "fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4" : "w-full"}>
+      <div className="bg-white dark:bg-gray-800 rounded-lg shadow-xl w-full max-w-[1600px] max-h-[95vh] overflow-y-auto">
         <div className="sticky top-0 bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 p-4 flex justify-between items-center">
           <h2 className="text-xl font-semibold text-gray-900 dark:text-gray-100">
             Your Profile
@@ -137,16 +147,29 @@ export const ProfileForm: React.FC<ProfileFormProps> = ({
         </div>
 
         <form onSubmit={handleSubmit} className="p-6 space-y-6">
-          <div> 
+          <div>
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+              Name
+            </label>
+            <input
+              type="text"
+              value={profile.name || ''}
+              onChange={(e) => setProfile({ ...profile, name: e.target.value })}
+              placeholder="Your name"
+              className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-indigo-500 dark:focus:ring-indigo-400 focus:border-transparent"
+            />
+          </div>
+
+          <div>
             <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
               School
             </label>
-            <input 
+            <input
               type="text"
-              // value={profile.school || ''}
-              // onChange={(e) => setProfile({ ...profile, school: e.target.value })}
+              value={profile.school || ''}
+              onChange={(e) => setProfile({ ...profile, school: e.target.value.toUpperCase() })}
               placeholder="SEAS, GS, CC"
-              className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-indigo-500 dark:focus:ring-indigo-400 focus:border-transparent"
+              className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-indigo-500 dark:focus:ring-indigo-400 focus:border-transparent uppercase"
             />
           </div>
   
