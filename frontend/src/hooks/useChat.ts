@@ -55,6 +55,7 @@ export const useChat = () => {
     }));
   }, []);
 
+  ///// 
   const sendUserMessage = useCallback(async (params: SendMessageParams) => {
     const userMessage: Message = {
       id: Date.now().toString(),
@@ -75,6 +76,7 @@ export const useChat = () => {
 
     addMessage(assistantMessage);
     setStreamingMessageId(assistantMessage.id);
+    /////
     setState(prev => ({ ...prev, isLoading: true, error: null }));
 
     try {

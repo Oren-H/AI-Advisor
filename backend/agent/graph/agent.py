@@ -90,7 +90,7 @@ def search_courses(input: SearchCoursesInput) -> Dict[str, Any]:
         logger.info(f"Tool call: search_courses - query: '{input.query}', limit: {input.limit}")
 
         filters = generate_filters_from_prompt(input.query)
-        logger.debug(f"Generated filters: {filters}")
+        logger.info(f"Generated filters: {filters}")
 
         course_results = query_courses_with_filters(
             query=input.query,
@@ -102,7 +102,7 @@ def search_courses(input: SearchCoursesInput) -> Dict[str, Any]:
 
         logger.info(f"Found {len(course_results)} courses")
         return {"course_titles": [course["course_title"] for course in course_results], 
-                "total_count": len(course_results)
+                "total_count": len(course_results),
                 "course_info": course_results}
     except Exception as e:
         logger.error(f"Error in search_courses: {e}", exc_info=True)

@@ -24,7 +24,7 @@ export const InputBar: React.FC<InputBarProps> = ({
       e.preventDefault();
       handleSubmit();
     }
-  };
+  }; // user inputs message and presses enter
 
   const handleTextareaChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setMessage(e.target.value);

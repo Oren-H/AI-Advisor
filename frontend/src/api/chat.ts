@@ -44,6 +44,7 @@ export const sendMessageStream = async (
   onError: (error: string) => void,
   onToolEvent?: (evt: ToolEvent) => void
 ): Promise<void> => {
+  //// SSE fetch 
   const response = await fetch(`${API_URL}/chat/stream`, {
     method: 'POST',
     headers: {
@@ -52,6 +53,7 @@ export const sendMessageStream = async (
     },
     body: JSON.stringify(request),
   });
+  ////
 
   if (!response.ok) {
     const errorText = await response.text();
@@ -192,7 +194,7 @@ export interface UserProfile {
   semester?: number;
   completed_courses?: string[];
   career_goals?: string[];
-  preferences?: Record<string, any>;
+  preferences?: string[];
 }
 
 export const initializeUserProfile = async (profile: UserProfile): Promise<{
