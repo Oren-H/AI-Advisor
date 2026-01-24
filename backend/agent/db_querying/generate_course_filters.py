@@ -22,7 +22,7 @@ class CourseQuery(BaseModel):
     department_codes: List[str] = Field(
         description=(
         "List of department codes ONLY if the user explicitly mentions specific departments. "
-        "Use the exact department codes provided in the prompt (e.g., 'COMS', 'MATH', 'STAT'). "
+        "Use the exact department codes provided in the prompt (e.g., 'COMS', 'MATH', 'STAT')."
         )
     )
     scheduled_days: List[str] = Field(description="Day abbreviations M,T,W,R,F. Do not put a comma between days.")

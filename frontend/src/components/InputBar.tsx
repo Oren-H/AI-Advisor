@@ -18,13 +18,13 @@ export const InputBar: React.FC<InputBarProps> = ({
       setMessage('');
     }
   };
-
+  /////
   const handleKeyDown = (e: React.KeyboardEvent) => {
     if (e.key === 'Enter' && !e.shiftKey) {
       e.preventDefault();
       handleSubmit();
     }
-  }; // user inputs message and presses enter
+  }; ///// user inputs message and presses enter
 
   const handleTextareaChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setMessage(e.target.value);
