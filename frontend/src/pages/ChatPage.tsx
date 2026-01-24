@@ -93,11 +93,12 @@ export const ChatPage: React.FC = () => {
           <InputBar
             onSendMessage={(message: string) => sendMessage({ message })}
             isLoading={isLoading}
-          /> // message sends from input bar to chatpage to be sent to backend
+          /> 
         </div>
       </div>
     </div>
   );
 };
+///// message sends from input bar to chatpage to be sent to backend
 
 

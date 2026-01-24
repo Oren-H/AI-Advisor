@@ -14,19 +14,72 @@ Intelligent course-advising assistant with a FastAPI backend (LangChain + LangGr
 
 ## Architecture
 
-- Backend (`backend/`)
-  - FastAPI app: `backend/app/main.py`
-  - Agent graph and tools: `backend/agent/graph/agent.py`
-  - Vector DB/cache management: `backend/agent/database_cache.py`
-  - Data builders: `backend/databases/build_course_vector_db.py`, `backend/databases/build_bulletin_vector_db.py`
-  - Startup script: `backend/app/run_api.py`
-  - Logging: Separate logs for API, agent streaming, and tool execution in `backend/agent/logs/`
-- Frontend (`frontend/`)
-  - React + TypeScript + Vite + Tailwind chat UI
-  - SSE integration for token streaming
-- Data (`backend/databases/data/`)
-  - Chroma persistence directories
-  - Course CSVs and bulletin PDF
+```
+AI-Advisor/
+├── backend/
+│   ├── app/                           # FastAPI application
+│   │   ├── main.py                    # API endpoints and SSE streaming
+│   │   ├── run_api.py                 # Server startup script
+│   │   └── schemas.py                 # Pydantic request/response models
+│   │
+│   ├── agent/                         # LangGraph agent system
+│   │   ├── graph/
+│   │   │   ├── agent.py               # Main agent graph and tool definitions
+│   │   │   ├── conversation_utils.py  # Conversation state management
+│   │   │   ├── majors_summary.py      # Major requirements lookup tool
+│   │   │   ├── school_requirements.py # School requirements lookup tool
+│   │   │   └── old/                   # Deprecated graph implementations
+│   │   │
+│   │   ├── db_querying/
+│   │   │   ├── generate_course_filters.py  # LLM-based filter generation
+│   │   │   └── query_courses_from_filter.py # Course search execution
+│   │   │
+│   │   ├── prompts/                   # System prompts for agent and tools
+│   │   │   ├── agent_system_prompt.txt
+│   │   │   ├── filter_generation.txt
+│   │   │   ├── intent_classification.txt
+│   │   │   ├── plan_major.txt
+│   │   │   └── profile_extraction.txt
+│   │   │
+│   │   ├── utils/                     # Shared utilities
+│   │   ├── logs/                      # Runtime logs (API, agent, tools)
+│   │   ├── database_cache.py          # Vector DB and data caching
+│   │   ├── llm_manager.py             # LLM provider configuration
+│   │   └── prompt_manager.py          # Prompt loading and formatting
+│   │
+│   ├── databases/
+│   │   ├── build_course_vector_db.py  # Course vector DB builder
+│   │   ├── build_bulletin_vector_db.py # Bulletin vector DB builder
+│   │   ├── database_utils.py          # Shared DB utilities
+│   │   ├── paths.py                   # Path configuration
+│   │   ├── data/                      # Chroma DBs and source data
+│   │   └── cache/                     # Cached processed data
+│   │
+│   ├── tests/                         # Backend tests
+│   └── requirements.txt
+│
+├── frontend/
+│   └── src/
+│       ├── api/
+│       │   └── chat.ts                # SSE client for streaming
+│       ├── components/
+│       │   ├── ChatBubble.tsx         # Message display component
+│       │   ├── InputBar.tsx           # User input component
+│       │   ├── MessageList.tsx        # Chat history display
+│       │   ├── ProfileForm.tsx        # User profile setup
+│       │   ├── Sidebar.tsx            # Conversation list
+│       │   ├── Header.tsx             # App header
+│       │   └── StreamingText.tsx      # Streaming text renderer
+│       ├── hooks/
+│       │   └── useChat.ts             # Chat state management hook
+│       ├── pages/
+│       │   └── ChatPage.tsx           # Main chat page
+│       ├── App.tsx                    # Root component
+│       ├── types.ts                   # TypeScript type definitions
+│       └── index.css                  # Tailwind styles
+│
+└── columbia-catalog-scraper-master/   # Course data scraping tools
+```
 
 ---
 
@@ -179,15 +232,17 @@ Rebuild instructions are in the Quick Start section.
 
 ## Testing
 
-- Python tests (placeholders provided):
+Tests are located in `backend/tests/`:
+- `unit_tests/` - Unit tests for agent tools, LLM manager, prompts, configuration
+- `integration_tests/` - Integration tests for the agent graph
+- `test_filter_speed.py`, `test_query_speed.py` - Performance benchmarks
+
+Run tests:
 ```bash
 cd backend
-pytest -q
-```
-- API smoke script (manual):
-```bash
-python -m pip install requests
-python ../tests/test_api.py
+pytest -q                    # Run all tests
+pytest tests/unit_tests -q   # Run unit tests only
+pytest tests/integration_tests -q  # Run integration tests only
 ```
 
 ---
