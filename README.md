@@ -1,241 +1,235 @@
-# AI Course Advisor
+## AI Advisor
 
-An intelligent course recommendation system for Columbia University students, powered by conversational AI and vector search.
+Intelligent course-advising assistant with a FastAPI backend (LangChain + LangGraph + Chroma) and a React + TypeScript + Vite + Tailwind frontend. It ingests Columbia course data and bulletin PDFs into vector stores, and uses tool-augmented LLM reasoning to search courses, look up major/school requirements, and maintain a lightweight conversation state.
 
-## Overview
+### Key Features
+- Conversational advisor with streaming responses (Server-Sent Events)
+- Tool-augmented agent: course search, course lookup, major and school requirement lookups
+- Vector databases built from course CSV and bulletin PDF (Chroma + OpenAI embeddings)
+- Minimal conversation memory keyed by conversation_id
+- Production-ready React chat UI with dark mode and SSE streaming
+- Structured logging with separate files for API, streaming events, and tool execution
 
-The AI Course Advisor is a comprehensive system that helps students find and select courses at Columbia University. It combines natural language processing, vector search, and conversational AI to provide personalized course recommendations based on student preferences, schedules, and academic goals.
-
-## Features
-
-- **Natural Language Queries**: Ask for courses in plain English
-- **Intelligent Filtering**: Filter by department, time, days, credits, and course type
-- **Conversational AI**: Interactive dialogue with memory of preferences
-- **Vector Search**: Semantic search across course descriptions and metadata
-- **Schedule Conflict Detection**: Avoid time conflicts between courses
-- **User Profile Building**: Learn and remember student preferences over time
+---
 
 ## Architecture
 
-The system is built with a modular architecture:
+- Backend (`backend/`)
+  - FastAPI app: `backend/app/main.py`
+  - Agent graph and tools: `backend/agent/graph/agent.py`
+  - Vector DB/cache management: `backend/agent/database_cache.py`
+  - Data builders: `backend/databases/build_course_vector_db.py`, `backend/databases/build_bulletin_vector_db.py`
+  - Startup script: `backend/app/run_api.py`
+  - Logging: Separate logs for API, agent streaming, and tool execution in `backend/agent/logs/`
+- Frontend (`frontend/`)
+  - React + TypeScript + Vite + Tailwind chat UI
+  - SSE integration for token streaming
+- Data (`backend/databases/data/`)
+  - Chroma persistence directories
+  - Course CSVs and bulletin PDF
 
-```
-┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
-│   Frontend      │    │   Backend       │    │   Data Layer    │
-│   (React/TS)    │◄──►│   (Python)      │◄──►│   (Chroma DB)   │
-└─────────────────┘    └─────────────────┘    └─────────────────┘
-                              │
-                       ┌─────────────────┐
-                       │   LangGraph     │
-                       │   Workflow      │
-                       └─────────────────┘
-```
+---
 
-## Project Structure
+## Prerequisites
+- Python 3.10+
+- Node.js 18+ and npm
+- OpenAI API key (for embeddings and optionally LLMs)
+- Optional: Anthropic API key (if using Anthropic chat model), TokenCrush key (for PDF chunk optimization)
 
-```
-AI-Advisor/
-├── app/                          # Core application modules
-│   ├── db_building/             # Vector database construction
-│   ├── db_querying/             # Course search and filtering
-│   └── graph/                   # Conversational AI workflow
-├── data/                        # Course data and vector database
-├── frontend/                    # React TypeScript frontend
-├── scraping/                    # Course data scraping tools
-├── tests/                       # Test suite
-└── rag_env/                     # Python virtual environment
-```
+---
 
 ## Quick Start
 
-### Prerequisites
+1) Backend – install and configure
 
-- Python 3.8+
-- Node.js 16+
-- OpenAI API key
-
-### Installation & Setup
-
-1. **Clone the repository**
-   ```bash
-   git clone <repository-url>
-   cd AI-Advisor
-   ```
-
-2. **Set up Python virtual environment**
-   ```bash
-   python3 -m venv rag_env
-   source rag_env/bin/activate  # On Windows: rag_env\Scripts\activate
-   ```
-
-3. **Install backend dependencies**
-   ```bash
-   # Install API-specific dependencies
-   pip install -r requirements_api.txt
-   
-   # Install full project dependencies if needed
-   pip install -r requirements.txt
-   ```
-
-4. **Set up environment variables**
-   ```bash
-   cp frontend/env.example frontend/.env
-   # Add your OpenAI API key to the .env file
-   ```
-
-5. **Install frontend dependencies**
-   ```bash
-   cd frontend
-   npm install
-   cd ..
-   ```
-
-### Starting the Application
-
-#### Method 1: Manual Start (Recommended for Development)
-
-**Terminal 1 - Backend:**
 ```bash
-# Activate virtual environment
-source rag_env/bin/activate
+cd backend
+python -m venv .venv && source .venv/bin/activate
+pip install -r requirements.txt
 
-# Start the API server
-python3 scripts/run_api.py
+# Create backend/.env
+cat > .env << 'EOF'
+OPENAI_API_KEY=your_openai_key
+ANTHROPIC_API_KEY=your_anthropic_key   # optional (used by agent model)
+TOKENCRUSH_API_KEY=your_tokencrush_key # optional (for bulletin chunk optimization)
+HOST=0.0.0.0
+PORT=8000
+RELOAD=true
+EOF
 ```
-The backend will be available at: http://localhost:8000
 
-**Terminal 2 - Frontend:**
+2) Build vector databases (first run only or when data changes)
+
+- Courses (requires a CSV in `backend/databases/data/course_csv/`—default filenames are referenced in the code):
+```bash
+cd backend/databases
+python build_course_vector_db.py
+```
+
+- Bulletin PDF:
+```bash
+cd backend/databases
+python build_bulletin_vector_db.py
+```
+
+3) Run the API server
+```bash
+cd backend
+python app/run_api.py
+# Swagger:  http://localhost:8000/docs
+# ReDoc:    http://localhost:8000/redoc
+```
+
+4) Frontend – install and run
 ```bash
 cd frontend
+npm install
 npm run dev
+# Open http://localhost:3000
 ```
-The frontend will be available at: http://localhost:3000 (or 3001 if 3000 is busy)
 
-#### Method 2: Development Script
+---
+
+## Backend API
+
+Base URL: `http://localhost:8000`
+
+- `GET /` – Health check
+  - Returns `{ status, timestamp, graph_ready }`
+
+- `POST /chat` – Non-streaming chat
+  - Body:
+    ```json
+    {
+      "message": "Find ML classes on Tuesday",
+      "conversation_id": "optional-guid",
+      "user_profile": {
+        "name": "Jane",
+        "school": "SEAS",
+        "department_of_major": "COMS",
+        "major": "Computer Science",
+        "completed_courses": ["COMS1004"],
+        "semester": 2,
+        "career_goals": ["Software Engineering"],
+        "preferences": ["morning"]
+      }
+    }
+    ```
+  - Response: `{ response, conversation_id }`
+
+- `POST /chat/stream` – Streaming chat (SSE)
+  - Body: same as `/chat`
+  - Stream events:
+    - `{"type":"metadata","conversation_id": "..."}`
+    - Repeated `{"type":"token","content": "..."}`
+    - Optional tool events: `{"type":"tool"...}`, `{"type":"tool_result"...}`
+    - `{"type":"end"}` when complete
+
+- Conversation management
+  - `GET /conversations` – List conversations
+  - `GET /conversations/{id}` – Details and history
+  - `DELETE /conversations/{id}` – Delete conversation
+  - `DELETE /conversations` – Clear all
+  - `GET /conversations/{id}/profile` – Get user profile
+  - `PUT /conversations/{id}/profile` – Update user profile
+  - `POST /profile/initialize` – Create a new conversation with profile
+
+Notes
+- On startup, the app preloads course CSV, course vector DB, bulletin docs cache, and bulletin DB if present.
+- Course DB must exist; bulletin DB is optional and will be built on first use if not present.
+- Streaming filters out internal tool LLM calls (e.g., filter generation) to only show final agent responses to users.
+
+---
+
+## Frontend
+
+- Dev server: `npm run dev` (defaults to port 3000)
+- Config: `VITE_API_URL` (defaults to `http://localhost:8000`)
+- Source: `frontend/src`
+  - API integration: `src/api/chat.ts` (SSE client)
+  - Hooks: `src/hooks/useChat.ts`
+  - Components: `src/components/*`
+
+---
+
+## Environment Variables (backend/.env)
+
+- `OPENAI_API_KEY` – required (embeddings + optionally chat)
+- `ANTHROPIC_API_KEY` – optional (if the agent model is Anthropic)
+- `TOKENCRUSH_API_KEY` – optional (bulletin chunk optimization)
+- `HOST=0.0.0.0` – server host
+- `PORT=8000` – server port
+- `RELOAD=true` – dev mode live-reload
+
+If you change providers/models, update `backend/agent/graph/agent.py` accordingly. The agent currently uses OpenAI's GPT model by default.
+
+---
+
+## Data and Vector Stores
+
+- Course CSV location is resolved via `backend/databases/paths.py`. Default filename is set in `DatabaseCache.load_course_df`.
+- Bulletin PDF defaults to `backend/databases/data/misc/Bulletin_2025-2026_PDF_with_cover_page_.pdf`. Parsed chunks are cached to `backend/databases/cache/bulletin_documents.pkl`.
+- Chroma persist directories:
+  - Courses: `backend/databases/data/course_chroma_db`
+  - Bulletin: `backend/databases/data/bulletin_chroma_db`
+
+Rebuild instructions are in the Quick Start section.
+
+---
+
+## Testing
+
+- Python tests (placeholders provided):
 ```bash
-# Fix the startup script first
-chmod +x start_dev.sh
-
-# Note: You may need to edit start_dev.sh to use python3 instead of python
-./start_dev.sh
+cd backend
+pytest -q
 ```
-
-### Verify Installation
-
-1. **Check backend health:**
-   ```bash
-   curl http://localhost:8000/
-   ```
-
-2. **View API documentation:**
-   Open http://localhost:8000/docs in your browser
-
-3. **Test the frontend:**
-   Open http://localhost:3000 in your browser and send a test message
-
-## Usage Examples
-
-### Course Search Queries
-
-- "Show me computer science classes on Mondays and Wednesdays"
-- "I need math classes in the morning"
-- "Find literature courses with 3 credits"
-- "What physics classes are available in the afternoon?"
-
-### Advisory Queries
-
-- "What should I take as a CS major?"
-- "I'm interested in AI, what courses do you recommend?"
-- "Help me plan my course schedule for next semester"
-
-### Mixed Queries
-
-- "I want to learn about machine learning and prefer afternoon classes"
-- "As a freshman, what introductory courses should I take in the morning?"
-
-## Core Modules
-
-### Database Building (`app/db_building/`)
-- Processes raw course data from CSV files
-- Converts course information into vector embeddings
-- Builds and persists Chroma vector database
-
-### Database Querying (`app/db_querying/`)
-- Generates structured filters from natural language
-- Maps department names to Columbia University codes
-- Executes semantic and metadata-based searches
-
-### Conversational AI (`app/graph/`)
-- LangGraph-based workflow for conversation management
-- Intent classification and routing
-- Memory management for user preferences
-- Response generation with course recommendations
-
-## Data Sources
-
-- **Course Catalog**: Scraped from Columbia University's course directory
-- **Course Descriptions**: Detailed information about each course
-- **Schedule Information**: Times, days, locations, and instructors
-- **Department Codes**: Official Columbia University department mappings
-
-## API Endpoints
-
-The system provides both programmatic and conversational interfaces:
-
-### Conversational Interface
-```python
-from app.graph.graph_runner import run_course_advisor
-
-response = run_course_advisor("I need computer science classes")
-```
-
-### Direct Database Queries
-```python
-from app.db_querying.generate_filters import generate_filters_from_prompt
-from app.db_querying.query_courses_from_filter import query_courses
-
-filters, text_query = generate_filters_from_prompt("computer science morning classes")
-courses = query_courses(filters)
-```
-
-## Development
-
-### Running Tests
+- API smoke script (manual):
 ```bash
-cd tests
-python -m pytest
+python -m pip install requests
+python ../tests/test_api.py
 ```
 
-### Adding New Features
-1. Follow the modular architecture
-2. Add tests for new functionality
-3. Update relevant README files
-4. Ensure compatibility with existing workflows
+---
 
-### Data Updates
-To update course data:
-1. Run the scraper: `python scraping/columbia_course_scraper.py`
-2. Rebuild the vector database: `python app/db_building/build_vector_db.py`
+## Deployment
 
-## Contributing
+- For containerized deployments, consider a two-stage Dockerfile (backend + frontend build) and setting the required env vars in your platform.
+- Ensure vector DBs are built and persisted on a writable volume or build them during image build.
+- Make sure log directories (`backend/agent/logs/`) are writable in production.
 
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Add tests
-5. Submit a pull request
+---
+
+## Troubleshooting
+
+- Backend fails at startup with "Course database not found":
+  - Run the course builder (see Quick Start step 2) and ensure the CSV path is correct.
+- SSE stream terminates immediately:
+  - Confirm the model credentials and that the agent can call tools without errors (check `backend/agent/logs/api.log`).
+- CORS or fetch errors in frontend:
+  - Verify `VITE_API_URL` and that backend listens on `http://localhost:8000`.
+- High token usage on bulletin:
+  - Provide `TOKENCRUSH_API_KEY` or set `use_tokencrush=False` in the builder if needed.
+- Debugging tool execution:
+  - Check `backend/agent/logs/tools.log` for detailed tool call logs with inputs and outputs.
+  - Check `backend/agent/logs/agent.log` for streaming events and LLM interactions.
+
+---
+
+## Roadmap & Presentation Prep
+
+- Improve test coverage; replace placeholder tests with focused unit/integration tests
+- Add architecture diagram (agent + tools + vector stores + SSE)
+- Capture a short demo script with 3–4 representative user prompts
+- Add screenshots/gifs of the chat UI (light + dark)
+- Add LICENSE and CONTRIBUTING
+- Add pre-commit hooks (black/ruff/isort for Python; eslint/prettier for frontend)
+- Optional: Docker Compose for one-command local run
+
+---
 
 ## License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+Add your preferred license (e.g., MIT) as `LICENSE` in the project root.
 
-## Acknowledgments
 
-- Columbia University for course data
-- OpenAI for language model APIs
-- LangChain and LangGraph communities
-- ChromaDB for vector database technology
-
-## Support
-
-For questions or issues, please open an issue on the GitHub repository or contact the development team. 

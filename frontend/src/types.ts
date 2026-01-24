@@ -3,6 +3,7 @@ export interface Message {
   content: string;
   role: 'user' | 'assistant';
   timestamp: Date;
+  toolEvents?: ToolEvent[];
 }
 
 export interface ChatState {
@@ -12,6 +13,10 @@ export interface ChatState {
   conversationId?: string;
   userProfile?: Record<string, any>;
 }
+
+export type ToolEvent = 
+  | { kind: 'start'; name: string; input?: any }
+  | { kind: 'result'; name: string; output: string };
 
 export interface SendMessageParams {
   message: string;

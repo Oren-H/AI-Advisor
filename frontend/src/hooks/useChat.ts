@@ -55,6 +55,7 @@ export const useChat = () => {
     }));
   }, []);
 
+  ///// 
   const sendUserMessage = useCallback(async (params: SendMessageParams) => {
     const userMessage: Message = {
       id: Date.now().toString(),
@@ -75,6 +76,7 @@ export const useChat = () => {
 
     addMessage(assistantMessage);
     setStreamingMessageId(assistantMessage.id);
+    /////
     setState(prev => ({ ...prev, isLoading: true, error: null }));
 
     try {
@@ -104,25 +106,16 @@ export const useChat = () => {
           setState(prev => ({
             ...prev,
             conversationId: metadata.conversation_id,
-            userProfile: { ...prev.userProfile, ...metadata.filters },
+            userProfile: { ...prev.userProfile, ...(metadata?.filters || {}) },
           }));
         },
         // onComplete callback
-        (metadata: any) => {
+        () => {
           setState(prev => ({
             ...prev,
             isLoading: false,
           }));
           setStreamingMessageId(null);
-
-          // Log additional information for debugging
-          if (metadata.course_results && metadata.course_results.length > 0) {
-            console.log('Course results:', metadata.course_results);
-          }
-          if (metadata.filters) {
-            console.log('Applied filters:', metadata.filters);
-          }
-          console.log('Intent:', metadata.intent);
         },
         // onError callback
         (error: string) => {
@@ -136,6 +129,20 @@ export const useChat = () => {
           setState(prev => ({
             ...prev,
             messages: prev.messages.filter(msg => msg.id !== assistantMessage.id),
+          }));
+        },
+        // onToolEvent callback - store input/output in message
+        (evt) => {
+          setState(prev => ({
+            ...prev,
+            messages: prev.messages.map(msg =>
+              msg.id === assistantMessage.id
+                ? { 
+                    ...msg, 
+                    toolEvents: [...(msg.toolEvents || []), evt] 
+                  }
+                : msg
+            )
           }));
         }
       );
@@ -156,15 +163,15 @@ export const useChat = () => {
   }, [addMessage, state.conversationId, state.userProfile]);
 
   const clearChat = useCallback(() => {
-    setState({
+    // Clear messages but preserve user profile and conversation ID
+    setState(prev => ({
+      ...prev,
       messages: [],
       isLoading: false,
       error: null,
-      conversationId: undefined,
-      userProfile: {},
-    });
+    }));
+    // Only clear chat history, keep conversation ID for profile persistence
     localStorage.removeItem(CHAT_STORAGE_KEY);
-    localStorage.removeItem(CONVERSATION_ID_KEY);
   }, []);
 
   const retryLastMessage = useCallback(() => {
@@ -184,6 +191,14 @@ export const useChat = () => {
     }));
   }, []);
 
+  const setConversationId = useCallback((id: string) => {
+    setState(prev => ({
+      ...prev,
+      conversationId: id,
+    }));
+    localStorage.setItem(CONVERSATION_ID_KEY, id);
+  }, []);
+
   return {
     ...state,
     streamingMessageId,
@@ -191,5 +206,7 @@ export const useChat = () => {
     clearChat,
     retryLastMessage,
     updateUserProfile,
+    setConversationId,
   };
 }; 
+
